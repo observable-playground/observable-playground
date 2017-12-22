@@ -1,0 +1,14 @@
+{
+  "name": "rx-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kostiantyn Palchyk <kosich@users.noreply.github.com>",
+  "license": "ISC",
+  "dependencies": {
+    "rxjs": "^5.5.6"
+  }
+}
