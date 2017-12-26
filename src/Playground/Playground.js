@@ -3,7 +3,7 @@ import './Playground.css';
 import { execute } from '../mock-delayed-execution';
 import { EditorComponent } from './components/Editor/Editor';
 import * as Rx from 'rxjs/Rx';
-import { delay as code } from '../rxjs-examples/';
+import { switchMap as code } from '../rxjs-examples/';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
 import { createApi } from './chart-api';

@@ -1,3 +1,4 @@
 import interval from './interval';
 import delay from './delay';
-export { interval, delay };
+import switchMap from './switchMap';
+export { interval, delay, switchMap };
