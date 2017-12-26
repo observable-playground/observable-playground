@@ -1,0 +1,46 @@
+$axis-color: #c5c5c5;
+$stroke-color: #333333;
+$stroke-width: 1.5px;
+
+.TimeLineChartComponent {
+    .axis {
+        &.axis--x {
+            line{
+                stroke: $axis-color;
+            }
+            
+            path{
+                stroke: $axis-color;
+            }
+            
+            text{
+                fill: $axis-color;
+            }
+        }
+    }
+
+    .thread {
+        .baseline {
+            stroke: $stroke-color;
+            stroke-width: $stroke-width;
+        }
+
+        .startmark, .endmark {
+            stroke: $stroke-color;
+            stroke-width: $stroke-width;
+        }
+
+        .event {
+            circle {
+                stroke: $stroke-color;
+                stroke-width: $stroke-width;
+            }
+
+            text {
+                font-size: 14px;
+                font-family: "Source Sans Pro", sans-serif;
+                user-select: none;
+            }
+        }
+    }
+}

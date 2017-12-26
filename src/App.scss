@@ -1,0 +1,23 @@
+.App {
+    width: 1024px;
+    margin: auto;
+
+    &_header {
+        padding: 20px 0 14px;
+    }
+
+    &_logo {
+        &_main {
+            font-weight: bold;
+        }
+        font-family: sans-serif;
+        color: #757575;
+        text-decoration: none;
+
+        &:hover {
+            .App_logo_main {
+                color: #7575ff;
+            }
+        }
+    }
+}
