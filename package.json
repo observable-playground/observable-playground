@@ -2,7 +2,7 @@
   "name": "reactive-playground",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://kosich.github.io/reactive-playground",
+  "homepage": "https://kosich.github.io/reactive-playground",
   "dependencies": {
     "brace": "^0.11.0",
     "d3": "^4.12.0",
@@ -24,6 +24,11 @@
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
   }
 }
