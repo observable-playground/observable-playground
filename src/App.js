@@ -8,7 +8,7 @@ class App extends Component {
             <div className="App">
                 <div className="App_header">
                     <a
-                        href="/"
+                        href="#"
                         className="App_logo"
                     ><span className="App_logo_main">Reactive</span> Playground</a>
                 </div>
