@@ -10,14 +10,10 @@ import { MenuComponent } from './Menu/MenuComponent';
 import { AboutComponent } from './About/AboutComponent';
 import { PlaygroundRoutingContainer } from './Playground/PlaygroundRoutingContainer';
 
-// NOTE: this should be taken from package.json, as its read from it for build
-// see https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#building-for-relative-paths
-const base = process.env.NODE_ENV === 'development' ? '' : 'reactive-playground';
-
 class App extends Component {
     render() {
         return (
-            <Router basename={ base }>
+            <Router>
                 <div className="App">
 
                     <div className="App__header row">
