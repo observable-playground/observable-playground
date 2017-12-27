@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Playground.css';
 import { execute } from '../mock-delayed-execution';
-import { EditorComponent } from './components/Editor/Editor';
+import { EditorComponent } from './components/Editor/EditorComponent';
 import * as Rx from 'rxjs/Rx';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';

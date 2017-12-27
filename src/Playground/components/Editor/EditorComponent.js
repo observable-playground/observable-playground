@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './EditorComponent.css';
 import AceEditor from 'react-ace';
 
 import 'brace/mode/javascript';
@@ -8,6 +9,7 @@ export class EditorComponent extends Component {
     render() {
         return (
             <AceEditor
+                className="EditorComponent"
                 name="AceEditor_EditorComponent"
 
                 mode="javascript"
