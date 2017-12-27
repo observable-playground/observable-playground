@@ -1,22 +1,24 @@
+@import './styles/variables.scss';
+
 .App {
-    width: 1024px;
+    width: 1200px;
     margin: auto;
 
-    &_header {
+    &__header {
         padding: 20px 0 14px;
     }
 
-    &_logo {
+    &__logo {
         &_main {
             font-weight: bold;
         }
         font-family: sans-serif;
-        color: #757575;
+        color: $darkgrey-color;
         text-decoration: none;
 
         &:hover {
-            .App_logo_main {
-                color: #7575ff;
+            .App__logo_main {
+                color: $active-color;
             }
         }
     }

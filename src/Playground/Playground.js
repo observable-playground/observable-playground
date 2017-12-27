@@ -3,7 +3,6 @@ import './Playground.css';
 import { execute } from '../mock-delayed-execution';
 import { EditorComponent } from './components/Editor/Editor';
 import * as Rx from 'rxjs/Rx';
-import { switchMap as code } from '../rxjs-examples/';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
 import { createApi } from './chart-api';
@@ -13,6 +12,8 @@ const MAX_EXECUTION_TIME = 1000; // 1 sec is max execution time for scripts
 export class Playground extends Component {
     constructor(props){
         super(props);
+
+        const code = props.code;
 
         const { status, time, lines } = this.executeScript(code);
         this.state = {
@@ -24,6 +25,18 @@ export class Playground extends Component {
         };
 
         this.onChange = this.onChange.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const code = nextProps.code;
+        const { status, time, lines } = this.executeScript(code);
+        this.setState({
+            value: code,
+            defaultValue: code,
+            status,
+            time,
+            lines
+        });
     }
 
     executeScript(sourceCode){

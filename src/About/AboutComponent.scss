@@ -1,0 +1,12 @@
+@import "../styles/variables.scss";
+
+.AboutComponent {
+    display: block;
+    padding: 4rem;
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid #f1f1f1;
+    min-height: 100rem;
+    font-family: monospace;
+    font-size: 14px;
+}

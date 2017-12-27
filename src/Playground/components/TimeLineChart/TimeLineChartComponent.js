@@ -29,7 +29,7 @@ export class TimeLineChartComponent extends Component {
         const EVENT_CIRCLE_RADIUS = 17;
 
         const margin =
-            { top:    18
+            { top:    0
             , right:  EVENT_CIRCLE_RADIUS + 2
             , bottom: EVENT_CIRCLE_RADIUS + 2
             , left:   EVENT_CIRCLE_RADIUS + 2
@@ -59,7 +59,7 @@ export class TimeLineChartComponent extends Component {
         svg
             .append('g')
             .attr('class', 'axis axis--x')
-            .call(d3.axisTop(xScale));
+            .call(d3.axisBottom(xScale));
         
         const graph = svg
             .append('g')

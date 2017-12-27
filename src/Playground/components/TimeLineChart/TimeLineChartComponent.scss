@@ -1,20 +1,18 @@
-$axis-color: #c5c5c5;
-$stroke-color: #333333;
-$stroke-width: 1.5px;
+@import '../../../styles/variables.scss';
 
 .TimeLineChartComponent {
     .axis {
         &.axis--x {
             line{
-                stroke: $axis-color;
+                stroke: $lightgrey-color;
             }
             
             path{
-                stroke: $axis-color;
+                stroke: $lightgrey-color;
             }
             
             text{
-                fill: $axis-color;
+                fill: $lightgrey-color;
             }
         }
     }

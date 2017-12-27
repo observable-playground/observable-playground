@@ -1,7 +1,15 @@
 @import "../node_modules/reset-css/reset.css";
 @import "../node_modules/flexboxgrid/css/flexboxgrid.css";
+@import "./styles/typography.scss";
+
+html {
+    // NOTE: this is just temporary workaround 
+    //       to minify paddings in flexboxgrid columns
+    font-size: 5px;
+}
 
 body { 
     font-family: sans-serif;
     background: #fafafa;
+    font-size: 16px;
 }

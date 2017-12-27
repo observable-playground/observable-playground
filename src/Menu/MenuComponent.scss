@@ -1,0 +1,32 @@
+@import '../styles/variables.scss';
+
+.Menu {
+    font-family: monospace;
+    text-align: right;
+
+
+    &__title {
+        color: $lightgrey-color;
+        font-weight: bold;
+    }
+
+    &__body{
+        padding-top: 2rem; 
+    }
+
+    &__item {
+        display: block;
+        padding: 1rem 0;
+        color: $darkgrey-color;
+        text-decoration: none;
+        white-space: nowrap;
+
+        &_active{
+            color: $active-color;
+        }
+
+        &:hover {
+            color: $active-color;
+        }
+    }
+}
