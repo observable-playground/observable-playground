@@ -57,6 +57,4 @@ class App extends Component {
     }
 }
 
-console.log(process.env);
-
 export default App;
