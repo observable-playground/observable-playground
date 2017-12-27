@@ -20,6 +20,26 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Reactive Playground</title>
+
+    <!--
+        Google Analytics {{{
+        NOTE: [kos] adding google analitics only for production
+            would be nice to:
+            - do not download ga script for dev at all
+            - remove % NODE_ENV % reference from here
+    -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40041298-4"></script>
+    <script>
+        if ('%NODE_ENV%' === 'production') {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-40041298-4');
+        }
+    </script>
+    <!-- }}} -->
   </head>
   <body>
     <noscript>
