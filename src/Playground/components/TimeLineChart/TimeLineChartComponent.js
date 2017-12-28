@@ -26,13 +26,15 @@ export class TimeLineChartComponent extends Component {
         const { time, lines } = this.props;
         const node = this.node;
 
-        const EVENT_CIRCLE_RADIUS = 17;
+        // TODO: scale vert
+        const EVENT_RADIUS = 18;
+        const LINE_HEIGHT = EVENT_RADIUS * 2;
 
         const margin =
             { top:    0
-            , right:  EVENT_CIRCLE_RADIUS + 2
-            , bottom: EVENT_CIRCLE_RADIUS + 2
-            , left:   EVENT_CIRCLE_RADIUS + 2
+            , right:  EVENT_RADIUS + 2
+            , bottom: EVENT_RADIUS + 2
+            , left:   EVENT_RADIUS + 2
             };
 
         const width  = VIEW_WIDTH  - margin.left - margin.right;
@@ -41,7 +43,7 @@ export class TimeLineChartComponent extends Component {
         // cleanup before going further
         d3
             .select(node)
-            .selectAll('g')
+            .selectAll('g.root')
             .remove();
 
         const svg = d3
@@ -49,6 +51,7 @@ export class TimeLineChartComponent extends Component {
             .attr('width', width + margin.left + margin.right)
             .attr('height', height + margin.top + margin.bottom)
             .append('g')
+            .attr('class', 'root')
             .attr('transform', `translate( ${ margin.left }, ${ margin.top })`);
 
         const xScale = d3.scaleLinear()
@@ -68,62 +71,96 @@ export class TimeLineChartComponent extends Component {
         lines.forEach((line, index)=>{
             const start = line.start;
             const end = line.end || Number.MAX_SAFE_INTEGER;
-            const events = line.events;
+            const events = line.events || [];
+            const errors = line.errors || [];
+            const stops  = line.stops  || [];
+
+            // TODO: scale vert
+            const y = index * LINE_HEIGHT * 2;
 
             const lineg = graph
                 .append('g')
-                .attr('class', 'thread');
-
-            const y = index * 60;
+                .attr('class', 'thread')
+                .attr('transform', d => `translate( 0, ${ y })`)
 
             // Baseline
             lineg
                 .append('line')
                 .attr('class', 'baseline')
                 .attr('x1', ()=>xScale(start))
-                .attr('y1', y)
+                .attr('y1', 0)
                 .attr('x2', ()=>xScale(end))
-                .attr('y2', y);
+                .attr('y2', 0);
 
             // Start mark
             lineg
                 .append('line')
                 .attr('class', 'startmark')
                 .attr('x1', ()=>xScale(start))
-                .attr('y1', y - 25)
+                .attr('y1', -25)
                 .attr('x2', ()=>xScale(start))
-                .attr('y2', y);
+                .attr('y2', 0);
 
-            // End mark
+            // End marks
             lineg
+                .selectAll('g.end')
+                .data(stops)
+                .enter()
+                .append('g')
+                .attr('class', 'end')
+                .attr('transform', d => `translate( ${ xScale(d.time) }, 0)`)
+
                 .append('line')
                 .attr('class', 'endmark')
-                .attr('x1', ()=>xScale(end))
-                .attr('y1', y - 25 )
-                .attr('x2', ()=>xScale(end))
-                .attr('y2', y + 25);
+                .attr('x1', 0)
+                .attr('y1', -25 )
+                .attr('x2', 0)
+                .attr('y2', +25);
 
-            // Events
-            const eventsMarks = lineg
+            // Events {{{
+            const eventMarks = lineg
                 .selectAll('g.event')
                 .data(events)
                 .enter()
                 .append('g')
                 .attr('class', 'event')
-                .attr('transform', d => `translate( ${ xScale(d.time) }, ${ y })`);
+                .attr('transform', d => `translate( ${ xScale(d.time) }, 0)`);
 
-            eventsMarks
+            eventMarks
                 .append('circle')
-                .attr('r', EVENT_CIRCLE_RADIUS) // TODO: scale vert
+                .attr('r', EVENT_RADIUS)
                 .style('fill', (d, index)=>{
                     return colorPallete[index % colorPallete.length];
                 });
 
-            eventsMarks
+            eventMarks
                 .append('text')
                 .attr('text-anchor', 'middle')
                 .attr('y', 5)
                 .text(d => d.value);
+            // }}}
+
+            const errorMarks = lineg
+                .selectAll('g.error')
+                .data(errors)
+                .enter()
+                .append('g')
+                .attr('class', 'error')
+                .attr('transform', d => `translate( ${ xScale(d.time) }, 0)`);
+
+            errorMarks
+                .append('line')
+                .attr('x1', -EVENT_RADIUS)
+                .attr('y1', -EVENT_RADIUS)
+                .attr('x2', +EVENT_RADIUS)
+                .attr('y2', +EVENT_RADIUS);
+
+            errorMarks
+                .append('line')
+                .attr('x1', +EVENT_RADIUS)
+                .attr('y1', -EVENT_RADIUS)
+                .attr('x2', -EVENT_RADIUS)
+                .attr('y2', +EVENT_RADIUS);
         });
     }
 

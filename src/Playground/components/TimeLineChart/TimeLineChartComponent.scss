@@ -1,5 +1,8 @@
 @import '../../../styles/variables.scss';
 
+$stroke-color: #333333;
+$stroke-width: 2px;
+
 .TimeLineChartComponent {
     .axis {
         &.axis--x {
@@ -18,12 +21,7 @@
     }
 
     .thread {
-        .baseline {
-            stroke: $stroke-color;
-            stroke-width: $stroke-width;
-        }
-
-        .startmark, .endmark {
+        line {
             stroke: $stroke-color;
             stroke-width: $stroke-width;
         }

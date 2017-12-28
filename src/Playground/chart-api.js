@@ -8,6 +8,8 @@ export const createApi = ()=>{
             start: Date.now(),
             end: undefined,
             events: [],
+            errors: [],
+            stops:  [],
         };
 
         state.lines.push(line);
@@ -19,9 +21,19 @@ export const createApi = ()=>{
             });
         }
 
-        const onError = () => {}
+        const onError = value =>  {
+            line.errors.push({
+                time: Date.now(),
+                value
+            });
+            line.end = Date.now();
+        }
+
 
         const onComplete = () => {
+            line.stops.push({
+                time: Date.now(),
+            });
             line.end = Date.now();
         }
 
