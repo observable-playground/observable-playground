@@ -11,7 +11,7 @@ The playground is agnostic of the library api, so expect addition of [kefirjs](h
 
 ## Time-bending
 
-No matter how long your observables would delay or iterate -- environment for the scripts is tweaked to run the scripts in a syncronous way
+No matter how long your observables would delay or iterate — environment for the scripts is tweaked to run the scripts in a syncronous way
 
 **So you'll get results instantly!**
 
@@ -21,22 +21,22 @@ Please, see [mock-delayed-execution.js](https://github.com/kosich/reactive-playg
 
 For the examples two objects are provided:
 
-- RxJS -- via `require('rxjs/Rx')`
+- RxJS — via `require('rxjs/Rx')`
 
-- Chart api -- is globally accessible via `chart` variable (see section below)
+- Chart api — is globally accessible via `chart` variable (see section below)
 
 
 ### Chart api
 
-`const line = chart.createLine()` -- will draw a line on the chart, with current time as a starting mark
+`const line = chart.createLine()` — will draw a line on the chart, with current time as a starting mark
 
 `line` now consists of three public methods:
 
-- `onEvent` -- will draw a event mark on the line
+- `onEvent` — will draw an event mark `--o--`
 
-- `onError` -- just a stub currently
+- `onError` — will draw an error mark `--x`
 
-- `onComplete` -- will put an end mark on the line
+- `onComplete` — will draw an end mark `--|`
 
 
 ## Development
@@ -49,4 +49,4 @@ You will find some information on how to perform common tasks [here](https://git
 
 This project is inspired by [rxmarbles.com](http://rxmarbles.com/), [learnrxjs.io](https://www.learnrxjs.io/) and great talks by [Bret Victor](http://worrydream.com/)
 
-Also, here's a super-awesome [RxViz](https://github.com/moroshko/rxviz) project -- it already does much better job in most cases! Sadly, I found it after I've kickstarted this one, so... I'll pretend I never saw it... :)
+Also, here's a super-awesome [RxViz](https://github.com/moroshko/rxviz) project — it already does much better job in most cases! Sadly, I found it after I've kickstarted this one, so... I'll pretend I never saw it :)
