@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './Playground.css';
 import { execute } from '../mock-delayed-execution';
 import { EditorComponent } from './components/Editor/EditorComponent';
-import * as Rx from 'rxjs/Rx';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
-import { createApi } from './chart-api';
+import { require } from './../playground-api/require';
+import { chartState } from '../playground-api/chart-state';
 
 const MAX_EXECUTION_TIME = 1000; // 1 sec is max execution time for scripts
 
@@ -40,27 +40,29 @@ export class Playground extends Component {
     }
 
     executeScript(sourceCode){
-        let status, time, lines;
-        const { state, chart } = createApi();
+        chartState.resetState();
+        let execStatus, execTime;
         try {
             let result = execute(() => {
                 // eslint-disable-next-line no-new-func
-                const fn = Function('require', 'chart', sourceCode);
-
-                fn(() => Rx, chart);
+                const fn = Function('require', sourceCode);
+                fn(require);
             }, MAX_EXECUTION_TIME);
 
-            status = result.status;
-            time = result.time;
+            execStatus = result.status;
+            execTime   = result.time;
         } catch (err) {
             console.error(err);
-            status = err;
-            time = 0;
-        } finally {
-            lines = state.lines || [];
+            execStatus = err;
+            execTime = 0;
         }
 
-        return { time, lines, status };
+        const { lines } = chartState.getState();
+
+        return { time:   execTime
+               , status: execStatus
+               , lines
+               };
     }
 
     onChange(sourceCode){

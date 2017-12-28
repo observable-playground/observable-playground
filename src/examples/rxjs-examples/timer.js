@@ -1,4 +1,5 @@
 module.exports = `
+const { chart } = require('rp-api');
 const { Observable } = require('rxjs/Rx');
 
 const line1 = chart.createLine();

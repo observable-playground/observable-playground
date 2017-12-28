@@ -23,8 +23,7 @@ For the examples two objects are provided:
 
 - RxJS — via `require('rxjs/Rx')`
 
-- Chart api — is globally accessible via `chart` variable (see section below)
-
+- Chart api — via `require('rp-api').chart` (see section below)
 
 ### Chart api
 

@@ -1,4 +1,5 @@
 export default `
+const { chart } = require('rp-api');
 const { Observable } = require('rxjs/Rx');
 
 const source$ = Observable
