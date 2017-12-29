@@ -1,10 +1,19 @@
+// Creation
 import interval from './interval';
 import _from from './from';
-import delay from './delay';
-import switchMap from './switchMap';
 import timer from './timer';
 import _of from './of';
 import _constructor from './constructor';
+
+// Instance methods
+import mergeMap from './mergeMap';
+import switchMap from './switchMap';
+import exhaustMap from './exhaustMap';
+
+
+// Utility
+import delay from './delay';
+
 
 export default [
     // Creation
@@ -31,11 +40,21 @@ export default [
 
     // Instance methods
     {
-        handle: 'delay',
-        code:  delay
+        handle: 'mergeMap',
+        code:  mergeMap
     },
     {
         handle: 'switchMap',
         code:  switchMap
-    }
+    },
+    {
+        handle: 'exhaustMap',
+        code:  exhaustMap
+    },
+
+    // Utility
+    {
+        handle: 'delay',
+        code:  delay
+    },
 ];
