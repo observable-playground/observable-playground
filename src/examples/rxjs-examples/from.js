@@ -1,5 +1,5 @@
-module.exports = `
-const { chart } = require('rp-api');
+module.exports =
+`const { chart } = require('rp-api');
 const { Observable } = require('rxjs/Rx');
 
 const source$ = Observable
