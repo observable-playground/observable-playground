@@ -1,6 +1,6 @@
 import { chartState as state } from './chart-state';
 
-const createLine = () => {
+const createObserver = () => {
     const line = {
         start: Date.now(),
         end: undefined,
@@ -9,7 +9,7 @@ const createLine = () => {
         stops: [],
     };
 
-    const onEvent = value => {
+    const onNext = value => {
         line.events.push({
             time: Date.now(),
             value
@@ -39,12 +39,14 @@ const createLine = () => {
                ]
     });
 
+    // Line implements RxJS Observer interface
+    // http://reactivex.io/rxjs/class/es6/MiscJSDoc.js~ObserverDoc.html
     return {
-        onEvent,
-        onError,
-        onComplete
+        next: onNext,
+        error: onError,
+        complete: onComplete
     }
 }
 
-const chart = { createLine };
+const chart = { createObserver };
 export default chart;

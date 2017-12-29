@@ -11,19 +11,7 @@ const merged$ = source$
       .interval(3)
       .take(5));
 
-const sourceLine = chart.createLine();
-source$
-  .subscribe(
-    sourceLine.onEvent,
-    sourceLine.onError,
-    sourceLine.onComplete
-  );
 
-const mergedLine = chart.createLine();
-merged$
-  .subscribe(
-    mergedLine.onEvent,
-    mergedLine.onError,
-    mergedLine.onComplete
-  );
+source$.subscribe(chart.createObserver());
+merged$.subscribe(chart.createObserver());
 `;

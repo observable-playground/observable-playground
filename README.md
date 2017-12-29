@@ -27,16 +27,35 @@ For the examples two objects are provided:
 
 ### Chart api
 
-`const line = chart.createLine()` — will draw a line on the chart, with current time as a starting mark
+```js
+const observer = chart.createObserver()
+```
 
-`line` now consists of three public methods:
+Will draw a timeline on the chart with current time as starting mark [ `'--` ].
 
-- `onEvent` — will draw an event mark `--o--`
+Returned `observer` implements [Observer](http://reactivex.io/rxjs/class/es6/MiscJSDoc.js~ObserverDoc.html):
 
-- `onError` — will draw an error mark `--x`
+- `next` — will draw an event mark [ `--o--` ]
 
-- `onComplete` — will draw an end mark `--|`
+- `error` — will draw an error mark [ `--x` ]
 
+- `complete` — will draw an end mark [ `--|` ]
+
+Therefore
+
+```js
+Observable
+  .interval(2)
+  .take(4)
+  .subscribe(chart.createObserver());
+```
+
+will output
+```
+'-o-o-o-o|
+```
+
+E.g. [rxjs-interval](https://kosich.github.io/reactive-playground/)
 
 ## Development
 
