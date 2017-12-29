@@ -57,12 +57,15 @@ export class TimeLineChartComponent extends Component {
         const xScale = d3.scaleLinear()
             .domain([0, time])
             .range([0, width])
+            .nice();
 
         // add x axis
         svg
             .append('g')
             .attr('class', 'axis axis--x')
-            .call(d3.axisBottom(xScale));
+            .call(
+                d3.axisBottom(xScale).tickFormat(x=>x + 'ms')
+            );
         
         const graph = svg
             .append('g')
