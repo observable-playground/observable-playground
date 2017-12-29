@@ -23,12 +23,15 @@ export class TimeLineChartComponent extends Component {
     }
 
     createChart() {
-        const { time, lines } = this.props;
         const node = this.node;
 
         // TODO: scale vert
         const EVENT_RADIUS = 18;
         const LINE_HEIGHT = EVENT_RADIUS * 2;
+
+        const FIELD_PADDING = LINE_HEIGHT * 2;
+
+        const MIN_MS_TO_DISPLAY = 10;
 
         const margin =
             { top:    0
@@ -39,6 +42,9 @@ export class TimeLineChartComponent extends Component {
 
         const width  = VIEW_WIDTH  - margin.left - margin.right;
         const height = VIEW_HEIGHT - margin.top - margin.bottom;
+
+        const lines = this.props.lines;
+        const time = Math.max(this.props.time, MIN_MS_TO_DISPLAY);
 
         // cleanup before going further
         d3
@@ -69,7 +75,7 @@ export class TimeLineChartComponent extends Component {
         
         const graph = svg
             .append('g')
-            .attr('transform', `translate(0, 60)`);
+            .attr('transform', `translate(0, ${ FIELD_PADDING })`);
 
         if (!lines){
             return;
@@ -77,7 +83,8 @@ export class TimeLineChartComponent extends Component {
 
         lines.forEach((line, index)=>{
             const start = line.start;
-            const end = line.end || Number.MAX_SAFE_INTEGER;
+            // TOOD: mark line as exhausting the chart, instead of drawing it to infinity
+            const end = line.end === undefined ? Number.MAX_SAFE_INTEGER : line.end;
             const events = line.events || [];
             const errors = line.errors || [];
             const stops  = line.stops  || [];
