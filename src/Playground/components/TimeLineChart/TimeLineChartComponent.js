@@ -71,6 +71,10 @@ export class TimeLineChartComponent extends Component {
             .append('g')
             .attr('transform', `translate(0, 60)`);
 
+        if (!lines){
+            return;
+        }
+
         lines.forEach((line, index)=>{
             const start = line.start;
             const end = line.end || Number.MAX_SAFE_INTEGER;
