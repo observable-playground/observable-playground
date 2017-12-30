@@ -13,6 +13,7 @@ import delay from './delay';
 import pipe from './pipe';
 import _catch from './error-handling/catch';
 import retry from './error-handling/retry';
+import share from './multicasting/share';
 
 
 const examples =
@@ -28,6 +29,7 @@ const examples =
     , pipe
     , 'catch': _catch
     , retry
+    , share
     };
 
 export const library = {
@@ -57,6 +59,12 @@ export const library = {
                 [ 'mergeMap'
                 , 'switchMap'
                 , 'exhaustMap'
+                ]
+            }
+        
+        ,   { name: 'Multicasting'
+            , items:
+                [ 'share'
                 ]
             }
 
