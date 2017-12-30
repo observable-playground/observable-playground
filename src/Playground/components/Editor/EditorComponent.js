@@ -23,6 +23,8 @@ export class EditorComponent extends Component {
                 showGutter={true}
                 tabSize={2}
                 wrapEnabled={true}
+                setOptions={{ showFoldWidgets: false }}
+
                 editorProps={{ $blockScrolling: true }}
                 debounceChangePeriod={ 500 }
 
