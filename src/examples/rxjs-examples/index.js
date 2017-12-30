@@ -17,6 +17,10 @@ import share from           './multicasting/share';
 import delay from           './utility/delay';
 import pipe from            './utility/pipe';
 
+// read the lib version
+import { dependencies } from '../../../package.json';
+const RXJS_VERSION = dependencies.rxjs;
+
 
 const examples =
     { interval
@@ -36,7 +40,7 @@ const examples =
 
 export const library = {
     name: 'RxJS',
-    version: '5.5.6',
+    version: RXJS_VERSION,
     examples,
     groups:
         [   { name: 'Creation'

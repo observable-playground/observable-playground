@@ -10,6 +10,7 @@ import { MenuComponent } from './Menu/MenuComponent';
 import { AboutComponent } from './About/AboutComponent';
 import { PlaygroundRoutingContainer } from './Playground/PlaygroundRoutingContainer';
 import Switch from 'react-router-dom/Switch';
+import { version as APP_VERSION } from '../package.json';
 
 class App extends Component {
     render() {
@@ -46,11 +47,18 @@ class App extends Component {
             </div>
         );
 
+        const footer = ()=>(
+            <div className="App__footer">
+                v{ APP_VERSION }
+            </div>
+        );
+
         return (
             <Router>
                 <div className="App">
                     { header() }
                     { body() }
+                    { footer() }
                 </div>
             </Router>
         );
