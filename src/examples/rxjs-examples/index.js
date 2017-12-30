@@ -11,6 +11,9 @@ import exhaustMap from './exhaustMap';
 // Utility
 import delay from './delay';
 import pipe from './pipe';
+import _catch from './error-handling/catch';
+import retry from './error-handling/retry';
+
 
 const examples =
     { interval
@@ -23,6 +26,8 @@ const examples =
     , exhaustMap
     , delay
     , pipe
+    , 'catch': _catch
+    , retry
     };
 
 export const library = {
@@ -37,6 +42,13 @@ export const library = {
                 , 'from'
                 , 'of'
                 , 'constructor'
+                ]
+            }
+
+        ,   { name: 'Error handling'
+            , items:
+                [ 'catch'
+                , 'retry'
                 ]
             }
 
