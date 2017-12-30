@@ -1,19 +1,21 @@
 // Creation
-import interval from './interval';
-import _from from './from';
-import timer from './timer';
-import _of from './of';
-import _constructor from './constructor';
-// Instance methods
-import mergeMap from './mergeMap';
-import switchMap from './switchMap';
-import exhaustMap from './exhaustMap';
+import interval from        './creation/interval';
+import _from from           './creation/from';
+import timer from           './creation/timer';
+import _of from             './creation/of';
+import _constructor from    './creation/constructor';
+// Transformation
+import mergeMap from        './transformation/mergeMap';
+import switchMap from       './transformation/switchMap';
+import exhaustMap from      './transformation/exhaustMap';
+// Error handling
+import _catch from          './error-handling/catch';
+import retry from           './error-handling/retry';
+// Multicasting
+import share from           './multicasting/share';
 // Utility
-import delay from './delay';
-import pipe from './pipe';
-import _catch from './error-handling/catch';
-import retry from './error-handling/retry';
-import share from './multicasting/share';
+import delay from           './utility/delay';
+import pipe from            './utility/pipe';
 
 
 const examples =
