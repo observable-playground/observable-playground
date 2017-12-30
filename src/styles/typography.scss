@@ -1,13 +1,5 @@
 @import './variables.scss';
 
-a {
-    color: $darkgrey-color;
-
-    &:hover {
-        color: $active-color;
-    }
-}
-
 p {
-    padding: 2rem 0;
+    padding: 0.5rem 0;
 }

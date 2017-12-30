@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as d3 from 'd3';
 import './TimeLineChartComponent.css';
 
-const VIEW_WIDTH = 580;  // TODO: read actual width
+const VIEW_WIDTH = 484;  // TODO: read actual width
 const VIEW_HEIGHT = 500; // TODO: read actual height
 
 const colorPallete = ["#03a9f4", "#ffeb3b", "#8bc34a", "#00bcd4", "#ff9800", "#ff5073", "#4caf50", "#2196f3", "#33cf89", "#4e86ff", "#009688", "#cddc39", "#ffc107"]

@@ -7,15 +7,15 @@ $stroke-width: 2px;
     .axis {
         &.axis--x {
             line{
-                stroke: $lightgrey-color;
+                stroke: $lightgray-color;
             }
             
             path{
-                stroke: $lightgrey-color;
+                stroke: $lightgray-color;
             }
             
             text{
-                fill: $lightgrey-color;
+                fill: $lightgray-color;
             }
         }
     }

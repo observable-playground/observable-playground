@@ -80,25 +80,22 @@ export class Playground extends Component {
         const { status, time, lines, value, defaultValue } = this.state;
         const showError = status instanceof Error;
         return (
-            <div className="Playground row">
-                <div className="col-md-5">
+            <div className="Playground">
+                <div className="Playground__editor">
                     <EditorComponent
                         value={ value }
                         defaultValue={ defaultValue }
                         onChange={ this.onChange }
                     ></EditorComponent>
                 </div>
-                <div className="col-md-7">
+                <div className="Playground__chart">
                     {
                         showError
                         && (<ErrorComponent error={ status }></ErrorComponent>)
                     }
                     {
                         !showError
-                        && (
-                        <div className="Playground__chart">
-                            <TimeLineChartComponent time={time} lines={lines} ></TimeLineChartComponent>
-                        </div>)
+                        && (<TimeLineChartComponent time={time} lines={lines} ></TimeLineChartComponent>)
                     }
                 </div>
             </div>

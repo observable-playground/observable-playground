@@ -4,57 +4,52 @@ import _from from './from';
 import timer from './timer';
 import _of from './of';
 import _constructor from './constructor';
-
 // Instance methods
 import mergeMap from './mergeMap';
 import switchMap from './switchMap';
 import exhaustMap from './exhaustMap';
-
-
 // Utility
 import delay from './delay';
 
+const examples =
+    { interval
+    , timer
+    , 'from': _from
+    , 'of': _of
+    , 'constructor': _constructor
+    , mergeMap
+    , switchMap
+    , exhaustMap
+    , delay
+    };
 
-export default [
-    // Creation
-    {
-        handle: 'interval',
-        code:  interval
-    },
-    {
-        handle: 'timer',
-        code:  timer
-    },
-    {
-        handle: 'from',
-        code:  _from
-    },
-    {
-        handle: 'of',
-        code:  _of
-    },
-    {
-        handle: 'constructor',
-        code:  _constructor
-    },
+export const library = {
+    name: 'RxJS',
+    version: '5.5.6',
+    examples,
+    groups:
+        [   { name: 'Creation'
+            , items:
+                [ 'interval'
+                , 'timer'
+                , 'from'
+                , 'of'
+                , 'constructor'
+                ]
+            }
 
-    // Instance methods
-    {
-        handle: 'mergeMap',
-        code:  mergeMap
-    },
-    {
-        handle: 'switchMap',
-        code:  switchMap
-    },
-    {
-        handle: 'exhaustMap',
-        code:  exhaustMap
-    },
+        ,   { name: 'Transformation'
+            , items:
+                [ 'mergeMap'
+                , 'switchMap'
+                , 'exhaustMap'
+                ]
+            }
 
-    // Utility
-    {
-        handle: 'delay',
-        code:  delay
-    },
-];
+        ,   { name: 'Utility'
+            , items:
+                [ 'delay'
+                ]
+            }
+        ]
+};

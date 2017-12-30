@@ -1,5 +1,15 @@
 .Playground {
-    .Playground__chart{
-        position: relative;
+    display: flex;
+
+    &__editor{
+        flex: 0 0 auto;
+        flex-basis: 400px;
+    }
+
+    &__chart{
+        flex: 0 0 auto;
+        flex-basis: 500px;
+        box-sizing: border-box;
+        padding-left: 1rem;
     }
 }

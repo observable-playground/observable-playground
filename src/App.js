@@ -16,33 +16,30 @@ class App extends Component {
             <Router>
                 <div className="App">
 
-                    <div className="App__header row">
-                        <div className="col-xs-1"></div>
-                        <div className="col-xs-5">
-                            <NavLink
-                                to={ '/' }
-                                className="App__logo"
-                            >
-                                <span className="App__logo_main">Reactive</span> Playground
-                            </NavLink>
-
-                        </div>
+                    <div className="App__header">
+                        <NavLink
+                            to={ '/' }
+                            className="App__logo"
+                        >
+                            <span className="App__logo_main">Reactive</span> Playground
+                        </NavLink>
                     </div>
 
-
-                    <Route exact={ true } path={ '/' } render={ ()=>
-                        <Redirect to={{ pathname: '/rxjs-interval' }}/>
-                    }/>
-
-                    <div className="row">
-                        <div className="col-xs-1">
+                    <div className="App__body">
+                        <div className="App__menu">
                             <MenuComponent></MenuComponent>
                         </div>
 
-                        <div className="col-xs-11">
+                        <div className="App__contents">
                             <Route exact={ true } path='/about' component={ AboutComponent }/>
 
-                            <Route exact={ true } path='/rxjs-:handle' component={ PlaygroundRoutingContainer }/>
+                            <Route exact={ true } path='/:libraryHandle/:exampleHandle' component={ PlaygroundRoutingContainer }/>
+
+                            {/* redirecting to a default route */}
+                            <Route exact={ true } path={ '/' } render={ ()=>
+                                <Redirect to={{ pathname: '/rxjs/interval' }}/>
+                            }/>
+
                         </div>
                     </div>
 

@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
 import { Playground } from './Playground';
-import { rxjs as examples } from '../examples';
+import { findExample } from '../examples';
 
 export class PlaygroundRoutingContainer extends Component {
     constructor(props){
         super(props);
-        const example = this.getExample(props.match);
+        const code = findExample(props.match.params);
         this.state = {
-            example
+            code
         };
     }
 
     componentWillReceiveProps(nextProps) {
-        const example = this.getExample(nextProps.match);
+        const code = findExample(nextProps.match.params);
         this.setState({
-            example
+            code
         });
     }
 
-    getExample(match){
-        return examples.find(x=>x.handle === match.params.handle)
-               || examples[0];
-    }
-
     render() {
-        const code = this.state.example.code;
+        // TODO: redirect to 404 if no example found
         return (
-            <Playground code={ code }></Playground>
+            <Playground code={ this.state.code }></Playground>
         );
     }
 }

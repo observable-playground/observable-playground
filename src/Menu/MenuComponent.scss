@@ -1,23 +1,48 @@
 @import '../styles/variables.scss';
 
+@mixin row {
+    padding: 0.25rem 0;
+    display: block;
+}
+
 .Menu {
-    font-family: monospace;
-    text-align: right;
+    color: $darkgray-color;
 
-
-    &__title {
-        color: $lightgrey-color;
-        font-weight: bold;
+    &__examples {
+        display: block;
+        padding-bottom: 1rem;
     }
 
-    &__body{
-        padding-top: 2rem; 
+    &__library {
+        &-name {
+            @include row();
+            color: $lightgray-color;
+            border-bottom: $lightgray-color 1px solid;
+        }
+
+        &-version {
+            float: right;
+            font-weight: normal;
+            font-size: 0.6rem;
+            border: 1px solid $lightgray-color;
+            padding: 0.2rem;
+            border-radius: 0.1rem;
+        }
+    }
+
+    &__group {
+        padding-bottom: 1rem;
+
+        &-name {
+            color: $lightgray-color;
+            @include row();
+        }
     }
 
     &__item {
+        @include row();
         display: block;
-        padding: 1rem 0;
-        color: $darkgrey-color;
+        color: $darkgray-color;
         text-decoration: none;
         white-space: nowrap;
 
@@ -29,4 +54,5 @@
             color: $active-color;
         }
     }
+
 }

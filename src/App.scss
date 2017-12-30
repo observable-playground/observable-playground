@@ -1,25 +1,42 @@
 @import './styles/variables.scss';
 
+$leftmenu-width: 10rem;
+
 .App {
-    width: 1200px;
+    width: 1060px;
+    box-sizing: border-box;
     margin: auto;
 
     &__header {
-        padding: 20px 0 14px;
+        padding: 1.3rem 0 1rem $leftmenu-width;;
     }
 
     &__logo {
+        font-family: sans-serif;
+        color: $darkgray-color;
+        text-decoration: none;
+
         &_main {
             font-weight: bold;
         }
-        font-family: sans-serif;
-        color: $darkgrey-color;
-        text-decoration: none;
 
         &:hover {
             .App__logo_main {
                 color: $active-color;
             }
         }
+    }
+
+    &__body {
+        display: flex;
+    }
+
+    &__menu {
+        flex: 0 0 auto;
+        flex-basis: $leftmenu-width;
+        max-width: $leftmenu-width;
+
+        box-sizing: border-box;
+        padding-right: 1rem;
     }
 }
