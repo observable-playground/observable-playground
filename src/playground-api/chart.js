@@ -1,13 +1,8 @@
-import { chartState as state } from './chart-state';
+import * as chartStateProxy from './chart-state-proxy';
+import { createLine } from './line';
 
 const createObserver = () => {
-    const line = {
-        start: Date.now(),
-        end: undefined,
-        events: [],
-        errors: [],
-        stops: [],
-    };
+    const line = createLine();
 
     const onNext = value => {
         line.events.push({
@@ -31,13 +26,7 @@ const createObserver = () => {
         line.end = Date.now();
     }
 
-
-    const lines = state.getState().lines || [];
-    state.setState({
-        lines: [ ...lines
-               , line
-               ]
-    });
+    chartStateProxy.addLine(line);
 
     // Line implements RxJS Observer interface
     // http://reactivex.io/rxjs/class/es6/MiscJSDoc.js~ObserverDoc.html

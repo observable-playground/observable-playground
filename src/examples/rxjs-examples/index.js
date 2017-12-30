@@ -4,10 +4,13 @@ import _from from           './creation/from';
 import timer from           './creation/timer';
 import _of from             './creation/of';
 import _constructor from    './creation/constructor';
+// Combination
+import zip from './combination/zip';
 // Transformation
 import mergeMap from        './transformation/mergeMap';
 import switchMap from       './transformation/switchMap';
 import exhaustMap from      './transformation/exhaustMap';
+import concatMap from      './transformation/concatMap';
 // Error handling
 import _catch from          './error-handling/catch';
 import retry from           './error-handling/retry';
@@ -36,6 +39,8 @@ const examples =
     , 'catch': _catch
     , retry
     , share
+    , zip
+    , concatMap
     };
 
 export const library = {
@@ -53,6 +58,12 @@ export const library = {
                 ]
             }
 
+        ,   { name: 'Combination'
+            , items:
+                [ 'zip'
+                ]
+            }
+
         ,   { name: 'Error handling'
             , items:
                 [ 'catch'
@@ -65,6 +76,7 @@ export const library = {
                 [ 'mergeMap'
                 , 'switchMap'
                 , 'exhaustMap'
+                , 'concatMap'
                 ]
             }
         

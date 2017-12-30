@@ -143,15 +143,29 @@ export class TimeLineChartComponent extends Component {
             eventMarks
                 .append('circle')
                 .attr('r', EVENT_RADIUS)
-                .style('fill', (d, index)=>{
-                    return colorPallete[index % colorPallete.length];
+                .style('fill', (d, index) => {
+                    if (d.value && d.value.color) {
+                        return d.value.color;
+                    }
+
+                    return colorPallete[index % colorPallete.length]
                 });
 
             eventMarks
                 .append('text')
                 .attr('text-anchor', 'middle')
                 .attr('y', 5)
-                .text(d => d.value);
+                .text(d => {
+                    if (d.value == null){
+                        return '';
+                    }
+
+                    if (typeof d.value === 'object') {
+                        return d.value.value;
+                    }
+
+                    return d.value;
+                });
             // }}}
 
             const errorMarks = lineg
@@ -161,6 +175,9 @@ export class TimeLineChartComponent extends Component {
                 .append('g')
                 .attr('class', 'error')
                 .attr('transform', d => `translate( ${ xScale(d.time) }, 0)`);
+            
+            errorMarks
+                .attr('title', d=>d.value);
 
             errorMarks
                 .append('line')

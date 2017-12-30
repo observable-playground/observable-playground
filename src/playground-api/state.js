@@ -16,7 +16,7 @@ const resetState = () => {
     return state;
 }
 
-export const chartState = {
+export {
     getState,
     setState,
     resetState

@@ -1,17 +1,32 @@
 export default
 `const { chart } = require('rp-api');
+const { palette } = require('rp-api/colors');
 const { Observable } = require('rxjs/Rx');
 
-const source$ = Observable
-  .from([ 5, 10, 20 ])
-  .delayWhen(x=>Observable.timer(x));
+// helpers {{{
+// stream for coloring
+const palette$ = Observable.from(palette);
+// fn to define color for item
+const Mark = (value,color)=>({value,color});
+// like .from, but items are delayed by their value
+const fromDelayed = arr =>
+  Observable
+    .from(arr)
+    .delayWhen(x=>Observable.timer(x));
+// }}}
 
-const exhaust$ = source$
+const source$ = fromDelayed([ 5, 10, 20 ])
+  // get color for each item
+  .zip(palette$, Mark);
+
+const switch$ = source$
   .exhaustMap(x=> Observable
     .timer(0, 3)
-    .take(4));
+    .take(4)
+    // inherit color from the source$ stream
+    .map(y=>Mark(y, x.color)));
 
 
 source$.subscribe(chart.createObserver());
-exhaust$.subscribe(chart.createObserver());
+switch$.subscribe(chart.createObserver());
 `;

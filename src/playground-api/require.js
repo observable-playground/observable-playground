@@ -3,9 +3,15 @@
  * TODO: find a better way to do proper requires on the fly
  */
 
+// RxJS {{{
 import Rx from 'rxjs/Rx';
+// NOTE: 'rxjs/operators' is needed to load lettable operators
+//       https://github.com/ReactiveX/rxjs/blob/master/doc/lettable-operators.md
 import RxOperators from 'rxjs/operators';
+// }}}
+
 import rpApi from './rp-api';
+import * as colors from './colors';
 
 const availablePackages = [
     { // RxJS
@@ -21,6 +27,10 @@ const availablePackages = [
     { // chart api
         name: 'rp-api',
         load: () => rpApi
+    },
+    {
+        name: 'rp-api/colors',
+        load: () => colors
     }
 ];
 

@@ -1,5 +1,6 @@
 export default
 `const { chart } = require('rp-api');
+const { palette } = require('rp-api/colors');
 const { Observable } = require('rxjs/Rx');
 
 const error$ = Observable.timer(0,5)
@@ -7,9 +8,14 @@ const error$ = Observable.timer(0,5)
     if (x>2) { throw 'Bam!' }
     return x;
   });
-  
-const retry$ = error$.retry(2);
 
+// add color to items
+const palette$ = Observable.from(palette);
+const errorColorized$ = error$
+  .zip(palette$, (value,color)=>({value, color}));
+
+
+const retry$ = errorColorized$.retry(2);
 
 error$.subscribe(chart.createObserver());
 retry$.subscribe(chart.createObserver());

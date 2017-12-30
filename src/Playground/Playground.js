@@ -5,7 +5,7 @@ import { EditorComponent } from './components/Editor/EditorComponent';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
 import { require } from './../playground-api/require';
-import { chartState } from '../playground-api/chart-state';
+import * as chartState from '../playground-api/state';
 
 const MAX_EXECUTION_TIME = 1000; // 1 sec is max execution time for scripts
 

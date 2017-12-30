@@ -20,8 +20,8 @@ const source$ = fromDelayed([ 5, 10, 20 ])
   .zip(palette$, Mark);
 
 const switch$ = source$
-  .mergeMap(x=> Observable
-    .timer(0, 3)
+  .concatMap(x=> Observable
+    .interval(5)
     .take(3)
     // inherit color from the source$ stream
     .map(y=>Mark(y, x.color)));
