@@ -9,41 +9,48 @@ import {
 import { MenuComponent } from './Menu/MenuComponent';
 import { AboutComponent } from './About/AboutComponent';
 import { PlaygroundRoutingContainer } from './Playground/PlaygroundRoutingContainer';
+import Switch from 'react-router-dom/Switch';
 
 class App extends Component {
     render() {
+        const redirectToDefaultExample = ()=>(
+            <Redirect to={{ pathname: '/rxjs/interval' }} />
+        );
+
+        const header = ()=>(
+            <div className="App__header">
+                <NavLink
+                    to={ '/' }
+                    className="App__logo"
+                >
+                    <span className="App__logo_main">Reactive</span> Playground
+                </NavLink>
+            </div>
+        );
+
+        const body = ()=>(
+            <div className="App__body">
+                <div className="App__menu">
+                    <MenuComponent></MenuComponent>
+                </div>
+
+                <div className="App__contents">
+                    <Switch>
+                        <Route exact path={ '/' } render={ redirectToDefaultExample }/>
+                        <Route path='/about' component={ AboutComponent }/>
+                        <Route path='/:libraryHandle/:exampleHandle' component={ PlaygroundRoutingContainer }/>
+                        <Route render={ redirectToDefaultExample }/>
+                    </Switch>
+
+                </div>
+            </div>
+        );
+
         return (
             <Router>
                 <div className="App">
-
-                    <div className="App__header">
-                        <NavLink
-                            to={ '/' }
-                            className="App__logo"
-                        >
-                            <span className="App__logo_main">Reactive</span> Playground
-                        </NavLink>
-                    </div>
-
-                    <div className="App__body">
-                        <div className="App__menu">
-                            <MenuComponent></MenuComponent>
-                        </div>
-
-                        <div className="App__contents">
-                            <Route exact={ true } path='/about' component={ AboutComponent }/>
-
-                            <Route exact={ true } path='/:libraryHandle/:exampleHandle' component={ PlaygroundRoutingContainer }/>
-
-                            {/* redirecting to a default route */}
-                            <Route exact={ true } path={ '/' } render={ ()=>
-                                <Redirect to={{ pathname: '/rxjs/interval' }}/>
-                            }/>
-
-                        </div>
-                    </div>
-
-
+                    { header() }
+                    { body() }
                 </div>
             </Router>
         );

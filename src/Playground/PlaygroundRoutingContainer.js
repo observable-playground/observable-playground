@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Redirect from 'react-router-dom/Redirect';
 import { Playground } from './Playground';
 import { findExample } from '../examples';
 
@@ -19,7 +20,9 @@ export class PlaygroundRoutingContainer extends Component {
     }
 
     render() {
-        // TODO: redirect to 404 if no example found
+        if (!this.state.code) {
+            return (<Redirect to={{ pathname: '/' }} />);
+        }
         return (
             <Playground code={ this.state.code }></Playground>
         );
