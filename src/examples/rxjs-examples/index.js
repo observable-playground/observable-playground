@@ -10,6 +10,7 @@ import switchMap from './switchMap';
 import exhaustMap from './exhaustMap';
 // Utility
 import delay from './delay';
+import pipe from './pipe';
 
 const examples =
     { interval
@@ -21,6 +22,7 @@ const examples =
     , switchMap
     , exhaustMap
     , delay
+    , pipe
     };
 
 export const library = {
@@ -49,6 +51,7 @@ export const library = {
         ,   { name: 'Utility'
             , items:
                 [ 'delay'
+                , 'pipe'
                 ]
             }
         ]

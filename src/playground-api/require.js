@@ -1,8 +1,10 @@
 /**
  * Naive implementation of require mock for playground scripts
+ * TODO: find a better way to do proper requires on the fly
  */
 
 import Rx from 'rxjs/Rx';
+import RxOperators from 'rxjs/operators';
 import rpApi from './rp-api';
 
 const availablePackages = [
@@ -10,6 +12,11 @@ const availablePackages = [
         name: 'rxjs/Rx',
         load: () => Rx
     },
+    { // RxJS lettable operators
+        name: 'rxjs/operators',
+        load: () => RxOperators
+    },
+
 
     { // chart api
         name: 'rp-api',
