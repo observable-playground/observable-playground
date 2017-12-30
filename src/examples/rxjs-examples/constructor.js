@@ -13,5 +13,7 @@ const source$ = new Observable(observer=>{
   };
 });
 
-source$.take(5).subscribe(chart.createObserver());
+source$
+  .take(5)
+  .subscribe(chart.createObserver());
 `;

@@ -3,13 +3,13 @@ export default
 const { Observable } = require('rxjs/Rx');
 
 Observable
-  .interval(5)
+  .timer(0, 10)
   .take(5)
   .subscribe(chart.createObserver());
 
 Observable
-  .interval(5)
-  .delay(40)
+  .timer(0, 10)
+  .delay(15)
   .take(5)
   .subscribe(chart.createObserver());
 `;
