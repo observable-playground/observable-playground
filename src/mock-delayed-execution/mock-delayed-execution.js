@@ -102,7 +102,7 @@ if (originals.Date && originals.Date.now) {
  */
 function execute(fn, maxLifetime = ONE_MINUTE){
     maxLifetime = (maxLifetime > 0) ? +maxLifetime : ONE_MINUTE;
-    let time = 0;
+    let time;
 
     // Date {{{
     mocks.Date = function _Date(...args){
@@ -117,8 +117,7 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     mocks.Date.now = ()=> time;
     // }}}
 
-    let intervals = [];
-    let timeouts = [];
+    let tasks = [];
 
     // Helper to create ids to setTimeout and setInterval
     const getId = (()=>{
@@ -126,10 +125,25 @@ function execute(fn, maxLifetime = ONE_MINUTE){
         return ()=>id++;
     })();
 
+    // intervals and timeouts are tasks
+    const createTask = (timeout) => (
+        { id: getId()
+        , time
+        , registeredAt: time
+        , timeout
+        });
+
+    const addTask = (task) => {
+        tasks.push(task);
+    };
+
+    const clearTask = id => {
+        tasks = tasks.filter(x=>x.id!==id);
+    }
+
     // setInterval {{{
     mocks.setInterval = (cb, timeout, ...args)=>{
-        const id = getId();
-        const task = { id, time, timeout };
+        const task = createTask(timeout);
 
         task.fn = ()=>{
             // updates last executed time on each execution
@@ -137,30 +151,25 @@ function execute(fn, maxLifetime = ONE_MINUTE){
             cb(...args);
         };
 
-        intervals.push(task);
-        return id;
+        addTask(task);
+        return task.id;
     }
-    mocks.clearInterval = (id)=>{
-        intervals = intervals.filter(x=>x.id!==id);
-    }
+    mocks.clearInterval = clearTask;
     // }}}
 
     // setTimeout {{{
     mocks.setTimeout = (cb, timeout, ...args)=>{
-        const id = getId();
-        const task = { id, time, timeout };
+        const task = createTask(timeout);
 
         task.fn = ()=>{
-            clearTimeout(id);
+            clearTimeout(task.id);
             cb(...args);
         };
 
-        timeouts.push(task);
-        return id;
+        addTask(task);
+        return task.id;
     }
-    mocks.clearTimeout = (id)=>{
-        timeouts = timeouts.filter(x=>x.id!==id);
-    }
+    mocks.clearTimeout = clearTask;
     // }}}
 
     // requestAnimationFrame {{{
@@ -171,23 +180,26 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     // Gets next task to execute
     // TODO: [kos] check docs for execution order rules
     const getNextTask = ()=>
-        [...intervals, ...timeouts]
+        tasks
             .filter(x => (time - x.time) >= x.timeout)
-            .sort((a,b)=>b.time - a.time)
-            .pop();
+            .sort((a,b)=>
+                       (a.registeredAt - b.registeredAt) // registered earlier
+                    || (a.time - b.time)                 // or executed earlier
+                    || (a.id - b.id))                    // or with lesser id
+            .shift();
 
     // Runs all delayed code
     const flush = ()=>{
-        while(intervals.length || timeouts.length){
+        while(tasks.length){
             if (time >= maxLifetime) {
                 return `Ran out of time (${maxLifetime}ms)`;
             }
             let nextTask;
             while(nextTask = getNextTask()){ // eslint-disable-line no-cond-assign
-                // TODO: [kos] potentially this is leads to an infinite loop
-                //       add anti infinite loop guard.
-                //       Maybe adding throttling will help:
+                // TODO: [kos] potentially this might lead to an infinite loop.
+                //       Add anti-infinite loop guard, like throttling
                 //       https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Reasons_for_delays_longer_than_specified
+                //       e.g. `timeout = Math.max(4, Number(timeout))`
                 nextTask.fn();
             }
             time++;
@@ -198,6 +210,7 @@ function execute(fn, maxLifetime = ONE_MINUTE){
 
     let status;
     try {
+        time = 0;
         isMockMode = true;
         fn();
         status = flush();
