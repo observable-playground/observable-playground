@@ -25,7 +25,7 @@
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build -r https://github.com/observable-playground/observable-playground.github.io.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\"",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
