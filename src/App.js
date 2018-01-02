@@ -24,7 +24,7 @@ class App extends Component {
                     to={ '/' }
                     className="App__logo"
                 >
-                    <span className="App__logo_main">Reactive</span> Playground
+                    <span className="App__logo_main">Observable</span> Playground
                 </NavLink>
             </div>
         );

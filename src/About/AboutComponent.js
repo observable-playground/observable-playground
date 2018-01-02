@@ -13,7 +13,7 @@ export class AboutComponent extends Component {
                 </p>
 
                 <p>
-                    Please, check the source codes of this project at <ExternalLink href={ 'https://github.com/kosich/reactive-playground' } />
+                    Please, check the source codes of this project at <ExternalLink href={ 'https://github.com/observable-playground/observable-playground' } />
                 </p>
 
                 <p>

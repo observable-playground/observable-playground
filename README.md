@@ -1,8 +1,8 @@
-# RxJS Playground
+# RxJS Observable Playground
 
 **Play, test, hack on RxJS features in a sexy eternity-safe playground**
 
-https://kosich.github.io/reactive-playground/
+https://observable-playground.github.io/
 
 ## Reactive
 
@@ -15,7 +15,7 @@ No matter how long your observables would delay or iterate — environment for t
 
 **So you'll get results instantly!**
 
-Please, see [mock-delayed-execution.js](https://github.com/kosich/reactive-playground/blob/master/src/mock-delayed-execution/mock-delayed-execution.js) for details
+Please, see [mock-delayed-execution.js](https://github.com/observable-playground/observable-playground/blob/master/src/mock-delayed-execution/mock-delayed-execution.js) for details
 
 ## Examples and chart api
 
@@ -55,7 +55,7 @@ will output
 '-o-o-o-o|
 ```
 
-E.g. [rxjs-interval](https://kosich.github.io/reactive-playground/)
+E.g. [rxjs-interval](https://observable-playground.github.io/#/rxjs/interval)
 
 ## Development
 
