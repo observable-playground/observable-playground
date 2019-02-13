@@ -8,6 +8,11 @@
 .Menu {
     color: $darkgray-color;
 
+    a {
+        color: $darkgray-color;
+        text-decoration: none;
+    }
+
     &__examples {
         display: block;
         padding-bottom: 1rem;
@@ -17,7 +22,7 @@
         &-name {
             @include row();
             color: $lightgray-color;
-            border-bottom: $lightgray-color 1px solid;
+            // border-bottom: $lightgray-color 1px solid;
         }
 
         &-version {

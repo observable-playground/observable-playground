@@ -7,6 +7,20 @@ export class MenuComponent extends Component {
     render() {
         return (
             <div className="Menu">
+                {
+                    examplesMenu.map(root => (
+                        <div key={root.handle} className="Menu__library-name">
+                            <Link to={ '/' + root.handle }>{root.library.name}</Link>
+                            <span className="Menu__library-version">v{root.library.version}</span>
+                        </div>
+                    ))
+                }
+
+                <div className="Menu__library-name">
+                    <Link to="/gist">Gist</Link>
+                </div>
+
+                <hr />
 
                 <ul className="Menu__examples">
                     { examplesMenu.map(root => (
@@ -29,10 +43,6 @@ export class MenuComponent extends Component {
                                     </li>
                                 ))}
                             </ul>
-                            <span className="Menu__library-name">
-                                { root.library.name }
-                                <span className="Menu__library-version">v{ root.library.version }</span>
-                            </span>
                         </li>
                     ))}
                 </ul>

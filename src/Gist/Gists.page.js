@@ -21,12 +21,17 @@ export class GistsPageComponent extends Component {
         return (
             <div className="GistsPage PageBlock">
                 <p>
-                    You can load Github gists to this tool.
+                    Enter Github Gist ID to load
                 </p>
+
                 <form target="#" onSubmit={ this.onSubmit }>
-                    <input placeholder="Gist ID" name="gistId" autoComplete="disabled" />
+                    <input placeholder="Gist ID" name="gistId" autoComplete="off" />
                     <button type="submit">Open</button>
                 </form>
+
+                <p>
+                    Scheme: <i>https://gist.github.com/name/<b>Gist_ID</b></i>
+                </p>
             </div>
         )
     }
