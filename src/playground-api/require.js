@@ -4,9 +4,13 @@
  */
 
 // RxJS {{{
-import Rx from 'rxjs/Rx';
-// NOTE: 'rxjs/operators' is needed to load lettable operators
-//       https://github.com/ReactiveX/rxjs/blob/master/doc/lettable-operators.md
+// Compatibility package
+// https://github.com/ReactiveX/rxjs/tree/master/compat
+import * as RxCompat from 'rxjs/Rx';
+// Regular
+import * as Rx from 'rxjs';
+// Lettable operators
+// https://github.com/ReactiveX/rxjs/blob/master/doc/lettable-operators.md
 import * as RxOperators from 'rxjs/operators';
 // }}}
 
@@ -15,8 +19,12 @@ import * as colors from './colors';
 
 const availablePackages = [
     { // RxJS
-        name: 'rxjs/Rx',
+        name: 'rxjs',
         load: () => Rx
+    },
+    { // RxJS Compat
+        name: 'rxjs/Rx',
+        load: () => RxCompat
     },
     { // RxJS lettable operators
         name: 'rxjs/operators',

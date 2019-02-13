@@ -1,3 +1,5 @@
+import './mock-delayed-execution/';
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import GA from './GA';

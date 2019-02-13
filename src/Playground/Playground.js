@@ -91,12 +91,16 @@ export class Playground extends Component {
                 </div>
                 <div className="Playground__chart">
                     {
-                        showError
-                        && (<ErrorComponent error={ status }></ErrorComponent>)
+                        showError && (
+                            <React.Fragment>
+                                <ErrorComponent error={ status }></ErrorComponent>
+                                <br />
+                            </React.Fragment>
+                        )
                     }
                     {
-                        !showError
-                        && (<TimeLineChartComponent
+                        // !showError
+                        (<TimeLineChartComponent
                             time={time}
                             lines={lines}
                             viewHeight={this.props.height}
