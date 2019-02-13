@@ -20,10 +20,6 @@ export class GistsPageComponent extends Component {
     render(){
         return (
             <div className="GistsPage PageBlock">
-                <p>
-                    Enter Github Gist ID to load
-                </p>
-
                 <form target="#" onSubmit={ this.onSubmit }>
                     <input placeholder="Gist ID" name="gistId" autoComplete="off" />
                     <button type="submit">Open</button>

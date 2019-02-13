@@ -16,7 +16,7 @@ export class MenuComponent extends Component {
                     ))
                 }
 
-                <div className="Menu__library-name">
+                <div className="Menu__Gist">
                     <Link to="/gist">Gist</Link>
                 </div>
 
