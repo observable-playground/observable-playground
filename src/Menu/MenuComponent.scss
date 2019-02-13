@@ -8,16 +8,31 @@
 .Menu {
     color: $darkgray-color;
 
+    hr {
+        border-width: 0px;
+        border-bottom: 1px solid $lightgray-color;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
     &__examples {
         display: block;
         padding-bottom: 1rem;
     }
 
+    &__Gist {
+        color: $darkgray-color;
+    }
+
     &__library {
         &-name {
             @include row();
-            color: $lightgray-color;
-            border-bottom: $lightgray-color 1px solid;
+            color: $darkgray-color;
+            font-weight: bold;
+
         }
 
         &-version {

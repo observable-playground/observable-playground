@@ -1,11 +1,12 @@
 import React from 'react'
 import { Root, Routes } from 'react-static'
-import { Link } from '@reach/router'
+import { Router, Link } from '@reach/router'
 import { MenuComponent } from './Menu/MenuComponent.js';
 
 import { version as APP_VERSION } from '../package.json';
 
 import './App.css'
+import { GistContainer } from './Gist/Gist/Gist.container.js';
 
 const App = () => {
 
@@ -23,7 +24,11 @@ const App = () => {
     const body = ()=>(
         <div className="App__body">
             <div className="App__contents">
-                <Routes />
+                <Router>
+                    <Routes path="/gist" />
+                    <GistContainer path="/gist/:gistId" />
+                    <Routes default />
+                </Router>
             </div>
 
             <div className="App__menu">
