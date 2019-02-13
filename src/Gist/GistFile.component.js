@@ -10,7 +10,7 @@ export class GistFileComponent extends Component {
         return (
             <div className="GistFile">
                 <div className="GistFile__Name">{file.filename}</div>
-                <div className="GistFile__Content">{
+                <div>{
                     isJSFile
                     ? <PlaygroundWrapper
                         key={file.filename}

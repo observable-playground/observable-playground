@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { GistComponent } from './Gist.component';
 import axios from 'axios';
 
+const GIST_URL_PREFIX = 'https://gist.github.com/';
+
 export class GistContainer extends Component {
 
     constructor(props){
@@ -26,7 +28,9 @@ export class GistContainer extends Component {
 
     render(){
         if (this.state.loading) {
-            return <div>Loading...</div>
+            const {gistId} = this.props;
+            const gistUrl = GIST_URL_PREFIX + gistId;
+            return <div className="PageBlock">Loading Gist from <a href={ gistUrl } target="_blank">{ gistUrl }</a>...</div>
         }
 
         return <GistComponent data={ this.state.data }/>
