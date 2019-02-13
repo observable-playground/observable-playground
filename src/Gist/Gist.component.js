@@ -5,7 +5,8 @@ export class GistComponent extends Component {
     render(){
         const { data } = this.props;
         const { files } = data;
-        const fileValues = Object.values(files);
+        const fileValues = Object.values(files)
+            .sort((a,b)=> a.filename.localeCompare(b.filename));
 
         return (
             <React.Fragment>

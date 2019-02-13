@@ -3,6 +3,7 @@ import { GistComponent } from './Gist.component';
 import axios from 'axios';
 
 export class GistContainer extends Component {
+
     constructor(props){
         super(props);
         this.state = {
@@ -14,13 +15,13 @@ export class GistContainer extends Component {
     componentWillMount(){
         const { gistId } = this.props;
         axios
-            .get(`https://api.github.com/gists/${ gistId }`)
+            .get(`https://api.github.com/gists/${gistId}`)
             .then(response => {
                 this.setState({
                     loading: false,
                     data: response.data
                 });
-            })
+            });
     }
 
     render(){
