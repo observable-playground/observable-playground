@@ -6,7 +6,7 @@ import { MenuComponent } from './Menu/MenuComponent.js';
 import { version as APP_VERSION } from '../package.json';
 
 import './App.css'
-import { GistContainer } from './Gist/Gist.container.js';
+import { GistContainer } from './Gist/Gist/Gist.container.js';
 
 const App = () => {
 

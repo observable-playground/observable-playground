@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper'
+import { PlaygroundWrapper } from '../../Playground/PlaygroundWrapper'
 import './GistFile.css';
 
 export class GistFileComponent extends Component {

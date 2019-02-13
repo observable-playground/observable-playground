@@ -1,4 +1,5 @@
 import React from 'react';
+import { GistsPageComponent } from '../Gist/Gists.page';
 
 export default () =>
-    <div>description how to add gists</div>
+    <GistsPageComponent />
