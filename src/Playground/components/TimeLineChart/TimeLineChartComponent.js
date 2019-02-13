@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import * as d3 from 'd3';
 import './TimeLineChartComponent.css';
 
-const VIEW_WIDTH = 460;  // TODO: read actual width
-const VIEW_HEIGHT = 500; // TODO: read actual height
+const DEFAULT_VIEW_WIDTH = 460;  // TODO: read actual width
+const DEFAULT_VIEW_HEIGHT = 500; // TODO: read actual height
 
 const colorPallete = ["#03a9f4", "#ffeb3b", "#8bc34a", "#00bcd4", "#ff9800", "#ff5073", "#4caf50", "#2196f3", "#33cf89", "#4e86ff", "#009688", "#cddc39", "#ffc107"]
 
@@ -24,6 +24,9 @@ export class TimeLineChartComponent extends Component {
 
     createChart() {
         const node = this.node;
+
+        const VIEW_HEIGHT = this.props.viewHeight || DEFAULT_VIEW_HEIGHT;
+        const VIEW_WIDTH = DEFAULT_VIEW_WIDTH;
 
         // TODO: scale vert
         const EVENT_RADIUS = 17;
@@ -196,6 +199,9 @@ export class TimeLineChartComponent extends Component {
     }
 
     render() {
+        const VIEW_HEIGHT = this.props.viewHeight || DEFAULT_VIEW_HEIGHT;
+        const VIEW_WIDTH = DEFAULT_VIEW_WIDTH;
+
         return (
             <svg
                 className="TimeLineChartComponent"

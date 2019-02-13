@@ -7,7 +7,7 @@
 import Rx from 'rxjs/Rx';
 // NOTE: 'rxjs/operators' is needed to load lettable operators
 //       https://github.com/ReactiveX/rxjs/blob/master/doc/lettable-operators.md
-import RxOperators from 'rxjs/operators';
+import * as RxOperators from 'rxjs/operators';
 // }}}
 
 import rpApi from './rp-api';
@@ -42,7 +42,7 @@ class PackageNotSupportedError extends Error {
     }
 }
 
-const require = name => {
+const _require = name => {
     const pkg = availablePackages.find(x=>x.name === name);
     if (pkg === undefined) {
         throw new PackageNotSupportedError(name);
@@ -50,4 +50,4 @@ const require = name => {
     return pkg.load();
 }
 
-export { require };
+export { _require };

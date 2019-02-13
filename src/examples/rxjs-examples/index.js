@@ -46,6 +46,7 @@ const examples =
 export const library = {
     name: 'RxJS',
     version: RXJS_VERSION,
+    description: 'Reactive Extensions For JavaScript',
     examples,
     groups:
         [   { name: 'Creation'

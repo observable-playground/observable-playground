@@ -4,7 +4,7 @@ import { execute } from '../mock-delayed-execution';
 import { EditorComponent } from './components/Editor/EditorComponent';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
-import { require } from './../playground-api/require';
+import { _require } from './../playground-api/require';
 import * as chartState from '../playground-api/state';
 
 const MAX_EXECUTION_TIME = 1000; // 1 sec is max execution time for scripts
@@ -46,7 +46,7 @@ export class Playground extends Component {
             let result = execute(() => {
                 // eslint-disable-next-line no-new-func
                 const fn = Function('require', sourceCode);
-                fn(require);
+                fn(_require);
             }, MAX_EXECUTION_TIME);
 
             execStatus = result.status;
@@ -84,6 +84,7 @@ export class Playground extends Component {
                 <div className="Playground__editor">
                     <EditorComponent
                         value={ value }
+                        viewHeight={this.props.height}
                         defaultValue={ defaultValue }
                         onChange={ this.onChange }
                     ></EditorComponent>
@@ -95,7 +96,11 @@ export class Playground extends Component {
                     }
                     {
                         !showError
-                        && (<TimeLineChartComponent time={time} lines={lines} ></TimeLineChartComponent>)
+                        && (<TimeLineChartComponent
+                            time={time}
+                            lines={lines}
+                            viewHeight={this.props.height}
+                            ></TimeLineChartComponent>)
                     }
                 </div>
             </div>

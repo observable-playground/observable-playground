@@ -7,6 +7,12 @@ import 'brace/theme/monokai';
 
 export class EditorComponent extends Component {
     render() {
+        const height
+            = this.props.viewHeight
+            ? (this.props.viewHeight + 'px')
+            : '500px'
+            ;
+
         return (
             <AceEditor
                 className="EditorComponent"
@@ -19,6 +25,7 @@ export class EditorComponent extends Component {
                 value={ this.props.value }
 
                 width="100%"
+                height={ height }
 
                 showGutter={true}
                 tabSize={2}

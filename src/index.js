@@ -1,16 +1,31 @@
-// NOTE: [kos] importing this module first to substite delayed api, like
-//       before other modules close on them
-// WARN: [kos] this substitutes global .setTimeout, .setInterval
-import './mock-delayed-execution';
-// NOTE: [kos] importing this to stabilize [].sort
-// WARN: [kos] this substitutes Array.prototype.sort
-import './array-sort-stable';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import GA from './GA';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// Your top level component
+import App from './App'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+// Export your top level component as JSX (for static rendering)
+export default App
+
+// Render your app
+if (typeof document !== 'undefined') {
+  const renderMethod = module.hot
+    ? ReactDOM.render
+    : ReactDOM.hydrate || ReactDOM.render
+
+  const render = Comp => {
+    renderMethod(<Comp />, document.getElementById('root'))
+  }
+
+  // GA
+  GA();
+
+  // Render!
+  render(App);
+
+  // Hot Module Replacement
+  if (module.hot) {
+    module.hot.accept('./App', () => render(require('./App').default))
+  }
+}

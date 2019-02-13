@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MenuComponent.css';
 import { menu as examplesMenu } from '../examples';
-import { NavLink } from 'react-router-dom';
+import { Link } from '@reach/router'
 
 export class MenuComponent extends Component {
     render() {
@@ -18,12 +18,11 @@ export class MenuComponent extends Component {
                                         <ul className="Menu__group-contents">
                                             { group.items.map(item => (
                                                 <li key={ item }>
-                                                    <NavLink
+                                                    <Link
                                                         to={`/${root.handle}/${item}`}
                                                         className="Menu__item"
-                                                        activeClassName="Menu__item_active"
                                                         key={item}
-                                                    >{item}</NavLink>
+                                                    >{item}</Link>
                                                 </li>
                                             ))}
                                         </ul>
@@ -38,11 +37,6 @@ export class MenuComponent extends Component {
                     ))}
                 </ul>
 
-                <NavLink
-                    to={'/about'}
-                    className="Menu__item"
-                    activeClassName="Menu__item_active"
-                >About</NavLink>
             </div>
         );
     }

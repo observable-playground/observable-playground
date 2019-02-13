@@ -1,68 +1,52 @@
-import React, { Component } from 'react';
-import './App.css';
-import {
-    HashRouter as Router,
-    Route,
-    Redirect,
-    NavLink
-} from 'react-router-dom';
-import { MenuComponent } from './Menu/MenuComponent';
-import { AboutComponent } from './About/AboutComponent';
-import { PlaygroundRoutingContainer } from './Playground/PlaygroundRoutingContainer';
-import Switch from 'react-router-dom/Switch';
+import React from 'react'
+import { Root, Routes } from 'react-static'
+import { Link } from '@reach/router'
+import { MenuComponent } from './Menu/MenuComponent.js';
+
 import { version as APP_VERSION } from '../package.json';
 
-class App extends Component {
-    render() {
-        const redirectToDefaultExample = ()=>(
-            <Redirect to={{ pathname: '/rxjs/interval' }} />
-        );
+import './App.css'
 
-        const header = ()=>(
-            <div className="App__header">
-                <NavLink
-                    to={ '/' }
-                    className="App__logo"
-                >
-                    <span className="App__logo_main">Observable</span> Playground
-                </NavLink>
+const App = () => {
+
+  const header = ()=>(
+        <div className="App__header">
+            <Link 
+                to="/"
+                className="App__logo"
+            >
+                <span className="App__logo_main">Observable</span> Playground
+            </Link>
+        </div>
+    );
+
+    const body = ()=>(
+        <div className="App__body">
+            <div className="App__contents">
+                <Routes />
             </div>
-        );
 
-        const body = ()=>(
-            <div className="App__body">
-                <div className="App__menu">
-                    <MenuComponent></MenuComponent>
-                </div>
-
-                <div className="App__contents">
-                    <Switch>
-                        <Route exact path={ '/' } render={ redirectToDefaultExample }/>
-                        <Route path='/about' component={ AboutComponent }/>
-                        <Route path='/:libraryHandle/:exampleHandle' component={ PlaygroundRoutingContainer }/>
-                        <Route render={ redirectToDefaultExample }/>
-                    </Switch>
-
-                </div>
+            <div className="App__menu">
+                <MenuComponent />
             </div>
-        );
+        </div>
+    );
 
-        const footer = ()=>(
-            <div className="App__footer">
-                v{ APP_VERSION }
+    const footer = ()=>(
+        <div className="App__footer">
+            v{ APP_VERSION }
+        </div>
+    );
+
+    return (
+        <Root>
+            <div className="App">
+                { header() }
+                { body() }
+                { footer() }
             </div>
-        );
-
-        return (
-            <Router>
-                <div className="App">
-                    { header() }
-                    { body() }
-                    { footer() }
-                </div>
-            </Router>
-        );
-    }
+        </Root>
+    );
 }
 
-export default App;
+export default App
