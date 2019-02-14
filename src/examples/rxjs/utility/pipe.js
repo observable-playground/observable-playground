@@ -12,5 +12,5 @@ Observable
     filter(x=>x%2),
     take(5)
   )
-  .subscribe(chart.createObserver());
+  .subscribe(chart.createRxObserver());
 `;

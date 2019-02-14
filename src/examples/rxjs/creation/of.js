@@ -4,5 +4,5 @@ const { Observable } = require('rxjs/Rx');
 
 Observable
   .of(1)
-  .subscribe(chart.createObserver());
+  .subscribe(chart.createRxObserver());
 `;

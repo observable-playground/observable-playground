@@ -37,5 +37,19 @@ const createObserver = () => {
     }
 }
 
-const chart = { createObserver };
+const createRxObserver = () => {
+    const { next, error, complete } = createObserver();
+    return { next, error, complete };
+}
+
+const createKefirObserver = () => {
+    const { next, error, complete } = createObserver();
+    return { value: next, error, end: complete };
+}
+
+const chart = { 
+    createObserver,
+    createRxObserver,
+    createKefirObserver
+};
 export default chart;

@@ -15,5 +15,5 @@ const source$ = new Observable(observer=>{
 
 source$
   .take(5)
-  .subscribe(chart.createObserver());
+  .subscribe(chart.createRxObserver());
 `;

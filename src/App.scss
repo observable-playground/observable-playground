@@ -21,7 +21,7 @@ $leftmenu-width: 10rem;
             font-weight: bold;
         }
 
-        &:hover {
+        &:hover, &.active {
             .App__logo_main {
                 color: $active-color;
             }

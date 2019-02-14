@@ -10,11 +10,17 @@ import { GistContainer } from './Gist/Gist/Gist.container.js';
 
 const App = () => {
 
-  const header = ()=>(
+    const isLinkHeaderActive = 
+        ({ isCurrent }) =>
+            isCurrent
+            ? { className: "App__logo active" }
+            : { className: "App__logo" };
+
+    const header = () => (
         <div className="App__header">
             <Link 
                 to="/"
-                className="App__logo"
+                getProps={ isLinkHeaderActive }
             >
                 <span className="App__logo_main">Observable</span> Playground
             </Link>

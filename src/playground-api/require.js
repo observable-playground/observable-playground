@@ -4,10 +4,18 @@
  */
 
 // RxJS {{{
-import Rx from 'rxjs/Rx';
-// NOTE: 'rxjs/operators' is needed to load lettable operators
-//       https://github.com/ReactiveX/rxjs/blob/master/doc/lettable-operators.md
+// Compatibility package
+// https://github.com/ReactiveX/rxjs/tree/master/compat
+import * as RxCompat from 'rxjs/Rx';
+// Regular
+import * as Rx from 'rxjs';
+// Lettable operators
+// https://github.com/ReactiveX/rxjs/blob/master/doc/lettable-operators.md
 import * as RxOperators from 'rxjs/operators';
+// }}}
+
+// Kefir.js {{{
+import Kefir from 'kefir';
 // }}}
 
 import rpApi from './rp-api';
@@ -15,14 +23,22 @@ import * as colors from './colors';
 
 const availablePackages = [
     { // RxJS
-        name: 'rxjs/Rx',
+        name: 'rxjs',
         load: () => Rx
+    },
+    { // RxJS Compat
+        name: 'rxjs/Rx',
+        load: () => RxCompat
     },
     { // RxJS lettable operators
         name: 'rxjs/operators',
         load: () => RxOperators
     },
 
+    { // Kefir
+        name: 'kefir',
+        load: () => Kefir
+    },
 
     { // chart api
         name: 'rp-api',

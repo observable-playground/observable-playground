@@ -12,13 +12,13 @@ const cold$ = Observable.timer(0, 5)
 const hot$ =  cold$.share();
 
 // creating observers for cold$
-const a = chart.createObserver();
-const b = chart.createObserver();
+const a = chart.createRxObserver();
+const b = chart.createRxObserver();
 cold$.take(5).subscribe(a);
 
 // creating observers for hot$
-const c = chart.createObserver();
-const d = chart.createObserver();
+const c = chart.createRxObserver();
+const d = chart.createRxObserver();
 hot$.take(5).subscribe(c);
 
 // delayed subscriptions

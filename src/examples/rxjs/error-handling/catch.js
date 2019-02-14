@@ -14,6 +14,6 @@ const catch$ = error$
   .catch(err => Observable.of(err));
 
 
-error$.subscribe(chart.createObserver());
-catch$.subscribe(chart.createObserver());
+error$.subscribe(chart.createRxObserver());
+catch$.subscribe(chart.createRxObserver());
 `;

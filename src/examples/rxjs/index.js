@@ -22,7 +22,7 @@ import pipe from            './utility/pipe';
 
 // read the lib version
 import { dependencies } from '../../../package.json';
-const RXJS_VERSION = dependencies.rxjs;
+const LIB_VERSION = dependencies.rxjs;
 
 
 const examples =
@@ -45,7 +45,7 @@ const examples =
 
 export const library = {
     name: 'RxJS',
-    version: RXJS_VERSION,
+    version: LIB_VERSION,
     description: 'Reactive Extensions For JavaScript',
     examples,
     groups:

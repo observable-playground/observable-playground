@@ -1,11 +1,13 @@
 export default
 `const { chart } = require('rp-api');
-const { Observable } = require('rxjs/Rx');
+const { timer } = require('rxjs');
+const { take, map } = require('rxjs/operators');
 
 const msg = 'awesome';
 
-Observable
-  .timer(0, 5)
-  .take(msg.length)
-  .map(index=>msg[index])
-  .subscribe(chart.createObserver());`;
+timer(0, 5)
+  .pipe(
+    take(msg.length),
+    map(index=>msg[index])
+  )
+  .subscribe(chart.createRxObserver());`;

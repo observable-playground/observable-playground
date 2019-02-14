@@ -54,6 +54,8 @@ const originals = Object.create(null);
 const mocks     = Object.create(null);
 let isMockMode = false;
 
+const DEBUG_MODE = false;
+
 // Methods to override
 const overridies =
     [ 'Date'
@@ -69,12 +71,14 @@ overridies
     .filter(key=>glob[key] !== undefined)
     .forEach(key=>{
         originals[key] = glob[key];
+
         glob[key] = function MockSub(...args){
             const mock = mocks[key];
             const original = originals[key];
 
             // Run mocks only in MockMode
             const fn = isMockMode ? mock : original;
+            // const fn = original;
 
             // Keep the behaviour for `new Date()` vs `Date()`
             if (this instanceof MockSub) {
@@ -93,6 +97,9 @@ if (originals.Date && originals.Date.now) {
     };
 }
 // }}}
+
+// NOTE: importing Promises here, so that other mocks are in place
+glob.Promise = require('./Promise.mock').Promise;
 
 /**
  * Runs a function within mocked env
@@ -121,29 +128,37 @@ function execute(fn, maxLifetime = ONE_MINUTE){
 
     // Helper to create ids to setTimeout and setInterval
     const getId = (()=>{
-        let id = 0;
+        // NOTE: id should be positive integer, and this is important.
+        let id = 1;
         return ()=>id++;
     })();
 
     // intervals and timeouts are tasks
-    const createTask = (timeout) => (
+    const createTask = (timeout, type) => (
         { id: getId()
         , time
         , registeredAt: time
         , timeout
+        , type
         });
 
     const addTask = (task) => {
+        if (DEBUG_MODE) {
+            console.log('[+]', task.id, task);
+        }
         tasks.push(task);
     };
 
     const clearTask = id => {
+        if (DEBUG_MODE) {
+            console.log('[-]', id);
+        }
         tasks = tasks.filter(x=>x.id!==id);
     }
 
     // setInterval {{{
     mocks.setInterval = (cb, timeout, ...args)=>{
-        const task = createTask(timeout);
+        const task = createTask(timeout, 'interval');
 
         task.fn = ()=>{
             // updates last executed time on each execution
@@ -159,7 +174,7 @@ function execute(fn, maxLifetime = ONE_MINUTE){
 
     // setTimeout {{{
     mocks.setTimeout = (cb, timeout, ...args)=>{
-        const task = createTask(timeout);
+        const task = createTask(timeout, 'timeout');
 
         task.fn = ()=>{
             clearTimeout(task.id);
@@ -171,6 +186,9 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     }
     mocks.clearTimeout = clearTask;
     // }}}
+
+    const Promise = glob.Promise;
+    glob.Promise = void 0;
 
     // requestAnimationFrame {{{
     mocks.requestAnimationFrame = () => { throw new Error('Sorry, `requestAnimationFrame` is not implemented yet'); };
@@ -200,6 +218,9 @@ function execute(fn, maxLifetime = ONE_MINUTE){
                 //       Add anti-infinite loop guard, like throttling
                 //       https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Reasons_for_delays_longer_than_specified
                 //       e.g. `timeout = Math.max(4, Number(timeout))`
+                if (DEBUG_MODE) {
+                    console.log('[>]', nextTask.id);
+                }
                 nextTask.fn();
             }
             time++;
@@ -218,6 +239,7 @@ function execute(fn, maxLifetime = ONE_MINUTE){
         isMockMode = false;
         // cleanup mocks
         overridies.forEach(key=>{ mocks[key] = null; });
+        glob.Promise = Promise;
     }
 
     return { time, status };
