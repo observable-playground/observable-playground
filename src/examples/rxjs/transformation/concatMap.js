@@ -20,13 +20,13 @@ const source$ = fromDelayed([ 5, 10, 20 ])
   .zip(palette$, Mark);
 
 const switch$ = source$
-  .switchMap(x=> Observable
-    .timer(0, 3)
-    .take(5)
+  .concatMap(x=> Observable
+    .interval(5)
+    .take(3)
     // inherit color from the source$ stream
     .map(y=>Mark(y, x.color)));
 
 
-source$.subscribe(chart.createObserver());
-switch$.subscribe(chart.createObserver());
+source$.subscribe(chart.createRxObserver());
+switch$.subscribe(chart.createRxObserver());
 `;

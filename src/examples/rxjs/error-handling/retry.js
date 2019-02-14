@@ -17,6 +17,6 @@ const errorColorized$ = error$
 
 const retry$ = errorColorized$.retry(2);
 
-error$.subscribe(chart.createObserver());
-retry$.subscribe(chart.createObserver());
+error$.subscribe(chart.createRxObserver());
+retry$.subscribe(chart.createRxObserver());
 `;

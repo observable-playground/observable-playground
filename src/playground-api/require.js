@@ -14,6 +14,10 @@ import * as Rx from 'rxjs';
 import * as RxOperators from 'rxjs/operators';
 // }}}
 
+// Kefir.js {{{
+import Kefir from 'kefir';
+// }}}
+
 import rpApi from './rp-api';
 import * as colors from './colors';
 
@@ -31,6 +35,10 @@ const availablePackages = [
         load: () => RxOperators
     },
 
+    { // Kefir
+        name: 'kefir',
+        load: () => Kefir
+    },
 
     { // chart api
         name: 'rp-api',

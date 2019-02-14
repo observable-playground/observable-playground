@@ -7,11 +7,11 @@ const { Observable } = require('rxjs/Rx');
 Observable
   .timer(10, 5)
   .take(4)
-  .subscribe(chart.createObserver());
+  .subscribe(chart.createRxObserver());
 
 // Will emit once
 Observable
   .timer(20)
   .take(10)
-  .subscribe(chart.createObserver());
+  .subscribe(chart.createRxObserver());
 `;

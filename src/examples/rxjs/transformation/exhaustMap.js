@@ -27,6 +27,6 @@ const switch$ = source$
     .map(y=>Mark(y, x.color)));
 
 
-source$.subscribe(chart.createObserver());
-switch$.subscribe(chart.createObserver());
+source$.subscribe(chart.createRxObserver());
+switch$.subscribe(chart.createRxObserver());
 `;

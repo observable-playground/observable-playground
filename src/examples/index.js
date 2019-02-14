@@ -1,6 +1,7 @@
-import { library as rxjs } from './rxjs-examples';
+import { library as rxjs } from './rxjs';
+import { library as kefir } from './kefir';
 
-export const libraries = { rxjs };
+export const libraries = { rxjs, kefir };
 
 export const menu = Object.keys(libraries)
     .map(key=>({
