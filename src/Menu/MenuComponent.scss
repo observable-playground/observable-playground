@@ -13,10 +13,15 @@
         border-bottom: 1px solid $lightgray-color;
     }
 
-    a {
+    &__Link {
         color: inherit;
         text-decoration: none;
+
+        &:hover, &.active {
+            color: $active-color;
+        }
     }
+
 
     &__examples {
         display: block;
@@ -24,6 +29,7 @@
     }
 
     &__Gist {
+        @include row();
         color: $darkgray-color;
     }
 
@@ -32,7 +38,6 @@
             @include row();
             color: $darkgray-color;
             font-weight: bold;
-
         }
 
         &-version {
@@ -46,7 +51,7 @@
     }
 
     &__group {
-        padding-bottom: 1rem;
+        padding-bottom: 0.5rem;
 
         &-name {
             color: $lightgray-color;
@@ -60,10 +65,6 @@
         color: $darkgray-color;
         text-decoration: none;
         white-space: nowrap;
-
-        &_active{
-            color: $active-color;
-        }
 
         &:hover {
             color: $active-color;
