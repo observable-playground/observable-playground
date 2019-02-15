@@ -1,14 +1,20 @@
 import React from 'react'
 import awesomeRxjsExample from '../examples/awesome-rxjs-example';
 import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
+import { Head } from 'react-static'
 
 import './index.css';
+import { ROOT_PAGE_TITLE_PREFIX as ROOT_PAGE_TITLE } from '../shared/consts';
 
 const ExternalLink = ({ href, text }) =>
     (<a href={href} target="_blank" rel="noopener noreferrer">{text || href}</a>);
 
 export default () =>
     <div className="Landing">
+        <Head>
+            <title>{ ROOT_PAGE_TITLE }</title>
+        </Head>
+
         <div className="PageBlock">
             <p>
                 Learn <ExternalLink href={ 'http://reactivex.io/rxjs/' } text={'RxJS'}/> before deploying to production (for great good, of cource)

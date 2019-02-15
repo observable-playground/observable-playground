@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { navigate } from "@reach/router"
+import { Head } from 'react-static'
 
 export class GistsPageComponent extends Component {
     constructor(props){
@@ -19,6 +20,10 @@ export class GistsPageComponent extends Component {
 
     render(){
         return (
+            <React.Fragment>
+            <Head>
+                <title>Shared github gist</title>
+            </Head>
             <div className="GistsPage PageBlock">
                 <form target="#" onSubmit={ this.onSubmit }>
                     <input placeholder="Gist ID" name="gistId" autoComplete="off" />
@@ -29,6 +34,7 @@ export class GistsPageComponent extends Component {
                     Scheme: <i>https://gist.github.com/name/<b>Gist_ID</b></i>
                 </p>
             </div>
+            </React.Fragment>
         )
     }
 }

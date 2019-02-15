@@ -1,7 +1,7 @@
 import React from 'react';
 import { menu as examplesMenu } from './src/examples/';
 import { homepage } from './package.json';
-import { PAGE_TITLE_PREFIX } from './src/shared/consts';
+import { ROOT_PAGE_TITLE_PREFIX } from './src/shared/consts';
 
 export default {
     siteRoot: homepage,
@@ -14,7 +14,7 @@ export default {
             .map(({ handle, library }) => {
                 return {
                     path: '/' + handle,
-                    component: 'src/containers/Library',
+                    component: 'src/dynamic-pages/Library',
                     getData: () => ({
                         handle,
                         library
@@ -24,7 +24,7 @@ export default {
                             .map(([key, value]) => {
                                 const route = {
                                     path: `/${key}`,
-                                    component: 'src/Playground/PlaygroundContainer',
+                                    component: 'src/dynamic-pages/Example',
                                     getData: () => ({
                                         libraryName: library.name,
                                         exampleName: key,
@@ -44,7 +44,7 @@ export default {
             <Head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-                <title>{ PAGE_TITLE_PREFIX }</title>
+                <title>{ ROOT_PAGE_TITLE_PREFIX }</title>
                 <meta name="description" content="Learn RxJS and play with Observables in online sandbox playground" />
 
                 {/* manifest.json provides metadata used when your web app is added to the
