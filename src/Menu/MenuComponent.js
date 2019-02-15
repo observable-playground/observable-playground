@@ -43,7 +43,7 @@ export class MenuComponent extends Component {
                         <div key={root.handle} className="Menu__library-name">
                             <Link
                                 getProps={ this.isLinkActive }
-                                to={ '/' + root.handle }
+                                to={ '/' + root.handle + '/' }
                                 >{root.library.name}</Link>
                             <span className="Menu__library-version">v{root.library.version}</span>
                         </div>
@@ -53,7 +53,7 @@ export class MenuComponent extends Component {
                 <div className="Menu__Gist">
                     <Link
                         getProps={ this.isLinkActive }
-                        to="/gist"
+                        to="/gist/"
                         >Load a gist</Link>
                 </div>
 
