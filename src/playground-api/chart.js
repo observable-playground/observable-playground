@@ -47,9 +47,27 @@ const createKefirObserver = () => {
     return { value: next, error, end: complete };
 }
 
+const createBaconObserver = () => {
+    const { next, error, complete } = createObserver();
+
+    return (event) => {
+        if (event.isNext) {
+            return next(event.value);
+        }
+        if (event.isError) {
+            return error(event.value);
+        }
+        if (event.isEnd) {
+            return complete();
+        }
+    }
+
+}
+
 const chart = { 
     createObserver,
     createRxObserver,
-    createKefirObserver
+    createKefirObserver,
+    createBaconObserver
 };
 export default chart;

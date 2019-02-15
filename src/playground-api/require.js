@@ -14,8 +14,12 @@ import * as Rx from 'rxjs';
 import * as RxOperators from 'rxjs/operators';
 // }}}
 
-// Kefir.js {{{
-import Kefir from 'kefir';
+// baconjs {{{
+import baconjs from 'baconjs';
+// }}}
+
+// kefirjs {{{
+import kefir from 'kefir';
 // }}}
 
 import rpApi from './rp-api';
@@ -35,9 +39,14 @@ const availablePackages = [
         load: () => RxOperators
     },
 
-    { // Kefir
+    { // Bacon
+        name: 'baconjs',
+        load: () => baconjs
+    },
+
+    { // kefir
         name: 'kefir',
-        load: () => Kefir
+        load: () => kefir
     },
 
     { // chart api
