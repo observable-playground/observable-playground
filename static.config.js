@@ -5,8 +5,8 @@ import { ROOT_PAGE_TITLE_PREFIX } from './src/shared/consts';
 
 export default {
     siteRoot: homepage,
-    getSiteData: () => ({
-        title: 'Observable Playground',
+    getSiteData: ({ dev }) => ({
+        dev
     }),
 
     getRoutes: async () => {
@@ -58,8 +58,8 @@ export default {
                         - remove % NODE_ENV % reference from here
                     Global site tag (gtag.js) - Google Analytics */}
                 {
-                    ('%NODE_ENV%' === 'production')
-                        && <script async={true} src="https://www.googletagmanager.com/gtag/js?id=UA-40041298-4" />
+                    !siteData.dev
+                        && <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-40041298-4" />
                 }
                 {/* GOOGLE ANALYTICS }}} */}
             </Head>
