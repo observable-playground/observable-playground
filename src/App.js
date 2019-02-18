@@ -2,6 +2,8 @@ import React from 'react'
 import { Root, Routes } from 'react-static'
 import { Router, Link } from '@reach/router'
 import { MenuComponent } from './Menu/MenuComponent.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import { version as APP_VERSION } from '../package.json';
 
@@ -24,6 +26,13 @@ const App = () => {
             >
                 <span className="App__logo_main">Observable</span> Playground
             </Link>
+
+            <a
+                target="_blank"
+                className="App__github-link"
+                title="Open GitHub project page"
+                href="https://github.com/observable-playground/observable-playground"
+            ><FontAwesomeIcon icon={faGithub} /></a>
         </div>
     );
 

@@ -9,7 +9,7 @@ $leftmenu-width: 10rem;
     margin: auto;
 
     &__header {
-        padding: 1.3rem 0 1rem $leftmenu-width;;
+        padding: 1.3rem 10px 1rem $leftmenu-width;
     }
 
     &__logo {
@@ -25,6 +25,16 @@ $leftmenu-width: 10rem;
             .App__logo_main {
                 color: $active-color;
             }
+        }
+    }
+
+    &__github-link {
+        float:right;
+        font-size: 1.2rem;
+        color: $darkgray-color;
+
+        &:hover {
+            color: #000;
         }
     }
 
