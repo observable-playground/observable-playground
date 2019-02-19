@@ -5,18 +5,22 @@ import timer from           './creation/timer';
 import _of from             './creation/of';
 import _constructor from    './creation/constructor';
 // Combination
-import zip from './combination/zip';
+import zip from             './combination/zip';
+import forkJoin from        './combination/forkJoin';
+import combineLatest from   './combination/combineLatest';
 // Transformation
 import mergeMap from        './transformation/mergeMap';
 import switchMap from       './transformation/switchMap';
 import exhaustMap from      './transformation/exhaustMap';
-import concatMap from      './transformation/concatMap';
+import concatMap from       './transformation/concatMap';
 // Error handling
 import _catch from          './error-handling/catch';
 import retry from           './error-handling/retry';
 // Multicasting
 import share from           './multicasting/share';
 // Utility
+import tap from             './utility/tap';
+import finalize from        './utility/finalize';
 import delay from           './utility/delay';
 import pipe from            './utility/pipe';
 
@@ -34,13 +38,19 @@ const examples =
     , mergeMap
     , switchMap
     , exhaustMap
-    , delay
-    , pipe
+    , concatMap
     , 'catch': _catch
     , retry
     , share
+
     , zip
-    , concatMap
+    , forkJoin
+    , combineLatest
+
+    , tap
+    , finalize
+    , delay
+    , pipe
     };
 
 export const library = {
@@ -62,6 +72,8 @@ export const library = {
         ,   { name: 'Combination'
             , items:
                 [ 'zip'
+                , 'forkJoin'
+                , 'combineLatest'
                 ]
             }
 
@@ -89,7 +101,9 @@ export const library = {
 
         ,   { name: 'Utility'
             , items:
-                [ 'delay'
+                [ 'tap'
+                , 'finalize'
+                , 'delay'
                 , 'pipe'
                 ]
             }
