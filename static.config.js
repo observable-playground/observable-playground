@@ -5,6 +5,7 @@ import { ROOT_PAGE_TITLE_PREFIX } from './src/shared/consts';
 
 export default {
     siteRoot: homepage,
+    basePath: '',
     getSiteData: ({ dev }) => ({
         dev
     }),
@@ -44,6 +45,7 @@ export default {
             <Head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+                <base  href="/" />
                 <title>{ ROOT_PAGE_TITLE_PREFIX }</title>
 
                 {/* manifest.json provides metadata used when your web app is added to the
