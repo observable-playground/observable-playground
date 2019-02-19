@@ -157,8 +157,11 @@ export class TimeLineChartComponent extends Component {
                 .append('text')
                 .attr('text-anchor', 'middle')
                 .attr('y', 5)
-                .text(d => print(d.value))
-                .attr('title', d => print(d.value));
+                .text(d => print(d.value));
+
+            eventMarks
+                .append('title')
+                .text(d => print(d.value));
             // }}}
 
             const errorMarks = lineg
@@ -168,9 +171,10 @@ export class TimeLineChartComponent extends Component {
                 .append('g')
                 .attr('class', 'error')
                 .attr('transform', d => `translate( ${ xScale(d.time) }, 0)`);
-            
+
             errorMarks
-                .attr('title', d => print(d.value));
+                .append('title')
+                .text(d => print(d.value));
 
             errorMarks
                 .append('line')
