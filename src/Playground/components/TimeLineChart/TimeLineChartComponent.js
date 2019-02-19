@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 import './TimeLineChartComponent.css';
+import { palette } from '../../../shared/consts';
+import { print } from './print';
 
 const DEFAULT_VIEW_WIDTH = 460;  // TODO: read actual width
 const DEFAULT_VIEW_HEIGHT = 500; // TODO: read actual height
-
-const colorPallete = ["#03a9f4", "#ffeb3b", "#8bc34a", "#00bcd4", "#ff9800", "#ff5073", "#4caf50", "#2196f3", "#33cf89", "#4e86ff", "#009688", "#cddc39", "#ffc107"]
-
 
 export class TimeLineChartComponent extends Component {
     constructor(props) {
@@ -151,24 +150,15 @@ export class TimeLineChartComponent extends Component {
                         return d.value.color;
                     }
 
-                    return colorPallete[index % colorPallete.length]
+                    return palette[index % palette.length]
                 });
 
             eventMarks
                 .append('text')
                 .attr('text-anchor', 'middle')
                 .attr('y', 5)
-                .text(d => {
-                    if (d.value == null){
-                        return '';
-                    }
-
-                    if (typeof d.value === 'object') {
-                        return d.value.value;
-                    }
-
-                    return d.value;
-                });
+                .text(d => print(d.value))
+                .attr('title', d => print(d.value));
             // }}}
 
             const errorMarks = lineg
@@ -180,7 +170,7 @@ export class TimeLineChartComponent extends Component {
                 .attr('transform', d => `translate( ${ xScale(d.time) }, 0)`);
             
             errorMarks
-                .attr('title', d=>d.value);
+                .attr('title', d => print(d.value));
 
             errorMarks
                 .append('line')
