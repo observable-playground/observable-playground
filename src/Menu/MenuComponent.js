@@ -37,7 +37,7 @@ export class MenuComponent extends Component {
 
     render() {
         return (
-            <div className="Menu">
+            <nav className="Menu">
                 {
                     examplesMenu.map(root => (
                         <div key={root.handle} className="Menu__library-name">
@@ -73,7 +73,7 @@ export class MenuComponent extends Component {
                     ))}
                 </ul>
 
-            </div>
+            </nav>
         );
     }
 }

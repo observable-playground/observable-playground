@@ -1,15 +1,15 @@
 export default
-`const { chart } = require('rp-api');
+`const { rxObserver } = require('api/v0.3');
 const { Observable } = require('rxjs/Rx');
 
 Observable
   .timer(0, 10)
   .take(5)
-  .subscribe(chart.createRxObserver());
+  .subscribe(rxObserver());
 
 Observable
   .timer(0, 10)
   .delay(15)
   .take(5)
-  .subscribe(chart.createRxObserver());
+  .subscribe(rxObserver());
 `;

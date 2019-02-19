@@ -1,5 +1,5 @@
 module.exports =
-`const { chart } = require('rp-api');
+`const { rxObserver } = require('api/v0.3');
 const { palette } = require('rp-api/colors');
 const { Observable } = require('rxjs/Rx');
 
@@ -7,18 +7,18 @@ const palette$ = Observable.from(palette);
 
 const cold$ = Observable.timer(0, 5)
   // add color to items
-  .zip(palette$, (value,color)=>({value, color}));
+  .zip(palette$, (value,color)=>({ valueOf(){ return value; }, color}));
 
 const hot$ =  cold$.share();
 
 // creating observers for cold$
-const a = chart.createRxObserver();
-const b = chart.createRxObserver();
+const a = rxObserver();
+const b = rxObserver();
 cold$.take(5).subscribe(a);
 
 // creating observers for hot$
-const c = chart.createRxObserver();
-const d = chart.createRxObserver();
+const c = rxObserver();
+const d = rxObserver();
 hot$.take(5).subscribe(c);
 
 // delayed subscriptions

@@ -1,5 +1,6 @@
-const createLine = () => {
+const createLine = (lineName) => {
     return {
+        lineName,
         start:  Date.now(),
         end:    undefined,
         events: [],

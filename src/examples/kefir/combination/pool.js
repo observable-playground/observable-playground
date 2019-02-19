@@ -1,5 +1,5 @@
 export default
-`const { chart } = require('rp-api');
+`const { kefirObserver } = require('api/v0.3');
 const Kefir = require('kefir');
 
 let a,b,c;
@@ -14,7 +14,7 @@ pool.plug(a);
 pool.plug(b);
 pool.plug(c);
 
-a.observe(chart.createKefirObserver());
-b.observe(chart.createKefirObserver());
-c.observe(chart.createKefirObserver());
-pool.observe(chart.createKefirObserver());`
+a.observe(kefirObserver());
+b.observe(kefirObserver());
+c.observe(kefirObserver());
+pool.observe(kefirObserver('pool'));`

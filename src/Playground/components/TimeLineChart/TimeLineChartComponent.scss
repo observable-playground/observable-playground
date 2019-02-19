@@ -21,6 +21,10 @@ $stroke-width: 2px;
     }
 
     .thread {
+        .lineTitle {
+            fill: $darkgray-color;
+        }
+
         line {
             stroke: $stroke-color;
             stroke-width: $stroke-width;

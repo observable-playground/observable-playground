@@ -1,9 +1,9 @@
 export default
-`const { chart } = require('rp-api');
+`const { baconObserver } = require('api/v0.3');
 const Bacon = require('baconjs');
 
 Bacon
   .interval(5, '+')
   .take(5)
-  .subscribe(chart.createBaconObserver());
+  .subscribe(baconObserver());
 `
