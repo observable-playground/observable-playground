@@ -63,6 +63,8 @@ const overridies =
     , 'clearTimeout'
     , 'setInterval'
     , 'clearInterval'
+    , 'setImmediate'
+    , 'clearImmediate'
     , 'requestAnimationFrame'
     , 'cancelAnimationFrame'
     ];
@@ -98,8 +100,28 @@ if (originals.Date && originals.Date.now) {
 }
 // }}}
 
-// NOTE: importing Promises here, so that other mocks are in place
-glob.Promise = require('./Promise.mock').Promise;
+// NOTE: This polyfill is needed to mock original Promise, because original is
+// **async**, while we need it to be **sync** when executing code.
+
+// This particular implementation from ["promise-polyfill":
+// "8.1.0"](https://github.com/taylorhakes/promise-polyfill) stores links to
+// `setTimeout` and usage of `setImmediate` in scope. and uses
+// Promise._immediateFn to execute tasks.
+
+// Substituting this method to make it sync while executing user code. source:
+// https://github.com/taylorhakes/promise-polyfill/blob/master/src/index.js#L225
+glob.Promise = require('promise-polyfill').default;
+glob.Promise._immediateFn = (fn) => {
+    if (isMockMode) {
+        return setTimeout(fn, 0);
+    }
+
+    if (typeof setImmediate == 'function') {
+        return setImmediate(fn);
+    }
+
+    return setTimeout(fn, 0);
+}
 
 /**
  * Runs a function within mocked env
@@ -172,6 +194,21 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     mocks.clearInterval = clearTask;
     // }}}
 
+    // setImmediate {{{
+    mocks.setImmediate = (cb, ...args)=>{
+        const task = createTask(0, 'timeout');
+
+        task.fn = ()=>{
+            clearTimeout(task.id);
+            cb(...args);
+        };
+
+        addTask(task);
+        return task.id;
+    }
+    mocks.clearImmediate = clearTask;
+    // }}}
+
     // setTimeout {{{
     mocks.setTimeout = (cb, timeout, ...args)=>{
         const task = createTask(timeout, 'timeout');
@@ -186,9 +223,6 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     }
     mocks.clearTimeout = clearTask;
     // }}}
-
-    const Promise = glob.Promise;
-    glob.Promise = void 0;
 
     // requestAnimationFrame {{{
     mocks.requestAnimationFrame = () => { throw new Error('Sorry, `requestAnimationFrame` is not implemented yet'); };
@@ -230,19 +264,33 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     };
 
     let status;
+    const CONSOLE_GROUP = '⚡️';
     try {
         time = 0;
-        isMockMode = true;
+        enableMocks();
+        if (console && console.group) {
+            console.group(CONSOLE_GROUP);
+        }
         fn();
         status = flush();
     } finally {
-        isMockMode = false;
-        // cleanup mocks
-        overridies.forEach(key=>{ mocks[key] = null; });
-        glob.Promise = Promise;
+        disableMocks();
+        if (console && console.groupEnd) {
+            console.groupEnd(CONSOLE_GROUP);
+        }
     }
 
     return { time, status };
+}
+
+function enableMocks() {
+    isMockMode = true;
+}
+
+function disableMocks(){
+    isMockMode = false;
+    // cleanup mocks
+    overridies.forEach(key => { mocks[key] = null; });
 }
 
 module.exports = {
