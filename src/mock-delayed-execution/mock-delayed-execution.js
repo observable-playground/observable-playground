@@ -100,6 +100,29 @@ if (originals.Date && originals.Date.now) {
 }
 // }}}
 
+// NOTE: This polyfill is needed to mock original Promise, because original is
+// **async**, while we need it to be **sync** when executing code.
+
+// This particular implementation from ["promise-polyfill":
+// "8.1.0"](https://github.com/taylorhakes/promise-polyfill) stores links to
+// `setTimeout` and usage of `setImmediate` in scope. and uses
+// Promise._immediateFn to execute tasks.
+
+// Substituting this method to make it sync while executing user code. source:
+// https://github.com/taylorhakes/promise-polyfill/blob/master/src/index.js#L225
+glob.Promise = require('promise-polyfill').default;
+glob.Promise._immediateFn = (fn) => {
+    if (isMockMode) {
+        return setTimeout(fn, 0);
+    }
+
+    if (typeof setImmediate == 'function') {
+        return setImmediate(fn);
+    }
+
+    return setTimeout(fn, 0);
+}
+
 /**
  * Runs a function within mocked env
  * 
@@ -242,28 +265,32 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     };
 
     let status;
+    const CONSOLE_GROUP = '⚡️';
     try {
         time = 0;
         enableMocks();
+        if (console && console.group) {
+            console.group(CONSOLE_GROUP);
+        }
         fn();
         status = flush();
     } finally {
-        isMockMode = false;
-        // cleanup mocks
         disableMocks();
+        if (console && console.groupEnd) {
+            console.groupEnd(CONSOLE_GROUP);
+        }
     }
 
     return { time, status };
 }
 
-let originalPromise = glob.Promise;
 function enableMocks() {
     isMockMode = true;
-    glob.Promise = require('./Promise/').default;
 }
 
 function disableMocks(){
-    glob.Promise = originalPromise;
+    isMockMode = false;
+    // cleanup mocks
     overridies.forEach(key => { mocks[key] = null; });
 }
 
