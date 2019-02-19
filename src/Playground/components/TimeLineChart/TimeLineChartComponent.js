@@ -104,7 +104,6 @@ export class TimeLineChartComponent extends Component {
             const lineHeight = lineTitleHeight + eventsHeight;
 
             accHeight += lineHeight + LINE_MARGIN_BOTTOM;
-            console.log(accHeight);
 
             const threadg = graph
                 .append('g')
