@@ -27,9 +27,12 @@ export class TimeLineChartComponent extends Component {
         const VIEW_HEIGHT = this.props.viewHeight || DEFAULT_VIEW_HEIGHT;
         const VIEW_WIDTH = DEFAULT_VIEW_WIDTH;
 
+        const LINE_TITLE_HEIGHT = 12;
+
         // TODO: scale vert
         const EVENT_RADIUS = 17;
         const LINE_HEIGHT = EVENT_RADIUS * 2;
+        const THREAD_HEIGHT = LINE_HEIGHT + LINE_TITLE_HEIGHT;
 
         const FIELD_PADDING = LINE_HEIGHT * 2;
 
@@ -90,14 +93,27 @@ export class TimeLineChartComponent extends Component {
             const events = line.events || [];
             const errors = line.errors || [];
             const stops  = line.stops  || [];
+            const lineName = line.lineName;
 
             // TODO: scale vert
-            const y = index * LINE_HEIGHT * 2;
+            const y = index * THREAD_HEIGHT * 2;
 
-            const lineg = graph
+            const threadg = graph
                 .append('g')
                 .attr('class', 'thread')
-                .attr('transform', d => `translate( 0, ${ y })`)
+                .attr('transform', () => `translate( 0, ${ y })`)
+
+            // Line title
+            threadg
+                .append('text')
+                .attr('class', 'lineTitle')
+                .attr('font-size', LINE_TITLE_HEIGHT)
+                .text(lineName);
+
+            const lineg = threadg
+                .append('g')
+                .attr('class', 'thread')
+                .attr('transform', () => `translate( 0, ${ LINE_TITLE_HEIGHT + LINE_HEIGHT / 2  })`)
 
             // Baseline
             lineg

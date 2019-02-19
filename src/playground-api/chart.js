@@ -1,8 +1,8 @@
 import * as chartStateProxy from './chart-state-proxy';
 import { createLine } from './line';
 
-const createObserver = () => {
-    const line = createLine();
+const createObserver = (lineName) => {
+    const line = createLine(lineName);
 
     const onNext = value => {
         line.events.push({
@@ -37,18 +37,18 @@ const createObserver = () => {
     }
 }
 
-const createRxObserver = () => {
-    const { next, error, complete } = createObserver();
+const createRxObserver = (lineName) => {
+    const { next, error, complete } = createObserver(lineName);
     return { next, error, complete };
 }
 
-const createKefirObserver = () => {
-    const { next, error, complete } = createObserver();
+const createKefirObserver = (lineName) => {
+    const { next, error, complete } = createObserver(lineName);
     return { value: next, error, end: complete };
 }
 
-const createBaconObserver = () => {
-    const { next, error, complete } = createObserver();
+const createBaconObserver = (lineName) => {
+    const { next, error, complete } = createObserver(lineName);
 
     return (event) => {
         if (event.isNext) {

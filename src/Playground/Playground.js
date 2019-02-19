@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Playground.css';
 import { execute } from '../mock-delayed-execution';
 import { EditorComponent } from './components/Editor/EditorComponent';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
 import { _require } from './../playground-api/require';
 import * as chartState from '../playground-api/state';
+import './Playground.css';
 
 const MAX_EXECUTION_TIME = 1000; // 1 sec is max execution time for scripts
 
@@ -53,7 +53,12 @@ export class Playground extends Component {
             execTime   = result.time;
         } catch (err) {
             console.error(err);
-            execStatus = err;
+            if (err instanceof Error){
+                execStatus = err;
+            } else {
+                execStatus = new Error(err);
+            }
+
             execTime = 0;
         }
 
@@ -98,14 +103,11 @@ export class Playground extends Component {
                             </React.Fragment>
                         )
                     }
-                    {
-                        // !showError
-                        (<TimeLineChartComponent
-                            time={time}
-                            lines={lines}
-                            viewHeight={this.props.height}
-                            ></TimeLineChartComponent>)
-                    }
+                    <TimeLineChartComponent
+                        time={time}
+                        lines={lines}
+                        viewHeight={this.props.height}
+                        ></TimeLineChartComponent>
                 </div>
             </div>
         );
