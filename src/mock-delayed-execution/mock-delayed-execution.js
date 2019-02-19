@@ -110,17 +110,19 @@ if (originals.Date && originals.Date.now) {
 
 // Substituting this method to make it sync while executing user code. source:
 // https://github.com/taylorhakes/promise-polyfill/blob/master/src/index.js#L225
-glob.Promise = require('promise-polyfill').default;
-glob.Promise._immediateFn = (fn) => {
-    if (isMockMode) {
+if (typeof window !== 'undefined') {
+    glob.Promise = require('promise-polyfill').default;
+    glob.Promise._immediateFn = (fn) => {
+        if (isMockMode) {
+            return setTimeout(fn, 0);
+        }
+
+        if (typeof setImmediate == 'function') {
+            return setImmediate(fn);
+        }
+
         return setTimeout(fn, 0);
     }
-
-    if (typeof setImmediate == 'function') {
-        return setImmediate(fn);
-    }
-
-    return setTimeout(fn, 0);
 }
 
 /**
