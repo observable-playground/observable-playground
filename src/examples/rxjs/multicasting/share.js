@@ -7,7 +7,7 @@ const palette$ = Observable.from(palette);
 
 const cold$ = Observable.timer(0, 5)
   // add color to items
-  .zip(palette$, (value,color)=>({value, color}));
+  .zip(palette$, (value,color)=>({ valueOf(){ return value; }, color}));
 
 const hot$ =  cold$.share();
 

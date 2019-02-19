@@ -30,12 +30,12 @@ function getObjectValue(object) {
         return `[${object.join()}]`;
     }
 
-    if (typeof object.toString == 'function') {
-        return object.toString();
+    if (typeof object.valueOf == 'function') {
+        return object.valueOf();
     }
 
-    if (typeof object.valueOf == 'function') {
-        return printPrimitive(object.valueOf());
+    if (typeof object.toString == 'function') {
+        return object.toString();
     }
 
     return Object.prototype.toString.call(object);

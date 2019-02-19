@@ -7,7 +7,7 @@ const { Observable } = require('rxjs/Rx');
 // stream for coloring
 const palette$ = Observable.from(palette);
 // fn to define color for item
-const Mark = (value,color)=>({value,color});
+const Mark = (value,color)=>({valueOf(){ return value; },color});
 // like .from, but items are delayed by their value
 const fromDelayed = arr =>
   Observable

@@ -12,7 +12,7 @@ const error$ = Observable.timer(0,5)
 // add color to items
 const palette$ = Observable.from(palette);
 const errorColorized$ = error$
-  .zip(palette$, (value,color)=>({value, color}));
+  .zip(palette$, (value,color)=>({valueOf(){ return value; }, color}));
 
 
 const retry$ = errorColorized$.retry(2);
