@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MenuComponent.css';
 import { menu as examplesMenu } from '../examples';
-import { Link, Match, Location } from '@reach/router'
+import { Link, Match } from '@reach/router'
 
 export class MenuComponent extends Component {
     isLinkActive = ({ isPartiallyCurrent }) => {
@@ -22,7 +22,7 @@ export class MenuComponent extends Component {
                                     className="Menu__item"
                                 >
                                     <Link
-                                        to={`/${root.handle}/${item}`}
+                                        to={`/${root.handle}/${item}/`}
                                         getProps={this.isLinkActive}
                                         key={item}
                                     >{item}</Link>

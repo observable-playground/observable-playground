@@ -9,11 +9,11 @@ export default {
         dev
     }),
 
-    getRoutes: async () => {
+    getRoutes: () => {
         return examplesMenu
             .map(({ handle, library }) => {
                 return {
-                    path: '/' + handle,
+                    path: `/${handle}/`,
                     component: 'src/dynamic-pages/Library',
                     getData: () => ({
                         handle,
@@ -23,7 +23,7 @@ export default {
                         Object.entries(library.examples)
                             .map(([key, value]) => {
                                 const route = {
-                                    path: `/${key}`,
+                                    path: `/${key}/`,
                                     component: 'src/dynamic-pages/Example',
                                     getData: () => ({
                                         libraryName: library.name,
