@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import './TimeLineChartComponent.css';
 import { palette } from '../../../shared/consts';
 import { print } from './print';
+import { groupBy, values, entries } from 'lodash';
 
 const DEFAULT_VIEW_WIDTH = 460;  // TODO: read actual width
 const DEFAULT_VIEW_HEIGHT = 500; // TODO: read actual height
@@ -86,17 +87,21 @@ export class TimeLineChartComponent extends Component {
             return;
         }
 
+        let accHeight = 0;
         lines.forEach((line, index)=>{
             const start = line.start;
             // TOOD: mark line as exhausting the chart, instead of drawing it to infinity
             const end = line.end === undefined ? Number.MAX_SAFE_INTEGER : line.end;
-            const events = line.events || [];
+            const events = groupBy(line.events || [], event => event.time);
+            const maxEvents = values(events).reduce((acc, curr) => Math.max(curr.length, acc), 1);
             const errors = line.errors || [];
             const stops  = line.stops  || [];
             const lineName = line.lineName;
 
             // TODO: scale vert
-            const y = index * THREAD_HEIGHT * 2;
+            const y = accHeight;
+
+            accHeight += maxEvents * LINE_HEIGHT + LINE_TITLE_HEIGHT;
 
             const threadg = graph
                 .append('g')
@@ -131,7 +136,9 @@ export class TimeLineChartComponent extends Component {
                 .attr('x1', ()=>xScale(start))
                 .attr('y1', -25)
                 .attr('x2', ()=>xScale(start))
-                .attr('y2', 0);
+                .attr('y2', 0)
+                .append('title')
+                .text('start');
 
             // End marks
             lineg
@@ -147,37 +154,46 @@ export class TimeLineChartComponent extends Component {
                 .attr('x1', 0)
                 .attr('y1', -25 )
                 .attr('x2', 0)
-                .attr('y2', +25);
+                .attr('y2', +25)
+
+                .append('title')
+                .text('end');
 
             // Events {{{
-            const eventMarks = lineg
-                .selectAll('g.event')
-                .data(events)
-                .enter()
-                .append('g')
-                .attr('class', 'event')
-                .attr('transform', d => `translate( ${ xScale(d.time) }, 0)`);
+            entries(events)
+                .sort((a, b) => a[0] - b[0])
+                .forEach(entry => {
+                    const currentEvents = entry[1];
 
-            eventMarks
-                .append('circle')
-                .attr('r', EVENT_RADIUS)
-                .style('fill', (d, index) => {
-                    if (d.value && d.value.color) {
-                        return d.value.color;
-                    }
+                    const eventMarks = lineg
+                        .selectAll('g.event' + entry[0])
+                        .data(currentEvents)
+                        .enter()
+                        .append('g')
+                        .attr('class', 'event' + + entry[0])
+                        .attr('transform', (d, index) => `translate( ${ xScale(d.time) }, ${ index * LINE_HEIGHT })`);
 
-                    return palette[index % palette.length]
-                });
+                    eventMarks
+                        .append('circle')
+                        .attr('r', EVENT_RADIUS)
+                        .style('fill', (d, index) => {
+                            if (d.value && d.value.color) {
+                                return d.value.color;
+                            }
 
-            eventMarks
-                .append('text')
-                .attr('text-anchor', 'middle')
-                .attr('y', 5)
-                .text(d => print(d.value));
+                            return palette[index % palette.length]
+                        });
 
-            eventMarks
-                .append('title')
-                .text(d => print(d.value));
+                    eventMarks
+                        .append('text')
+                        .attr('text-anchor', 'middle')
+                        .attr('y', 5)
+                        .text(d => print(d.value));
+
+                    eventMarks
+                        .append('title')
+                        .text(d => print(d.value));
+            });
             // }}}
 
             const errorMarks = lineg
