@@ -1,7 +1,7 @@
 {
   "name": "observable-playground",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://observable-playground.github.io/",
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
