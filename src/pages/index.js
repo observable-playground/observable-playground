@@ -13,6 +13,7 @@ export default () =>
     <div className="Landing">
         <Head>
             <title>{ ROOT_PAGE_TITLE }</title>
+            <meta name="description" content="Learn RxJS and play with Observables in online sandbox playground" />
         </Head>
 
         <div className="PageBlock">

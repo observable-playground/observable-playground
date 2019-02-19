@@ -45,7 +45,6 @@ export default {
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <title>{ ROOT_PAGE_TITLE_PREFIX }</title>
-                <meta name="description" content="Learn RxJS and play with Observables in online sandbox playground" />
 
                 {/* manifest.json provides metadata used when your web app is added to the
                 homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/ */}
