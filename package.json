@@ -35,8 +35,7 @@
     "react-static": "^6.0.18",
     "reset-css": "^4.0.1",
     "rxjs": "6.4.0",
-    "rxjs-compat": "6.4.0",
-    "setimmediate": "^1.0.5"
+    "rxjs-compat": "6.4.0"
   },
   "devDependencies": {
     "eslint-config-react-tools": "1.x.x",

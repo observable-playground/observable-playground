@@ -196,7 +196,6 @@ function execute(fn, maxLifetime = ONE_MINUTE){
 
     // setImmediate {{{
     mocks.setImmediate = (cb, ...args)=>{
-        console.log('called');
         const task = createTask(0, 'timeout');
 
         task.fn = ()=>{
