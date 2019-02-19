@@ -59,8 +59,12 @@ export default {
                         - remove % NODE_ENV % reference from here
                     Global site tag (gtag.js) - Google Analytics */}
                 {
-                    !siteData.dev
-                        && <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-40041298-4" />
+                    !siteData.dev &&
+                        <React.Fragment>
+                            <script async="true" src='https://www.google-analytics.com/analytics.js'></script>
+                            <script async="true" src="/autotrack.js" />
+                            <script              src="/GA.js" />
+                        </React.Fragment>
                 }
                 {/* GOOGLE ANALYTICS }}} */}
             </Head>

@@ -2,7 +2,6 @@ import './mock-delayed-execution/';
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import GA from './GA';
 
 // Your top level component
 import App from './App'
@@ -19,9 +18,6 @@ if (typeof document !== 'undefined') {
   const render = Comp => {
     renderMethod(<Comp />, document.getElementById('root'))
   }
-
-  // GA
-  GA();
 
   // Render!
   render(App);
