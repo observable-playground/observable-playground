@@ -86,10 +86,10 @@ export class TimeLineChartComponent extends Component {
 
         let accHeight = 0;
 
-        lines.forEach((line, lineIndex)=>{
+        lines.forEach(line=>{
             const start = line.start;
             // TOOD: mark line as exhausting the chart, instead of drawing it to infinity
-            const end = line.end === undefined ? Number.MAX_SAFE_INTEGER : line.end;
+            const end = line.end === undefined ? DEFAULT_VIEW_WIDTH - line.start : line.end;
             const events = groupBy(line.events || [], event => event.time);
             const errors = line.errors || [];
             const stops  = line.stops  || [];
