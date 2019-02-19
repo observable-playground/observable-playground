@@ -106,7 +106,6 @@ export class Playground extends Component {
                     <TimeLineChartComponent
                         time={time}
                         lines={lines}
-                        viewHeight={this.props.height}
                         ></TimeLineChartComponent>
                 </div>
             </div>

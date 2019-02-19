@@ -3,9 +3,11 @@ import { createLine } from './line';
 
 const createObserver = (lineName) => {
     const line = createLine(lineName);
+    let eventIndex = 0;
 
     const onNext = value => {
         line.events.push({
+            index: eventIndex++,
             time: Date.now(),
             value
         });

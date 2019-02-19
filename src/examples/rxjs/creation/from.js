@@ -9,6 +9,6 @@ const delayed$ = source$
   .delayWhen(x=>Observable.timer(x));
 
 
-source$.subscribe(chart.createRxObserver());
-delayed$.subscribe(chart.createRxObserver());
+source$.subscribe(chart.createRxObserver('from([5, 10, 20])'));
+delayed$.subscribe(chart.createRxObserver('delayed by value'));
 `;
