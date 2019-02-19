@@ -63,6 +63,8 @@ const overridies =
     , 'clearTimeout'
     , 'setInterval'
     , 'clearInterval'
+    , 'setImmediate'
+    , 'clearImmediate'
     , 'requestAnimationFrame'
     , 'cancelAnimationFrame'
     ];
@@ -97,9 +99,6 @@ if (originals.Date && originals.Date.now) {
     };
 }
 // }}}
-
-// NOTE: importing Promises here, so that other mocks are in place
-glob.Promise = require('./Promise.mock').Promise;
 
 /**
  * Runs a function within mocked env
@@ -172,6 +171,22 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     mocks.clearInterval = clearTask;
     // }}}
 
+    // setImmediate {{{
+    mocks.setImmediate = (cb, ...args)=>{
+        console.log('called');
+        const task = createTask(0, 'timeout');
+
+        task.fn = ()=>{
+            clearTimeout(task.id);
+            cb(...args);
+        };
+
+        addTask(task);
+        return task.id;
+    }
+    mocks.clearImmediate = clearTask;
+    // }}}
+
     // setTimeout {{{
     mocks.setTimeout = (cb, timeout, ...args)=>{
         const task = createTask(timeout, 'timeout');
@@ -186,9 +201,6 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     }
     mocks.clearTimeout = clearTask;
     // }}}
-
-    const Promise = glob.Promise;
-    glob.Promise = void 0;
 
     // requestAnimationFrame {{{
     mocks.requestAnimationFrame = () => { throw new Error('Sorry, `requestAnimationFrame` is not implemented yet'); };
@@ -232,17 +244,27 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     let status;
     try {
         time = 0;
-        isMockMode = true;
+        enableMocks();
         fn();
         status = flush();
     } finally {
         isMockMode = false;
         // cleanup mocks
-        overridies.forEach(key=>{ mocks[key] = null; });
-        glob.Promise = Promise;
+        disableMocks();
     }
 
     return { time, status };
+}
+
+let originalPromise = glob.Promise;
+function enableMocks() {
+    isMockMode = true;
+    glob.Promise = require('./Promise/').default;
+}
+
+function disableMocks(){
+    glob.Promise = originalPromise;
+    overridies.forEach(key => { mocks[key] = null; });
 }
 
 module.exports = {
