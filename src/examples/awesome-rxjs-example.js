@@ -1,5 +1,5 @@
 export default
-`const { chart } = require('rp-api');
+`const { rxObserver } = require('api/v0.3');
 const { timer } = require('rxjs');
 const { take, map } = require('rxjs/operators');
 
@@ -10,4 +10,4 @@ timer(0, 5)
     take(msg.length),
     map(index=>msg[index])
   )
-  .subscribe(chart.createRxObserver());`;
+  .subscribe(rxObserver());`;

@@ -1,5 +1,5 @@
 export default
-`const { chart } = require('rp-api');
+`const { rxObserver } = require('api/v0.3');
 const { palette } = require('rp-api/colors');
 const { Observable } = require('rxjs/Rx');
 
@@ -17,6 +17,6 @@ const errorColorized$ = error$
 
 const retry$ = errorColorized$.retry(2);
 
-error$.subscribe(chart.createRxObserver());
-retry$.subscribe(chart.createRxObserver());
+error$.subscribe(rxObserver());
+retry$.subscribe(rxObserver());
 `;

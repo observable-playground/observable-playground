@@ -1,5 +1,5 @@
 export default
-`const { chart } = require('rp-api');
+`const { rxObserver } = require('api/v0.3');
 const { Observable } = require('rxjs/Rx');
 
 const error$ = Observable
@@ -10,6 +10,6 @@ const catch$ = error$
   .catch(err => Observable.of(err));
 
 
-error$.subscribe(chart.createRxObserver());
-catch$.subscribe(chart.createRxObserver());
+error$.subscribe(rxObserver());
+catch$.subscribe(rxObserver());
 `;

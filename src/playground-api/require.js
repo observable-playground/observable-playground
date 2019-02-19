@@ -22,7 +22,9 @@ import baconjs from 'baconjs';
 import kefir from 'kefir';
 // }}}
 
-import rpApi from './rp-api';
+import { api as apiV0 } from './v0';
+import { api as apiV0_3 } from './v0.3';
+
 import * as colors from './colors';
 
 const availablePackages = [
@@ -51,7 +53,11 @@ const availablePackages = [
 
     { // chart api
         name: 'rp-api',
-        load: () => rpApi
+        load: () => apiV0
+    },
+    {
+        name: 'api/v0.3',
+        load: () => apiV0_3
     },
     {
         name: 'rp-api/colors',

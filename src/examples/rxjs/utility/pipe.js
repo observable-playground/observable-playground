@@ -1,5 +1,5 @@
 export default
-`const { chart } = require('rp-api');
+`const { rxObserver } = require('api/v0.3');
 const { Observable } = require('rxjs/Rx');
 const {
     filter,
@@ -12,5 +12,5 @@ Observable
     filter(x=>x%2),
     take(5)
   )
-  .subscribe(chart.createRxObserver());
+  .subscribe(rxObserver());
 `;

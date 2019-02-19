@@ -1,5 +1,5 @@
 export default
-`const { chart } = require('rp-api');
+`const { rxObserver } = require('api/v0.3');
 const { palette } = require('rp-api/colors');
 const { Observable } = require('rxjs/Rx');
 
@@ -27,6 +27,6 @@ const switch$ = source$
     .map(y=>Mark(y, x.color)));
 
 
-source$.subscribe(chart.createRxObserver());
-switch$.subscribe(chart.createRxObserver());
+source$.subscribe(rxObserver());
+switch$.subscribe(rxObserver());
 `;
