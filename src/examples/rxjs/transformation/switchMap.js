@@ -1,32 +1,38 @@
 export default
-`const { rxObserver } = require('api/v0.3');
-const { palette } = require('rp-api/colors');
+`const { rxObserver, palette } = require('api/v0.3');
 const { Observable } = require('rxjs/Rx');
 
-// helpers {{{
 // stream for coloring
 const palette$ = Observable.from(palette);
-// fn to define color for item
-const Mark = (value,color)=>({valueOf(){ return value; },color});
-// like .from, but items are delayed by their value
-const fromDelayed = arr =>
-  Observable
-    .from(arr)
-    .delayWhen(x=>Observable.timer(x));
-// }}}
 
 const source$ = fromDelayed([ 5, 10, 20 ])
   // get color for each item
-  .zip(palette$, Mark);
+  .zip(palette$, Marble);
 
-const switch$ = source$
+const switchMap$ = source$
   .switchMap(x=> Observable
     .timer(0, 3)
     .take(5)
     // inherit color from the source$ stream
-    .map(y=>Mark(y, x.color)));
-
+    .map(y=>Marble(y, x.color)));
 
 source$.subscribe(rxObserver());
-switch$.subscribe(rxObserver());
+switchMap$.subscribe(rxObserver());
+
+
+// helpers
+// creates a colored Marble
+function Marble(value,color) {
+  return {
+    valueOf: ()=>value
+    , color
+  };
+}
+
+// like .from, but items are delayed by their value
+function fromDelayed (arr) {
+  return Observable
+    .from(arr)
+    .delayWhen(x=>Observable.timer(x));
+}
 `;

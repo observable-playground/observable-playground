@@ -1,29 +1,36 @@
 module.exports =
-`const { rxObserver } = require('api/v0.3');
-const { palette } = require('rp-api/colors');
+`const { rxObserver, palette } = require('api/v0.3');
 const { Observable } = require('rxjs/Rx');
 
 const palette$ = Observable.from(palette);
 
-const cold$ = Observable.timer(0, 5)
+const source$ = Observable.timer(0, 5)
   // add color to items
-  .zip(palette$, (value,color)=>({ valueOf(){ return value; }, color}));
+  .zip(palette$, Marble);
 
-const hot$ =  cold$.share();
+const shared$ = source$.share();
 
-// creating observers for cold$
-const a = rxObserver();
-const b = rxObserver();
-cold$.take(5).subscribe(a);
+// creating observers for source$
+const a = rxObserver('source$');
+const b = rxObserver('delayed subscription');
+source$.take(5).subscribe(a);
 
-// creating observers for hot$
-const c = rxObserver();
-const d = rxObserver();
-hot$.take(5).subscribe(c);
+// creating observers for shared$
+const c = rxObserver('shared$');
+const d = rxObserver('delayed subscription');
+shared$.take(5).subscribe(c);
 
 // delayed subscriptions
 setTimeout(()=>{
-  cold$.take(5).subscribe(b);
-  hot$.take(5).subscribe(d);
+  source$.take(5).subscribe(b);
+  shared$.take(5).subscribe(d);
 }, 10);
+
+
+function Marble(value,color) {
+  return {
+    valueOf: ()=>value
+    , color
+  };
+}
 `;
