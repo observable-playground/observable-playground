@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
-import { palette } from '../../../shared/consts';
+import { palette, MAX_EXECUTION_TIME } from '../../../shared/consts';
 import { print } from './print';
 import { groupBy, values, entries } from 'lodash';
 import './TimeLineChartComponent.css';
@@ -89,7 +89,7 @@ export class TimeLineChartComponent extends Component {
         lines.forEach(line=>{
             const start = line.start;
             // TOOD: mark line as exhausting the chart, instead of drawing it to infinity
-            const end = line.end === undefined ? DEFAULT_VIEW_WIDTH - line.start : line.end;
+            const end = line.end === undefined ? MAX_EXECUTION_TIME : line.end;
             const events = groupBy(line.events || [], event => event.time);
             const errors = line.errors || [];
             const stops  = line.stops  || [];

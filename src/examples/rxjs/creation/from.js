@@ -1,14 +1,20 @@
 module.exports =
 `const { rxObserver } = require('api/v0.3');
-const { Observable } = require('rxjs/Rx');
+const { from } = require('rxjs');
 
-const source$ = Observable
-  .from([ 5, 10, 20 ]);
+// from Array
+from([ 5, 10, 20 ])
+  .subscribe(rxObserver('from([5, 10, 20])'));
 
-const delayed$ = source$
-  .delayWhen(x=>Observable.timer(x));
+// from string
+from('Hello')
+  .subscribe(rxObserver(\`from('Hello')\`));
 
+// from Promise
+const promise = new Promise((resolve, reject)=>{
+  setTimeout(() => resolve('done'), 10);
+});
 
-source$.subscribe(rxObserver('from([5, 10, 20])'));
-delayed$.subscribe(rxObserver('delayed by value'));
+from(promise)
+  .subscribe(rxObserver('from(promise)'));
 `;

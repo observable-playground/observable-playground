@@ -1,11 +1,20 @@
 import * as chartStateProxy from './chart-state-proxy';
 import { createLine } from './line';
 
-const createObserver = (lineName) => {
+const DEBUG = false;
+
+const createObserver = (lineName = '') => {
     const line = createLine(lineName);
     let eventIndex = 0;
 
+    if (DEBUG) {
+        console.log(`v @ ${Date.now()}ms ${lineName}`);
+    }
+
     const onNext = value => {
+        if (DEBUG) {
+            console.log('o', value, `@ ${Date.now()}ms ${lineName}`);
+        }
         line.events.push({
             index: eventIndex++,
             time: Date.now(),
@@ -14,6 +23,9 @@ const createObserver = (lineName) => {
     }
 
     const onError = value => {
+        if (DEBUG) {
+            console.error('x', value, `@ ${Date.now()}ms ${lineName}`);
+        }
         line.errors.push({
             time: Date.now(),
             value
@@ -22,6 +34,9 @@ const createObserver = (lineName) => {
     }
 
     const onComplete = () => {
+        if (DEBUG) {
+            console.log(`— @ ${Date.now()}ms ${lineName}`);
+        }
         line.stops.push({
             time: Date.now(),
         });

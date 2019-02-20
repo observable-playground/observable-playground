@@ -16,3 +16,6 @@ export const palette =
     , '#cddc39'
     , '#ffc107'
     ];
+
+// 1 sec is max execution time for scripts
+export const MAX_EXECUTION_TIME = 1000;

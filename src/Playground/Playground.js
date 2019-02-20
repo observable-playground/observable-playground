@@ -6,8 +6,7 @@ import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChart
 import { _require } from './../playground-api/require';
 import * as chartState from '../playground-api/state';
 import './Playground.css';
-
-const MAX_EXECUTION_TIME = 1000; // 1 sec is max execution time for scripts
+import { MAX_EXECUTION_TIME } from '../shared/consts';
 
 export class Playground extends Component {
     constructor(props){

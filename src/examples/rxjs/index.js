@@ -14,8 +14,10 @@ import switchMap from       './transformation/switchMap';
 import exhaustMap from      './transformation/exhaustMap';
 import concatMap from       './transformation/concatMap';
 // Error handling
+import throwError from      './error-handling/throwError';
 import _catch from          './error-handling/catch';
 import retry from           './error-handling/retry';
+import retryWhen from       './error-handling/retryWhen';
 // Multicasting
 import share from           './multicasting/share';
 // Utility
@@ -39,8 +41,10 @@ const examples =
     , switchMap
     , exhaustMap
     , concatMap
+    , throwError
     , 'catch': _catch
     , retry
+    , retryWhen
     , share
 
     , zip
@@ -79,8 +83,10 @@ export const library = {
 
         ,   { name: 'Error handling'
             , items:
-                [ 'catch'
+                [ 'throwError'
+                , 'catch'
                 , 'retry'
+                , 'retryWhen'
                 ]
             }
 

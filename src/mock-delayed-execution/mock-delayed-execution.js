@@ -162,7 +162,7 @@ function execute(fn, maxLifetime = ONE_MINUTE){
         { id: getId()
         , time
         , registeredAt: time
-        , timeout
+        , timeout: Math.max(0, timeout)
         , type
         });
 
