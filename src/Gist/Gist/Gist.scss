@@ -1,0 +1,48 @@
+@import "../../styles/variables.scss";
+
+.Gist {
+    &__Header{
+        display: block;
+
+        &__Main {
+            padding-left: 54px;
+        }
+    }
+
+    &__Path {
+        color: $dark-color;
+    }
+
+    &__UserName {
+        color: $dark-color;
+        text-decoration: none;
+
+        &:hover {
+            color: $active-color;
+        }
+    }
+
+    &__GistName {
+        text-decoration: none;
+        font-weight: bold;
+        color: $active-color;
+    }
+
+    &__Description {
+        padding-top: 0.5rem;
+        color: $dark-color;
+    }
+
+    &__Avatar {
+        float:left;
+        height: 48px;
+        width: 48px;
+        border-radius: 2px;
+        overflow: hidden;
+
+        >img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}
