@@ -2,6 +2,7 @@
 
 $stroke-color: #333333;
 $stroke-width: 2px;
+$hover-stroke-width: 1px;
 
 .TimeLineChartComponent {
     .axis {
@@ -20,6 +21,28 @@ $stroke-width: 2px;
         }
     }
 
+    .hoverPane{
+        fill: none;
+
+        .hoverLine, .hoverTickLine {
+            stroke-width: $hover-stroke-width;
+            stroke: $lightgray-color;
+        }
+
+        .hoverLine {
+            stroke-dasharray: 2,2;
+        }
+
+
+        .hoverTick {
+            font-size: 10px;
+            // font-weight: bold;
+            fill: $active-color;
+            text-anchor: middle;
+        }
+    }
+
+
     .thread {
         .lineTitle {
             fill: $darkgray-color;
@@ -31,6 +54,10 @@ $stroke-width: 2px;
         }
 
         .event {
+            &.hover circle {
+                stroke: white;
+            }
+
             circle {
                 stroke: $stroke-color;
                 stroke-width: $stroke-width;
