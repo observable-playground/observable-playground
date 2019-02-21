@@ -16,6 +16,9 @@ const MARK_HALF_HEIGHT = 25;
 const EVENT_MARGIN = -6;
 const EVENT_DIAMETER_WITH_MARGIN = EVENT_DIAMETER + EVENT_MARGIN;
 
+// WIP hover line, dont like uix of it, using for debug atm
+const SHOW_HOVER_LINE = false;
+
 export class TimeLineChartComponent extends Component {
     constructor(props) {
         super(props);
@@ -69,12 +72,46 @@ export class TimeLineChartComponent extends Component {
             .nice();
 
         // add x axis
-        rootSvg
+        const tickFormat = x => x + 'ms';
+        const xAxis = rootSvg
             .append('g')
             .attr('class', 'axis axis--x')
             .call(
-                d3.axisBottom(xScale).tickFormat(x=>x + 'ms')
+                d3.axisBottom(xScale).tickFormat(tickFormat)
             );
+
+
+        let hoverPane, hoverTickLine, hoverLine, hoverTick;
+        if (SHOW_HOVER_LINE) {
+            hoverPane = rootSvg
+                .append('g')
+                .attr('class', 'hoverPane')
+                .attr('display', 'none');
+
+            hoverTickLine = hoverPane
+                .append('line')
+                .attr('class', 'hoverTickLine')
+                .attr('x1', 0)
+                .attr('y1', 0)
+                .attr('x2', 0)
+                .attr('y2', 18);
+
+            hoverLine = hoverPane
+                .append('line')
+                .attr('class', 'hoverLine')
+                .attr('x1', 0)
+                .attr('y1', 34)
+                .attr('x2', 0)
+                .attr('y2', 0);
+
+            hoverTick = hoverPane
+                .append('text')
+                .attr('class', 'hoverTick')
+                .attr('x', 0)
+                .attr('y', 22)
+                .attr('dy', '0.71em')
+                .text('');
+        }
 
         const graph = rootSvg
             .append('g')
@@ -232,21 +269,76 @@ export class TimeLineChartComponent extends Component {
                 .attr('y1', -EVENT_RADIUS)
                 .attr('x2', -EVENT_RADIUS)
                 .attr('y2', +EVENT_RADIUS);
+        });
+
+        const svgHeight = accHeight + TIMELINE_HEIGHT + margin.top + margin.bottom;
+        const svgWidth = width + margin.left + margin.right;
+
+        if (SHOW_HOVER_LINE) {
+            const ticks = xAxis.selectAll('.tick');
+            const events = rootSvg.selectAll('.event');
 
             svg
-                .attr('height', accHeight + TIMELINE_HEIGHT + margin.top + margin.bottom)
-                .attr('width', width + margin.left + margin.right)
-        });
+                .on('mouseover', function() { hoverPane.style('display', null); })
+                .on('mouseout', function() {
+                    hoverPane.style('display', 'none');
+                    ticks.attr('display', null);
+                    events.attr('class', 'event')
+                })
+                .on('mousemove', mousemove);
+
+            function mousemove() {
+                const mouseX = d3.mouse(this)[0] - margin.left;
+                const xValue = Math.round(xScale.invert(mouseX));
+                const x = Math.round(xScale(xValue));
+
+                events
+                    .attr('class', d => d.time == xValue ? 'event hover' : 'event')
+
+                if (xValue < 0 || xValue > time) {
+                    hoverPane.attr('display', 'none');
+                    ticks.attr('display', null);
+                    return;
+                } else {
+                    hoverPane.attr('display', null);
+                }
+
+                ticks
+                    .attr('display', d =>
+                        d == xValue ? 'none' : ''
+                    );
+
+                const transform = `translate(${ x }, 0)`;
+
+                hoverTick
+                    .text(tickFormat(xValue))
+                    .attr('transform', transform);
+
+                hoverTickLine
+                    .attr('transform', transform);
+
+                hoverLine
+                    .attr('transform', transform);
+
+            }
+
+            hoverLine
+                .attr('y2', svgHeight)
+        }
+
+        svg
+            .attr('height', svgHeight)
+            .attr('width', svgWidth)
     }
 
     render() {
         return (
             // NOTE: width and height would be set later
             <svg
-                className="TimeLineChartComponent"
+                className='TimeLineChartComponent'
                 ref={ node => this.node = node }
-                width="0"
-                height="0"
+                width='0'
+                height='0'
             ></svg>
         )
     }
