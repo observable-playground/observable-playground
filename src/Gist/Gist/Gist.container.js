@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { GistComponent } from './Gist.component';
 import axios from 'axios';
-
-const GIST_URL_PREFIX = 'https://gist.github.com/';
+import { GIST_URL_PREFIX } from './const';
 
 export class GistContainer extends Component {
 

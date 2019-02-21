@@ -1,8 +1,10 @@
+@import "../../styles/variables.scss";
+
 .GistFile {
     margin: 1em 0;
 
     &__Name {
-        font-weight: bold;
+        color: $darkgray-color;
         padding-bottom: 0.5em;
     }
 }
