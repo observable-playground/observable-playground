@@ -1,5 +1,5 @@
 import chart from '../chart';
-import { palette } from '../../shared/consts';
+import { palette } from '../../../shared/consts';
 
 const api = {
     rxObserver: chart.createRxObserver,

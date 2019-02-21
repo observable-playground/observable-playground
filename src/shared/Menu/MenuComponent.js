@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './MenuComponent.css';
-import { menu as examplesMenu } from '../examples';
 import { Link, Match } from '@reach/router'
+import { menu as examplesMenu } from '../../examples';
+import './MenuComponent.css';
 
 export class MenuComponent extends Component {
     isLinkActive = ({ isPartiallyCurrent }) => {

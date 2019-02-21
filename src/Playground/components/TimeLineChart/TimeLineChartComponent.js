@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
+import { groupBy, values, entries } from 'lodash';
 import { palette, MAX_EXECUTION_TIME } from '../../../shared/consts';
 import { print } from './print';
-import { groupBy, values, entries } from 'lodash';
 import './TimeLineChartComponent.css';
 
 const DEFAULT_VIEW_WIDTH = 460;  // TODO: read actual width

@@ -15,7 +15,7 @@ export default {
             .map(({ handle, library }) => {
                 return {
                     path: `/${handle}/`,
-                    component: 'src/dynamic-pages/Library',
+                    component: 'src/Library/Library.page.js',
                     getData: () => ({
                         handle,
                         library
@@ -25,7 +25,7 @@ export default {
                             .map(([key, value]) => {
                                 const route = {
                                     path: `/${key}/`,
-                                    component: 'src/dynamic-pages/Example',
+                                    component: 'src/Example/Example.page.js',
                                     getData: () => ({
                                         libraryName: library.name,
                                         exampleName: key,

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { execute } from '../mock-delayed-execution';
+import { execute } from './../core/mock-delayed-execution';
+import { _require } from './../core/playground-api/require';
+import * as chartState from '../core/playground-api/state';
 import { EditorComponent } from './components/Editor/EditorComponent';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
-import { _require } from './../playground-api/require';
-import * as chartState from '../playground-api/state';
-import './Playground.css';
 import { MAX_EXECUTION_TIME } from '../shared/consts';
+import './Playground.css';
 
 export class Playground extends Component {
     constructor(props){

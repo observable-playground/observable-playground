@@ -1,7 +1,7 @@
 import React from 'react'
 import { Root, Routes } from 'react-static'
 import { Router, Link } from '@reach/router'
-import { MenuComponent } from './Menu/MenuComponent.js';
+import { MenuComponent } from './shared/Menu/MenuComponent.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
