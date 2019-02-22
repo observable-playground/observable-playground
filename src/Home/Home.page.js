@@ -14,13 +14,17 @@ export const HomePage = () =>
     <div className="Landing">
         <Head>
             <title>{ ROOT_PAGE_TITLE }</title>
-            <meta name="description" content="Learn RxJS and play with Observables in online sandbox playground" />
+            <meta name="description" content="Test your RxJS, kefir.js and bacon.js code and play with Observables in an online sandbox playground" />
         </Head>
 
         <div className="PageBlock">
             <h1>
-                Test your <Link to="/rxjs">RxJS</Link>, <Link to="/baconjs">Bacon.js</Link>, <Link to="/kefir">Kefir.js</Link> code before deploying it to production
+                Lightning marble vizualisation for <Link to="/rxjs/">RxJS</Link>, <Link to="/baconjs/">Bacon.js</Link>, <Link to="/kefir/">Kefir.js</Link> reactive programming libraries with a bunch of examples 
             </h1>
+
+            <blockquote>
+                Test your Observables before deploying them to production!
+            </blockquote>
 
             <p>
                 This tool is aimed at assisting you in understanding
@@ -33,12 +37,25 @@ export const HomePage = () =>
             <h2>Start exploring with these examples:</h2>
 
             <h3>RxJS</h3>
-
             <ul>
-                <li><b><Link to="/rxjs/of">of</Link></b> operator</li>
-                <li>creating Observable <b><Link to="/rxjs/fromPromise">from</Link></b> Promise</li>
-                <li>switching to other Observable using <b><Link to="/rxjs/switchMap">switchMap</Link></b> operator</li>
+                <li><b><Link to="/rxjs/of/">of</Link></b> operator</li>
+                <li>creating Observable <b><Link to="/rxjs/fromPromise/">from</Link></b> Promise</li>
+                <li>switching to other Observable using <b><Link to="/rxjs/switchMap/">switchMap</Link></b> operator</li>
             </ul>
+
+            <h3>Bacon</h3>
+            <ul>
+                <li><b><Link to="/baconjs/interval/">interval</Link></b> operator</li>
+            </ul>
+
+            <h3>Kefir</h3>
+            <ul>
+                <li><b><Link to="/kefir/sequentially/">sequentially</Link></b> operator</li>
+            </ul>
+
+            <blockquote>
+                Try comparing <b><Link to="/rxjs/interval/">RxJS interval</Link></b>, <b><Link to="/kefir/interval/">Kefir.js interval</Link></b>, and <b><Link to="/baconjs/interval/">Bacon.js interval</Link></b>!
+            </blockquote>
 
             <p>
                 <b>NOTE:</b> currently this tool has following limitations:

@@ -6,7 +6,7 @@ import basicExample from './basic.example';
 export default () =>
 <React.Fragment>
     <Head>
-        <title>Bacon.js examples and playground</title>
+        <title>Bacon.js playground and examples</title>
     </Head>
     <div className="PageBlock">
         <h1>Bacon.js Playground</h1>
