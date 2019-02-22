@@ -26,7 +26,8 @@
 
     &__examples {
         display: block;
-        padding-bottom: 1rem;
+        margin: 0;
+        padding: 0 0 1rem 0;
     }
 
     &__Gist {
@@ -34,10 +35,18 @@
     }
 
     &__library {
+        display: block;
+
         &-name {
             position: relative;
             color: $darkgray-color;
             font-weight: bold;
+        }
+
+        &-contents {
+            display: block;
+            margin: 0;
+            padding: 0;
         }
 
         &-version {
@@ -53,11 +62,18 @@
     }
 
     &__group {
-        padding-bottom: 0.5rem;
+        display: block;
+        padding: 0 0 0.5rem 0;
 
         &-name {
             color: $lightgray-color;
             @include row();
+        }
+
+        &-contents {
+            display: block;
+            margin: 0;
+            padding: 0;
         }
     }
 

@@ -15,7 +15,7 @@ export default {
             .map(({ handle, library }) => {
                 return {
                     path: `/${handle}/`,
-                    component: 'src/Library/Library.page.js',
+                    component: `src/Library/${handle}/index.js`,
                     getData: () => ({
                         handle,
                         library
