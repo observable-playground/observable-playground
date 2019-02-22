@@ -1,5 +1,7 @@
+@import "../styles/variables.scss";
+
 .Playground {
-    @media screen and (min-width: 540px) {
+    @media screen and (min-width: $maxdesctopwidth) {
         display: flex;
         width: 100%;
 
@@ -14,7 +16,7 @@
         }
     }
 
-    @media screen and (max-width: 540px) {
+    @media screen and (max-width: $maxdesctopwidth) {
         width: 100%;
         box-sizing: border-box;
         padding: 0 0.5rem;

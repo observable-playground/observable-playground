@@ -13,6 +13,26 @@ $leftmenu-width: 10rem;
 
     &__header {
         padding: 1.3rem 10px 1rem $leftmenu-width;
+
+        @media screen and (max-width: $maxdesctopwidth) {
+            padding: 0.5rem 0.5rem 0.25rem;
+        }
+    }
+
+    &__MobileMenuSwitch {
+        @media screen and (min-width: $maxdesctopwidth) {
+            display: none;
+        }
+
+        padding: 2px;
+        background: none;
+        border: none;
+        padding-right: 0.5rem;
+        margin-right: 0.5rem;
+
+        &.active {
+            color: $active-color;
+        }
     }
 
     &__logo {
@@ -48,10 +68,14 @@ $leftmenu-width: 10rem;
 
     &__contents {
         flex-grow: 1;
+
+        &.hidden {
+            visibility: hidden;
+        }
     }
 
     &__menu {
-        @media screen and (max-width: 540px) {
+        @media screen and (max-width: $maxdesctopwidth) {
             display: none;
         }
 
@@ -62,6 +86,18 @@ $leftmenu-width: 10rem;
         box-sizing: border-box;
         padding-right: 1rem;
         padding-left: 0.25rem;
+    }
+
+    &__MobileMenu {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fafafa;
+        overflow: auto;
+        top: 2rem;
+        z-index: 1000;
+        padding: 0.5rem 1rem 2rem;
     }
 
     &__footer {
