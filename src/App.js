@@ -73,21 +73,17 @@ class App extends React.Component {
         const body = ()=>(
             <div className="App__body">
                 <div className={ 'App__contents' + (this.state.mobileMenuVisible ? ' hidden' : '')  }>
-                    <Router>
+                    <Router basepath="/">
                         <Routes path="/gist" />
                         <GistContainer path="/gist/:gistId" />
                         <Routes default />
                     </Router>
                 </div>
 
-                <div className="App__menu">
-                    <MenuComponent />
-                </div>
-
-                <div className="App__MobileMenu"
-                    style={ { display: this.state.mobileMenuVisible ? '' : 'none' } }
-                    onClick={this.toggleMobileMenu}
-                ><MenuComponent/></div>
+                <div
+                    className={ 'App__menu' + (this.state.mobileMenuVisible ? ' visible' : '') }
+                    onClick={this.hideMobileMenu}
+                ><MenuComponent /></div>
             </div>
         );
 

@@ -6,4 +6,5 @@ $lightgray-color: #c5c5c5;
 $active-color: #04a9f4;
 
 // sizes
-$maxdesctopwidth: 540px;
+$min-desktop-screen-width: 780px;
+$max-mobile-screen-width: $min-desktop-screen-width - 1;

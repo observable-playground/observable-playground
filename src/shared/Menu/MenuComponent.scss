@@ -2,6 +2,10 @@
 
 @mixin row {
     padding: 0.25rem 0;
+    @media screen and (max-width: $max-mobile-screen-width) {
+        padding: 0.333rem 0;
+    }
+
     display: block;
 }
 

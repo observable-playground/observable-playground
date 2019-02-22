@@ -4,23 +4,21 @@
 $leftmenu-width: 10rem;
 
 .App {
-    @media screen and (min-width: 1024px) {
-        width: 1024px;
-    }
-
+    max-width: 1024px;
     box-sizing: border-box;
     margin: auto;
 
     &__header {
         padding: 1.3rem 10px 1rem $leftmenu-width;
 
-        @media screen and (max-width: $maxdesctopwidth) {
-            padding: 0.5rem 0.5rem 0.25rem;
+        @media screen and (max-width: $max-mobile-screen-width) {
+            font-size: 1.2rem;
+            padding: 0.5rem 0.5rem 0.5rem;
         }
     }
 
     &__MobileMenuSwitch {
-        @media screen and (min-width: $maxdesctopwidth) {
+        @media screen and (min-width: $min-desktop-screen-width) {
             display: none;
         }
 
@@ -70,34 +68,38 @@ $leftmenu-width: 10rem;
         flex-grow: 1;
 
         &.hidden {
-            visibility: hidden;
+            display: none;
         }
     }
 
     &__menu {
-        @media screen and (max-width: $maxdesctopwidth) {
+        @media screen and (max-width: $max-mobile-screen-width) {
             display: none;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #fafafa;
+            overflow: auto;
+            top: 2rem;
+            z-index: 1000;
+            padding: 0.5rem 1rem 2rem;
+
+            &.visible {
+                display: block;
+            }
         }
 
-        flex: 0 0 auto;
-        flex-basis: $leftmenu-width;
-        max-width: $leftmenu-width;
+        @media screen and (min-width: $min-desktop-screen-width) {
+            flex: 0 0 auto;
+            flex-basis: $leftmenu-width;
+            max-width: $leftmenu-width;
 
-        box-sizing: border-box;
-        padding-right: 1rem;
-        padding-left: 0.25rem;
-    }
-
-    &__MobileMenu {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: #fafafa;
-        overflow: auto;
-        top: 2rem;
-        z-index: 1000;
-        padding: 0.5rem 1rem 2rem;
+            box-sizing: border-box;
+            padding-right: 1rem;
+            padding-left: 0.25rem;
+        }
     }
 
     &__footer {
