@@ -4,7 +4,10 @@
 $leftmenu-width: 10rem;
 
 .App {
-    width: 1060px;
+    @media screen and (min-width: 1024px) {
+        width: 1024px;
+    }
+
     box-sizing: border-box;
     margin: auto;
 
@@ -48,12 +51,17 @@ $leftmenu-width: 10rem;
     }
 
     &__menu {
+        @media screen and (max-width: 540px) {
+            display: none;
+        }
+
         flex: 0 0 auto;
         flex-basis: $leftmenu-width;
         max-width: $leftmenu-width;
 
         box-sizing: border-box;
         padding-right: 1rem;
+        padding-left: 0.25rem;
     }
 
     &__footer {

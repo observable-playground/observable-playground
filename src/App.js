@@ -20,6 +20,9 @@ const App = () => {
 
     const header = () => (
         <div className="App__header">
+            <button
+            ><FontAwesomeIcon icon={faGithub} /></button>
+
             <Link 
                 to="/"
                 getProps={ isLinkHeaderActive }
