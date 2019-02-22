@@ -1,25 +1,31 @@
 // Creation
 import interval from        './creation/interval';
 import _from from           './creation/from';
+import fromPromise from     './creation/fromPromise';
 import timer from           './creation/timer';
 import _of from             './creation/of';
 import _constructor from    './creation/constructor';
+
 // Combination
 import zip from             './combination/zip';
 import forkJoin from        './combination/forkJoin';
 import combineLatest from   './combination/combineLatest';
+
 // Transformation
 import mergeMap from        './transformation/mergeMap';
 import switchMap from       './transformation/switchMap';
 import exhaustMap from      './transformation/exhaustMap';
 import concatMap from       './transformation/concatMap';
+
 // Error handling
 import throwError from      './error-handling/throwError';
 import _catch from          './error-handling/catch';
 import retry from           './error-handling/retry';
 import retryWhen from       './error-handling/retryWhen';
+
 // Multicasting
 import share from           './multicasting/share';
+
 // Utility
 import tap from             './utility/tap';
 import finalize from        './utility/finalize';
@@ -35,6 +41,7 @@ const examples =
     { interval
     , timer
     , 'from': _from
+    , 'fromPromise': fromPromise
     , 'of': _of
     , 'constructor': _constructor
     , mergeMap
@@ -65,10 +72,11 @@ export const library = {
     groups:
         [   { name: 'Creation'
             , items:
-                [ 'interval'
-                , 'timer'
+                [ 'of'
                 , 'from'
-                , 'of'
+                , 'fromPromise'
+                , 'interval'
+                , 'timer'
                 , 'constructor'
                 ]
             }

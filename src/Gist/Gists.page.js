@@ -22,16 +22,18 @@ export class GistsPageComponent extends Component {
         return (
             <React.Fragment>
             <Head>
-                <title>Shared github gist</title>
+                <title>Load a gist</title>
             </Head>
             <div className="GistsPage PageBlock">
+                <h1>Load a gist and share it with others</h1>
+
                 <form target="#" onSubmit={ this.onSubmit }>
                     <input placeholder="Gist ID" name="gistId" autoComplete="off" />
                     <button type="submit">Open</button>
                 </form>
 
                 <p>
-                    Scheme: <i>https://gist.github.com/name/<b>Gist_ID</b></i>
+                    <i>https://gist.github.com/name/<b>Gist_ID</b></i>
                 </p>
             </div>
             </React.Fragment>

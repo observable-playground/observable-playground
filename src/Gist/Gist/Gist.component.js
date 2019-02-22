@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { GistFileComponent } from './GistFile.component';
 import './Gist.css';
 import { GIST_URL_PREFIX } from './const';
+import { Head } from 'react-static';
 
 export class GistComponent extends Component {
     render(){
@@ -16,6 +17,9 @@ export class GistComponent extends Component {
 
         return (
             <React.Fragment>
+                <Head>
+                    <title>Gist { data.description }</title>
+                </Head>
                 <div className="Gist__Header">
                     <a
                         className="Gist__Avatar"

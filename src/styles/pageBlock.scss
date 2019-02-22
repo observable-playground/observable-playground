@@ -2,19 +2,27 @@
 
 .PageBlock {
     display: block;
-    padding: 1rem;
+    padding: 0 1rem;
     box-sizing: border-box;
     background: white;
     border: 1px solid #f1f1f1;
-    font-family: monospace;
     font-size: 14px;
 
     a {
-        color: $darkgray-color;
+        color: #00a7f7;
+        text-decoration: none;
 
         &:hover {
-            color: $active-color;
+            text-decoration: underline;
         }
     }
 
+    blockquote {
+        display: block;
+        color: $darkgray-color;
+        padding: 0.25rem 0.5rem;
+        border-left: 0.25rem solid #c5c5c5;
+        margin: 0;
+        font-style: italic;
+    }
 }

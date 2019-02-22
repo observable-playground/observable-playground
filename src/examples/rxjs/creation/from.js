@@ -10,11 +10,5 @@ from([ 5, 10, 20 ])
 from('Hello')
   .subscribe(rxObserver(\`from('Hello')\`));
 
-// from Promise
-const promise = new Promise((resolve, reject)=>{
-  setTimeout(() => resolve('done'), 10);
-});
-
-from(promise)
-  .subscribe(rxObserver('from(promise)'));
+// NOTE: also check fromPromise example
 `;
