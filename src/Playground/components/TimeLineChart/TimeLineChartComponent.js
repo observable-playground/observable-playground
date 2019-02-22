@@ -5,7 +5,6 @@ import { palette, MAX_EXECUTION_TIME } from '../../../shared/consts';
 import { print } from './print';
 import './TimeLineChartComponent.css';
 
-const DEFAULT_VIEW_WIDTH = 460;  // TODO: read actual width
 const EVENT_RADIUS = 17;
 const EVENT_DIAMETER = EVENT_RADIUS * 2;
 const TIMELINE_HEIGHT = 35;
@@ -32,8 +31,9 @@ export class TimeLineChartComponent extends Component {
 
     createChart() {
         const node = this.node;
+        const wrapper = this.wrapper;
 
-        const VIEW_WIDTH = DEFAULT_VIEW_WIDTH;
+        const VIEW_WIDTH = wrapper.clientWidth;
 
         const MIN_MS_TO_DISPLAY = 10;
 
@@ -241,13 +241,14 @@ export class TimeLineChartComponent extends Component {
 
     render() {
         return (
-            // NOTE: width and height would be set later
-            <svg
-                className="TimeLineChartComponent"
-                ref={ node => this.node = node }
-                width="0"
-                height="0"
-            ></svg>
+            <div ref={wrapper => this.wrapper = wrapper}>
+                <svg
+                    className="TimeLineChartComponent"
+                    ref={node => this.node = node}
+                    width="0"
+                    height="0"
+                ></svg>
+            </div>
         )
     }
 }

@@ -1,15 +1,28 @@
-.Playground {
-    display: flex;
-    width: 900px;
+@import "../styles/variables.scss";
 
-    &__editor{
-        flex: 0 0 auto;
-        flex-basis: 440px;
+.Playground {
+    @media screen and (min-width: $maxdesctopwidth) {
+        display: flex;
+        width: 100%;
+
+        &__editor{
+            flex: 0 0 auto;
+            flex-basis: 50%;
+        }
+
+        &__chart{
+            flex: 0 0 auto;
+            flex-basis: 50%;
+        }
     }
 
-    &__chart{
-        flex: 0 0 auto;
-        flex-basis: 460px;
+    @media screen and (max-width: $maxdesctopwidth) {
+        width: 100%;
         box-sizing: border-box;
+        padding: 0 0.5rem;
+
+        &__chart{
+            margin-top: 1rem;
+        }
     }
 }
