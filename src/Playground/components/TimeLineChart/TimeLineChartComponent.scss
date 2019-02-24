@@ -37,9 +37,24 @@ $stroke-width: 2px;
             }
 
             text {
+                font-family: sans-serif;
                 font-size: 14px;
-                font-family: "Source Sans Pro", sans-serif;
                 user-select: none;
+            }
+        }
+
+        .error{
+
+            .errorTriangle {
+                stroke: #F27734;
+                fill: #F27734;
+                stroke-linejoin: round;
+                stroke-width: 4px;
+            }
+
+            text {
+                user-select: none;
+                font-family: monospace;
             }
         }
     }

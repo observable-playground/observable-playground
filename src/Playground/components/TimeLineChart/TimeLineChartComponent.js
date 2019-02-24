@@ -215,6 +215,7 @@ export class TimeLineChartComponent extends Component {
                 .attr('class', 'error')
                 .attr('transform', d => `translate(${ xScale(d.time) }, 0)`);
 
+            // error mark = cross with an exclamation mark in a triangle in it
             errorMarks
                 .append('title')
                 .text(d => print(d.value));
@@ -232,6 +233,19 @@ export class TimeLineChartComponent extends Component {
                 .attr('y1', -EVENT_RADIUS)
                 .attr('x2', -EVENT_RADIUS)
                 .attr('y2', +EVENT_RADIUS);
+
+            errorMarks
+                .append('path')
+                // triangle drawn by `npm d3-shape`:
+                // d3.symbol().type(d3.symbolTriangle).size(150);
+                .attr('d', 'M0,-10.745699318235419L9.306048591020994,5.372849659117709L-9.306048591020994,5.372849659117709Z')
+                .attr('class', 'errorTriangle')
+
+            errorMarks
+                .append('text')
+                .attr('text-anchor', 'middle')
+                .attr('y', 4)
+                .text('!');
 
             svg
                 .attr('height', accHeight + TIMELINE_HEIGHT + margin.top + margin.bottom)
