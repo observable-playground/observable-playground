@@ -237,8 +237,8 @@ export class TimeLineChartComponent extends Component {
             errorMarks
                 .append('path')
                 // triangle drawn by `npm d3-shape`:
-                // d3.symbol().type(d3.symbolTriangle).size(150);
-                .attr('d', 'M0,-10.745699318235419L9.306048591020994,5.372849659117709L-9.306048591020994,5.372849659117709Z')
+                // d3.symbol().type(d3.symbolTriangle).size(250);
+                .attr('d', 'M0,-13.872638167626057L12.01405707067377,6.936319083813029L-12.01405707067377,6.936319083813029Z')
                 .attr('class', 'errorTriangle')
 
             errorMarks

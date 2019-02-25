@@ -44,10 +44,11 @@ $stroke-width: 2px;
         }
 
         .error{
+            $orange: #ff9900;
 
             .errorTriangle {
-                stroke: #F27734;
-                fill: #F27734;
+                stroke: $orange;
+                fill: $orange;
                 stroke-linejoin: round;
                 stroke-width: 4px;
             }
