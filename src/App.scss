@@ -9,6 +9,7 @@ $leftmenu-width: 10rem;
     margin: auto;
 
     &__header {
+        display: flex;
         padding: 1.3rem 10px 1rem $leftmenu-width;
 
         @media screen and (max-width: $max-mobile-screen-width) {
@@ -37,6 +38,7 @@ $leftmenu-width: 10rem;
         font-family: sans-serif;
         color: $darkgray-color;
         text-decoration: none;
+        flex-grow: 1;
 
         &_main {
             font-weight: bold;
@@ -50,8 +52,6 @@ $leftmenu-width: 10rem;
     }
 
     &__github-link {
-        float:right;
-        font-size: 1.2rem;
         color: $darkgray-color;
 
         &:hover {

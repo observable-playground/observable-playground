@@ -50,7 +50,7 @@ export default {
         <Html lang="en-US">
             <Head>
                 <meta charSet="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
                 <base  href="/" />
                 <title>{ ROOT_PAGE_TITLE_PREFIX }</title>
 

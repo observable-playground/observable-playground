@@ -1,8 +1,9 @@
 @import "../styles/variables.scss";
 
 .Playground {
+    display: flex;
+
     @media screen and (min-width: $min-desktop-screen-width) {
-        display: flex;
         width: 100%;
 
         &__editor{
@@ -20,6 +21,7 @@
         width: 100%;
         box-sizing: border-box;
         padding: 0 0.5rem;
+        flex-direction: column-reverse;
 
         &__chart{
             margin-top: 1rem;
