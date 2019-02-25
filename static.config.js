@@ -11,32 +11,38 @@ export default {
     }),
 
     getRoutes: () => {
-        return examplesMenu
-            .map(({ handle, library }) => {
-                return {
-                    path: `/${handle}/`,
-                    component: `src/Library/${handle}/index.js`,
-                    getData: () => ({
-                        handle,
-                        library
-                    }),
-                    children:
-                        Object.entries(library.examples)
-                            .map(([key, value]) => {
-                                const route = {
-                                    path: `/${key}/`,
-                                    component: 'src/Example/Example.page.js',
-                                    getData: () => ({
-                                        libraryName: library.name,
-                                        exampleName: key,
-                                        exampleCode: value,
-                                    }),
-                                }
+        return [
+            {
+                path: '/gist/',
+                noindex: true
+            },
+            ...examplesMenu
+                .map(({ handle, library }) => {
+                    return {
+                        path: `/${handle}/`,
+                        component: `src/Library/${handle}/index.js`,
+                        getData: () => ({
+                            handle,
+                            library
+                        }),
+                        children:
+                            Object.entries(library.examples)
+                                .map(([key, value]) => {
+                                    const route = {
+                                        path: `/${key}/`,
+                                        component: 'src/Example/Example.page.js',
+                                        getData: () => ({
+                                            libraryName: library.name,
+                                            exampleName: key,
+                                            exampleCode: value,
+                                        }),
+                                    }
 
-                                return route;
-                            }),
-                }
-            })
+                                    return route;
+                                }),
+                    }
+                })
+        ];
 
     },
 
