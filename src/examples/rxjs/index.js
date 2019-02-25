@@ -29,7 +29,9 @@ import share from           './multicasting/share';
 // Utility
 import tap from             './utility/tap';
 import finalize from        './utility/finalize';
+import timeInterval from    './utility/timeInterval';
 import delay from           './utility/delay';
+import repeat from          './utility/repeat';
 import pipe from            './utility/pipe';
 
 // read the lib version
@@ -60,7 +62,9 @@ const examples =
 
     , tap
     , finalize
+    , timeInterval
     , delay
+    , repeat
     , pipe
     };
 
@@ -117,7 +121,9 @@ export const library = {
             , items:
                 [ 'tap'
                 , 'finalize'
+                , 'timeInterval'
                 , 'delay'
+                , 'repeat'
                 , 'pipe'
                 ]
             }
