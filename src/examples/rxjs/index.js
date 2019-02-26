@@ -18,6 +18,7 @@ import mergeMap from        './transformation/mergeMap';
 import switchMap from       './transformation/switchMap';
 import exhaustMap from      './transformation/exhaustMap';
 import concatMap from       './transformation/concatMap';
+import windowToggle from    './transformation/windowToggle';
 
 // Error handling
 import throwError from      './error-handling/throwError';
@@ -43,7 +44,6 @@ import pipe from            './utility/pipe';
 import { dependencies } from '../../../package.json';
 const LIB_VERSION = dependencies.rxjs;
 
-
 const examples =
     { interval
     , timer
@@ -58,6 +58,7 @@ const examples =
     , switchMap
     , exhaustMap
     , concatMap
+    , windowToggle
 
     , throwError
     , 'catch': _catch
@@ -123,6 +124,7 @@ export const library = {
                 , 'switchMap'
                 , 'exhaustMap'
                 , 'concatMap'
+                , 'windowToggle'
                 ]
             }
         
