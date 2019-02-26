@@ -5,6 +5,7 @@ import fromPromise from     './creation/fromPromise';
 import timer from           './creation/timer';
 import _of from             './creation/of';
 import _constructor from    './creation/constructor';
+import defer from           './creation/defer';
 
 // Combination
 import zip from             './combination/zip';
@@ -12,6 +13,7 @@ import forkJoin from        './combination/forkJoin';
 import combineLatest from   './combination/combineLatest';
 
 // Transformation
+import buffer from          './transformation/buffer';
 import mergeMap from        './transformation/mergeMap';
 import switchMap from       './transformation/switchMap';
 import exhaustMap from      './transformation/exhaustMap';
@@ -31,8 +33,11 @@ import tap from             './utility/tap';
 import finalize from        './utility/finalize';
 import timeInterval from    './utility/timeInterval';
 import delay from           './utility/delay';
+import delayWhen from       './utility/delayWhen';
 import repeat from          './utility/repeat';
 import pipe from            './utility/pipe';
+
+// import pausableBuffer from  './recipes/pausableBuffer';
 
 // read the lib version
 import { dependencies } from '../../../package.json';
@@ -45,15 +50,20 @@ const examples =
     , 'from': _from
     , 'fromPromise': fromPromise
     , 'of': _of
+    , defer
     , 'constructor': _constructor
+
+    , buffer
     , mergeMap
     , switchMap
     , exhaustMap
     , concatMap
+
     , throwError
     , 'catch': _catch
     , retry
     , retryWhen
+
     , share
 
     , zip
@@ -64,8 +74,11 @@ const examples =
     , finalize
     , timeInterval
     , delay
+    , delayWhen
     , repeat
     , pipe
+
+    // , 'pausable-buffer': pausableBuffer
     };
 
 export const library = {
@@ -81,6 +94,7 @@ export const library = {
                 , 'fromPromise'
                 , 'interval'
                 , 'timer'
+                , 'defer'
                 , 'constructor'
                 ]
             }
@@ -104,7 +118,8 @@ export const library = {
 
         ,   { name: 'Transformation'
             , items:
-                [ 'mergeMap'
+                [ 'buffer'
+                , 'mergeMap'
                 , 'switchMap'
                 , 'exhaustMap'
                 , 'concatMap'
@@ -123,9 +138,16 @@ export const library = {
                 , 'finalize'
                 , 'timeInterval'
                 , 'delay'
+                , 'delayWhen'
                 , 'repeat'
                 , 'pipe'
                 ]
             }
+
+        // ,   { name: 'Recipes'
+        //     , items:
+        //         [ 'pausable-buffer'
+        //         ]
+        //     }
         ]
 };
