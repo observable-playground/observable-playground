@@ -19,7 +19,7 @@ export const HomePage = () =>
 
         <div className="PageBlock">
             <h1>
-                Lightning marble vizualisation for <Link to="/rxjs/">RxJS</Link>, <Link to="/baconjs/">Bacon.js</Link>, <Link to="/kefir/">Kefir.js</Link> reactive programming libraries with a bunch of examples 
+                Lightning marble visualization for <Link to="/rxjs/">RxJS</Link>, <Link to="/baconjs/">Bacon.js</Link>, <Link to="/kefir/">Kefir.js</Link> reactive programming libraries with a bunch of examples 
             </h1>
 
             <blockquote>
