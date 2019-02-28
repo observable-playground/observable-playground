@@ -15,6 +15,7 @@
     "publish": "gh-pages -d dist -r https://github.com/observable-playground/observable-playground.github.io.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\""
   },
   "dependencies": {
+    "@babel/standalone": "^7.3.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "@fortawesome/free-brands-svg-icons": "^5.7.2",
     "@fortawesome/free-solid-svg-icons": "^5.7.2",

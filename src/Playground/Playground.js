@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { execute } from './../core/mock-delayed-execution';
-import { _require } from './../core/playground-api/require';
 import * as chartState from '../core/playground-api/state';
 import { EditorComponent } from './components/Editor/EditorComponent';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
 import { MAX_EXECUTION_TIME } from '../shared/consts';
+import { compile } from '../core/compiler';
 import './Playground.css';
 
 export class Playground extends Component {
@@ -42,12 +42,8 @@ export class Playground extends Component {
         chartState.resetState();
         let execStatus, execTime;
         try {
-            let result = execute(() => {
-                // eslint-disable-next-line no-new-func
-                const fn = Function('require', sourceCode);
-                fn(_require);
-            }, MAX_EXECUTION_TIME);
-
+            const compiledFn = compile(sourceCode);
+            let result = execute(compiledFn, MAX_EXECUTION_TIME);
             execStatus = result.status;
             execTime   = result.time;
         } catch (err) {
