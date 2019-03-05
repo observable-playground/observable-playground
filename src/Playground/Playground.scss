@@ -9,11 +9,13 @@
         &__editor{
             flex: 0 0 auto;
             flex-basis: 50%;
+            max-width: 450px;
         }
 
         &__chart{
             flex: 0 0 auto;
             flex-basis: 50%;
+            flex-grow: 1;
         }
     }
 

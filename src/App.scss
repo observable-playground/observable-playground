@@ -4,7 +4,11 @@
 $leftmenu-width: 10rem;
 
 .App {
-    max-width: 1024px;
+    max-width: 1600px;
+    @media screen and (min-width: $min-desktop-screen-width) {
+        padding: 0 2rem;
+    }
+
     box-sizing: border-box;
     margin: auto;
 
