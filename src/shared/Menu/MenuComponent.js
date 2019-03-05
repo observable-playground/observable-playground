@@ -3,6 +3,8 @@ import { Link, Match } from '@reach/router'
 import { menu as examplesMenu } from '../../examples';
 import './MenuComponent.css';
 
+const RXJS_MENU_ROOT = examplesMenu.find(({handle}) => handle === 'rxjs');
+
 export class MenuComponent extends Component {
     isLinkActive = ({ isPartiallyCurrent }) => {
         return isPartiallyCurrent
@@ -71,6 +73,21 @@ export class MenuComponent extends Component {
                             </Match>
                         </li>
                     ))}
+                    <li key={root.handle} className="Menu__library">
+                        {/* HACK FOR GIST MENU */}
+                        <Match path={ '/gist/*' }>{
+                            props =>
+                                props.match
+                                ? this.renderLibraryMenu(RXJS_MENU_ROOT)
+                                : null
+                        }</Match>
+                        <Match path={ '/' }>{
+                            props =>
+                                props.match
+                                ? this.renderLibraryMenu(RXJS_MENU_ROOT)
+                                : null
+                        }</Match>
+                    </li>
                 </ul>
 
             </nav>
