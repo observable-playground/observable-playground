@@ -19,7 +19,7 @@ export default () =>
     </div>
 
     <br />
-    <PlaygroundWrapper code={ basicExample } height={ 200 }/>
+    <PlaygroundWrapper code={ basicExample } />
     <br />
 
     <div className="PageBlock">

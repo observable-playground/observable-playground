@@ -9,5 +9,5 @@ const promise = new Promise((resolve, reject)=>{
 from(promise)
   .subscribe(rxObserver('from(promise)'));
 
-// NOTE: also check from example
+// NOTE: also check the \`from\` example
 `;

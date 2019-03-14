@@ -10,5 +10,5 @@ from([ 5, 10, 20 ])
 from('Hello')
   .subscribe(rxObserver(\`from('Hello')\`));
 
-// NOTE: also check fromPromise example
+// NOTE: also check the \`fromPromise\` example
 `;

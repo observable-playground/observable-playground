@@ -14,12 +14,19 @@ $leftmenu-width: 10rem;
 
     &__header {
         display: flex;
-        padding: 1.3rem 10px 1rem $leftmenu-width;
+        padding: 1rem 10px 0.5rem $leftmenu-width;
+        line-height: 1.5rem;
+        vertical-align: middle;
 
         @media screen and (max-width: $max-mobile-screen-width) {
             font-size: 1.2rem;
-            padding: 0.5rem 0.5rem 0.5rem;
+            padding: 0.75rem 0.5rem 0.25rem;
         }
+    }
+
+
+    &__header-spring {
+        flex-grow: 1;
     }
 
     &__MobileMenuSwitch {
@@ -42,7 +49,6 @@ $leftmenu-width: 10rem;
         font-family: sans-serif;
         color: $darkgray-color;
         text-decoration: none;
-        flex-grow: 1;
 
         &_main {
             font-weight: bold;
@@ -52,6 +58,15 @@ $leftmenu-width: 10rem;
             .App__logo_main {
                 color: $active-color;
             }
+        }
+    }
+
+    &__twitter-link {
+        color: $darkgray-color;
+        margin-right: 1rem;
+
+        &:hover {
+            color: #1da1f2;
         }
     }
 

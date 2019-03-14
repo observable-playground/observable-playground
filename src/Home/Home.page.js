@@ -68,7 +68,7 @@ export const HomePage = () =>
 
             <p>
                 Your feedback is always welcome at <ExternalLink
-                    text="github issues"
+                    text="github issues section"
                     href="https://github.com/observable-playground/observable-playground/issues"
                     />!
             </p>
@@ -83,7 +83,6 @@ export const HomePage = () =>
         <br />
 
         <PlaygroundWrapper
-            height="200"
             code={ awesomeRxjsExample }
             />
     </div>

@@ -7,6 +7,10 @@
         width: 100%;
 
         &__editor{
+            max-height: 90vh;
+            overflow: auto;
+            overscroll-behavior: contain;
+
             flex: 0 0 auto;
             flex-basis: 50%;
             max-width: 450px;

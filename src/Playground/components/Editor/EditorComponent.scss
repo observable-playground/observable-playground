@@ -1,9 +1,9 @@
 .EditorComponent {
-    min-width: 300px;
-
     // this will add some extra space on top of the editor
     // specific to theme selector is needed to match color
     &.ace-monokai {
         border-top: 6px solid #272822;
+        padding-bottom: 3rem;
+        min-height: 7rem;
     }
 }

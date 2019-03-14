@@ -4,8 +4,7 @@ import { Router, Link } from '@reach/router'
 import { MenuComponent } from './shared/Menu/MenuComponent.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import { version as APP_VERSION } from '../package.json';
 
@@ -24,18 +23,18 @@ class App extends React.Component {
     }
 
     hideMobileMenu(){
-        this.setState(() => {
-            return {
-                mobileMenuVisible: false
-            };
-        })
+        if (!this.state.mobileMenuVisible) {
+            return;
+        }
+
+        this.setState({
+            mobileMenuVisible: false
+        });
     }
 
     toggleMobileMenu(){
-        this.setState(state => {
-            return {
-                mobileMenuVisible: !state.mobileMenuVisible
-            };
+        this.setState({
+            mobileMenuVisible: !state.mobileMenuVisible
         })
     }
 
@@ -61,10 +60,19 @@ class App extends React.Component {
                     <span className="App__logo_main">Observable</span> Playground
                 </Link>
 
+                <span className="App__header-spring"></span>
+
+                <a
+                    target="_blank"
+                    className="App__twitter-link"
+                    title="Follow me on twitter"
+                    href="https://twitter.com/kddsky"
+                ><FontAwesomeIcon icon={faTwitter} /></a>
+
                 <a
                     target="_blank"
                     className="App__github-link"
-                    title="Open GitHub project page"
+                    title="Check the source code on GitHub"
                     href="https://github.com/observable-playground/observable-playground"
                 ><FontAwesomeIcon icon={faGithub} /></a>
             </div>
