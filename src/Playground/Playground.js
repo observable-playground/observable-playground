@@ -9,20 +9,10 @@ export class Playground extends Component {
     constructor(props){
         super(props);
         this.onChange = this.onChange.bind(this);
-        this.state = {
-            value: this.props.code,
-            defaultValue: this.props.code,
-            status: void 0,
-            time: void 0,
-            lines: void 0
-        }
-    }
 
-    static getDerivedStateFromProps(props, state){
         const code = props.code;
         const { status, time, lines } = run(code);
-        return {
-            ...state,
+        this.state = {
             value: code,
             defaultValue: code,
             status,
@@ -31,7 +21,15 @@ export class Playground extends Component {
         };
     }
 
+    componentWillReceiveProps({ code }){
+        this.onChange(code);
+    }
+
     onChange(sourceCode){
+        if (sourceCode == this.state.value) {
+            return;
+        }
+
         const { status, time, lines } = run(sourceCode);
 
         this.setState({

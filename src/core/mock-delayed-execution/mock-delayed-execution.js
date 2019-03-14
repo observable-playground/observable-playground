@@ -266,7 +266,8 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     };
 
     let status;
-    const CONSOLE_GROUP = '⚡️';
+    const ACTUAL_TIME = (new Date(Date.now())).toLocaleTimeString('en-GB');
+    const CONSOLE_GROUP = `⚡️ @${ACTUAL_TIME}`;
     try {
         time = 0;
         enableMocks();

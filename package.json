@@ -35,9 +35,10 @@
     "react-ace": "^6.4.0",
     "react-dom": "^16.8.1",
     "react-hot-loader": "^4.3.12",
-    "react-static": "^6.0.18",
+    "react-static": "^6.3.6",
     "rxjs": "6.4.0",
-    "rxjs-compat": "6.4.0"
+    "rxjs-compat": "6.4.0",
+    "acorn": "^6"
   },
   "devDependencies": {
     "eslint-config-react-tools": "1.x.x",

@@ -5,6 +5,7 @@
 dist
 node_modules
 tmp
+artifacts
 
 # CSS ignore
 **.css
