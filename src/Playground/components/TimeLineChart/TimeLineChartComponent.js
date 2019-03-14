@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
-import { groupBy, values, entries } from 'lodash';
+import groupBy from 'lodash/groupBy';
+import values from 'lodash/values';
+import entries from 'lodash/entries';
 import { palette, MAX_EXECUTION_TIME } from '../../../shared/consts';
 import { print } from './print';
 import './TimeLineChartComponent.css';
