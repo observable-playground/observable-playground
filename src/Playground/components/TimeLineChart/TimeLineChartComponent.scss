@@ -1,62 +1,31 @@
 @import '../../../styles/variables.scss';
 
-$stroke-color: #333333;
-$stroke-width: 2px;
+.TimeLineChart {
+    margin-left: 0.5rem;
+    min-height: 7rem;
+    position: relative;
+    padding-bottom: 3rem;
 
-.TimeLineChartComponent {
-    .axis {
-        &.axis--x {
-            line{
-                stroke: $lightgray-color;
-            }
-            
-            path{
-                stroke: $lightgray-color;
-            }
-            
-            text{
-                fill: $lightgray-color;
-            }
-        }
+    &:hover .TimeLineChart__Download {
+        opacity: 1;
+        transition: 300;
     }
 
-    .thread {
-        .lineTitle {
-            fill: $darkgray-color;
+    &__Download {
+        opacity: 0.25;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border: 0;
+        background: none;
+        color: $lightgray-color;
+
+        &:hover{
+            color: $gray-color;
         }
 
-        line {
-            stroke: $stroke-color;
-            stroke-width: $stroke-width;
-        }
-
-        .event {
-            circle {
-                stroke: $stroke-color;
-                stroke-width: $stroke-width;
-            }
-
-            text {
-                font-family: sans-serif;
-                font-size: 14px;
-                user-select: none;
-            }
-        }
-
-        .error{
-            $orange: #ff9900;
-
-            .errorTriangle {
-                stroke: $orange;
-                fill: $orange;
-                stroke-linejoin: round;
-                stroke-width: 4px;
-            }
-
-            text {
-                user-select: none;
-                font-family: monospace;
-            }
+        &:active {
+            margin-bottom: -1px;
         }
     }
 }

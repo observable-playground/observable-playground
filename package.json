@@ -1,7 +1,7 @@
 {
   "name": "observable-playground",
   "private": true,
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://observable-playground.github.io/",
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -21,6 +21,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@reach/router": "^1.2.1",
+    "acorn": "^6",
     "axios": "^0.18.0",
     "baconjs": "2.0.11",
     "brace": "^0.11.1",
@@ -38,7 +39,7 @@
     "react-static": "^6.3.6",
     "rxjs": "6.4.0",
     "rxjs-compat": "6.4.0",
-    "acorn": "^6"
+    "save-svg-as-png": "^1.4.11"
   },
   "devDependencies": {
     "eslint-config-react-tools": "1.x.x",

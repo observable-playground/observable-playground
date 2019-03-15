@@ -4,7 +4,10 @@ import groupBy from 'lodash/groupBy';
 import values from 'lodash/values';
 import entries from 'lodash/entries';
 import { palette, MAX_EXECUTION_TIME } from '../../../shared/consts';
-import { print } from './print';
+import { printValue } from './printValue';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { saveSvgAsPng } from 'save-svg-as-png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './TimeLineChartComponent.css';
 
 const EVENT_RADIUS = 17;
@@ -17,10 +20,18 @@ const MARK_HALF_HEIGHT = 25;
 const EVENT_MARGIN = -6;
 const EVENT_DIAMETER_WITH_MARGIN = EVENT_DIAMETER + EVENT_MARGIN;
 
+// colors
+const STROKE_WIDTH = '2';
+const COLOR_ORANGE = '#ff9900';
+const COLOR_LIGHT_GREY = '#c5c5c5';
+const COLOR_GREY = '#757575';
+const COLOR_DARK_GREY = '#333';
+
 export class TimeLineChartComponent extends Component {
     constructor(props) {
         super(props);
         this.createChart = this.createChart.bind(this);
+        this.downloadAsSvg = this.downloadAsSvg.bind(this);
     }
 
     componentDidMount() {
@@ -32,18 +43,18 @@ export class TimeLineChartComponent extends Component {
     }
 
     createChart() {
-        const node = this.node;
-        const wrapper = this.wrapper;
+        const svgNode = this.svgNode;
+        const wrapperNode = this.wrapperNode;
 
-        const VIEW_WIDTH = wrapper.clientWidth;
+        const VIEW_WIDTH = wrapperNode.clientWidth;
 
         const MIN_MS_TO_DISPLAY = 10;
 
         const margin =
             { top:    0
             , right:  EVENT_RADIUS + 2
-            , bottom: EVENT_RADIUS + 2
-            , left:   EVENT_RADIUS * 1.5
+            , bottom: 0
+            , left:   EVENT_RADIUS + 2
             };
 
         const width  = VIEW_WIDTH - margin.left - margin.right;
@@ -53,14 +64,14 @@ export class TimeLineChartComponent extends Component {
 
         // cleanup before going further
         d3
-            .select(node)
+            .select(svgNode)
             .selectAll('g.root')
             .remove();
 
         const svg = d3
-            .select(node);
+            .select(svgNode);
 
-        const rootSvg = svg
+        const rootg = svg
             .append('g')
             .attr('class', 'root')
             .attr('transform', `translate( ${ margin.left }, ${ margin.top })`);
@@ -71,14 +82,22 @@ export class TimeLineChartComponent extends Component {
             .nice();
 
         // add x axis
-        rootSvg
+        const axis = rootg
             .append('g')
             .attr('class', 'axis axis--x')
             .call(
                 d3.axisBottom(xScale).tickFormat(x=>x + 'ms')
-            );
+            )
 
-        const graph = rootSvg
+        axis
+            .selectAll('line, path')
+            .attr('stroke', COLOR_LIGHT_GREY);
+
+        axis
+            .selectAll('text')
+            .attr('fill', COLOR_LIGHT_GREY);
+
+        const graph = rootg
             .append('g')
             .attr('transform', `translate(0, ${ TIMELINE_HEIGHT })`);
 
@@ -95,7 +114,7 @@ export class TimeLineChartComponent extends Component {
             const events = groupBy(line.events || [], event => event.time);
             const errors = line.errors || [];
             const stops  = line.stops  || [];
-            const lineName = line.lineName != null ? print(line.lineName) : '';
+            const lineName = line.lineName != null ? printValue(line.lineName) : '';
 
             // TODO: scale vert
             const y = accHeight;
@@ -117,7 +136,9 @@ export class TimeLineChartComponent extends Component {
                 threadg
                     .append('text')
                     .attr('class', 'lineTitle')
+                    .attr('font-family', 'sans-serif')
                     .attr('font-size', LINE_TITLE_HEIGHT)
+                    .attr('fill', COLOR_GREY)
                     .attr('y', LINE_TITLE_HEIGHT)
                     .text(lineName);
             }
@@ -125,7 +146,9 @@ export class TimeLineChartComponent extends Component {
             const linefg = threadg
                 .append('g')
                 .attr('class', 'line')
-                .attr('transform', () => `translate(0, ${ lineTitleHeight })`);
+                .attr('transform', () => `translate(0, ${ lineTitleHeight })`)
+                .attr('stroke', COLOR_DARK_GREY)
+                .attr('stroke-width', STROKE_WIDTH);
 
             const lineg = linefg
                 .append('g')
@@ -199,13 +222,16 @@ export class TimeLineChartComponent extends Component {
 
                     eventMarks
                         .append('text')
+                        .attr('font-family', 'sans-serif')
+                        .attr('font-size', '14px')
                         .attr('text-anchor', 'middle')
+                        .attr('stroke-width', 0)
                         .attr('y', 5)
-                        .text(d => print(d.value));
+                        .text(d => printValue(d.value));
 
                     eventMarks
                         .append('title')
-                        .text(d => print(d.value));
+                        .text(d => printValue(d.value));
             });
             // }}}
 
@@ -215,12 +241,12 @@ export class TimeLineChartComponent extends Component {
                 .enter()
                 .append('g')
                 .attr('class', 'error')
-                .attr('transform', d => `translate(${ xScale(d.time) }, 0)`);
+                .attr('transform', d => `translate(${ xScale(d.time) }, 0)`)
 
             // error mark = cross with an exclamation mark in a triangle in it
             errorMarks
                 .append('title')
-                .text(d => print(d.value));
+                .text(d => printValue(d.value));
 
             errorMarks
                 .append('line')
@@ -238,14 +264,20 @@ export class TimeLineChartComponent extends Component {
 
             errorMarks
                 .append('path')
-                // triangle drawn by `npm d3-shape`:
+                // triangle generated via `npm d3-shape`:
                 // d3.symbol().type(d3.symbolTriangle).size(250);
                 .attr('d', 'M0,-13.872638167626057L12.01405707067377,6.936319083813029L-12.01405707067377,6.936319083813029Z')
                 .attr('class', 'errorTriangle')
+                .attr('stroke', COLOR_ORANGE)
+                .attr('fill', COLOR_ORANGE)
+                .attr('stroke-linejoin', 'round')
+                .attr('stroke-width', STROKE_WIDTH * 2)
 
             errorMarks
                 .append('text')
+                .attr('font-family', 'monospace')
                 .attr('text-anchor', 'middle')
+                .attr('stroke-width', 0)
                 .attr('y', 4)
                 .text('!');
 
@@ -255,15 +287,30 @@ export class TimeLineChartComponent extends Component {
         });
     }
 
+    downloadAsSvg(){
+        const filename = window.document.title.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+        saveSvgAsPng(this.svgNode, filename, {
+            encoderOptions: 1,  // high image quality
+            scale: 2            // upscale for better quality in publicaions
+        });
+    }
+
     render() {
         return (
-            <div ref={wrapper => this.wrapper = wrapper}>
+            <div
+                className="TimeLineChart"
+                ref={node => this.wrapperNode = node}
+            >
                 <svg
-                    className="TimeLineChartComponent"
-                    ref={node => this.node = node}
+                    ref={node => this.svgNode = node}
                     width="0"
                     height="0"
                 ></svg>
+                <button
+                    className="TimeLineChart__Download"
+                    onClick={ this.downloadAsSvg }
+                    title="Download as .png"
+                ><FontAwesomeIcon icon={faDownload} /></button>
             </div>
         )
     }

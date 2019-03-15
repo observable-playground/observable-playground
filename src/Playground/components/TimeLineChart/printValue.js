@@ -1,4 +1,4 @@
-export function print(value){
+export function printValue(value){
     if (typeof value == 'object'){
         return printPrimitive(
             getObjectValue(value)
