@@ -48,6 +48,9 @@ const glob = __window || __global;
 
 const ONE_MINUTE = 1000 * 60;
 
+// a randomly picked number, to be honest
+const MAX_TASKS_PER_TICK = 1024;
+
 // Store ref to both mocked and original methods
 // to switch between while in `.execute` function
 const originals = Object.create(null);
@@ -246,19 +249,27 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     const flush = ()=>{
         while(tasks.length){
             if (time >= maxLifetime) {
-                return `Ran out of time (${maxLifetime}ms)`;
+                return `Execution terminated: maximum execution time is ${maxLifetime}ms`;
             }
+            let tasksPerTickCounter = 0;
             let nextTask;
             while(nextTask = getNextTask()){ // eslint-disable-line no-cond-assign
-                // TODO: [kos] potentially this might lead to an infinite loop.
-                //       Add anti-infinite loop guard, like throttling
-                //       https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Reasons_for_delays_longer_than_specified
-                //       e.g. `timeout = Math.max(4, Number(timeout))`
                 if (DEBUG_MODE) {
                     console.log('[>]', nextTask.id);
                 }
                 nextTask.fn();
+
+                // NOTE: [kos] potentially this loop might be infinite.
+                //       Adding anti-infinite guard to limit max tasks run per 1 tick.
+                // TODO: [kos] consider adding throttling
+                //       https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Reasons_for_delays_longer_than_specified
+                //       e.g. `timeout = Math.max(4, Number(timeout))`
+                tasksPerTickCounter++;
+                if (tasksPerTickCounter > MAX_TASKS_PER_TICK) {
+                    return `Execution terminated: over ${MAX_TASKS_PER_TICK} tasks were scheduled for a single tick at ${time}`;
+                }
             }
+            tasksPerTickCounter = 0;
             time++;
         }
         time--; // [kos] I know, this is dumb, needed to undo last `time++`
@@ -276,6 +287,10 @@ function execute(fn, maxLifetime = ONE_MINUTE){
         }
         fn();
         status = flush();
+
+        if (status !== 0 && console && console.warn) {
+            console.warn(status);
+        }
     } finally {
         disableMocks();
         if (console && console.groupEnd) {
