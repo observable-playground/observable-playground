@@ -34,7 +34,7 @@ class App extends React.Component {
 
     toggleMobileMenu(){
         this.setState({
-            mobileMenuVisible: !state.mobileMenuVisible
+            mobileMenuVisible: !this.state.mobileMenuVisible
         })
     }
 
