@@ -70,14 +70,18 @@ class App extends React.Component {
                             className="App__twitter-link"
                             title="Follow me on twitter"
                             href="https://twitter.com/kddsky"
-                        ><FontAwesomeIcon icon={faTwitter} /></a>
+                        ><FontAwesomeIcon icon={faTwitter} 
+                            style={ { width: '1em' } }
+                        /></a>
 
                         <a
                             target="_blank"
                             className="App__github-link"
                             title="Check the source code on GitHub"
                             href="https://github.com/observable-playground/observable-playground"
-                        ><FontAwesomeIcon icon={faGithub} /></a>
+                        ><FontAwesomeIcon icon={faGithub}
+                            style={ { width: '1em' } }
+                        /></a>
                     </div>
 
                     <div className="App__body">
