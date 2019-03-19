@@ -1,10 +1,17 @@
 @import '../../../styles/variables.scss';
 
 .TimeLineChart {
-    margin-left: 0.5rem;
     min-height: 7rem;
     position: relative;
     padding-bottom: 3rem;
+
+    @media screen and (max-width: $max-mobile-screen-width) {
+        margin-bottom: 1rem;
+    }
+
+    @media screen and (min-width: $min-desktop-screen-width) {
+        margin-left: 0.5rem;
+    }
 
     &:hover .TimeLineChart__Download {
         opacity: 1;

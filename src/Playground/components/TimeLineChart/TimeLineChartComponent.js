@@ -86,8 +86,17 @@ export class TimeLineChartComponent extends Component {
             .append('g')
             .attr('class', 'axis axis--x')
             .call(
-                d3.axisBottom(xScale).tickFormat(x=>x + 'ms')
-            )
+                d3
+                    .axisBottom(xScale)
+                    .tickFormat(x=>x + 'ms')
+                    .ticks(
+                        // for mobile/narrow screen
+                        // cut ticks count to 7
+                        VIEW_WIDTH < 500
+                        ? 7
+                        : undefined
+                    )
+            );
 
         axis
             .selectAll('line, path')

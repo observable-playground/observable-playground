@@ -1,0 +1,9 @@
+@import "../styles/variables.scss";
+
+.SSRPlayground {
+    &__Pre {
+        padding: 0 1rem;
+        font-size: 0.9rem;
+        white-space: pre-wrap;
+    }
+}
