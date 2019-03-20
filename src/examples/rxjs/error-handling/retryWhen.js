@@ -3,28 +3,31 @@ export default
 const { timer } = require('rxjs');
 const { map, tap, retryWhen, delayWhen } = require('rxjs/operators');
 
-
 const source$ =
   timer(0, 100).pipe(
     map(val => {
-      if (val > 2) {
-        // error will be picked up by retryWhen
-        throw val;
+      if (val == 1) {
+        throw 'Err';
       }
       return val;
-    }),
+    })
+  );
+
+const result$ = source$.pipe(
     retryWhen(errors =>
-      // here Errors are transformed into Events
+      // here Errors are just events
       errors.pipe(
         // show error messages thread
-        tap(rxObserver('ERROR MESSAGES')),
-        // will restart in 150 ms
-        delayWhen(val => timer(val * 50))
+        tap(rxObserver('Error messages')),
+        // will restart with increasing delay
+        delayWhen((_, index) => timer(index * 50))
       )
     )
 );
 
 source$.subscribe(rxObserver('source$'));
-// taken from
+result$.subscribe(rxObserver('result$'));
+
+// a modification of
 // https://www.learnrxjs.io/operators/error_handling/retrywhen.html
 `

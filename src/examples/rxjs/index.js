@@ -25,6 +25,7 @@ import throwError from      './error-handling/throwError';
 import _catch from          './error-handling/catch';
 import retry from           './error-handling/retry';
 import retryWhen from       './error-handling/retryWhen';
+import onErrorResumeNext from './error-handling/onErrorResumeNext';
 
 // Multicasting
 import share from           './multicasting/share';
@@ -35,7 +36,9 @@ import finalize from        './utility/finalize';
 import timeInterval from    './utility/timeInterval';
 import delay from           './utility/delay';
 import delayWhen from       './utility/delayWhen';
+import dematerialize from   './utility/dematerialize';
 import repeat from          './utility/repeat';
+import timeout from         './utility/timeout';
 import pipe from            './utility/pipe';
 
 // import pausableBuffer from  './recipes/pausableBuffer';
@@ -64,6 +67,7 @@ const examples =
     , 'catch': _catch
     , retry
     , retryWhen
+    , onErrorResumeNext
 
     , share
 
@@ -76,7 +80,9 @@ const examples =
     , timeInterval
     , delay
     , delayWhen
+    , dematerialize
     , repeat
+    , timeout
     , pipe
 
     // , 'pausable-buffer': pausableBuffer
@@ -114,6 +120,7 @@ export const library = {
                 , 'catch'
                 , 'retry'
                 , 'retryWhen'
+                , 'onErrorResumeNext'
                 ]
             }
 
@@ -141,7 +148,9 @@ export const library = {
                 , 'timeInterval'
                 , 'delay'
                 , 'delayWhen'
+                , 'dematerialize'
                 , 'repeat'
+                , 'timeout'
                 , 'pipe'
                 ]
             }
