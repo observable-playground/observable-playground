@@ -1,9 +1,24 @@
 @import "../styles/variables.scss";
 
 .SSRPlayground {
+    // matching editor style
     &__Pre {
-        padding: 0 1rem;
-        font-size: 0.9rem;
+        min-height: 7rem;
+        padding: 6px 0 3em 0.5rem;
+        background: #272722;
+        color: #f8f8f2;
+        border-left: 2rem #2f3129 solid;
+        margin: 0;
+    }
+
+    &__Code {
+        font-size: 0.75rem;
+        font-family: Monaco, Menlo, "Ubuntu Mono", Consolas, source-code-pro, monospace;
         white-space: pre-wrap;
+    }
+
+    &__Loader {
+        display: block;
+        text-align: center;
     }
 }
