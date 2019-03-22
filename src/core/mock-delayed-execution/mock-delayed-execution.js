@@ -41,6 +41,9 @@
  * // > end
  */
 
+// NOTE: consider using 3rd party implementation, like Jest's fakeTimers
+// https://github.com/facebook/jest/blob/86752905a079498a5315df32e85378ca943818d0/packages/jest-fake-timers/src/jestFakeTimers.ts
+
 // Get global object, typesafe
 const __window = typeof window !== 'undefined' && window;
 const __global = typeof global !== 'undefined' && global;
@@ -311,6 +314,4 @@ function disableMocks(){
     overridies.forEach(key => { mocks[key] = null; });
 }
 
-module.exports = {
-    execute
-}
+export { execute };

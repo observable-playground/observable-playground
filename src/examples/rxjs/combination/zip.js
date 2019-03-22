@@ -1,12 +1,15 @@
 export default
 `const { rxObserver } = require('api/v0.3');
-const { Observable } = require('rxjs/Rx');
+const { timer, from } = require('rxjs');
+const { zip, take } = require('rxjs/operators');
+
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-const alphabet$ = Observable.from(alphabet);
+const alphabet$ = from(alphabet);
 
-Observable.timer(0, 5)
-    .zip(alphabet$, (digit, letter)=>digit+letter)
-    .take(10)
-    .subscribe(rxObserver());
+timer(0, 5).pipe(
+    zip(alphabet$, (digit, letter)=>digit+letter),
+    take(10)
+  )
+  .subscribe(rxObserver());
 `;

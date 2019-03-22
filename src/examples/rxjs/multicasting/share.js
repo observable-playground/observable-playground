@@ -1,4 +1,4 @@
-module.exports =
+export default
 `const { rxObserver, palette } = require('api/v0.3');
 const { Observable } = require('rxjs/Rx');
 

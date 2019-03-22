@@ -1,9 +1,10 @@
 export default
 `const { rxObserver } = require('api/v0.3');
-const { Observable } = require('rxjs/Rx');
+const { interval } = require('rxjs');
+const { take } = require('rxjs/operators');
 
-Observable
-  .interval(5)
-  .take(10)
+interval(5).pipe(
+    take(10)
+  )
   .subscribe(rxObserver());
 `;

@@ -13,6 +13,8 @@ import forkJoin from        './combination/forkJoin';
 import combineLatest from   './combination/combineLatest';
 
 // Transformation
+import filter from          './transformation/filter';
+import find from            './transformation/find';
 import buffer from          './transformation/buffer';
 import mergeMap from        './transformation/mergeMap';
 import switchMap from       './transformation/switchMap';
@@ -56,6 +58,8 @@ const examples =
     , defer
     , 'constructor': _constructor
 
+    , filter
+    , find
     , buffer
     , mergeMap
     , switchMap
@@ -126,7 +130,9 @@ export const library = {
 
         ,   { name: 'Transformation'
             , items:
-                [ 'buffer'
+                [ 'filter'
+                , 'find'
+                , 'buffer'
                 , 'mergeMap'
                 , 'switchMap'
                 , 'exhaustMap'

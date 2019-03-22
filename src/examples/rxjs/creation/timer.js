@@ -1,16 +1,17 @@
-module.exports =
+export default
 `const { rxObserver } = require('api/v0.3');
-const { Observable } = require('rxjs/Rx');
+const { timer } = require('rxjs');
+const { take } = require('rxjs/operators');
+
 
 // Will emit once
-Observable
-  .timer(10)
+timer(10)
   .subscribe(rxObserver('timer(10)'));
 
 // Will start emiting after 10ms timeout
 // with 5ms interval
-Observable
-  .timer(10, 5)
-  .take(4)
+timer(10, 5).pipe(
+    take(4)
+  )
   .subscribe(rxObserver('timer(10, 5)'));
 `;
