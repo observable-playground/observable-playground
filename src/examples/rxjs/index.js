@@ -21,6 +21,7 @@ import switchMap from       './transformation/switchMap';
 import exhaustMap from      './transformation/exhaustMap';
 import concatMap from       './transformation/concatMap';
 import windowToggle from    './transformation/windowToggle';
+import expand from          './transformation/expand';
 
 // Error handling
 import throwError from      './error-handling/throwError';
@@ -66,6 +67,7 @@ const examples =
     , exhaustMap
     , concatMap
     , windowToggle
+    , expand
 
     , throwError
     , 'catch': _catch
@@ -138,6 +140,7 @@ export const library = {
                 , 'exhaustMap'
                 , 'concatMap'
                 , 'windowToggle'
+                , 'expand'
                 ]
             }
         
