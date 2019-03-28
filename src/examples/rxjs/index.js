@@ -6,6 +6,7 @@ import timer from           './creation/timer';
 import _of from             './creation/of';
 import _constructor from    './creation/constructor';
 import defer from           './creation/defer';
+import iif from             './creation/iif';
 
 // Combination
 import zip from             './combination/zip';
@@ -57,6 +58,7 @@ const examples =
     , 'fromPromise': fromPromise
     , 'of': _of
     , defer
+    , iif
     , 'constructor': _constructor
 
     , filter
@@ -108,6 +110,7 @@ export const library = {
                 , 'interval'
                 , 'timer'
                 , 'defer'
+                , 'iif'
                 , 'constructor'
                 ]
             }
