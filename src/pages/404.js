@@ -2,8 +2,12 @@ import React from 'react'
 import { Link } from '@reach/router';
 import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
 
+// the issue with /gist/* pages is that they are not static pages
+// therefore these need time to load scripts to load a proper ui
+// so here we're showing half loading, half 404 state to the user
+
 export default () => (
-    <React.Fragment>
+    <div className="PageNotFound">
         <div className="PageBlock">
             <h3>Your playground is loading...</h3>
         </div>
@@ -25,5 +29,5 @@ export default () => (
 
             <br />
         </div>
-    </React.Fragment>
+    </div>
 )

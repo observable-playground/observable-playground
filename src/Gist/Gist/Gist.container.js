@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { GistComponent } from './Gist.component';
 import axios from 'axios';
 import { GIST_URL_PREFIX } from './const';
+import { GistComponent } from './Gist.component';
+import { LoadingIndicator } from '../../shared/LoadingIndicator/LoadingIndicator';
 
 export class GistContainer extends Component {
 
@@ -26,12 +27,27 @@ export class GistContainer extends Component {
     }
 
     render(){
-        if (this.state.loading) {
-            const {gistId} = this.props;
-            const gistUrl = GIST_URL_PREFIX + gistId;
-            return <div className="PageBlock">Loading Gist from <a href={ gistUrl } target="_blank">{ gistUrl }</a>...</div>
+        if (!this.state.loading) {
+            return <GistComponent data={ this.state.data }/>
         }
 
-        return <GistComponent data={ this.state.data }/>
+        // Loading indicator
+        const { gistId } = this.props;
+        const gistUrl = GIST_URL_PREFIX + gistId;
+        return <div>
+            <div className="PageBlock">
+                <h3>Your playground is loading...</h3>
+            </div>
+
+            <p>
+                <LoadingIndicator />
+            </p>
+
+            <div className="PageBlock">
+                <p>
+                    Fetching Gist from <a href={gistUrl} target="_blank">{gistUrl}</a>...
+                </p>
+            </div>
+        </div>
     }
 }
