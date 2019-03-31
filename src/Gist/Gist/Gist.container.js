@@ -44,7 +44,7 @@ export class GistContainer extends Component {
             </p>
 
             <div className="PageBlock">
-                <p>
+                <p className="DangerousContentWidth">
                     Fetching Gist from <a href={gistUrl} target="_blank">{gistUrl}</a>...
                 </p>
             </div>

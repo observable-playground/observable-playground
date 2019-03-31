@@ -32,7 +32,7 @@ export class GistComponent extends Component {
                         />
                     </a>
 
-                    <div className="Gist__Header__Main">
+                    <div className="Gist__Header__Main DangerousContentWidth">
                         <div className="Gist__Path">
                             <a
                                 className="Gist__UserName"

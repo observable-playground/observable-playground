@@ -4,6 +4,10 @@
     &__Header{
         display: block;
 
+        @media screen and (max-width: $max-mobile-screen-width) {
+            padding: 0.5rem 0.5rem 0;
+        }
+
         &__Main {
             padding-left: 54px;
         }

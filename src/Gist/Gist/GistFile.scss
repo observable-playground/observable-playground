@@ -6,6 +6,10 @@
     &__Name {
         color: $darkgray-color;
         padding-bottom: 0.5em;
+
+        @media screen and (max-width: $max-mobile-screen-width) {
+            padding: 0 0.5rem;
+        }
     }
 
     &__Content {
