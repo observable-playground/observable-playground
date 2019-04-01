@@ -23,7 +23,7 @@ export class EditorComponent extends Component {
 
                 showGutter={true}
                 tabSize={2}
-                wrapEnabled={true}
+                wrapEnabled={false}
                 showPrintMargin={false}
                 setOptions={{ showFoldWidgets: false }}
 

@@ -54,12 +54,8 @@ export class Playground extends Component {
                 </div>
                 <div className="Playground__chart">
                     {
-                        showError && (
-                            <div>
-                                <ErrorComponent error={ status }></ErrorComponent>
-                                <br />
-                            </div>
-                        )
+                        showError &&
+                            <ErrorComponent error={ status }></ErrorComponent>
                     }
                     <TimeLineChartComponent
                         time={time}
