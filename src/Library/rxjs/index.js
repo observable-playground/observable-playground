@@ -9,6 +9,7 @@ export default () =>
     <Head>
         <title>RxJS playground and examples</title>
     </Head>
+    <div key="RxJS">
     <div className="PageBlock">
         <h1>RxJS Playground</h1>
 
@@ -48,5 +49,6 @@ export default () =>
                 <li><a href="https://rxviz.com/" target="_blank">rxviz.com</a> — animated playground for rx observables</li>
             </ul>
         </div>
+    </div>
     </div>
 </React.Fragment>

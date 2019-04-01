@@ -20,6 +20,10 @@ export class GistComponent extends Component {
                 <Head>
                     <title>Gist { data.description }</title>
                 </Head>
+                <div
+                    key="Gist"
+                    className="Gist"
+                >
                 <div className="Gist__Header">
                     <a
                         className="Gist__Avatar"
@@ -57,12 +61,13 @@ export class GistComponent extends Component {
                     {
                         fileValues.map(file =>
                             <GistFileComponent
-                                key={file.filename}
+                                key={"GistFile__" + file.filename}
                                 file={ file }
                                 />
                         )
                     }
                 </React.Fragment>
+                </div>
             </React.Fragment>
         )
     }

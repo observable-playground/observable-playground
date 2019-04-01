@@ -20,7 +20,7 @@ class ExamplePage extends React.Component {
                     <title>{libraryName} {exampleName} example and playground</title>
                     <meta name="description" content={`Test and explore ${libraryName} \"${exampleName}\" behavior and other reactive programming code examples in this marble visualisation playground`} />
                 </Head>
-                <PlaygroundWrapper code={exampleCode} />
+                <PlaygroundWrapper key="PlaygroundWrapper" code={exampleCode} />
             </React.Fragment>
         )
     }

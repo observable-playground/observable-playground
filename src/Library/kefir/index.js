@@ -9,6 +9,7 @@ export default () =>
     <Head>
         <title>Kefir.js playground and examples</title>
     </Head>
+    <div key="Kefir">
     <div className="PageBlock">
         <h1>Kefir.js Playground</h1>
 
@@ -36,5 +37,6 @@ export default () =>
  
             </ul>
         </div>
+    </div>
     </div>
 </React.Fragment>

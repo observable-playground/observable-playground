@@ -24,7 +24,10 @@ export class GistsPageComponent extends Component {
             <Head>
                 <title>Load a gist</title>
             </Head>
-            <div className="GistsPage PageBlock">
+            <div
+                key="GistsPage"
+                className="GistsPage PageBlock"
+            >
                 <h1>Load a gist and share it with others</h1>
 
                 <form target="#" onSubmit={ this.onSubmit }>

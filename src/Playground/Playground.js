@@ -55,10 +55,10 @@ export class Playground extends Component {
                 <div className="Playground__chart">
                     {
                         showError && (
-                            <React.Fragment>
+                            <div>
                                 <ErrorComponent error={ status }></ErrorComponent>
                                 <br />
-                            </React.Fragment>
+                            </div>
                         )
                     }
                     <TimeLineChartComponent
