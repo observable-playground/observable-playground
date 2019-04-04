@@ -1,20 +1,25 @@
 export default
 `const { rxObserver, palette } = require('api/v0.3');
-const { Observable } = require('rxjs/Rx');
+const { timer, from } = require('rxjs');
+const { zip, map, retry } = require('rxjs/operators');
 
-const error$ = Observable.timer(0, 5)
-  .map(x=>{
-    if (x>2) { throw 'Bam!' }
-    return x;
-  });
+const error$ = timer(0, 5).pipe(
+    map(x=>{
+      if (x>2) { throw 'Bam!' }
+      return x;
+    })
+  );
 
-// stream for coloring
-const palette$ = Observable.from(palette);
+// same error$ stream, just frozen colors
+const errorColorized$ = error$.pipe(
+    zip(from(palette), Marble)
+  );
 
-const errorColorized$ = error$
-  .zip(palette$, Marble);
+// retry 2 times
+const retry$ = errorColorized$.pipe(
+    retry(2)
+  );
 
-const retry$ = errorColorized$.retry(2);
 
 error$.subscribe(rxObserver());
 retry$.subscribe(rxObserver());
