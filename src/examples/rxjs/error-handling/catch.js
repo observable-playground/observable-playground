@@ -1,13 +1,15 @@
 export default
 `const { rxObserver } = require('api/v0.3');
-const { Observable } = require('rxjs/Rx');
+const { timer, throwError, of } = require('rxjs');
+const { switchMap, catchError } = require('rxjs/operators');
 
-const error$ = Observable
-  .timer(5)
-  .switchMap(() => Observable.throw('oh'));
+const error$ = timer(5).pipe(
+    switchMap(() => throwError('oh'))
+  );
   
-const catch$ = error$
-  .catch(err => Observable.of(err));
+const catch$ = error$.pipe(
+    catchError(err => of(err))
+  );
 
 
 error$.subscribe(rxObserver());
