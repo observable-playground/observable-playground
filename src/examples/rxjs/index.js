@@ -23,6 +23,7 @@ import exhaustMap from      './transformation/exhaustMap';
 import concatMap from       './transformation/concatMap';
 import windowToggle from    './transformation/windowToggle';
 import expand from          './transformation/expand';
+import toArray from         './transformation/toArray';
 
 // Error handling
 import throwError from      './error-handling/throwError';
@@ -70,6 +71,7 @@ const examples =
     , concatMap
     , windowToggle
     , expand
+    , toArray
 
     , throwError
     , 'catch': _catch
@@ -144,6 +146,7 @@ export const library = {
                 , 'concatMap'
                 , 'windowToggle'
                 , 'expand'
+                , 'toArray'
                 ]
             }
         
