@@ -16,5 +16,5 @@ const result$ = combineLatest(a$, b$);
 
 a$.subscribe(rxObserver('a$'));
 b$.subscribe(rxObserver('b$'));
-result$.subscribe(rxObserver('result$'));
+result$.subscribe(rxObserver('combineLatest(a$, b$)'));
 `
