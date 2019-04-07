@@ -12,15 +12,15 @@ $leftmenu-width: 10rem;
     box-sizing: border-box;
     margin: auto;
 
-    &__header {
+    &__MobileHeader {
         display: flex;
-        padding: 1rem 10px 0.5rem $leftmenu-width;
+        font-size: 1.2rem;
+        padding: 0.75rem 0.5rem 0.25rem;
         line-height: 1.5rem;
         vertical-align: middle;
 
-        @media screen and (max-width: $max-mobile-screen-width) {
-            font-size: 1.2rem;
-            padding: 0.75rem 0.5rem 0.25rem;
+        @media screen and (min-width: $min-desktop-screen-width) {
+            display: none;
         }
     }
 
@@ -63,25 +63,19 @@ $leftmenu-width: 10rem;
     &__twitter-link {
         color: $darkgray-color;
         margin-right: 1rem;
+        padding: 0 0.25rem;
 
         &:hover {
-            color: #1da1f2;
-        }
-
-        @media screen and (max-width: $max-mobile-screen-width) {
-            padding: 0 0.25rem;
+            color: $twitter-link-color;
         }
     }
 
     &__github-link {
         color: $darkgray-color;
-
-        @media screen and (max-width: $max-mobile-screen-width) {
-            padding: 0 0.25rem;
-        }
+        padding: 0 0.25rem;
 
         &:hover {
-            color: #000;
+            color: $github-link-color;
         }
     }
 
@@ -89,13 +83,20 @@ $leftmenu-width: 10rem;
         display: flex;
         flex-direction: row-reverse;
         overflow: auto;
+
+        @media screen and (min-width: $min-desktop-screen-width) {
+            padding-top: 1rem;
+        }
     }
 
     &__contents {
         flex-grow: 1;
 
+        // might be hindden only on mobile
         &.hidden {
-            display: none;
+            @media screen and (max-width: $max-mobile-screen-width) {
+                display: none;
+            }
         }
     }
 
@@ -127,12 +128,5 @@ $leftmenu-width: 10rem;
             padding-right: 1rem;
             padding-left: 0.25rem;
         }
-    }
-
-    &__footer {
-        padding: 0.5rem;
-        font-size: 0.7rem;
-        text-align: right;
-        color: $lightgray-color;
     }
 }

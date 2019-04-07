@@ -36,14 +36,17 @@
     "react-ace": "^6.4.0",
     "react-dom": "^16.8.1",
     "react-hot-loader": "^4.3.12",
+    "react-markdown": "^4.0.6",
     "react-static": "^6.3.6",
     "rxjs": "6.4.0",
     "rxjs-compat": "6.4.0",
-    "save-svg-as-png": "^1.4.11"
+    "save-svg-as-png": "^1.4.11",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "eslint-config-react-tools": "1.x.x",
     "gh-pages": "^2.0.1",
+    "raw-loader": "^2.0.0",
     "serve": "^10.1.2"
   }
 }

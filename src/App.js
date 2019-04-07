@@ -6,10 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-import { version as APP_VERSION } from '../package.json';
-
 import './App.css'
 import { GistContainer } from './Gist/Gist/Gist.container.js';
+import { Sidebar } from './shared/Sidebar/Sidebar.js';
 
 class App extends React.Component {
     constructor(props) {
@@ -49,7 +48,7 @@ class App extends React.Component {
         return (
             <Root>
                 <div className="App">
-                    <div className="App__header">
+                    <div className="App__MobileHeader">
                         <button
                             className={ 'App__MobileMenuSwitch ' + (this.state.mobileMenuVisible ? ' active' : '') }
                             onClick={ this.toggleMobileMenu }
@@ -96,7 +95,7 @@ class App extends React.Component {
                         <div
                             className={ 'App__menu' + (this.state.mobileMenuVisible ? ' visible' : '') }
                             onClick={this.hideMobileMenu}
-                        ><MenuComponent /></div>
+                        ><Sidebar /></div>
                     </div>
                 </div>
             </Root>

@@ -9,7 +9,7 @@ import defer from           './creation/defer';
 import iif from             './creation/iif';
 
 // Combination
-import zip from             './combination/zip';
+// import zip from             './combination/zip';
 import forkJoin from        './combination/forkJoin';
 import combineLatest from   './combination/combineLatest';
 
@@ -26,7 +26,7 @@ import expand from          './transformation/expand';
 import toArray from         './transformation/toArray';
 
 // Error handling
-import throwError from      './error-handling/throwError';
+// import throwError from      './error-handling/throwError';
 import _catch from          './error-handling/catch';
 import retry from           './error-handling/retry';
 import retryWhen from       './error-handling/retryWhen';
@@ -51,6 +51,27 @@ import pipe from            './utility/pipe';
 // read the lib version
 import { dependencies } from '../../../package.json';
 const LIB_VERSION = dependencies.rxjs;
+
+const zip =
+    { name: 'zip'
+    , title: 'zip'
+    , description: ''
+    , files:
+        [ './examples/rxjs/combination/zip.md'
+        , './examples/rxjs/combination/zip.js'
+        ]
+    };
+
+const throwError =
+    { name: 'throwError'
+    , title: 'throwError'
+    , description: ''
+    , files:
+        [ './examples/rxjs/error-handling/throwError.js'
+        , './examples/rxjs/error-handling/throwError.md'
+        ]
+    };
+
 
 const examples =
     { interval

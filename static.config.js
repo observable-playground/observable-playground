@@ -2,12 +2,21 @@ import React from 'react';
 import { menu as examplesMenu } from './src/examples/';
 import { homepage } from './package.json';
 import { ROOT_PAGE_TITLE_PREFIX } from './src/shared/consts';
+import fs from 'fs-extra';
+import path from 'path';
+import uuid from 'uuid';
+
+// REACT_STATIC_CACHE_BUST is needed to append an anti-cache query string for
+// routInfo xhr requests. This is not the perfect solution, yet seems to be the
+// only one we have
+process.env['REACT_STATIC_CACHE_BUST'] = uuid.v4();
 
 export default {
     siteRoot: homepage,
     basePath: '',
     getSiteData: ({ dev }) => ({
-        dev
+        dev,
+        examplesMenu
     }),
 
     getRoutes: () => {
@@ -28,17 +37,50 @@ export default {
                         children:
                             Object.entries(library.examples)
                                 .map(([key, value]) => {
-                                    const route = {
-                                        path: `/${key}/`,
-                                        component: 'src/Example/Example.page.js',
-                                        getData: () => ({
-                                            libraryName: library.name,
-                                            exampleName: key,
-                                            exampleCode: value,
-                                        }),
-                                    }
 
-                                    return route;
+                                    if (typeof value === 'string') {
+                                        const route = {
+                                            path: `/${key}/`,
+                                            component: 'src/Example/Example.page.js',
+                                            getData: () => ({
+                                                libraryName: library.name,
+                                                exampleName: key,
+                                                example: {
+                                                    name: key,
+                                                    title: key,
+                                                    files: [{ name: '.js', ext: '.js', content: value }]
+                                                }
+                                            }),
+                                        }
+
+                                        return route;
+                                    } else {
+                                        const { files: filePaths, name, title } = value;
+
+                                        const files = filePaths.map(filePath => ({
+                                            name: filePath,
+                                            ext: path.extname(filePath),
+                                            content: fs.readFileSync(path.resolve(__dirname, 'src', filePath), 'utf8')
+                                        }));
+
+                                        const example = {
+                                            name,
+                                            title,
+                                            files 
+                                        };
+
+                                        const route = {
+                                            path: `/${key}/`,
+                                            component: 'src/Example/Example.page.js',
+                                            getData: () => ({
+                                                libraryName: library.name,
+                                                exampleName: key,
+                                                example,
+                                            }),
+                                        }
+
+                                        return route;
+                                    }
                                 }),
                     }
                 })

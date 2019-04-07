@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.Logo {
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    color: $secondary-color;
+    text-decoration: none;
+
+    &__Main {
+        color: $active-color;
+        font-weight: bold;
+    }
+
+    &:hover, &.active {
+        .App__logo_main {
+            color: $active-color;
+        }
+    }
+}

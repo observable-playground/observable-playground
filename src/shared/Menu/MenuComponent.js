@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Link, Match } from '@reach/router'
-import { menu as examplesMenu } from '../../examples';
+import { withSiteData } from 'react-static'
 import './MenuComponent.css';
 
-const RXJS_MENU_ROOT = examplesMenu.find(({handle}) => handle === 'rxjs');
+class MenuComponent extends Component {
+    constructor(props){
+        super(props);
 
-export class MenuComponent extends Component {
+        this.RXJS_MENU_ROOT = props.examplesMenu.find(({handle}) => handle === 'rxjs');
+    }
+
     isLinkActive = ({ isPartiallyCurrent }) => {
         return isPartiallyCurrent
             ? { className: "Menu__Link active" }
@@ -38,6 +42,9 @@ export class MenuComponent extends Component {
     }
 
     render() {
+        const { examplesMenu } = this.props;
+        const { RXJS_MENU_ROOT } = this;
+
         return (
             <nav className="Menu">
                 {
@@ -94,3 +101,6 @@ export class MenuComponent extends Component {
         );
     }
 }
+
+const MenuComponentWithData = withSiteData(MenuComponent);
+export { MenuComponentWithData as MenuComponent };
