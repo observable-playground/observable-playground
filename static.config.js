@@ -109,8 +109,8 @@ export default {
                 {
                     !siteData.dev &&
                         <React.Fragment>
-                            <script async="true" src='https://www.google-analytics.com/analytics.js'></script>
-                            <script async="true" src="/autotrack.js" />
+                            <script async={true} src='https://www.google-analytics.com/analytics.js'></script>
+                            <script async={true} src="/autotrack.js" />
                             <script              src="/GA.js" />
                         </React.Fragment>
                 }

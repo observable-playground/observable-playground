@@ -30,6 +30,12 @@ export class Playground extends Component {
             return;
         }
 
+        if (window && window.ga) {
+            // NOTE: couldn't achieve this with autotrack
+            // https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+            window.ga('send', 'event', 'Editor', 'change');
+        }
+
         const { status, time, lines } = run(sourceCode);
 
         this.setState({

@@ -5,7 +5,9 @@ ga('create', 'UA-40041298-4', 'auto');
 // https://github.com/googleanalytics/autotrack
 ga('require', 'cleanUrlTracker');
 ga('require', 'eventTracker');
-ga('require', 'outboundLinkTracker');
+ga('require', 'outboundLinkTracker', {
+    events: ['click', 'auxclick', 'contextmenu']
+});
 ga('require', 'urlChangeTracker');
 ga('require', 'pageVisibilityTracker');
 
