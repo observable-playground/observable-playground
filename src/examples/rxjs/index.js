@@ -4,36 +4,160 @@ import _from from           './creation/from';
 import fromPromise from     './creation/fromPromise';
 import timer from           './creation/timer';
 import _of from             './creation/of';
-import _constructor from    './creation/constructor';
-import defer from           './creation/defer';
-import iif from             './creation/iif';
+
+const _constructor = 
+    { name: 'constructor'
+    , title: 'constructor'
+    , description: ''
+    , files:
+        [ './examples/rxjs/creation/constructor.js'
+        ]
+    };
+
+const iif = 
+    { name: 'iif'
+    , title: 'iif'
+    , description: ''
+    , files:
+        [ './examples/rxjs/creation/iif.md'
+        , './examples/rxjs/creation/iif.js'
+        ]
+    };
+
+const defer = 
+    { name: 'defer'
+    , title: 'defer'
+    , description: ''
+    , files:
+        [ './examples/rxjs/creation/defer.md'
+        , './examples/rxjs/creation/defer.js'
+        ]
+    };
 
 // Combination
-// import zip from             './combination/zip';
 import forkJoin from        './combination/forkJoin';
 import combineLatest from   './combination/combineLatest';
+const zip =
+    { name: 'zip'
+    , title: 'zip'
+    , description: ''
+    , files:
+        [ './examples/rxjs/combination/zip.md'
+        , './examples/rxjs/combination/zip.js'
+        ]
+    };
+
 
 // Transformation
 import filter from          './transformation/filter';
 import find from            './transformation/find';
 import buffer from          './transformation/buffer';
-import mergeMap from        './transformation/mergeMap';
-import switchMap from       './transformation/switchMap';
-import exhaustMap from      './transformation/exhaustMap';
-import concatMap from       './transformation/concatMap';
+
+const mergeMap =
+    { name: 'mergeMap'
+    , title: 'mergeMap'
+    , description: ''
+    , files:
+        [ './examples/rxjs/transformation/mergeMap.js'
+        , './examples/rxjs/transformation/metaMapComparison.md'
+        ]
+    };
+
+const switchMap =
+    { name: 'switchMap'
+    , title: 'switchMap'
+    , description: ''
+    , files:
+        [ './examples/rxjs/transformation/switchMap.js'
+        , './examples/rxjs/transformation/metaMapComparison.md'
+        ]
+    };
+
+const exhaustMap =
+    { name: 'exhaustMap'
+    , title: 'exhaustMap'
+    , description: ''
+    , files:
+        [ './examples/rxjs/transformation/exhaustMap.js'
+        , './examples/rxjs/transformation/metaMapComparison.md'
+        ]
+    };
+
+const concatMap =
+    { name: 'concatMap'
+    , title: 'concatMap'
+    , description: ''
+    , files:
+        [ './examples/rxjs/transformation/concatMap.js'
+        , './examples/rxjs/transformation/metaMapComparison.md'
+        ]
+    };
+
 import windowToggle from    './transformation/windowToggle';
 import expand from          './transformation/expand';
 import toArray from         './transformation/toArray';
 
 // Error handling
-// import throwError from      './error-handling/throwError';
-import _catch from          './error-handling/catch';
-import retry from           './error-handling/retry';
-import retryWhen from       './error-handling/retryWhen';
-import onErrorResumeNext from './error-handling/onErrorResumeNext';
+const _catch =
+    { name: 'catch'
+    , title: 'catch'
+    , description: ''
+    , files:
+        [ './examples/rxjs/error-handling/catch.js'
+        , './examples/rxjs/error-handling/afterword.md'
+        ]
+    };
+
+const retry =
+    { name: 'retry'
+    , title: 'retry'
+    , description: ''
+    , files:
+        [ './examples/rxjs/error-handling/retry.js'
+        , './examples/rxjs/error-handling/afterword.md'
+        ]
+    };
+
+const retryWhen =
+    { name: 'retryWhen'
+    , title: 'retryWhen'
+    , description: ''
+    , files:
+        [ './examples/rxjs/error-handling/retryWhen.js'
+        , './examples/rxjs/error-handling/afterword.md'
+        ]
+    };
+
+const onErrorResumeNext =
+    { name: 'onErrorResumeNext'
+    , title: 'onErrorResumeNext'
+    , description: ''
+    , files:
+        [ './examples/rxjs/error-handling/onErrorResumeNext.js'
+        , './examples/rxjs/error-handling/afterword.md'
+        ]
+    };
+
+const throwError =
+    { name: 'throwError'
+    , title: 'throwError'
+    , description: ''
+    , files:
+        [ './examples/rxjs/error-handling/throwError.js'
+        , './examples/rxjs/error-handling/afterword.md'
+        ]
+    };
 
 // Multicasting
-import share from           './multicasting/share';
+const share =
+    { name: 'share'
+    , title: 'share'
+    , description: ''
+    , files:
+        [ './examples/rxjs/multicasting/share.js'
+        ]
+    };
+
 
 // Utility
 import tap from             './utility/tap';
@@ -51,27 +175,6 @@ import pipe from            './utility/pipe';
 // read the lib version
 import { dependencies } from '../../../package.json';
 const LIB_VERSION = dependencies.rxjs;
-
-const zip =
-    { name: 'zip'
-    , title: 'zip'
-    , description: ''
-    , files:
-        [ './examples/rxjs/combination/zip.md'
-        , './examples/rxjs/combination/zip.js'
-        ]
-    };
-
-const throwError =
-    { name: 'throwError'
-    , title: 'throwError'
-    , description: ''
-    , files:
-        [ './examples/rxjs/error-handling/throwError.js'
-        , './examples/rxjs/error-handling/throwError.md'
-        ]
-    };
-
 
 const examples =
     { interval

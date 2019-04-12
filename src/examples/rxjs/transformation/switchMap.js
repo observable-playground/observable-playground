@@ -1,26 +1,32 @@
-export default
-`const { rxObserver, palette } = require('api/v0.3');
-const { Observable } = require('rxjs/Rx');
+const { rxObserver, palette } = require('api/v0.3');
+const { from, timer, pipe } = require('rxjs');
+const { zip, take, map, switchMap, delayWhen } = require('rxjs/operators');
 
-// stream for coloring
-const palette$ = Observable.from(palette);
 
-const source$ = fromDelayed([ 5, 10, 20 ])
-  // get color for each item
-  .zip(palette$, Marble);
+// our source$ will emit values at 5ms, 10ms, 20ms
+const source$ = fromDelayed([ 5, 10, 20 ]).pipe(
+    zip(from(palette), Marble) // colorize each item
+  );
 
-const switchMap$ = source$
-  .switchMap(x=> Observable
-    .timer(0, 3)
-    .take(5)
-    // inherit color from the source$ stream
-    .map(y=>Marble(y, x.color)));
+const switchMap$ = source$.pipe(
+    switchMap(x => timer(0, 3).pipe(
+        take(3),
+        colorize(x.color))  // colorize as source$ value
+      )
+  );
 
-source$.subscribe(rxObserver());
-switchMap$.subscribe(rxObserver());
+// visualization
+source$.subscribe(rxObserver('source$'));
+switchMap$.subscribe(rxObserver('switchMap( timer(0, 3).take(3) )'));
 
 
 // helpers
+function colorize(color) {
+  return pipe(
+    map(y => Marble(y, color))
+  );
+}
+
 // creates a colored Marble
 function Marble(value,color) {
   return {
@@ -31,8 +37,7 @@ function Marble(value,color) {
 
 // like .from, but items are delayed by their value
 function fromDelayed (arr) {
-  return Observable
-    .from(arr)
-    .delayWhen(x=>Observable.timer(x));
+  return from(arr).pipe(
+      delayWhen(x=>timer(x))
+    );
 }
-`;

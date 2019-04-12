@@ -1,5 +1,4 @@
-export default
-`const {rxObserver} = require('api/v0.3');
+const {rxObserver} = require('api/v0.3');
 const { timer } = require('rxjs');
 const { map, tap, retryWhen, delayWhen } = require('rxjs/operators');
 
@@ -30,4 +29,3 @@ result$.subscribe(rxObserver('result$'));
 
 // a modification of
 // https://www.learnrxjs.io/operators/error_handling/retrywhen.html
-`

@@ -1,5 +1,4 @@
-export default
-`const { rxObserver } = require('api/v0.3');
+const { rxObserver } = require('api/v0.3');
 const { timer, throwError, of } = require('rxjs');
 const { switchMap, catchError } = require('rxjs/operators');
 
@@ -14,4 +13,3 @@ const catch$ = error$.pipe(
 
 error$.subscribe(rxObserver());
 catch$.subscribe(rxObserver());
-`;

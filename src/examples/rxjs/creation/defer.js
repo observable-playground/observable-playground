@@ -1,5 +1,4 @@
-export default
-`const { rxObserver } = require('api/v0.3');
+const { rxObserver } = require('api/v0.3');
 const { defer, of } = require('rxjs');
 
 // decides later what observable to return
@@ -18,4 +17,3 @@ source$.subscribe(rxObserver('Early bird'));
 setTimeout(()=>{
   source$.subscribe(rxObserver('Night owl'));
 }, 5);
-`
