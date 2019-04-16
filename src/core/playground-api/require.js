@@ -15,7 +15,7 @@ import * as RxOperators from 'rxjs/operators';
 // }}}
 
 // baconjs {{{
-import baconjs from 'baconjs';
+import * as baconjs from 'baconjs';
 // }}}
 
 // kefirjs {{{

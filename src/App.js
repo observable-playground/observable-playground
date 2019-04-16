@@ -1,7 +1,6 @@
 import React from 'react'
 import { Root, Routes } from 'react-static'
 import { Router, Link } from '@reach/router'
-import { MenuComponent } from './shared/Menu/MenuComponent.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -9,6 +8,7 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import './App.css'
 import { GistContainer } from './Gist/Gist/Gist.container.js';
 import { Sidebar } from './shared/Sidebar/Sidebar.js';
+import { LoadingIndicator } from './shared/LoadingIndicator/LoadingIndicator';
 
 class App extends React.Component {
     constructor(props) {
@@ -85,17 +85,21 @@ class App extends React.Component {
 
                     <div className="App__body">
                         <div className={ 'App__contents' + (this.state.mobileMenuVisible ? ' hidden' : '')  }>
-                            <Router basepath="/">
-                                <Routes path="/gist" />
-                                <GistContainer path="/gist/:gistId" />
-                                <Routes default />
-                            </Router>
+                            <React.Suspense fallback={<LoadingIndicator />}>
+                                <Router basepath="/">
+                                    <Routes path="/gist" />
+                                    <GistContainer path="/gist/:gistId" />
+                                    <Routes default />
+                                </Router>
+                            </React.Suspense>
                         </div>
 
-                        <div
-                            className={ 'App__menu' + (this.state.mobileMenuVisible ? ' visible' : '') }
-                            onClick={this.hideMobileMenu}
-                        ><Sidebar /></div>
+                        <React.Suspense fallback={<LoadingIndicator />}>
+                            <div
+                                className={'App__menu' + (this.state.mobileMenuVisible ? ' visible' : '')}
+                                onClick={this.hideMobileMenu}
+                            ><Sidebar /></div>
+                        </React.Suspense>
                     </div>
                 </div>
             </Root>

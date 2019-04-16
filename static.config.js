@@ -29,7 +29,7 @@ export default {
                 .map(({ handle, library }) => {
                     return {
                         path: `/${handle}/`,
-                        component: `src/Library/${handle}/index.js`,
+                        template: `src/Library/${handle}/index.js`,
                         getData: () => ({
                             handle,
                             library
@@ -41,7 +41,7 @@ export default {
                                     if (typeof value === 'string') {
                                         const route = {
                                             path: `/${key}/`,
-                                            component: 'src/Example/Example.page.js',
+                                            template: 'src/Example/Example.page.js',
                                             getData: () => ({
                                                 libraryName: library.name,
                                                 exampleName: key,
@@ -71,7 +71,7 @@ export default {
 
                                         const route = {
                                             path: `/${key}/`,
-                                            component: 'src/Example/Example.page.js',
+                                            template: 'src/Example/Example.page.js',
                                             getData: () => ({
                                                 libraryName: library.name,
                                                 exampleName: key,
@@ -88,35 +88,51 @@ export default {
 
     },
 
-    Document: ({ Html, Head, Body, children, siteData, renderMeta }) => (
-        <Html lang="en-US">
-            <Head>
-                <meta charSet="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
-                <base  href="/" />
-                <title>{ ROOT_PAGE_TITLE_PREFIX }</title>
+    Document: ({ Html, Head, Body, children  }) => {
+        return (
+            <Html lang="en-US">
+                <Head>
+                    <meta charSet="UTF-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+                    <base  href="/" />
+                    <title>{ ROOT_PAGE_TITLE_PREFIX }</title>
 
-                {/* manifest.json provides metadata used when your web app is added to the
-                homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/ */}
-                <link rel="manifest" href="/manifest.json" />
+                    {/* manifest.json provides metadata used when your web app is added to the
+                    homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/ */}
+                    <link rel="manifest" href="/manifest.json" />
 
-                {/* GOOGLE ANALYTICS {{{
-                    NOTE: [kos] adding google analitics only for production
-                        would be nice to:
-                        - do not download ga script for dev at all
-                        - remove % NODE_ENV % reference from here
-                    Global site tag (gtag.js) - Google Analytics */}
-                {
-                    !siteData.dev &&
+                    {/* GOOGLE ANALYTICS {{{
+                        NOTE: [kos] adding google analitics only for production
+                            would be nice to:
+                            - do not download ga script for dev at all
+                            - remove % NODE_ENV % reference from here
+                        Global site tag (gtag.js) - Google Analytics */}
+                    {
+                        // NOTE: could not find analog in react-static 7 for
+                        // ```
+                        //    !siteData.state === 'dev' &&
+                        // ```
                         <React.Fragment>
                             <script async={true} src='https://www.google-analytics.com/analytics.js'></script>
                             <script async={true} src="/autotrack.js" />
                             <script              src="/GA.js" />
                         </React.Fragment>
-                }
-                {/* GOOGLE ANALYTICS }}} */}
-            </Head>
-            <Body>{children}</Body>
-        </Html>
-    ),
+                    }
+                    {/* GOOGLE ANALYTICS }}} */}
+                </Head>
+                <Body>{children}</Body>
+            </Html>
+        )
+    },
+
+    plugins: [
+        [
+        require.resolve('react-static-plugin-source-filesystem'),
+        {
+            location: path.resolve('./src/pages'),
+        },
+        ],
+        require.resolve('react-static-plugin-reach-router'),
+        require.resolve('react-static-plugin-sitemap'),
+    ],
 }

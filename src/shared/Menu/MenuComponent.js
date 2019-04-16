@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Match } from '@reach/router'
-import { withSiteData } from 'react-static'
+import { useSiteData } from 'react-static'
 import './MenuComponent.css';
 
 class MenuComponent extends Component {
@@ -102,5 +102,11 @@ class MenuComponent extends Component {
     }
 }
 
-const MenuComponentWithData = withSiteData(MenuComponent);
+const MenuComponentWithData = ()=>{
+    const { examplesMenu } = useSiteData();
+    return (
+        <MenuComponent examplesMenu={examplesMenu} />
+    );
+}
+
 export { MenuComponentWithData as MenuComponent };
