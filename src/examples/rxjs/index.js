@@ -34,6 +34,16 @@ const defer =
         ]
     };
 
+const range = 
+    { name: 'range'
+    , title: 'range'
+    , description: ''
+    , files:
+        [ './examples/rxjs/creation/range/header.md'
+        , './examples/rxjs/creation/range/code.js'
+        ]
+    };
+
 // Combination
 import forkJoin from        './combination/forkJoin';
 import combineLatest from   './combination/combineLatest';
@@ -154,17 +164,45 @@ const share =
     , title: 'share'
     , description: ''
     , files:
-        [ './examples/rxjs/multicasting/share.js'
+        [ './examples/rxjs/multicasting/share/header.md'
+        , './examples/rxjs/multicasting/share/code.js'
         ]
     };
 
+const shareReplay =
+    { name: 'shareReplay'
+    , title: 'shareReplay'
+    , description: ''
+    , files:
+        [ './examples/rxjs/multicasting/shareReplay/header.md'
+        , './examples/rxjs/multicasting/shareReplay/code.js'
+        ]
+    };
 
 // Utility
 import tap from             './utility/tap';
 import finalize from        './utility/finalize';
 import timeInterval from    './utility/timeInterval';
-import delay from           './utility/delay';
-import delayWhen from       './utility/delayWhen';
+const delay  =
+    { name: 'delay'
+    , title: 'delay'
+    , description: ''
+    , files:
+        [ './examples/rxjs/utility/delay.md'
+        , './examples/rxjs/utility/delay.js'
+        ]
+    };
+
+const delayWhen =
+    { name: 'delayWhen'
+    , title: 'delayWhen'
+    , description: ''
+    , files:
+        [ './examples/rxjs/utility/delayWhen.md'
+        , './examples/rxjs/utility/delayWhen.js'
+        ]
+    };
+
 import dematerialize from   './utility/dematerialize';
 import repeat from          './utility/repeat';
 import timeout from         './utility/timeout';
@@ -183,6 +221,7 @@ const examples =
     , 'fromPromise': fromPromise
     , 'of': _of
     , defer
+    , range
     , iif
     , 'constructor': _constructor
 
@@ -204,6 +243,7 @@ const examples =
     , onErrorResumeNext
 
     , share
+    , shareReplay
 
     , zip
     , forkJoin
@@ -236,6 +276,7 @@ export const library = {
                 , 'interval'
                 , 'timer'
                 , 'defer'
+                , 'range'
                 , 'iif'
                 , 'constructor'
                 ]
@@ -277,6 +318,7 @@ export const library = {
         ,   { name: 'Multicasting'
             , items:
                 [ 'share'
+                , 'shareReplay'
                 ]
             }
 

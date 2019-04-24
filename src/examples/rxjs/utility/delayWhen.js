@@ -1,7 +1,4 @@
-// https://rxjs.dev/api/operators/delayWhen
-
-export default
-`const { rxObserver } = require('api/v0.3');
+const { rxObserver } = require('api/v0.3');
 const { from, timer } = require('rxjs');
 const { delayWhen } = require('rxjs/operators');
 
@@ -10,4 +7,3 @@ from([ 0, 15, 20, 25, 5, 10 ])
     delayWhen(x => timer(x))
   )
   .subscribe(rxObserver());
-`

@@ -1,5 +1,4 @@
-export default
-`const { rxObserver } = require('api/v0.3');
+const { rxObserver } = require('api/v0.3');
 const { timer } = require('rxjs');
 const { delay, take } = require('rxjs/operators');
 
@@ -16,4 +15,3 @@ const delayed$ = timer$.pipe(
 
 timer$.subscribe(rxObserver('Basic timer'));
 delayed$.subscribe(rxObserver('Delayed by 15ms'));
-`;
