@@ -266,12 +266,12 @@ function execute(fn, maxLifetime = ONE_MINUTE){
                 //       e.g. `timeout = Math.max(4, Number(timeout))`
                 tasksPerTickCounter++;
                 if (tasksPerTickCounter > MAX_TASKS_PER_TICK) {
-                    return `Over ${MAX_TASKS_PER_TICK} tasks were scheduled for a single tick at ${time}ms`;
+                    return `Execution terminated: over ${MAX_TASKS_PER_TICK} tasks were scheduled for a single tick at ${time}ms`;
                 }
             }
             tasksPerTickCounter = 0;
             if (time >= maxLifetime) {
-                return `Maximum execution time is ${maxLifetime}ms`;
+                return `Maximum execution time is limited to ${maxLifetime}ms`;
             }
             time++;
         }
