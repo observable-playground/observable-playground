@@ -4,12 +4,9 @@ import { homepage } from './package.json';
 import { ROOT_PAGE_TITLE_PREFIX } from './src/shared/consts';
 import fs from 'fs-extra';
 import path from 'path';
-import uuid from 'uuid';
+import { addPrefetchExcludes } from 'react-static';
 
-// REACT_STATIC_CACHE_BUST is needed to append an anti-cache query string for
-// routInfo xhr requests. This is not the perfect solution, yet seems to be the
-// only one we have
-process.env['REACT_STATIC_CACHE_BUST'] = uuid.v4();
+addPrefetchExcludes(['gist']);
 
 export default {
     siteRoot: homepage,

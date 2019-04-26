@@ -14,9 +14,6 @@
     "serve": "serve dist -p 3000 -s",
     "publish": "gh-pages -d dist -r https://github.com/observable-playground/observable-playground.github.io.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\""
   },
-  "resolutions": {
-    "react-static/webpack-dev-server": "3.2.1"
-  },
   "dependencies": {
     "@babel/standalone": "7.4.3",
     "@fortawesome/fontawesome-svg-core": "1.2.17",
@@ -37,14 +34,13 @@
     "react-ace": "6.5.0",
     "react-dom": "16.8.6",
     "react-markdown": "4.0.8",
-    "react-static": "7.0.9",
-    "react-static-plugin-reach-router": "^7.0.8",
-    "react-static-plugin-sitemap": "^7.0.8",
-    "react-static-plugin-source-filesystem": "^7.0.8",
+    "react-static": "7.0.10",
+    "react-static-plugin-reach-router": "7.0.10",
+    "react-static-plugin-sitemap": "7.0.10",
+    "react-static-plugin-source-filesystem": "7.0.10",
     "rxjs": "6.5.1",
     "rxjs-compat": "6.5.1",
-    "save-svg-as-png": "1.4.12",
-    "uuid": "^3.3.2"
+    "save-svg-as-png": "1.4.12"
   },
   "devDependencies": {
     "eslint-config-react-tools": "1.x.x",
