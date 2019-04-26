@@ -5,21 +5,23 @@ import { compile } from './compiler';
 
 export const run = (sourceCode) => {
     chartState.resetState();
-    let execStatus, execTime;
+    const execStatus = {}
+    let execTime;
     try {
         const compiledFn = compile(sourceCode);
-        let result = execute(compiledFn, MAX_EXECUTION_TIME);
-        execStatus = result.status;
+        const result = execute(compiledFn, MAX_EXECUTION_TIME);
         execTime   = result.time;
+        if (!result.status) {
+            execStatus.isOk = true;
+        } else {
+            execStatus.isWarning = true;
+            execStatus.warning = result.status;
+        }
     } catch (err) {
         console.error(err);
-        if (err instanceof Error){
-            execStatus = err;
-        } else {
-            execStatus = new Error(err);
-        }
-
         execTime = 0;
+        execStatus.isError = true;
+        execStatus.error = (err instanceof Error) ? err : new Error(err);
     }
 
     const { lines } = chartState.getState();

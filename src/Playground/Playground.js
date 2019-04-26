@@ -4,6 +4,7 @@ import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
 import './Playground.css';
 import { run } from '../core/runner';
+import { WarningComponent } from './components/Warning/WarningComponent';
 
 export class Playground extends Component {
     constructor(props){
@@ -48,7 +49,6 @@ export class Playground extends Component {
 
     render() {
         const { status, time, lines, value, defaultValue } = this.state;
-        const showError = status instanceof Error;
         return (
             <div className="Playground">
                 <div className="Playground__editor">
@@ -60,8 +60,12 @@ export class Playground extends Component {
                 </div>
                 <div className="Playground__chart">
                     {
-                        showError &&
-                            <ErrorComponent error={ status }></ErrorComponent>
+                        status.isError &&
+                            <ErrorComponent error={ status.error }></ErrorComponent>
+                    }
+                    {
+                        status.isWarning &&
+                            <WarningComponent warning={ status.warning }></WarningComponent>
                     }
                     <TimeLineChartComponent
                         time={time}

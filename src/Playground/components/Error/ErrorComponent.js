@@ -5,8 +5,8 @@ export class ErrorComponent extends Component {
     render() {
         const error = this.props.error;
         return (
-            <div className="ErrorComponent">
-                { error.toString() }
+            <div className="ErrorComponent" title="Error">
+                ❌ { error.toString() }
             </div>
         )
     }

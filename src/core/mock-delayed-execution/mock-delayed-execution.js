@@ -251,9 +251,6 @@ function execute(fn, maxLifetime = ONE_MINUTE){
     // Runs all delayed code
     const flush = ()=>{
         while(tasks.length){
-            if (time >= maxLifetime) {
-                return `Execution terminated: maximum execution time is ${maxLifetime}ms`;
-            }
             let tasksPerTickCounter = 0;
             let nextTask;
             while(nextTask = getNextTask()){ // eslint-disable-line no-cond-assign
@@ -269,10 +266,13 @@ function execute(fn, maxLifetime = ONE_MINUTE){
                 //       e.g. `timeout = Math.max(4, Number(timeout))`
                 tasksPerTickCounter++;
                 if (tasksPerTickCounter > MAX_TASKS_PER_TICK) {
-                    return `Execution terminated: over ${MAX_TASKS_PER_TICK} tasks were scheduled for a single tick at ${time}`;
+                    return `Over ${MAX_TASKS_PER_TICK} tasks were scheduled for a single tick at ${time}ms`;
                 }
             }
             tasksPerTickCounter = 0;
+            if (time >= maxLifetime) {
+                return `Maximum execution time is ${maxLifetime}ms`;
+            }
             time++;
         }
         time--; // [kos] I know, this is dumb, needed to undo last `time++`
