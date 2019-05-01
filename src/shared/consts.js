@@ -1,5 +1,5 @@
-export const ROOT_PAGE_TITLE_PREFIX =
-    'Observable Playground | Learn, test and play with RxJS, Bacon.js and Kefir'
+export const ROOT_PAGE_TITLE =
+    'Learn, test and play with streams in RxJS, Bacon.js, Kefir'
 
 export const palette =
     [ '#03a9f4'

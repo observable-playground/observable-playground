@@ -1,7 +1,7 @@
 import React from 'react';
 import { menu as examplesMenu } from './src/examples/';
 import { homepage } from './package.json';
-import { ROOT_PAGE_TITLE_PREFIX } from './src/shared/consts';
+import { ROOT_PAGE_TITLE } from './src/shared/consts';
 import fs from 'fs-extra';
 import path from 'path';
 import { addPrefetchExcludes } from 'react-static';
@@ -54,9 +54,10 @@ export default {
             <Html lang="en-US">
                 <Head>
                     <meta charSet="UTF-8" />
+                    <title>{ ROOT_PAGE_TITLE }</title>
+                    <link rel="icon" href="favicon.ico" type="image/x-icon" />
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
-                    <base  href="/" />
-                    <title>{ ROOT_PAGE_TITLE_PREFIX }</title>
+                    <base href="/" />
 
                     {/* manifest.json provides metadata used when your web app is added to the
                     homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/ */}

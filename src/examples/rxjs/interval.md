@@ -20,4 +20,4 @@ interval(5).pipe(
 
 ```
 
-To specify initial delay, see [`timer(10, 5)`](/rxjs/timer)
+To specify initial delay, see [`timer(10, 5)`](/rxjs/timer/)

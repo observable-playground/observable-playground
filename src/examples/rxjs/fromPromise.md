@@ -21,4 +21,4 @@ from(promise)
 
 ```
 
-Also check this [`from` iterable example](/rxjs/from)
+Also check this [`from` iterable example](/rxjs/from/)

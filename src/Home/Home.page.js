@@ -2,7 +2,7 @@ import React from 'react'
 import { Head } from 'react-static'
 import awesomeRxjsExample from './awesome-rxjs-example';
 import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
-import { ROOT_PAGE_TITLE_PREFIX as ROOT_PAGE_TITLE } from '../shared/consts';
+import { ROOT_PAGE_TITLE } from '../shared/consts';
 
 import './Home.css';
 import { Link } from '@reach/router';
@@ -14,7 +14,7 @@ export const HomePage = () =>
     <div className="HomePage">
         <Head>
             <title>{ ROOT_PAGE_TITLE }</title>
-            <meta name="description" content="Test your RxJS, kefir.js and bacon.js code and play with Observables in an online sandbox playground" />
+            <meta name="description" content="Test your Observables code and play with marble diagrams in this REPL sandbox" />
         </Head>
 
         <div className="PageBlock">

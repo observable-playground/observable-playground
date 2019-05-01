@@ -29,4 +29,4 @@ delayed$.subscribe(rxObserver('Delayed by 15ms'));
 
 ```
 
-To make more sophisticated per value delay — see [`delayWhen` operator example](/rxjs/delayWhen)
+To make more sophisticated per value delay — see [`delayWhen` operator example](/rxjs/delayWhen/)

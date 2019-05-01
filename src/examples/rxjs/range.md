@@ -17,4 +17,4 @@ range(0, 3)
 
 ```
 
-To make a pause between emissions see [timer](/rxjs/timer) and [interval](/rxjs/interval) functions
+To make a pause between emissions see [timer](/rxjs/timer/) and [interval](/rxjs/interval/) functions

@@ -16,3 +16,5 @@ of(1)
   .subscribe(rxObserver());
 
 ```
+
+Use [`from`](/rxjs/from/) to create a stream from an iterable or a promise

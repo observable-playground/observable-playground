@@ -24,4 +24,4 @@ delayed$.subscribe(rxObserver('delayed$'));
 
 ```
 
-To delay values emission by constant time — see [`delay` operator example](/rxjs/delay)
+To delay values emission by constant time — see [`delay` operator example](/rxjs/delay/)

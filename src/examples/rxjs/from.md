@@ -30,4 +30,4 @@ from('Hello')
 
 ```
 
-For promise conversion example see [`fromPromise`](/rxjs/fromPromise) 
+For promise conversion example see [`fromPromise`](/rxjs/fromPromise/) 
