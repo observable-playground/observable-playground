@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		shareReplay
-pageTitle:	RxJS shareReplay operator example with a marble diagram
+pageTitle:	RxJS shareReplay operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/shareReplay
 -->

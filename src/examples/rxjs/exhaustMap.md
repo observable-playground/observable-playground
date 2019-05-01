@@ -1,12 +1,12 @@
 <!--
 name:		
 title:		exhaustMap
-pageTitle:	RxJS exhaustMap operator example with a marble diagram
-desc:		
+pageTitle:	RxJS exhaustMap operator example + marble diagram
+desc:		exhaustMap will substitute value on the source Observable with an Observable, returned by inner function. See this example of RxJS exhaustMap with a timer
 docsUrl:	https://rxjs.dev/api/operators/exhaustMap
 -->
 
-`exhaustMap`, as well as other `**Map` operators, will substitute value on the source stream with a stream of values, returned by inner function. When source stream emits, `exhaustMap` will call inner function to get inner stream that it will switch to. Once switched to inner stream, `exhaustMap` will ignore values from source stream untill inner stream completes:
+`exhaustMap`, as well as other `**Map` operators, will substitute value on the source stream with a stream of values, returned by inner function. When source stream emits, `exhaustMap` will call inner function to get inner stream that it will switch to. Once switched to inner stream, `exhaustMap` will ignore values from source stream until inner stream completes:
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');

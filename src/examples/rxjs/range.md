@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		range
-pageTitle:	RxJS range function example with a marble diagram
+pageTitle:	RxJS range function example + marble diagram
 desc:		Example of how to generate sequence of numbers using RxJS range
 docsUrl:	https://rxjs.dev/api/index/function/range
 -->

@@ -1,8 +1,8 @@
 <!--
 name:		
 title:		concatMap
-pageTitle:	RxJS concatMap operator example with a marble diagram
-desc:		
+pageTitle:	RxJS concatMap operator example + marble diagram
+desc:		concatMap will substitute value on the source Observable with an Observable, returned by inner function. See this example of RxJS concatMap with a timer
 docsUrl:	https://rxjs.dev/api/operators/concatMap
 -->
 

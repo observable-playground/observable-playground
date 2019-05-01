@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		filter
-pageTitle:	RxJS filter operator example with a marble diagram
+pageTitle:	RxJS filter operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/filter
 -->

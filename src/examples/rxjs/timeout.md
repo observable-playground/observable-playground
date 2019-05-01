@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		timeout
-pageTitle:	RxJS timeout operator example with a marble diagram
+pageTitle:	RxJS timeout operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/timeout
 -->

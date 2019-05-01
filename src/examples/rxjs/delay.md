@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		delay
-pageTitle:	RxJS delay operator example with a marble diagram
+pageTitle:	RxJS delay operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/delay
 -->

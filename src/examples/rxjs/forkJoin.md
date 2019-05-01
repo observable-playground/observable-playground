@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		forkJoin
-pageTitle:	RxJS forkJoin operator example with a marble diagram
+pageTitle:	RxJS forkJoin operator example + marble diagram
 desc:		Creates Observable from multiple Observables. Resulting stream waits for all input streams to complete, then combines and emits their latest values
 docsUrl:	https://rxjs.dev/api/index/function/forkJoin
 -->

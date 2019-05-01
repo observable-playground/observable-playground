@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		Observable constructor
-pageTitle:	RxJS Observable constructor usage example with a marble diagram
+pageTitle:	RxJS Observable constructor usage example + marble diagram
 desc:		See how to create your own observable using Observable constructor
 docsUrl:	https://rxjs.dev/api/index/class/Observable
 -->

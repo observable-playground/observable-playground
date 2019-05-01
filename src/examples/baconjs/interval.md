@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		interval
-pageTitle:	Baconjs interval operator example with a marble diagram
+pageTitle:	Baconjs interval operator example + marble diagram
 desc:		
 docsUrl:	
 -->

@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		finalize
-pageTitle:	RxJS finalize operator example with a marble diagram
+pageTitle:	RxJS finalize operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/finalize
 -->

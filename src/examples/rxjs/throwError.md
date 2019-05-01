@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		throwError
-pageTitle:	RxJS throwError function example with a marble diagram
+pageTitle:	RxJS throwError function example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/index/function/throwError
 -->

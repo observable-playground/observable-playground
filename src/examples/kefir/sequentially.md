@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		sequentially
-pageTitle:	Kefir sequentially operator example with a marble diagram
+pageTitle:	Kefir sequentially operator example + marble diagram
 desc:		
 docsUrl:	
 -->

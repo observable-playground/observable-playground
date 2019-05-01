@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		pipe
-pageTitle:	RxJS pipe operator example with a marble diagram
+pageTitle:	RxJS pipe operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/index/function/pipe
 -->

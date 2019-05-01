@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		of
-pageTitle:	RxJS of function example with a marble diagram
+pageTitle:	RxJS of function example + marble diagram
 desc:		Example of how to turn anything into an Observable using Rxjs of function
 docsUrl:	https://rxjs.dev/api/index/function/of
 -->

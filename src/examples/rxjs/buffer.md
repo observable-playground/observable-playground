@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		buffer
-pageTitle:	RxJS buffer operator example with a marble diagram
+pageTitle:	RxJS buffer operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/buffer
 -->

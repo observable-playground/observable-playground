@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		find
-pageTitle:	RxJS find operator example with a marble diagram
+pageTitle:	RxJS find operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/find
 -->

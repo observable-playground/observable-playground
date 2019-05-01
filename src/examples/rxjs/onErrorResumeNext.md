@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		onErrorResumeNext
-pageTitle:	RxJS onErrorResumeNext operator example with a marble diagram
+pageTitle:	RxJS onErrorResumeNext operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/index/function/onErrorResumeNext
 -->

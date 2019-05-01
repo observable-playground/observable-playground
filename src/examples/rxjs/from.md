@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		from
-pageTitle:	RxJS from function example with a marble diagram
+pageTitle:	RxJS from function example + marble diagram
 desc:		See this example of "from" turning iterable string and an array into an Observable
 docsUrl:	https://rxjs.dev/api/index/function/from
 -->

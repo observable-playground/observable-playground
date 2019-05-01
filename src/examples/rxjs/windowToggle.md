@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		windowToggle
-pageTitle:	RxJS windowToggle operator example with a marble diagram
+pageTitle:	RxJS windowToggle operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/windowToggle
 -->

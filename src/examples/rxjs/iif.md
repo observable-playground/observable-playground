@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		iif
-pageTitle:	RxJS iif function example with a marble diagram
+pageTitle:	RxJS iif function example + marble diagram
 desc:		Example of iif that will use a predicate to choose which observable to return to a subscriber
 docsUrl:	https://rxjs.dev/api/index/function/iif
 -->

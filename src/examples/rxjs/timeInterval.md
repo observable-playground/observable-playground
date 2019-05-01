@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		timeInterval
-pageTitle:	RxJS timeInterval operator example with a marble diagram
+pageTitle:	RxJS timeInterval operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/timeInterval
 -->

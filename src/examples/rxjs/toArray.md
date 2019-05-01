@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		toArray
-pageTitle:	RxJS toArray operator example with a marble diagram
+pageTitle:	RxJS toArray operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/toArray
 -->

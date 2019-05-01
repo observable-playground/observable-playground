@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		expand
-pageTitle:	RxJS expand operator example with a marble diagram
+pageTitle:	RxJS expand operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/expand
 -->

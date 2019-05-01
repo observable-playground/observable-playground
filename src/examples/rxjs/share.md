@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		share
-pageTitle:	RxJS share operator example with a marble diagram
+pageTitle:	RxJS share operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/share
 -->
