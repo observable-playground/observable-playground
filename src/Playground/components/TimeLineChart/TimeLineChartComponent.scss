@@ -13,13 +13,7 @@
         margin-left: 0.5rem;
     }
 
-    &:hover .TimeLineChart__Download {
-        opacity: 1;
-        transition: 300;
-    }
-
     &__Download {
-        opacity: 0.25;
         position: absolute;
         right: 0;
         bottom: 0;

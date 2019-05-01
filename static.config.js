@@ -32,53 +32,17 @@ export default {
                             library
                         }),
                         children:
-                            Object.entries(library.examples)
-                                .map(([key, value]) => {
-
-                                    if (typeof value === 'string') {
-                                        const route = {
-                                            path: `/${key}/`,
-                                            template: 'src/Example/Example.page.js',
-                                            getData: () => ({
-                                                libraryName: library.name,
-                                                exampleName: key,
-                                                example: {
-                                                    name: key,
-                                                    title: key,
-                                                    files: [{ name: '.js', ext: '.js', content: value }]
-                                                }
-                                            }),
-                                        }
-
-                                        return route;
-                                    } else {
-                                        const { files: filePaths, name, title } = value;
-
-                                        const files = filePaths.map(filePath => ({
-                                            name: filePath,
-                                            ext: path.extname(filePath),
-                                            content: fs.readFileSync(path.resolve(__dirname, 'src', filePath), 'utf8')
-                                        }));
-
-                                        const example = {
-                                            name,
-                                            title,
-                                            files 
-                                        };
-
-                                        const route = {
-                                            path: `/${key}/`,
-                                            template: 'src/Example/Example.page.js',
-                                            getData: () => ({
-                                                libraryName: library.name,
-                                                exampleName: key,
-                                                example,
-                                            }),
-                                        }
-
-                                        return route;
-                                    }
-                                }),
+                            getLibraryFiles(handle).map(example => {
+                                return {
+                                    path: `/${example.name}/`,
+                                    template: 'src/Example/Example.page.js',
+                                    getData: () => ({
+                                        libraryName: library.name,
+                                        exampleName: example.name,
+                                        example,
+                                    }),
+                                }
+                            })
                     }
                 })
         ];
@@ -133,3 +97,48 @@ export default {
         require.resolve('react-static-plugin-sitemap'),
     ],
 }
+
+
+function getLibraryFiles(libName) {
+    const dirPath = 'src/examples/' + libName;
+    const fullDirPath = path.resolve(__dirname, dirPath);
+    const folderContents = fs.readdirSync(fullDirPath);
+    return folderContents
+        .map(subPath => path.resolve(fullDirPath, subPath))
+        .filter(p => !fs.statSync(p).isDirectory())
+        .filter(p => path.extname(p) === '.md')
+        .map(p => {
+            const fileName = path.basename(p, '.md');
+            const fileContents = fs.readFileSync(p, 'utf-8');
+            const editUrl = `https://github.com/observable-playground/observable-playground/tree/master/${dirPath}/${fileName}.md`;
+            /**
+             * meta format:
+             *  
+             *  <!--
+             *  name:       alternative name to use for path
+             *  title:      title to use in the h1 for the page
+             *  pageTitle:  html page title
+             *  desc:       meta description for SEO
+             *  docsUrl:    URL to official website docs
+             *  -->
+             */
+            const r = /(<!--\n)((.|\n)*?)(\n-->)/gm;
+            const content = fileContents.replace(r, '');
+            const meta =
+                r.exec(fileContents)[2]
+                .split(/\n/)
+                .reduce((acc, curr) => {
+                    const [, key, value] = /^(.*?)\s*:\s*(.*)\s*$/.exec(curr);
+                    acc[key] = value;
+                    return acc;
+                }, {});
+
+            return {
+                ...meta,
+                name: meta.name || fileName,
+                editUrl, 
+                content
+            }
+        });
+};
+

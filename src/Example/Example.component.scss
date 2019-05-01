@@ -1,3 +1,27 @@
-.ExampleComponent__FileEntry {
-    margin-bottom: 1rem;
+@import "../styles/variables.scss";
+
+.ExampleComponent{
+    // a hack to force block to include inner marging
+    border-top:1px solid transparent;
+
+    &__Title {
+        // reflecting same style of pageBlock
+        // DRY violation
+        @media screen and (max-width: $max-mobile-screen-width) {
+            padding: 0 0.5rem;
+        }
+    }
+
+    &__DocsLink, &__EditLink {
+        padding: 0 0.5rem;
+        color: $gray-color;
+
+        &:hover {
+            color: $active-color;
+        }
+    }
+
+    &__FileEntry {
+        margin-bottom: 1rem;
+    }
 }

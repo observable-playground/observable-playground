@@ -1,6 +1,6 @@
 import { library as rxjs } from './rxjs';
 import { library as kefir } from './kefir';
-import { library as baconjs } from './bacon';
+import { library as baconjs } from './baconjs';
 
 const libraries = { rxjs, baconjs, kefir };
 

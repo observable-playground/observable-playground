@@ -1,12 +1,12 @@
 @import './styles/default.scss';
 @import './styles/variables.scss';
 
-$leftmenu-width: 10rem;
+$leftmenu-width: 12rem;
 
 .App {
     max-width: 1600px;
     @media screen and (min-width: $min-desktop-screen-width) {
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
 
     box-sizing: border-box;
@@ -83,10 +83,6 @@ $leftmenu-width: 10rem;
         display: flex;
         flex-direction: row-reverse;
         overflow: auto;
-
-        @media screen and (min-width: $min-desktop-screen-width) {
-            padding-top: 1rem;
-        }
     }
 
     &__contents {
@@ -120,12 +116,13 @@ $leftmenu-width: 10rem;
         }
 
         @media screen and (min-width: $min-desktop-screen-width) {
+            margin-top: 1rem;
             flex: 0 0 auto;
             flex-basis: $leftmenu-width;
             max-width: $leftmenu-width;
 
             box-sizing: border-box;
-            padding-right: 1rem;
+            padding-right: 2rem;
             padding-left: 0.25rem;
         }
     }

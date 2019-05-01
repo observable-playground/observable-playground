@@ -11,7 +11,7 @@ const ExternalLink = ({ href, text }) =>
     (<a href={href} target="_blank" rel="noopener noreferrer">{text || href}</a>);
 
 export const HomePage = () =>
-    <div className="Landing">
+    <div className="HomePage">
         <Head>
             <title>{ ROOT_PAGE_TITLE }</title>
             <meta name="description" content="Test your RxJS, kefir.js and bacon.js code and play with Observables in an online sandbox playground" />
@@ -23,8 +23,14 @@ export const HomePage = () =>
             </h1>
 
             <blockquote>
-                Test your Observables before deploying them to production!
+                Test your Observables before deploying to production!
             </blockquote>
+
+            <br />
+
+            <PlaygroundWrapper
+                code={awesomeRxjsExample}
+            />
 
             <p>
                 This tool is aimed at assisting you in understanding
@@ -80,9 +86,4 @@ export const HomePage = () =>
             </p>
         </div>
 
-        <br />
-
-        <PlaygroundWrapper
-            code={ awesomeRxjsExample }
-            />
     </div>

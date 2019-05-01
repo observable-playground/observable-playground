@@ -22,12 +22,8 @@
         color: inherit;
         text-decoration: none;
 
-        &.active, &.active:hover {
+        &.active, &.active:hover, &:hover {
             color: $active-color;
-        }
-
-        &:hover {
-            color: $active-color-darker;
         }
     }
 

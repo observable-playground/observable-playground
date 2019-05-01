@@ -2,11 +2,10 @@
 
 .PageBlock {
     display: block;
-    padding: 0 1rem;
+    padding: 0;
     box-sizing: border-box;
-    background: white;
-    border: 1px solid #f1f1f1;
-    font-size: 14px;
+    font-size: 16px;
+    color: #222;
 
     a {
         color: #00a7f7;
@@ -24,5 +23,16 @@
         border-left: 0.25rem solid #c5c5c5;
         margin: 0;
         font-style: italic;
+    }
+
+    code {
+        padding: 0 5px;
+        white-space: normal;
+        font-family: Menlo, "Ubuntu Mono", Consolas, source-code-pro, monospace;
+        background-color: #eff0f1;
+    }
+
+    @media screen and (max-width: $max-mobile-screen-width) {
+        padding: 0 0.5rem;
     }
 }
