@@ -2,7 +2,7 @@
 name:		
 title:		zip
 pageTitle:	RxJS zip operator example with a marble diagram
-desc:		
+desc:		Creates Observable from multiple Observables. Resulting stream will emit a combined value when all input streams emit a new value
 docsUrl:	https://rxjs.dev/api/index/function/zip
 -->
 

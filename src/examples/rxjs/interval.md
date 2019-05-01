@@ -2,7 +2,7 @@
 name:		
 title:		interval
 pageTitle:	RxJS interval function example with a marble diagram
-desc:		
+desc:		Example of how to emit sequential numbers using RxJS interval
 docsUrl:	https://rxjs.dev/api/index/function/interval
 -->
 
