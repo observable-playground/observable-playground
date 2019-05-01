@@ -1,7 +1,7 @@
 import React from 'react';
-import { SSRPlayground } from './SSRPlayground';
 
 let Playground;
+let SSRPlayground;
 
 export const PlaygroundWrapper = (props) => {
     if (typeof document !== 'undefined') {
@@ -10,6 +10,7 @@ export const PlaygroundWrapper = (props) => {
         }
         return <Playground { ...props } />
     } else {
+        SSRPlayground = require('./SSRPlayground').SSRPlayground;
         return <SSRPlayground { ...props } />
     }
 }
