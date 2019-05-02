@@ -7,3 +7,11 @@ body {
     background: #fefefe;
     font-size: 16px;
 }
+
+// NOTE: currently when rendered by google crawler -- an error is thrown, and
+// that error hovers whole application
+#root > pre {
+    top: auto!important;
+    max-height: 10rem!important;
+    overflow: auto!important;
+}
