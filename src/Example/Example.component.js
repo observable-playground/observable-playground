@@ -23,18 +23,15 @@ export function ExampleComponent(props) {
     return (
         <div className="ExampleComponent">
             <div  className="ExampleComponent__Title">
-                <h1>{ example.title }&nbsp;
-
-                    { example.docsUrl &&
+                <h1>{ example.title }&nbsp;{
+                    example.docsUrl &&
                         <a
                             target="_blank"
                             className="ExampleComponent__DocsLink"
                             title="Official docs"
                             href={example.docsUrl}
                         ><FontAwesomeIcon icon={faBook} style={{ width: '0.5em' }} /></a>
-                    }
-
-                    <a
+                    }<a
                         target="_blank"
                         className="ExampleComponent__EditLink"
                         title="Edit this file on Github"
