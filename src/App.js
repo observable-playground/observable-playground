@@ -9,6 +9,7 @@ import './App.css'
 import { GistContainer } from './Gist/Gist/Gist.container.js';
 import { Sidebar } from './shared/Sidebar/Sidebar.js';
 import { LoadingIndicator } from './shared/LoadingIndicator/LoadingIndicator';
+import { Logo } from './shared/Logo/Logo';
 
 // Any routes that start with 'gist' will be treated as non-static routes
 addPrefetchExcludes(['gist/'])
@@ -57,11 +58,10 @@ class App extends React.Component {
                             onClick={ this.toggleMobileMenu }
                         ><FontAwesomeIcon icon={faBars} /></button>
 
-                        <Link 
-                            to="/"
-                            onClick={ this.hideMobileMenu }
-                            getProps={ this.isLinkHeaderActive }
-                        ><span className="App__logo_main">think</span>rx</Link>
+
+                        <span
+                            onClick={this.hideMobileMenu}
+                        ><Logo /></span>
 
                         <span className="App__header-spring"></span>
 

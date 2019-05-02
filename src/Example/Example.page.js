@@ -8,7 +8,6 @@ class ExamplePage extends React.Component {
         const props = this.props;
         return props.libraryName !== nextProps.libraryName
             || props.exampleName !== nextProps.exampleName
-            // || props.exampleCode !== nextProps.exampleCode
             ;
     }
 

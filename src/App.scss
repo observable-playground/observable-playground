@@ -44,22 +44,6 @@ $leftmenu-width: 12rem;
         }
     }
 
-    &__logo {
-        font-family: sans-serif;
-        color: $darkgray-color;
-        text-decoration: none;
-
-        &_main {
-            font-weight: bold;
-        }
-
-        &:hover, &.active {
-            .App__logo_main {
-                color: $active-color;
-            }
-        }
-    }
-
     &__twitter-link {
         color: $darkgray-color;
         margin-right: 1rem;

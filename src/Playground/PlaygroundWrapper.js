@@ -10,7 +10,9 @@ export const PlaygroundWrapper = (props) => {
         }
         return <Playground { ...props } />
     } else {
-        SSRPlayground = require('./SSRPlayground').SSRPlayground;
+        if (!SSRPlayground) {
+            SSRPlayground = require('./SSRPlayground').SSRPlayground;
+        }
         return <SSRPlayground { ...props } />
     }
 }

@@ -6,9 +6,7 @@ import './Logo.css'
 export class Logo extends React.Component {
     render(){
         return (
-            <Link to="/" className="Logo">
-                <span className="Logo__Main">Observable</span> Playground
-            </Link>
+            <Link to="/" className="Logo"><span className="Logo__Main">think</span>rx</Link>
         );
     }
 }

@@ -6,7 +6,7 @@ desc:		Example of how to turn anything into an Observable using Rxjs of function
 docsUrl:	https://rxjs.dev/api/index/function/of
 -->
 
-Creates an Observable that will immediately emit all passed arguments
+Creates an Observable that will immediately emit all passed arguments. Try passing `of` several arguments, e.g. `of(1, 2, 3)`
 
 ```js
 const { rxObserver } = require('api/v0.3');
