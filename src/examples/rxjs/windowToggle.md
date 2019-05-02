@@ -2,9 +2,11 @@
 name:		
 title:		windowToggle
 pageTitle:	RxJS windowToggle operator example + marble diagram
-desc:		
+desc:		windowToggle lets you open and close a filtering window. Emissions between "on" and "off" events will be passed to the output stream:
 docsUrl:	https://rxjs.dev/api/operators/windowToggle
 -->
+
+`windowToggle` operator lets you open and close a filtering window. Emissions between "on" and "off" events will be passed to the output stream. Read more about muting and spacing events on RxJS streams in my article **["Pausable Observables in RxJS and other backpressure techniques"](https://medium.com/@kddsky/pauseable-observables-in-rxjs-58ce2b8c7dfd)**
 
 ```js
 const { rxObserver } = require('api/v0.3');
@@ -37,13 +39,14 @@ windowOff(85);
 
 
 // subscriptions
-source$.subscribe(rxObserver('source'));
-result$.subscribe(rxObserver('result'));
+source$.subscribe(rxObserver('source$'));
 merge(
     windowOn$.pipe(mapTo('on')),
     windowOff$.pipe(mapTo('off'))
   )
   .subscribe(rxObserver('switch'));
+result$.subscribe(rxObserver('result$'));
+
 
 
 // helpers
