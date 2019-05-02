@@ -61,9 +61,7 @@ class App extends React.Component {
                             to="/"
                             onClick={ this.hideMobileMenu }
                             getProps={ this.isLinkHeaderActive }
-                        >
-                            <span className="App__logo_main">Observable</span> Playground
-                        </Link>
+                        ><span className="App__logo_main">think</span>rx</Link>
 
                         <span className="App__header-spring"></span>
 

@@ -23,7 +23,7 @@ export const HomePage = () =>
             </h1>
 
             <blockquote>
-                Test your Observables before deploying to production!
+                Know your Observables before deploying to production!
             </blockquote>
 
             <br />

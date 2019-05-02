@@ -1,13 +1,13 @@
-# RxJS Observable Playground
+# RxJS, KefirJS, BaconJS marble diagram playground
 
-**Play, test, hack on RxJS features in a sexy eternity-safe playground**
+**Know your Observables before deploying to production!**
 
-https://observable-playground.github.io/
+https://thinkrx.io
 
 ## Reactive
 
-The playground is agnostic of the library api, so expect addition of [kefirjs](https://kefirjs.github.io/kefir/),
-[baconjs](https://baconjs.github.io/) and [hopefully this](https://github.com/tc39/proposal-observable) soon
+The playground is agnostic of the library api, so you can run [kefirjs](https://thinkrx.io/kefir/),
+[baconjs](https://thinkrx.io/baconjs/) and [hopefully this soon](https://github.com/tc39/proposal-observable) soon
 
 ## Time-bending
 
@@ -15,25 +15,24 @@ No matter how long your observables would delay or iterate — environment for t
 
 **So you'll get results instantly!**
 
-Please, see [mock-delayed-execution.js](https://github.com/observable-playground/observable-playground/blob/master/src/mock-delayed-execution/mock-delayed-execution.js) for details
+Please, see [mock-delayed-execution.js](https://github.com/observable-playground/observable-playground/blob/master/src/core/mock-delayed-execution/mock-delayed-execution.js) for details
 
-## Examples and chart api
+## Chart api for the examples 
 
-For the examples two objects are provided:
-
-- RxJS — via `require('rxjs/Rx')`
-
-- Chart api — via `require('rp-api').chart` (see section below)
-
-### Chart api
+Chart api is exposed via `require('api/v0.3')`, e.g. for RxJS:
 
 ```js
-const observer = chart.createObserver()
+const { rxObserver } = require('api/v0.3');
+const { timer } = require('rxjs');
+
+const observer = rxObserver('Title')
+
+timer(5).subscribe(observer);
 ```
 
-Will draw a timeline on the chart with current time as starting mark [ `'--` ].
+This example will draw a timeline on the chart, with an event at 5ms [ `'----o` ].
 
-Returned `observer` implements [Observer](http://reactivex.io/rxjs/class/es6/MiscJSDoc.js~ObserverDoc.html):
+Returned `rxObserver` implements [Observer](http://reactivex.io/rxjs/class/es6/MiscJSDoc.js~ObserverDoc.html) interface:
 
 - `next` — will draw an event mark [ `--o--` ]
 
@@ -44,24 +43,38 @@ Returned `observer` implements [Observer](http://reactivex.io/rxjs/class/es6/Mis
 Therefore
 
 ```js
-Observable
-  .interval(2)
-  .take(4)
-  .subscribe(chart.createObserver());
+interval(2).pipe(
+  take(4)
+)
+  .subscribe(rxObserver('source$'));
 ```
 
 will output
 ```
+source$
+
 '-o-o-o-o|
 ```
 
-E.g. [rxjs-interval](https://observable-playground.github.io/rxjs/interval)
+E.g. [rxjs-interval](https://thinkrx.io/rxjs/interval/)
 
-## Development
+## Contributing
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+You're welcome to participate in this project!
 
-You will find some information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
+Just check the issues tab at the top and find one that you want to work with, then:
+
+```
+git clone https://github.com/observable-playground/observable-playground.git
+npm i
+npm start
+```
+
+This should start a dev server.
+
+All the examples are contained in markdown .md files, that are pretty easy to update, even via github.com itself.
+
+NOTE: This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You will find some information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)
 
 ## Credits
 

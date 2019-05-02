@@ -2,7 +2,7 @@
   "name": "observable-playground",
   "private": true,
   "version": "0.3.2",
-  "homepage": "https://observable-playground.github.io/",
+  "homepage": "https://thinkrx.io",
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "node-sass-chokidar src/ -o src/ --watch --skip-initial --recursive",
