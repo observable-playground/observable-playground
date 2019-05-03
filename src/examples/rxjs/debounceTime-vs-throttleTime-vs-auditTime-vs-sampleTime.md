@@ -2,7 +2,7 @@
 name:		
 title:		debounceTime vs throttleTime vs auditTime vs sampleTime
 pageTitle:	RxJS debounceTime vs throttleTime vs auditTime vs sampleTime compared
-desc:		
+desc:		See this head-to-head comparison of debounceTime, throttleTime, auditTime and sampleTime operators with a marble diagram:
 docsUrl:	
 -->
 
@@ -10,8 +10,8 @@ docsUrl:
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');
-const { merge, timer, from, NEVER } = require('rxjs');
-const { map, take, zip, auditTime, throttleTime, debounceTime, sampleTime, share, concat } = require('rxjs/operators');
+const { merge, timer, from } = require('rxjs');
+const { map, zip, auditTime, throttleTime, debounceTime, sampleTime } = require('rxjs/operators');
 
 // stream for coloring
 const palette$ = from(palette);
@@ -20,12 +20,9 @@ const source$ = merge(
     timer(0, 330),
     timer(50, 180)
   ).pipe(
-    take(10),
-    // get color for each item
+    // colorize for each item
     zip(palette$, Marble),
-    map(setCurrentTime),
-    share(),
-    concat(NEVER)
+    map(setCurrentTime)
   );
 
 source$
