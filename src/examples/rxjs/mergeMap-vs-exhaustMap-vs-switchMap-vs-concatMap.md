@@ -6,7 +6,7 @@ desc:		See this head-to-head comparison of mergeMap vs exhaustMap vs switchMap v
 docs:		
 -->
 
-Source that emits at **5ms, 10ms, 20ms** will be *`*Mapped`* to `timer(0, 3)`, limited to 3 emissions
+Source that emits at **5ms, 10ms, 20ms** will be `*Mapped` to a `timer(0, 3)`, limited to 3 emissions
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');
