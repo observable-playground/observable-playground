@@ -20,7 +20,7 @@ const source$ = merge(
     timer(0, 330),
     timer(50, 180)
   ).pipe(
-    // colorize for each item
+    // colorize each item
     zip(palette$, Marble),
     map(setCurrentTime)
   );
