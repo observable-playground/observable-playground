@@ -50,3 +50,5 @@ function Marble(value, color) {
 }
 
 ```
+
+Also, see this "[debounceTime vs throttleTime vs auditTime vs sampleTime](/rxjs/debounceTime-vs-throttleTime-vs-auditTime-vs-sampleTime/)" head-to-head comparison
