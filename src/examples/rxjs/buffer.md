@@ -8,24 +8,20 @@ docsUrl:	https://rxjs.dev/api/operators/buffer
 
 ```js
 const { rxObserver } = require('api/v0.3');
-const { timer } = require('rxjs');
+const { merge, timer } = require('rxjs');
 const { buffer, take } = require('rxjs/operators');
 
 
-const source$ = timer(0, 3).pipe(
-    take(10)
-  );
+const source$ = merge(timer(0, 200), timer(300));
 
-const trigger$ = timer(0, 7).pipe(
-    take(5)
-  );
+const trigger$ = timer(0, 250);
 
 const buffered$ = source$.pipe(
     buffer(trigger$)
-  );
+  ); 
 
-source$.subscribe(rxObserver('source'));
-trigger$.subscribe(rxObserver('trigger'));
-buffered$.subscribe(rxObserver('buffered'));
+source$.subscribe(rxObserver('source$'));
+trigger$.subscribe(rxObserver('Buffer trigger$'));
+buffered$.subscribe(rxObserver('buffered$'));
 
 ```
