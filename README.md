@@ -1,13 +1,11 @@
 # RxJS, KefirJS, BaconJS marble diagram playground
 
-**Know your Observables before deploying to production!**
-
 https://thinkrx.io
 
 ## Reactive
 
-The playground is agnostic of the library api, so you can run [kefirjs](https://thinkrx.io/kefir/),
-[baconjs](https://thinkrx.io/baconjs/) and [hopefully this soon](https://github.com/tc39/proposal-observable) soon
+The playground is agnostic of the library api, so apart from [RxJS](https://thinkrx.io/rxjs/) you can also run [kefirjs](https://thinkrx.io/kefir/),
+[baconjs](https://thinkrx.io/baconjs/) and [hopefully this](https://github.com/tc39/proposal-observable) soon
 
 ## Time-bending
 
