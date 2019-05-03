@@ -18,7 +18,7 @@ const { mapTo, take } = require('rxjs/operators');
 const a$ = timer(10).pipe(mapTo('a'));
 const b$ = timer(0, 10).pipe(take(3));
 
-const result$ = forkJoin(a$, b$);
+const result$ = forkJoin([ a$, b$ ]);
 
 a$.subscribe(rxObserver('a$'));
 b$.subscribe(rxObserver('b$'));
