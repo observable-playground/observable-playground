@@ -17,7 +17,7 @@ const { filter, defaultIfEmpty } = require('rxjs/operators');
 const source$ = timer(100).pipe(filter(x => x !== 0));
 const result$ = source$.pipe(defaultIfEmpty(42));
 
-source$.subscribe(rxObserver('source$ (completing at 100ms, empty)'));
+source$.subscribe(rxObserver('source$: empty, completing at 100ms'));
 result$.subscribe(rxObserver('result$'));
 
 ```
