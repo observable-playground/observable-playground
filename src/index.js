@@ -1,3 +1,5 @@
+import './core/mock-delayed-execution';
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 

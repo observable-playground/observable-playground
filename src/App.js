@@ -1,6 +1,6 @@
 import React from 'react'
-import { Root, Routes, addPrefetchExcludes } from 'react-static'
-import { Router, Link } from '@reach/router'
+import { Root, Routes } from 'react-static'
+import { Router } from '@reach/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -10,9 +10,6 @@ import { GistContainer } from './Gist/Gist/Gist.container.js';
 import { Sidebar } from './shared/Sidebar/Sidebar.js';
 import { LoadingIndicator } from './shared/LoadingIndicator/LoadingIndicator';
 import { Logo } from './shared/Logo/Logo';
-
-// Any routes that start with 'gist' will be treated as non-static routes
-addPrefetchExcludes(['gist/'])
 
 class App extends React.Component {
     constructor(props) {
