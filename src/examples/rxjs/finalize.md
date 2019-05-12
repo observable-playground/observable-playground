@@ -6,6 +6,8 @@ desc:
 docsUrl:	https://rxjs.dev/api/operators/finalize
 -->
 
+(Open browser console to see the output)
+
 ```js
 const { rxObserver } = require('api/v0.3');
 const { timer } = require('rxjs');
