@@ -6,6 +6,7 @@ desc:
 docsUrl:	https://rxjs.dev/api/operators/finalize
 -->
 
+Being similar to native JS `finally`, RxJS `finalize` operator lets you run a function upon stream termination, regardless whether it has completed or failed  
 (Open browser console to see the output)
 
 ```js
