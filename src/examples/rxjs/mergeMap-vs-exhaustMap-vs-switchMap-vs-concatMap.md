@@ -6,7 +6,8 @@ desc:		See this head-to-head comparison of mergeMap (aka flatMap), exhaustMap, s
 docs:		
 -->
 
-Source that emits at **5ms, 10ms, 20ms** will be `*Mapped` to a `timer(0, 3)`, limited to 3 emissions
+Source that emits at **5ms, 10ms, 20ms** will be `*Mapped` to a `timer(0, 3)`, limited to 3 emissions  
+Also, see these independent examples for [mergeMap](https://thinkrx.io/rxjs/mergeMap/), [switchMap](https://thinkrx.io/rxjs/switchMap/), [concatMap](https://thinkrx.io/rxjs/concatMap/), and [exhaustMap](https://thinkrx.io/rxjs/exhaustMap/)
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');
