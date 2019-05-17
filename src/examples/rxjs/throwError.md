@@ -2,17 +2,19 @@
 name:		
 title:		throwError
 pageTitle:	RxJS throwError function example + marble diagram
-desc:		
+desc:		throwError creates an Observable, that will immediately emit an error
 docsUrl:	https://rxjs.dev/api/index/function/throwError
 -->
+
+throwError creates an Observable, that will immediately emit an error  
+In the example below a value on [timer](/rxjs/timer/) will be [substituted](/rxjs/switchMap/) with a `throwError` stream at 10ms:
 
 ```js
 const { rxObserver } = require('api/v0.3');
 const { timer, throwError } = require('rxjs');
 const { switchMap } = require('rxjs/operators');
 
-timer(10)
-  .pipe(
+timer(10).pipe(
     switchMap(()=>
       throwError('Err!')
     )
