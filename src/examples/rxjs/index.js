@@ -24,6 +24,7 @@ export const library = {
             , items:
                 [ 'zip'
                 , 'forkJoin'
+                , 'race'
                 , 'combineLatest'
                 ]
             }
