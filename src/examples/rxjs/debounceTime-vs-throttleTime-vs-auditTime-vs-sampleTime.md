@@ -11,10 +11,10 @@ docsUrl:
 ```js
 const { rxObserver, palette } = require('api/v0.3');
 const { merge, timer, from } = require('rxjs');
-const { map, zip, auditTime, throttleTime, debounceTime, sampleTime } = require('rxjs/operators');
+const { map, zip, auditTime, throttleTime, debounceTime, sampleTime, delay, repeat } = require('rxjs/operators');
 
-// stream for coloring
-const palette$ = from(palette);
+// endless stream for coloring
+const palette$ = from(palette).pipe(delay(1), repeat());
 
 const source$ = merge(
     timer(0, 330),
