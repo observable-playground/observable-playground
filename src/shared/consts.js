@@ -15,6 +15,17 @@ export const palette =
     , '#009688'
     , '#cddc39'
     , '#ffc107'
+    , '#5899da'
+    , '#e8743b'
+    , '#19a979'
+    , '#ed4a7b'
+    , '#945ecf'
+    , '#13a4b4'
+    , '#525df4'
+    , '#bf399e'
+    , '#6c8893'
+    , '#ee6868'
+    , '#2f6497'
     ];
 
 // 1 sec is max execution time for scripts
