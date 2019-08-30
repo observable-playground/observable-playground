@@ -26,6 +26,7 @@ export const library = {
                 , 'forkJoin'
                 , 'race'
                 , 'combineLatest'
+                , 'withLatestFrom'
                 ]
             }
 
