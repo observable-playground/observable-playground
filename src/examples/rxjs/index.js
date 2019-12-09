@@ -27,6 +27,7 @@ export const library = {
                 , 'race'
                 , 'combineLatest'
                 , 'withLatestFrom'
+                , 'startWith'
                 ]
             }
 
@@ -42,8 +43,10 @@ export const library = {
 
         ,   { name: 'Transformation'
             , items:
-                [ 'filter'
+                [ 'map'
+                , 'filter'
                 , 'find'
+                , 'pluck'
                 , 'buffer'
                 , 'mergeMap'
                 , 'switchMap'
