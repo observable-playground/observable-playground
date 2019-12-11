@@ -16,10 +16,10 @@ class MenuComponent extends Component {
             : { className: "Menu__Link" }
     }
 
-    renderLibraryMenu(root){
+    renderLibraryMenu(menuEntry){
         return (
             <ul className="Menu__library-contents">
-                { root.library.groups.map(group => (
+                { menuEntry.library.groups.map(group => (
                     <li key={group.name} className="Menu__group">
                         <span className="Menu__group-name">{group.name}</span>
                         <ul className="Menu__group-contents">
@@ -28,7 +28,7 @@ class MenuComponent extends Component {
                                     className="Menu__item"
                                 >
                                     <Link
-                                        to={`/${root.handle}/${item}/`}
+                                        to={`/${menuEntry.handle}/${item}/`}
                                         getProps={this.isLinkActive}
                                         key={item}
                                     >{item}</Link>
@@ -48,13 +48,13 @@ class MenuComponent extends Component {
         return (
             <nav className="Menu">
                 {
-                    examplesMenu.map(root => (
-                        <div key={root.handle} className="Menu__library-name">
+                    examplesMenu.map(menuEntry => (
+                        <div key={menuEntry.handle} className="Menu__library-name">
                             <Link
                                 getProps={ this.isLinkActive }
-                                to={ '/' + root.handle + '/' }
-                                >{root.library.name}</Link>
-                            <span className="Menu__library-version">v{root.library.version}</span>
+                                to={ '/' + menuEntry.handle + '/' }
+                                >{menuEntry.library.name}</Link>
+                            <span className="Menu__library-version">v{menuEntry.library.version}</span>
                         </div>
                     ))
                 }
@@ -69,18 +69,19 @@ class MenuComponent extends Component {
                 <hr />
 
                 <ul className="Menu__examples">
-                    { examplesMenu.map(root => (
-                        <li key={root.handle} className="Menu__library">
-                            <Match path={ '/' + root.handle + '/*' }>{
+                    { examplesMenu.map(menuEntry => (
+                        <li key={menuEntry.handle} className="Menu__library">
+                            <Match path={ '/' + menuEntry.handle + '/*' }>{
                                 props =>
                                     props.match
-                                    ? this.renderLibraryMenu(root) 
+                                    ? this.renderLibraryMenu(menuEntry) 
                                     : null
                             }
                             </Match>
                         </li>
                     ))}
-                    <li key={root.handle} className="Menu__library">
+
+                    <li className="Menu__library">
                         {/* HACK FOR GIST MENU */}
                         <Match path={ '/gist/*' }>{
                             props =>
