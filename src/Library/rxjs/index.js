@@ -34,7 +34,7 @@ export default () =>
 
     <div className="PageBlock">
         <p>
-            If you're only starting to explore RxJS — we'd advice you to start with Creation section examples, like <b><Link to="/rxjs/timer/">timer</Link></b> or <b><Link to="/rxjs/fromPromise/">fromPromise</Link></b>.
+            If you're only starting to explore RxJS — we'd advise you to start with Creation section examples, like <b><Link to="/rxjs/timer/">timer</Link></b> or <b><Link to="/rxjs/fromPromise/">fromPromise</Link></b>.
         </p>
 
         <p>
