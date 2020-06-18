@@ -2,7 +2,7 @@ import React from 'react'
 import { Root, Routes } from 'react-static'
 import { Router } from '@reach/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import './App.css'
@@ -74,8 +74,17 @@ class App extends React.Component {
                         <a
                             target="_blank"
                             className="App__github-link"
-                            title="Check the source code on GitHub"
+                            title="Star the project"
                             href="https://github.com/observable-playground/observable-playground"
+                        ><FontAwesomeIcon icon={faStar}
+                            style={ { width: '1em' } }
+                        /></a>
+
+                        <a
+                            target="_blank"
+                            className="App__github-link"
+                            title="See the source code on GitHub"
+                            href="https://github.com/observable-playground/observable-playground/issues"
                         ><FontAwesomeIcon icon={faGithub}
                             style={ { width: '1em' } }
                         /></a>

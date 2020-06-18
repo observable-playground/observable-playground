@@ -63,7 +63,7 @@ class MenuComponent extends Component {
                     <Link
                         getProps={ this.isLinkActive }
                         to="/gist/"
-                        >Load a gist</Link>
+                        >Share a gist</Link>
                 </div>
 
                 <hr />

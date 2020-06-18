@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { navigate } from "@reach/router"
+import { Link, navigate } from "@reach/router"
 import { Head } from 'react-static'
 
 export class GistsPageComponent extends Component {
@@ -28,7 +28,15 @@ export class GistsPageComponent extends Component {
                 key="GistsPage"
                 className="GistsPage PageBlock"
             >
-                <h1>Load a gist and share it with others</h1>
+                <h1>Load a gist to share it with others</h1>
+
+                <p>
+                    Instructions:
+                    <ol>
+                        <li>Create a gist at <a target="_blank" ref="noopener noreferrer" href="https://gist.github.com/">https://gist.github.com/</a></li>
+                        <li>Copy it's ID and paste it here to open your gist</li>
+                    </ol>
+                </p>
 
                 <form target="#" onSubmit={ this.onSubmit }>
                     <input placeholder="Gist ID" name="gistId" autoComplete="off" />
@@ -37,6 +45,10 @@ export class GistsPageComponent extends Component {
 
                 <p>
                     <i>https://gist.github.com/name/<b>Gist_ID</b></i>
+                </p>
+
+                <p>
+                    Try this <Link to="/gist/e89c9ba3de7896e8a38abec0570f9f70"> example gist</Link>
                 </p>
             </div>
             </React.Fragment>

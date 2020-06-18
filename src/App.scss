@@ -46,7 +46,7 @@ $leftmenu-width: 12rem;
 
     &__twitter-link {
         color: $darkgray-color;
-        margin-right: 1rem;
+        margin: 0 0.25rem;
         padding: 0 0.25rem;
 
         &:hover {
@@ -56,6 +56,7 @@ $leftmenu-width: 12rem;
 
     &__github-link {
         color: $darkgray-color;
+        margin: 0 0.25rem;
         padding: 0 0.25rem;
 
         &:hover {
