@@ -20,6 +20,18 @@ export const library = {
                 ]
             }
 
+        ,   { name: 'Filtering'
+            , items:
+                [ 'filter'
+                , 'find'
+                , 'first'
+                , 'auditTime'
+                , 'debounceTime'
+                , 'throttleTime'
+                , 'sampleTime'
+                ]
+            }
+
         ,   { name: 'Combination'
             , items:
                 [ 'zip'
@@ -44,8 +56,6 @@ export const library = {
         ,   { name: 'Transformation'
             , items:
                 [ 'map'
-                , 'filter'
-                , 'find'
                 , 'pluck'
                 , 'buffer'
                 , 'mergeMap'

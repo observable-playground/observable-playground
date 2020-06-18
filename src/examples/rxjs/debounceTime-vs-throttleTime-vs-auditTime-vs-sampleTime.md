@@ -6,7 +6,7 @@ desc:		See this head-to-head comparison of debounceTime, throttleTime, auditTime
 docsUrl:	
 -->
 
-
+Or try dedicated playgrounds for: [auditTime](/rxjs/auditTime), [throttleTime](/rxjs/throttleTime), [debounceTime](/rxjs/debounceTime), [sampleTime](/rxjs/sampleTime)
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');
@@ -16,17 +16,14 @@ const { map, zip, auditTime, throttleTime, debounceTime, sampleTime, delay, repe
 // endless stream for coloring
 const palette$ = from(palette).pipe(delay(1), repeat());
 
-const source$ = merge(
-    timer(0, 330),
-    timer(50, 180)
-  ).pipe(
-    // colorize each item
+// generate a colorized marble stream
+const source$ = merge(timer(0, 330), timer(50, 180)).pipe(
     zip(palette$, Marble),
     map(setCurrentTime)
   );
 
 source$
-  .subscribe(rxObserver());
+  .subscribe(rxObserver('source'));
 
 source$.pipe(
     debounceTime(100),
