@@ -11,15 +11,16 @@ Or try dedicated playgrounds for: [auditTime](/rxjs/auditTime), [throttleTime](/
 ```js
 const { rxObserver, palette } = require('api/v0.3');
 const { merge, timer, from } = require('rxjs');
-const { map, zip, auditTime, throttleTime, debounceTime, sampleTime, delay, repeat } = require('rxjs/operators');
+const { map, zip, takeUntil, auditTime, throttleTime, debounceTime, sampleTime } = require('rxjs/operators');
 
 // endless stream for coloring
-const palette$ = from(palette).pipe(delay(1), repeat());
+const palette$ = from(palette);
 
 // generate a colorized marble stream
 const source$ = merge(timer(0, 330), timer(50, 180)).pipe(
     zip(palette$, Marble),
-    map(setCurrentTime)
+    map(setCurrentTime),
+    takeUntil(timer(1000))
   );
 
 source$
@@ -32,10 +33,16 @@ source$.pipe(
   .subscribe(rxObserver('debounceTime(100)'));
 
 source$.pipe(
-    throttleTime(100),
+    throttleTime(100, undefined, { leading: true }),
     map(setCurrentTime)
   )
-  .subscribe(rxObserver('throttleTime(100)'));
+  .subscribe(rxObserver('throttleTime(100) -- leading'));
+
+source$.pipe(
+    throttleTime(100, undefined, { trailing: true }),
+    map(setCurrentTime)
+  )
+  .subscribe(rxObserver('throttleTime(100) -- trailing'));
 
 source$.pipe(
     auditTime(100),
@@ -63,5 +70,4 @@ function Marble(value, color) {
     , color
   };
 }
-
 ```

@@ -13,7 +13,7 @@ Also, see this "[debounceTime vs throttleTime vs auditTime vs sampleTime](/rxjs/
 ```js
 const { rxObserver, palette } = require('api/v0.3');
 const { merge, timer, from } = require('rxjs');
-const { map, zip, throttleTime } = require('rxjs/operators');
+const { map, zip, throttleTime, takeUntil } = require('rxjs/operators');
 
 // stream for coloring
 const palette$ = from(palette);
@@ -21,29 +21,30 @@ const palette$ = from(palette);
 // generate a colorized marble stream
 const source$ = merge(timer(0, 330), timer(50, 180)).pipe(
     zip(palette$, Marble),
-    map(setCurrentTime)
+    map(setCurrentTime),
+    takeUntil(timer(1000))
   );
 
 source$
   .subscribe(rxObserver('source'));
 
 source$.pipe(
-    throttleTime(100),
+    throttleTime(100, undefined, { leading: true }),
     map(setCurrentTime)
   )
-  .subscribe(rxObserver('throttleTime(100)'));
+  .subscribe(rxObserver('throttleTime(100) -- leading'));
 
 source$.pipe(
-    throttleTime(100, undefined, { leading: false, trailing: true }),
+    throttleTime(100, undefined, { trailing: true }),
     map(setCurrentTime)
   )
-  .subscribe(rxObserver('throttleTime(100, undefined, { leading: false, trailing: true })'));
+  .subscribe(rxObserver('throttleTime(100) -- trailing'));
 
 source$.pipe(
     throttleTime(100, undefined, { leading: true, trailing: true }),
     map(setCurrentTime)
   )
-  .subscribe(rxObserver('throttleTime(100, undefined, { leading: true, trailing: true })'));
+  .subscribe(rxObserver('throttleTime(100) -- both'));
 
 // helpers
 // keeps colors, updated value to Date.now

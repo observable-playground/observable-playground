@@ -13,7 +13,7 @@ Also, see this "[debounceTime vs throttleTime vs auditTime vs sampleTime](/rxjs/
 ```js
 const { rxObserver, palette } = require('api/v0.3');
 const { merge, timer, from } = require('rxjs');
-const { map, zip, auditTime } = require('rxjs/operators');
+const { map, zip, auditTime, takeUntil } = require('rxjs/operators');
 
 // endless stream for coloring
 const palette$ = from(palette);
@@ -21,7 +21,8 @@ const palette$ = from(palette);
 // generate a colorized marble stream
 const source$ = merge(timer(0, 330), timer(50, 180)).pipe(
     zip(palette$, Marble),
-    map(setCurrentTime)
+    map(setCurrentTime),
+    takeUntil(timer(1000))
   );
 
 source$

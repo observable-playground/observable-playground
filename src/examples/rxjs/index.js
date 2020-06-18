@@ -29,6 +29,7 @@ export const library = {
                 , 'debounceTime'
                 , 'throttleTime'
                 , 'sampleTime'
+                , 'windowToggle'
                 ]
             }
 
@@ -62,7 +63,6 @@ export const library = {
                 , 'switchMap'
                 , 'exhaustMap'
                 , 'concatMap'
-                , 'windowToggle'
                 , 'expand'
                 , 'toArray'
                 ]
