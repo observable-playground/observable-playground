@@ -2,8 +2,8 @@ import React from 'react';
 import './EditorComponent.css';
 import AceEditor from 'react-ace';
 
-import 'brace/mode/javascript';
-import 'brace/theme/monokai';
+import 'ace-builds/src-noconflict/mode-javascript'
+import 'ace-builds/src-noconflict/theme-monokai'
 
 export function EditorComponent ({ value, defaultValue, onChange }){
     return (
@@ -24,7 +24,7 @@ export function EditorComponent ({ value, defaultValue, onChange }){
             tabSize={2}
             wrapEnabled={false}
             showPrintMargin={false}
-            setOptions={{ showFoldWidgets: false }}
+            setOptions={{ useWorker: false, showFoldWidgets: false }}
 
             editorProps={{ $blockScrolling: true }}
             debounceChangePeriod={ 500 }
