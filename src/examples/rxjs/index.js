@@ -65,6 +65,7 @@ export const library = {
                 , 'concatMap'
                 , 'expand'
                 , 'toArray'
+                , 'windowWhen'
                 ]
             }
         
