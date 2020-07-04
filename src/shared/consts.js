@@ -1,5 +1,5 @@
 export const ROOT_PAGE_TITLE =
-    'Learn, test and play with streams in RxJS, Bacon.js, Kefir'
+    'ThinkRx — Instant marble diagrams for RxJS, Bacon.js, Kefir'
 
 export const palette =
     [ '#03a9f4'
