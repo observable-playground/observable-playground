@@ -17,6 +17,8 @@ install:
 
 script:
   - npm run build
+  - npm run export
+  - node ./sitemap.js
 
 deploy:
   provider: pages

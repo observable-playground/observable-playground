@@ -1,5 +1,4 @@
 import React from 'react';
-import './EditorComponent.css';
 import AceEditor from 'react-ace';
 
 import 'ace-builds/src-noconflict/mode-javascript'
@@ -8,7 +7,6 @@ import 'ace-builds/src-noconflict/theme-monokai'
 export function EditorComponent ({ value, defaultValue, onChange }){
     return (
         <AceEditor
-            className="EditorComponent"
             name="AceEditor_EditorComponent"
 
             mode="javascript"

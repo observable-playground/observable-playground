@@ -2,10 +2,16 @@
 .DS_Store
 
 # Tech
-dist
+out
+.next
 node_modules
 tmp
 artifacts
 
 # CSS ignore
 **.css
+
+# Environment Variables
+.env
+.env*.local
+.env.build

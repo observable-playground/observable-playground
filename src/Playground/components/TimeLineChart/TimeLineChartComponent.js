@@ -8,7 +8,7 @@ import { printValue } from './printValue';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { saveSvgAsPng } from 'save-svg-as-png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './TimeLineChartComponent.css';
+import style from './TimeLineChartComponent.module.scss';
 
 const EVENT_RADIUS = 17;
 const EVENT_DIAMETER = EVENT_RADIUS * 2;
@@ -307,7 +307,7 @@ export class TimeLineChartComponent extends Component {
     render() {
         return (
             <div
-                className="TimeLineChart"
+                className={style.TimeLineChart}
                 ref={node => this.wrapperNode = node}
             >
                 <svg
@@ -316,7 +316,7 @@ export class TimeLineChartComponent extends Component {
                     height="0"
                 ></svg>
                 <button
-                    className="TimeLineChart__Download"
+                    className={style.TimeLineChart__Download}
                     onClick={ this.downloadAsSvg }
                     title="Download as .png"
                 ><FontAwesomeIcon icon={faDownload} /></button>

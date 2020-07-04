@@ -1,6 +1,6 @@
 import React from 'react'
 import { PlaygroundWrapper } from '../../Playground/PlaygroundWrapper';
-import { Head } from 'react-static'
+import Head from 'next/head';
 import basicExample from './basic.example';
 
 export default () =>

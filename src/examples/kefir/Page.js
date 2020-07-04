@@ -1,7 +1,7 @@
 import React from 'react'
 import { PlaygroundWrapper } from '../../Playground/PlaygroundWrapper';
-import { Head } from 'react-static'
-import { Link } from '@reach/router'
+import Head from 'next/head';
+import Link from 'next/link';
 import basicExample from './basic.example';
 
 export default () =>
@@ -20,7 +20,7 @@ export default () =>
         </p>
 
         <p>
-            If you are looking for a place to start — take a look at <Link to="/kefir/interval/"><b>interval</b></Link> example.
+            If you are looking for a place to start — take a look at <Link href="/kefir/interval/"><b>interval</b></Link> example.
         </p>
     </div>
 

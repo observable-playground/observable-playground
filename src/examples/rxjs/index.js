@@ -1,6 +1,9 @@
 import { dependencies } from '../../../package.json';
+import Page from './Page';
+
 const LIB_VERSION = dependencies.rxjs;
 
+export { Page };
 export const library = {
     name: 'RxJS',
     version: LIB_VERSION,
