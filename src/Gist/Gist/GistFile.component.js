@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { PlaygroundWrapper } from '../../Playground/PlaygroundWrapper'
-import './GistFile.css';
+import style from './GistFile.module.scss';
 
 export class GistFileComponent extends Component {
     render(){
@@ -8,8 +8,8 @@ export class GistFileComponent extends Component {
         const isJSFile = /.*\.js/.test(file.filename);
 
         return (
-            <div className="GistFile">
-                <div className="GistFile__Name">{file.filename}</div>
+            <div className={style.GistFile}>
+                <div className={style.GistFile__Name}>{file.filename}</div>
                 {
                     isJSFile
                     ? <PlaygroundWrapper
@@ -17,7 +17,7 @@ export class GistFileComponent extends Component {
                         code={file.content}
                         />
                     : <div className="PageBlock">
-                        <div className="GistFile__Content DangerousContentWidth"><pre>{file.content}</pre></div>
+                            <div className={style.GistFile__Content + ' DangerousContentWidth'}><pre>{file.content}</pre></div>
                     </div>
                 }
             </div>

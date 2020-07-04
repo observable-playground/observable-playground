@@ -1,55 +1,48 @@
-import React, { Component } from 'react'
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { isServer } from '../../shared/isServer';
+import { LoadingIndicator } from '../../shared/LoadingIndicator/LoadingIndicator';
 import { GIST_URL_PREFIX } from './const';
 import { GistComponent } from './Gist.component';
-import { LoadingIndicator } from '../../shared/LoadingIndicator/LoadingIndicator';
 
-export class GistContainer extends Component {
+export function GistContainer (props){
+    const [data, setData] = useState();
+    const [isLoading, setLoading] = useState(true);
 
-    constructor(props){
-        super(props);
-        this.state = {
-            loading: true,
-            data: undefined
-        };
-    }
+    const { gistId } = props;
 
-    componentWillMount(){
-        const { gistId } = this.props;
+    useEffect(() => {
+        if (isServer || !gistId) { return; }
+
         axios
             .get(`https://api.github.com/gists/${gistId}`)
             .then(response => {
-                this.setState({
-                    loading: false,
-                    data: response.data
-                });
+                setData(response.data);
+                setLoading(false);
             });
+    }, [isServer, gistId])
+
+    if (!isLoading) {
+        return <GistComponent data={ data }/>
     }
 
-    render(){
-        if (!this.state.loading) {
-            return <GistComponent data={ this.state.data }/>
-        }
-
-        // Loading indicator
-        const { gistId } = this.props;
-        const gistUrl = GIST_URL_PREFIX + gistId;
-        return <div>
-            <div className="PageBlock">
-                <h3>Your playground is loading...</h3>
-            </div>
-
-            <p>
-                <LoadingIndicator />
-            </p>
-
-            <div className="PageBlock">
-                <p>
-                    <span className="DangerousContentWidth">
-                        Fetching Gist from <a href={gistUrl} target="_blank">{gistUrl}</a>...
-                    </span>
-                </p>
-            </div>
+    // Loading indicator
+    const gistUrl = GIST_URL_PREFIX + gistId;
+    return <div>
+        <div className="PageBlock">
+            <h3>Your playground is loading...</h3>
         </div>
-    }
+
+        <p>
+            <LoadingIndicator />
+        </p>
+
+        <div className="PageBlock">
+            <p>
+                <span className="DangerousContentWidth">
+                    Fetching Gist from <a rel="noopener noreferer" href={gistUrl} target="_blank">{gistUrl}</a>...
+                </span>
+            </p>
+        </div>
+    </div>
 }

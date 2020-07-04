@@ -1,6 +1,7 @@
-@import "../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/normalize.css/normalize.css";
 @import "./typography.scss";
 @import "./pageBlock.scss";
+@import "./editor.scss";
 
 body { 
     font-family: sans-serif;
@@ -8,10 +9,14 @@ body {
     font-size: 16px;
 }
 
+html, body, #__next {
+    height: 100%;
+}
+
 // NOTE: currently when rendered by google crawler -- an error is thrown, and
 // that error hovers whole application
-#root > pre {
-    top: auto!important;
-    max-height: 10rem!important;
-    overflow: auto!important;
-}
+// _next > pre {
+//     top: auto!important;
+//     max-height: 10rem!important;
+//     overflow: auto!important;
+// }

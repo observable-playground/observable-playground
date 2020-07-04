@@ -1,0 +1,91 @@
+@import '../../styles/variables.scss';
+
+.Sidebar {
+
+    @media screen and (min-width: $min-desktop-screen-width) {
+        margin-top: 1.34rem; // same as h1 in the contents section margin 
+    }
+
+    &__DesktopSideMenuHeader {
+        @media screen and (max-width: $max-mobile-screen-width) {
+            display: none;
+        }
+    }
+
+    &__Social {
+        padding: 0.5rem 0;
+    }
+
+    &__twitter {
+        display: block;
+        color: $dark-color;
+        padding: 0.25rem 0;
+        text-decoration: none;
+
+        &_icon {
+            color: change-color($color: $twitter-link-color, $saturation: 75%, $lightness: 70%);
+            color: $twitter-link-color;
+        }
+
+        &:hover
+        , &:hover &_icon
+        {
+            color: $twitter-link-color;
+        }
+    }
+
+    &__githubstar {
+        display: block;
+        color: $dark-color;
+        padding: 0.25rem 0;
+        text-decoration: none;
+
+        &_icon {
+            color: change-color($color: $githubstar-link-color, $saturation: 75%, $lightness: 70%);
+            color: $githubstar-link-color;
+        }
+
+        &:hover
+        , &:hover &_icon
+        {
+            color: $githubstar-link-color;
+        }
+    }
+
+    &__github {
+        display: block;
+        color: $dark-color;
+        padding: 0.25rem 0;
+        text-decoration: none;
+
+        &_icon {
+            color: change-color($color: $github-link-color, $lightness: 70%);
+            color: $github-link-color;
+        }
+
+        &:hover
+        , &:hover &_icon
+        {
+            color: $github-link-color;
+        }
+    }
+
+    &__share {
+        display: block;
+        color: $dark-color;
+        padding: 0.25rem 0;
+        text-decoration: none;
+
+        &_icon {
+            color: change-color($color: $create-link-color, $saturation: 75%, $lightness: 70%);
+            color: $create-link-color;
+        }
+
+        &:hover
+        , &:hover &_icon
+        {
+            color: $create-link-color;
+        }
+    }
+
+}

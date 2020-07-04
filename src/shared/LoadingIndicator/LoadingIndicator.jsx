@@ -1,5 +1,5 @@
 import React from 'react';
-import './LoadingIndicator.css';
+// import './LoadingIndicator.css';
 
 export const LoadingIndicator = () =>
     <span className="lds-ellipsis">

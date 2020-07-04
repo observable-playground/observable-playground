@@ -1,5 +1,5 @@
 import React from 'react';
-import { menu as examplesMenu } from './src/examples/';
+import { menu as examplesMenu } from './src/examples';
 import { homepage } from './package.json';
 import { ROOT_PAGE_TITLE } from './src/shared/consts';
 import fs from 'fs-extra';

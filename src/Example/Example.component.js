@@ -1,10 +1,9 @@
+import { faBook, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
 import ReactMarkdown from 'react-markdown';
-import { Link } from '@reach/router'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPencilAlt, faBook } from '@fortawesome/free-solid-svg-icons';
-import './Example.component.css';
+import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
+import style from './Example.component.module.scss';
 
 
 export function ExampleComponent(props) {
@@ -14,26 +13,26 @@ export function ExampleComponent(props) {
     if (example.files) {
         return example.files.map(file => (
             <div
-                className="ExampleComponent__FileEntry"
+                className={style.ExampleComponent__FileEntry}
                 key={file.name}
             >{renderFile(file)}</div>
         ));
     }
 
     return (
-        <div className="ExampleComponent">
-            <div  className="ExampleComponent__Title">
+        <div className={style.ExampleComponent}>
+            <div  className={style.ExampleComponent__Title}>
                 <h1>{ example.title }&nbsp;{
                     example.docsUrl &&
                         <a
                             target="_blank"
-                            className="ExampleComponent__DocsLink"
+                            className={style.ExampleComponent__DocsLink}
                             title="Official docs"
                             href={example.docsUrl}
                         ><FontAwesomeIcon icon={faBook} style={{ width: '0.5em' }} /></a>
                     }<a
                         target="_blank"
-                        className="ExampleComponent__EditLink"
+                        className={style.ExampleComponent__EditLink}
                         title="Edit this file on Github"
                         href={example.editUrl}
                         rel="nofollow noreferrer"
@@ -49,12 +48,10 @@ const testIfUriIsLocal = (uri) => /^\/[^\/]/.test(uri);
 const linkTargetRenderer = (uri) => testIfUriIsLocal(uri) ? undefined : '_blank';
 
 function linkRenderer({ href, target, children }) {
-    return testIfUriIsLocal(href)
-        ? <Link to={href} target={target} children={children} />
-        : <a href={href} target={target} children={children} />
+    return <a href={href} rel="noopener noreferrer" target={target} children={children} />
 }
 
-function codeRenderer({ language, value }) {
+function codeRenderer({ value }) {
     return <PlaygroundWrapper code={value} />;
 }
 

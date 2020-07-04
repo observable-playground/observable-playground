@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { EditorComponent } from './components/Editor/EditorComponent';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
-import './Playground.css';
+import style from './Playground.module.scss';
 import { run } from '../core/runner';
 import { WarningComponent } from './components/Warning/WarningComponent';
 
@@ -50,15 +50,15 @@ export class Playground extends Component {
     render() {
         const { status, time, lines, value, defaultValue } = this.state;
         return (
-            <div className="Playground">
-                <div className="Playground__editor">
+            <div className={style.Playground}>
+                <div className={style.Playground__editor}>
                     <EditorComponent
                         value={ value }
                         defaultValue={ defaultValue }
                         onChange={ this.onChange }
                     ></EditorComponent>
                 </div>
-                <div className="Playground__chart">
+                <div className={style.Playground__chart}>
                     {
                         status.isError &&
                             <ErrorComponent error={ status.error }></ErrorComponent>

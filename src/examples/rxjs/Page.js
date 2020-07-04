@@ -1,7 +1,7 @@
 import React from 'react'
 import { PlaygroundWrapper } from '../../Playground/PlaygroundWrapper';
-import { Link } from '@reach/router';
-import { Head } from 'react-static'
+import Head from 'next/head';
+import Link from 'next/link';
 import basicExample from './basic.example';
 
 export default () =>
@@ -34,11 +34,11 @@ export default () =>
 
     <div className="PageBlock">
         <p>
-            If you're only starting to explore RxJS — we'd advise you to start with Creation section examples, like <b><Link to="/rxjs/timer/">timer</Link></b> or <b><Link to="/rxjs/fromPromise/">fromPromise</Link></b>.
+            If you're only starting to explore RxJS — we'd advise you to start with Creation section examples, like <b><Link href="/rxjs/timer/">timer</Link></b> or <b><Link href="/rxjs/fromPromise/">fromPromise</Link></b>.
         </p>
 
         <p>
-            If you want to get familiar with pipeable operators — head right to the <b><Link to="/rxjs/pipe/">pipe</Link></b> operator and experiment with it. Be sure to check <a href="https://rxjs.dev/guide/v6/pipeable-operators" target="_blank">pipeable operators</a> official page as well.
+            If you want to get familiar with pipeable operators — head right to the <b><Link href="/rxjs/pipe/">pipe</Link></b> operator and experiment with it. Be sure to check <a href="https://rxjs.dev/guide/v6/pipeable-operators" target="_blank">pipeable operators</a> official page as well.
         </p>
 
         <div>

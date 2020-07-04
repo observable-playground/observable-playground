@@ -1,7 +1,10 @@
 // read the lib version
 import { dependencies } from '../../../package.json';
+import Page from './Page';
+
 const LIB_VERSION = dependencies.kefir;
 
+export { Page };
 export const library = {
     name: 'Kefir.js',
     version: LIB_VERSION,

@@ -1,57 +1,54 @@
-import React, { Component } from 'react'
-import { Link, navigate } from "@reach/router"
-import { Head } from 'react-static'
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useCallback } from 'react';
 
-export class GistsPageComponent extends Component {
-    constructor(props){
-        super(props);
-        this.onSubmit = this.onSubmit.bind(this);
-    }
+export function GistsPageComponent () {
+    const router = useRouter();
 
-    onSubmit(event){
+    const onSubmit = useCallback((event) => {
         event.preventDefault();
         const gistId = event.target.gistId.value;
         if (!gistId) {
             return;
         }
 
-        navigate('/gist/' + gistId);
-    }
+        router.push('/gist/[id]', '/gist/' + gistId);
+    });
 
-    render(){
-        return (
-            <React.Fragment>
-            <Head>
-                <title>Load a gist</title>
-            </Head>
-            <div
-                key="GistsPage"
-                className="GistsPage PageBlock"
-            >
-                <h1>Load a gist to share it with others</h1>
 
-                <p>
-                    Instructions:
-                    <ol>
-                        <li>Create a gist at <a target="_blank" ref="noopener noreferrer" href="https://gist.github.com/">https://gist.github.com/</a></li>
-                        <li>Copy it's ID and paste it here to open your gist</li>
-                    </ol>
-                </p>
+    return (
+        <React.Fragment>
+        <Head>
+            <title>Share a gist</title>
+        </Head>
+        <div
+            key="GistsPage"
+            className="GistsPage PageBlock"
+        >
+            <h1>Load a gist to share it with others</h1>
 
-                <form target="#" onSubmit={ this.onSubmit }>
-                    <input placeholder="Gist ID" name="gistId" autoComplete="off" />
-                    <button type="submit">Open</button>
-                </form>
+            <p>
+                Instructions:
+                <ol>
+                    <li>Create a gist at <a target="_blank" rel="noopener noreferrer" href="https://gist.github.com/">https://gist.github.com/</a></li>
+                    <li>Copy it's ID and paste it here to open your gist</li>
+                </ol>
+            </p>
 
-                <p>
-                    <i>https://gist.github.com/name/<b>Gist_ID</b></i>
-                </p>
+            <form target="#" onSubmit={ onSubmit }>
+                <input placeholder="Gist ID" name="gistId" autoComplete="off" />
+                <button type="submit">Open</button>
+            </form>
 
-                <p>
-                    Try this <Link to="/gist/e89c9ba3de7896e8a38abec0570f9f70"> example gist</Link>
-                </p>
-            </div>
-            </React.Fragment>
-        )
-    }
+            <p>
+                <i>https://gist.github.com/name/<b>Gist_ID</b></i>
+            </p>
+
+            <p>
+                Try this <Link href="/gist/[id]" as="/gist/e89c9ba3de7896e8a38abec0570f9f70">example gist</Link>
+            </p>
+        </div>
+        </React.Fragment>
+    )
 }

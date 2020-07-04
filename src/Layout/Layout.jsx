@@ -1,17 +1,13 @@
 import React from 'react'
-import { Root, Routes } from 'react-static'
-import { Router } from '@reach/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { Sidebar } from '../shared/Sidebar/Sidebar';
+import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
+import { Logo } from '../shared/Logo/Logo';
+import style from './Layout.module.scss'
 
-import './App.css'
-import { GistContainer } from './Gist/Gist/Gist.container.js';
-import { Sidebar } from './shared/Sidebar/Sidebar.js';
-import { LoadingIndicator } from './shared/LoadingIndicator/LoadingIndicator';
-import { Logo } from './shared/Logo/Logo';
-
-class App extends React.Component {
+export class Layout extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,20 +34,21 @@ class App extends React.Component {
         })
     }
 
-    isLinkHeaderActive({ isCurrent }) {
-        return isCurrent
-            ? { className: "App__logo active" }
-            : { className: "App__logo" }
-            ;
-    }
+    // isLinkHeaderActive({ isCurrent }) {
+    //     return isCurrent
+    //         ? { className: "App__logo active" }
+    //         : { className: "App__logo" }
+    //         ;
+    // }
 
     render(){
+        const children = this.props.children;
+
         return (
-            <Root>
-                <div className="App">
-                    <div className="App__MobileHeader">
+                <div className={style.App}>
+                    <div className={style.App__MobileHeader}>
                         <button
-                            className={ 'App__MobileMenuSwitch ' + (this.state.mobileMenuVisible ? ' active' : '') }
+                            className={ style.App__MobileMenuSwitch + (this.state.mobileMenuVisible ? ' active' : '') }
                             onClick={ this.toggleMobileMenu }
                         ><FontAwesomeIcon icon={faBars} /></button>
 
@@ -60,11 +57,11 @@ class App extends React.Component {
                             onClick={this.hideMobileMenu}
                         ><Logo /></span>
 
-                        <span className="App__header-spring"></span>
+                        <span className={ style.header_spring }></span>
 
                         <a
                             target="_blank"
-                            className="App__twitter-link"
+                            className={style.App__twitter_link}
                             title="Follow me on twitter"
                             href="https://twitter.com/kddsky"
                         ><FontAwesomeIcon icon={faTwitter} 
@@ -73,7 +70,7 @@ class App extends React.Component {
 
                         <a
                             target="_blank"
-                            className="App__github-link"
+                            className={style.App__github_link}
                             title="Star the project"
                             href="https://github.com/observable-playground/observable-playground"
                         ><FontAwesomeIcon icon={faStar}
@@ -82,7 +79,7 @@ class App extends React.Component {
 
                         <a
                             target="_blank"
-                            className="App__github-link"
+                            className={style.App__github_link}
                             title="See the source code on GitHub"
                             href="https://github.com/observable-playground/observable-playground/issues"
                         ><FontAwesomeIcon icon={faGithub}
@@ -90,28 +87,19 @@ class App extends React.Component {
                         /></a>
                     </div>
 
-                    <div className="App__body">
-                        <div className={ 'App__contents' + (this.state.mobileMenuVisible ? ' hidden' : '')  }>
-                            <React.Suspense fallback={<LoadingIndicator />}>
-                                <Router basepath="/">
-                                    <Routes path="/gist" />
-                                    <GistContainer path="/gist/:gistId" />
-                                    <Routes default />
-                                </Router>
-                            </React.Suspense>
+                    <div className={style.App__body}>
+                        <div className={ style.App__contents + (this.state.mobileMenuVisible ? ' hidden' : '')  }>
+                            {
+                                children
+                            }
                         </div>
 
-                        <React.Suspense fallback={<LoadingIndicator />}>
-                            <div
-                                className={'App__menu' + (this.state.mobileMenuVisible ? ' visible' : '')}
-                                onClick={this.hideMobileMenu}
-                            ><Sidebar /></div>
-                        </React.Suspense>
+                        <div
+                            className={style.App__menu + (this.state.mobileMenuVisible ? ' visible' : '')}
+                            onClick={this.hideMobileMenu}
+                        ><Sidebar /></div>
                     </div>
                 </div>
-            </Root>
         );
     }
 }
-
-export default App
