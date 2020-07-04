@@ -52,7 +52,6 @@ export class Layout extends React.Component {
                             onClick={ this.toggleMobileMenu }
                         ><FontAwesomeIcon icon={faBars} /></button>
 
-
                         <span
                             onClick={this.hideMobileMenu}
                         ><Logo /></span>
@@ -88,14 +87,14 @@ export class Layout extends React.Component {
                     </div>
 
                     <div className={style.App__body}>
-                        <div className={ style.App__contents + (this.state.mobileMenuVisible ? ' hidden' : '')  }>
+                        <div className={ style.App__contents + ' ' + (this.state.mobileMenuVisible ? style.hidden : '')  }>
                             {
                                 children
                             }
                         </div>
 
                         <div
-                            className={style.App__menu + (this.state.mobileMenuVisible ? ' visible' : '')}
+                            className={style.App__menu + ' ' + (this.state.mobileMenuVisible ? style.visible: '')}
                             onClick={this.hideMobileMenu}
                         ><Sidebar /></div>
                     </div>
