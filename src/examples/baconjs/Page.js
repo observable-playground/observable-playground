@@ -9,6 +9,7 @@ export default () =>
     <Head>
         <title>Bacon.js playground and examples</title>
     </Head>
+
     <div key="Bacon">
         <div className="PageBlock">
             <h1>Bacon.js Playground</h1>

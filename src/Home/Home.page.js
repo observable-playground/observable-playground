@@ -15,7 +15,7 @@ export const HomePage = () =>
 
         <div className="PageBlock">
             <h1>
-                Instant marble visualization for <Link href="/rxjs/"><a>RxJS</a></Link>, <Link href="/baconjs/"><a>Bacon.js</a></Link>, <Link href="/kefir/"><a>Kefir.js</a></Link> reactive programming libraries with a bunch of examples 
+                Instant marble visualization for <Link href="/[libId]/" as="/rxjs/"><a>RxJS</a></Link>, <Link href="/[libId]/" as="/baconjs/"><a>Bacon.js</a></Link>, <Link href="/[libId]/" as="/kefir/"><a>Kefir.js</a></Link> reactive programming libraries with a bunch of examples 
             </h1>
 
             <blockquote>
@@ -40,23 +40,23 @@ export const HomePage = () =>
 
             <h3>RxJS</h3>
             <ul>
-                <li><b><Link href="/rxjs/of/"><a>of</a></Link></b> operator</li>
+                <li><b><Link href="/[libId]/[fileId]/" as="/rxjs/of/"><a>of</a></Link></b> operator</li>
                 <li>creating Observable <b><Link href="/rxjs/fromPromise/"><a>from</a></Link></b> Promise</li>
                 <li>switching to other Observable using <b><Link href="/rxjs/switchMap/"><a>switchMap</a></Link></b> operator</li>
             </ul>
 
             <h3>Bacon</h3>
             <ul>
-                <li><b><Link href="/baconjs/interval/"><a>interval</a></Link></b> operator</li>
+                <li><b><Link href="/[libId]/[fileId]/" as="/baconjs/interval/"><a>interval</a></Link></b> operator</li>
             </ul>
 
             <h3>Kefir</h3>
             <ul>
-                <li><b><Link href="/kefir/sequentially/"><a>sequentially</a></Link></b> operator</li>
+                <li><b><Link href="/[libId]/[fileId]/" as="/kefir/sequentially/"><a>sequentially</a></Link></b> operator</li>
             </ul>
 
             <blockquote>
-                Try comparing <b><Link href="/rxjs/interval/"><a>RxJS interval</a></Link></b>, <b><Link href="/kefir/interval/"><a>Kefir.js interval</a></Link></b>, and <b><Link href="/baconjs/interval/"><a>Bacon.js interval</a></Link></b>!
+                Try comparing <b><Link href="/[libId]/[fileId]/" as="/rxjs/interval/"><a>RxJS interval</a></Link></b>, <b><Link href="/[libId]/[fileId]/" as="/kefir/interval/"><a>Kefir.js interval</a></Link></b>, and <b><Link href="/[libId]/[fileId]/" as="/baconjs/interval/"><a>Bacon.js interval</a></Link></b>!
             </blockquote>
 
             <p>

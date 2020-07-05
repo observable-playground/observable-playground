@@ -24,7 +24,7 @@ const renderLibraryMenu = (menuEntry) => {
                                 className={style.Menu__item}
                             >
                                 <Link
-                                    href={`/[libId]/[fileId]/`}
+                                    href="/[libId]/[fileId]/"
                                     as={`/${menuEntry.handle}/${item}/`}
                                 ><a className={style.Menu__Link}>{item}</a></Link>
                             </li>
@@ -50,7 +50,7 @@ export function MenuComponent() {
                 examplesMenu.map(menuEntry => (
                     <div key={menuEntry.handle} className={style.Menu__library_name}>
                         <Link
-                            href={ '/[libId]/' }
+                            href="/[libId]/"
                             as={ '/' + menuEntry.handle + '/' }
                         >
                             <a className={ style.Menu__Link }>{menuEntry.library.name}

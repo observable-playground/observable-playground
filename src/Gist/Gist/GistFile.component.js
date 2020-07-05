@@ -17,8 +17,8 @@ export class GistFileComponent extends Component {
                         code={file.content}
                         />
                     : <div className="PageBlock">
-                            <div className={style.GistFile__Content + ' DangerousContentWidth'}><pre>{file.content}</pre></div>
-                    </div>
+                        <div className={style.GistFile__Content + ' DangerousContentWidth'}><pre>{file.content}</pre></div>
+                      </div>
                 }
             </div>
         )

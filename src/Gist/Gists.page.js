@@ -18,11 +18,11 @@ export function GistsPageComponent () {
     });
 
 
-    return (
-        <React.Fragment>
+    return <>
         <Head>
             <title>Share a gist</title>
         </Head>
+
         <div
             key="GistsPage"
             className="GistsPage PageBlock"
@@ -50,6 +50,5 @@ export function GistsPageComponent () {
                 Try this <Link href="/gist/[id]" as="/gist/e89c9ba3de7896e8a38abec0570f9f70">example gist</Link>
             </p>
         </div>
-        </React.Fragment>
-    )
+    </>
 }
