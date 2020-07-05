@@ -34,13 +34,6 @@ export class Layout extends React.Component {
         })
     }
 
-    // isLinkHeaderActive({ isCurrent }) {
-    //     return isCurrent
-    //         ? { className: "App__logo active" }
-    //         : { className: "App__logo" }
-    //         ;
-    // }
-
     render(){
         const children = this.props.children;
 

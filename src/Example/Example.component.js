@@ -3,9 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
-import style from './Example.component.module.scss';
 import { ExternalLink } from '../shared/ExternalLink';
-
+import style from './Example.component.module.scss';
 
 export function ExampleComponent(props) {
     const example = props.example;
@@ -42,15 +41,6 @@ export function ExampleComponent(props) {
     );
 }
 
-
-function linkRenderer({ href, children }) {
-    return <ExternalLink href={href} children={children} />
-}
-
-function codeRenderer({ value }) {
-    return <PlaygroundWrapper code={value} />;
-}
-
 function renderFile(file) {
     if (file.ext == '.js') {
         return renderJsContent(file.content);
@@ -82,4 +72,17 @@ function renderMdContent(content) {
             />
         </div>
     );
+}
+
+// renderers
+function testIfUriIsLocal(uri) { return /^\/[^\/]/.test(uri); }
+
+function linkRenderer({ href, children }) {
+    return testIfUriIsLocal(href)
+    ? <a href={href} children={children} />
+    : <ExternalLink href={href} children={children} />
+}
+
+function codeRenderer({ value }) {
+    return <PlaygroundWrapper code={value} />;
 }
