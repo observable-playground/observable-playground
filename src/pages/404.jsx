@@ -1,35 +1,48 @@
-import React from 'react'
-// import { Link } from '@reach/router';
-// import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
+import React, { useEffect } from 'react'
+import Link from 'next/link';
+import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
+import { useRouter } from 'next/router';
+import { isClient } from '../shared/isServer';
 
 // the issue with /gist/* pages is that they are not static pages
 // therefore these need time to load scripts to load a proper ui
 // so here we're showing half loading, half 404 state to the user
 
-export default () => <div>404</div>
+export default () => {
+    const router = useRouter();
 
-// export default () => (
-//     <div className="PageNotFound">
-//         <div className="PageBlock">
-//             <h3>Your playground is loading...</h3>
-//         </div>
+    useEffect(() => {
+        if (isClient) {
+            console.log(router.asPath);
+            if (/^\/gist\/.*?\/$/.test(router.asPath)) {
+                router.replace('/gist/[id]/', router.asPath);
+            }
+        }
+    }, [isClient, router.asPath]);
 
-//         <p>
-//             <LoadingIndicator />
-//         </p>
+    return (
+        <div className="PageNotFound">
+            <div className="PageBlock">
+                <h3>Your playground is loading...</h3>
+            </div>
 
-//         <div className="PageBlock">
-//             <p>
-//                 If it takes too long to load, you might:
-//             </p>
+            <p>
+                <LoadingIndicator />
+            </p>
 
-//             <ul>
-//                 <li>Get to the <b><Link to="/">home page</Link></b> and start exploring other playgrounds</li>
-//                 <li>Check out <b><Link to="/rxjs/of/">RxJS of()</Link></b> operator example and build on top of it</li>
-//                 <li>Submit an issue at <a href="https://github.com/observable-playground/observable-playground" target="_blank">github project page</a> to report this case</li>
-//             </ul>
+            <div className="PageBlock">
+                <p>
+                    If it takes too long to load, you may:
+                </p>
 
-//             <br />
-//         </div>
-//     </div>
-// )
+                <ul>
+                    <li>Go to the <b><Link href="/"><a>home page</a></Link></b> and start exploring other playgrounds</li>
+                    <li>Check out <b><Link href="/[libId]/[fileId]" as="/rxjs/of/"><a>RxJS of()</a></Link></b> operator example and build on top of it</li>
+                    <li>Submit an issue at <ExternalLink href="https://github.com/observable-playground/observable-playground">github project page</ExternalLink> to report this case</li>
+                </ul>
+
+                <br />
+            </div>
+        </div>
+    )
+}

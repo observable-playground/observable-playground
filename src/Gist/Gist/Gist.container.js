@@ -40,7 +40,7 @@ export function GistContainer (props){
         <div className="PageBlock">
             <p>
                 <span className="DangerousContentWidth">
-                    Fetching Gist from <a rel="noopener noreferer" href={gistUrl} target="_blank">{gistUrl}</a>...
+                    Fetching Gist from <ExternalLink href={gistUrl}>{gistUrl}</ExternalLink>...
                 </span>
             </p>
         </div>

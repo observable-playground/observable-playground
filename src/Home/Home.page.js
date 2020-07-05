@@ -5,9 +5,6 @@ import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
 import { ROOT_PAGE_TITLE } from '../shared/consts';
 import awesomeRxjsExample from './awesome-rxjs-example';
 
-const ExternalLink = ({ href, text }) =>
-    (<a href={href} target="_blank" rel="noopener noreferrer">{text || href}</a>);
-
 export const HomePage = () =>
     <div className="HomePage">
         <Head>

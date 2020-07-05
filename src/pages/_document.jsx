@@ -7,7 +7,6 @@ export default class MyDocument extends Document {
             <html>
                 <Head>
                     <meta charSet="UTF-8" />
-                    <title>{ ROOT_PAGE_TITLE }</title>
                     <meta
                         name="description"
                         content="Create amusing animated stories using emoji!"

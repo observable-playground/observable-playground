@@ -25,33 +25,27 @@ export class GistComponent extends Component {
                     className={style.Gist}
                 >
                 <div className={style.Gist__Header}>
-                    <a
+                    <ExternalLink
                         className={style.Gist__Avatar}
-                        rel="noreferrer noopener"
                         href={ 'https://gist.github.com/' + owner.login }
-                        target="_blank"
                     >
                         <img
                             src={ owner.avatar_url }
                             alt="Owner avatar"
                         />
-                    </a>
+                    </ExternalLink>
 
                     <div className={style.Gist__Header__Main + ' DangerousContentWidth'}>
                         <div className={style.Gist__Path}>
-                            <a
+                            <ExternalLink
                                 className={style.Gist__UserName}
                                 href={ 'https://gist.github.com/' + owner.login }
-                                rel="noreferrer noopener"
-                                target="_blank"
-                            >{ owner.login }</a>
+                            >{ owner.login }</ExternalLink>
                             &nbsp;/&nbsp;
-                            <a
+                            <ExternalLink
                                 className={style.Gist__GistName}
                                 href={ GIST_URL_PREFIX + data.id }
-                                rel="noreferrer noopener"
-                                target="_blank"
-                            >{gistName}</a>
+                            >{gistName}</ExternalLink>
                         </div>
 
                         <div className={style.Gist__Description}>

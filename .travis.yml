@@ -19,6 +19,7 @@ script:
   - npm run build
   - npm run export
   - node ./sitemap.js
+  - mv ./out/404/index.html ./out/404.html
 
 deploy:
   provider: pages

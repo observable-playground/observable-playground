@@ -4,6 +4,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
 import style from './Example.component.module.scss';
+import { ExternalLink } from '../shared/ExternalLink';
 
 
 export function ExampleComponent(props) {
@@ -24,19 +25,16 @@ export function ExampleComponent(props) {
             <div  className={style.ExampleComponent__Title}>
                 <h1>{ example.title }&nbsp;{
                     example.docsUrl &&
-                        <a
-                            target="_blank"
+                        <ExternalLink
                             className={style.ExampleComponent__DocsLink}
                             title="Official docs"
                             href={example.docsUrl}
-                        ><FontAwesomeIcon icon={faBook} style={{ width: '0.5em' }} /></a>
-                    }<a
-                        target="_blank"
+                        ><FontAwesomeIcon icon={faBook} style={{ width: '0.5em' }} /></ExternalLink>
+                    }<ExternalLink
                         className={style.ExampleComponent__EditLink}
                         title="Edit this file on Github"
                         href={example.editUrl}
-                        rel="nofollow noreferrer"
-                    ><FontAwesomeIcon icon={faPencilAlt} style={{ width: '0.5em' }} /></a>
+                    ><FontAwesomeIcon icon={faPencilAlt} style={{ width: '0.5em' }} /></ExternalLink>
                 </h1>
             </div>
             { renderMdContent(example.content) }
@@ -44,11 +42,9 @@ export function ExampleComponent(props) {
     );
 }
 
-const testIfUriIsLocal = (uri) => /^\/[^\/]/.test(uri);
-const linkTargetRenderer = (uri) => testIfUriIsLocal(uri) ? undefined : '_blank';
 
-function linkRenderer({ href, target, children }) {
-    return <a href={href} rel="noopener noreferrer" target={target} children={children} />
+function linkRenderer({ href, children }) {
+    return <ExternalLink href={href} children={children} />
 }
 
 function codeRenderer({ value }) {
@@ -77,7 +73,6 @@ function renderMdContent(content) {
             <ReactMarkdown
                 escapeHtml={/* UNSAFE, ONLY FOR EXAMPLES*/ false}
                 source={content}
-                linkTarget={linkTargetRenderer}
                 renderers={
                     {
                         link: linkRenderer

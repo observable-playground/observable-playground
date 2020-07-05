@@ -58,32 +58,29 @@ export class Layout extends React.Component {
 
                         <span className={ style.header_spring }></span>
 
-                        <a
-                            target="_blank"
+                        <ExternalLink
                             className={style.App__twitter_link}
                             title="Follow me on twitter"
                             href="https://twitter.com/kddsky"
                         ><FontAwesomeIcon icon={faTwitter} 
                             style={ { width: '1em' } }
-                        /></a>
+                        /></ExternalLink>
 
-                        <a
-                            target="_blank"
+                        <ExternalLink
                             className={style.App__github_link}
                             title="Star the project"
                             href="https://github.com/observable-playground/observable-playground"
                         ><FontAwesomeIcon icon={faStar}
                             style={ { width: '1em' } }
-                        /></a>
+                        /></ExternalLink>
 
-                        <a
-                            target="_blank"
+                        <ExternalLink
                             className={style.App__github_link}
                             title="See the source code on GitHub"
                             href="https://github.com/observable-playground/observable-playground/issues"
                         ><FontAwesomeIcon icon={faGithub}
                             style={ { width: '1em' } }
-                        /></a>
+                        /></ExternalLink>
                     </div>
 
                     <div className={style.App__body}>

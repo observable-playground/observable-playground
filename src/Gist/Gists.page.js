@@ -31,7 +31,7 @@ export function GistsPageComponent () {
             <p>
                 Instructions:
                 <ol>
-                    <li>Create a gist at <a target="_blank" rel="noopener noreferrer" href="https://gist.github.com/">https://gist.github.com/</a></li>
+                    <li>Create a gist at <ExternalLink href="https://gist.github.com/">https://gist.github.com/</ExternalLink></li>
                     <li>Copy it's ID and paste it here to open your gist</li>
                 </ol>
             </p>

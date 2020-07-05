@@ -16,27 +16,25 @@ export class Sidebar extends React.Component {
                     <Logo />
 
                     <div className={style.Sidebar__Social}>
-                        <a
-                            target="_blank"
+                        <ExternalLink
                             className={style.Sidebar__twitter}
                             title="Follow me on twitter"
                             href="https://twitter.com/kddsky"
                         >follow me <FontAwesomeIcon icon={faTwitter}
                             className={style.Sidebar__twitter_icon}
                             style={{ width: '1em', float: 'right' }}
-                        /></a>
+                        /></ExternalLink>
 
-                        <a
-                            target="_blank"
+                        <ExternalLink
                             className={style.Sidebar__githubstar}
                             title="Support the project on GitHub"
                             href="https://github.com/observable-playground/observable-playground"
                         >star this <FontAwesomeIcon icon={faStar}
                             className={style.Sidebar__githubstar_icon}
                             style={{ width: '1em', float: 'right' }}
-                        /></a>
+                        /></ExternalLink>
 
-                        <a
+                        <ExternalLink
                             target="_blank"
                             className={style.Sidebar__github}
                             title="Report a bug on GitHub"
@@ -44,16 +42,16 @@ export class Sidebar extends React.Component {
                         >report a bug <FontAwesomeIcon icon={faGithub}
                             className={style.Sidebar__github_icon}
                             style={{ width: '1em', float: 'right' }}
-                        /></a>
+                        /></ExternalLink>
 
-                        <Link href="/gist/"><a
+                        <Link href="/gist/"><ExternalLink
                             className={style.Sidebar__share}
                             title="Create a gist"
                             href="/gist/"
                         >share a gist <FontAwesomeIcon icon={faPlus}
                             className={style.Sidebar__share_icon}
                             style={{ width: '1em', float: 'right' }}
-                        /></a></Link>
+                        /></ExternalLink></Link>
 
                     </div>
                 </div>
