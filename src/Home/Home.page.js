@@ -4,6 +4,7 @@ import React from 'react';
 import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
 import { ROOT_PAGE_TITLE } from '../shared/consts';
 import awesomeRxjsExample from './awesome-rxjs-example';
+import { ExternalLink } from '../shared/ExternalLink';
 
 export const HomePage = () =>
     <div className="HomePage">

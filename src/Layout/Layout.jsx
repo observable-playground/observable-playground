@@ -1,11 +1,11 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { Sidebar } from '../shared/Sidebar/Sidebar';
-import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
+import { faBars, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { ExternalLink } from '../shared/ExternalLink';
 import { Logo } from '../shared/Logo/Logo';
-import style from './Layout.module.scss'
+import { Sidebar } from '../shared/Sidebar/Sidebar';
+import style from './Layout.module.scss';
 
 export class Layout extends React.Component {
     constructor(props) {

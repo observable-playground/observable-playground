@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useCallback } from 'react';
+import { ExternalLink } from '../shared/ExternalLink';
 
 export function GistsPageComponent () {
     const router = useRouter();

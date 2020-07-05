@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
 import { useRouter } from 'next/router';
 import { isClient } from '../shared/isServer';
+import { ExternalLink } from '../shared/ExternalLink';
 
 // the issue with /gist/* pages is that they are not static pages
 // therefore these need time to load scripts to load a proper ui

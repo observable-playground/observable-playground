@@ -3,6 +3,7 @@ import { GistFileComponent } from './GistFile.component';
 import style from './Gist.module.scss';
 import { GIST_URL_PREFIX } from './const';
 import Head from 'next/head';
+import { ExternalLink } from '../../shared/ExternalLink';
 
 export class GistComponent extends Component {
     render(){

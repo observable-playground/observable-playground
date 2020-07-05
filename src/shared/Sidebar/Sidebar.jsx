@@ -1,8 +1,9 @@
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faShare, faStar, faShareAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import React from 'react';
+import { ExternalLink } from '../ExternalLink.jsx';
 import { Logo } from '../Logo/Logo.jsx';
 import { MenuComponent } from '../Menu/MenuComponent.jsx';
 import style from './Sidebar.module.scss';

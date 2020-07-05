@@ -4,6 +4,7 @@ import { isServer } from '../../shared/isServer';
 import { LoadingIndicator } from '../../shared/LoadingIndicator/LoadingIndicator';
 import { GIST_URL_PREFIX } from './const';
 import { GistComponent } from './Gist.component';
+import { ExternalLink } from '../../shared/ExternalLink';
 
 export function GistContainer (props){
     const [data, setData] = useState();
