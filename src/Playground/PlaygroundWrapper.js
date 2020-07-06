@@ -1,25 +1,27 @@
-import React, { useLayoutEffect, useState } from 'react';
-import { isServer } from '../shared/isServer';
+import React, { useEffect, useState } from 'react';
+import { isClient } from '../shared/isServer';
 
 let Playground;
 let SSRPlayground;
 
 export const PlaygroundWrapper = (props) => {
-    const [_isServer, setIsServer] = useState(isServer);
+    const [_isClient, setIsClient] = useState(false);
 
-    useLayoutEffect(() => {
-        setIsServer(isServer);
-    }, []);
+    useEffect(() => {
+        if (isClient) {
+            setIsClient(isClient);
+        }
+    }, [isClient]);
 
-    if (_isServer) {
+    if (_isClient) {
+        if (!Playground) {
+            Playground = require('./Playground').Playground;
+        }
+        return <Playground {...props} />
+    } else {
         if (!SSRPlayground) {
             SSRPlayground = require('./SSRPlayground').SSRPlayground;
         }
-        return <SSRPlayground { ...props } />
-    } else {
-        if (!Playground){
-            Playground = require('./Playground').Playground;
-        }
-        return <Playground { ...props } />
+        return <SSRPlayground {...props} />
     }
 }
