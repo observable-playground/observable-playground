@@ -15,7 +15,7 @@ export default () => {
     useEffect(() => {
         if (isClient) {
             console.log(router.asPath);
-            if (/^\/gist\/.*?\/$/.test(router.asPath)) {
+            if (/^\/gist\/.*?\/?$/.test(router.asPath)) {
                 router.replace('/gist/[id]/', router.asPath);
             }
         }
