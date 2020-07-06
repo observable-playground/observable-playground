@@ -6,9 +6,8 @@ desc:		auditTime waits for the source stream to emit a value, waits for a given 
 docsUrl:	https://rxjs.dev/api/operators/auditTime
 -->
 
-auditTime waits for the source stream to emit a value, waits for a given duration, and then emits the latest emitted value within that period. Then repeats this process.
-
-Also, see this "[debounceTime vs throttleTime vs auditTime vs sampleTime](/rxjs/debounceTime-vs-throttleTime-vs-auditTime-vs-sampleTime/)" head-to-head comparison
+auditTime waits for the source stream to emit a value, waits for a given duration, and then emits the latest emitted value within that period. Then repeats this process.  
+> Also try this [debounceTime vs throttleTime vs auditTime vs sampleTime](/rxjs/debounceTime-vs-throttleTime-vs-auditTime-vs-sampleTime/) head-to-head comparison
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');

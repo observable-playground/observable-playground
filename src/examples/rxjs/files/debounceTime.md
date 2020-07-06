@@ -6,9 +6,8 @@ desc:		debounceTime will emit a value from the source stream only if a given tim
 docsUrl:	https://rxjs.dev/api/operators/debounceTime
 -->
 
-debounceTime operator will emit a value from the source stream only if a given time has passed without source producing more values:
-
-Also, see this "[debounceTime vs throttleTime vs auditTime vs sampleTime](/rxjs/debounceTime-vs-throttleTime-vs-auditTime-vs-sampleTime/)" head-to-head comparison
+debounceTime operator will emit a value from the source stream only if a given time has passed without source producing more values.  
+> Also try this [debounceTime vs throttleTime vs auditTime vs sampleTime](/rxjs/debounceTime-vs-throttleTime-vs-auditTime-vs-sampleTime/) head-to-head comparison
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');

@@ -4,7 +4,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import basicExample from './basic.example';
 import { ExternalLink } from '../../shared/ExternalLink';
-import { timer } from 'rxjs';
 
 export default () =>
 <>
@@ -17,7 +16,7 @@ export default () =>
             <h1>RxJS Playground</h1>
 
             <blockquote>
-                RxJS is a library for reactive programming using Observables, to make it easier to compose asynchronous or callback-based code
+                <p>RxJS is a library for reactive programming using Observables, to make it easier to compose asynchronous or callback-based code</p>
             </blockquote>
 
             <p>
@@ -36,13 +35,10 @@ export default () =>
         <br />
 
         <div className="PageBlock">
-            <p>
-                If you're only starting to explore RxJS — we'd advise you to start with Creation section examples, like <b><Link href="/[libId]/[fileId]/" as="/rxjs/timer/">timer</Link></b> or <b><Link href="/[libId]/[fileId]/" as="/rxjs/fromPromise/">fromPromise</Link></b>.
-            </p>
-
-            <p>
-                If you want to get familiar with pipeable operators — head right to the <b><Link href="/[libId]/[fileId]/" as="/rxjs/pipe/">pipe</Link></b> operator and experiment with it. Be sure to check <ExternalLink href="https://rxjs.dev/guide/v6/pipeable-operators">pipeable operators</ExternalLink> official page as well.
-            </p>
+            If you're only starting to explore RxJS — we'd advise you to start with Creation section examples, like <b><Link href="/[libId]/[fileId]/" as="/rxjs/timer/"><a>timer</a></Link></b> or <b><Link href="/[libId]/[fileId]/" as="/rxjs/fromPromise/"><a>fromPromise</a></Link></b>.
+            <br/>
+            <br/>
+            If you want to get familiar with pipeable operators — head right to the <b><Link href="/[libId]/[fileId]/" as="/rxjs/pipe/"><a>pipe</a></Link></b> operator and experiment with it. Be sure to check <ExternalLink href="https://rxjs.dev/guide/v6/pipeable-operators">pipeable operators</ExternalLink> official page as well.
         </div>
 
         <div className="PageBlock">

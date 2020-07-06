@@ -6,7 +6,8 @@ desc:		concatMap will substitute value on the source Observable with an Observab
 docsUrl:	https://rxjs.dev/api/operators/concatMap
 -->
 
-`concatMap`, as well as other `**Map` operators, will substitute value on the source stream with a stream of values, returned by inner function. When source stream emits, `concatMap` will call inner function to get inner stream that it will switch to. Once switched to inner stream, `concatMap` will wait for it to complete, before getting a new inner streams on following source emissions:
+`concatMap`, as well as other `**Map` operators, will substitute value on the source stream with a stream of values, returned by inner function. When source stream emits, `concatMap` will call inner function to get inner stream that it will switch to. Once switched to inner stream, `concatMap` will wait for it to complete, before getting a new inner streams on following source emissions.  
+> Also try this [mergeMap vs exhaustMap vs switchMap vs concatMap](/rxjs/mergeMap-vs-exhaustMap-vs-switchMap-vs-concatMap/) head-to-head comparison
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');
@@ -54,5 +55,3 @@ function fromDelayed (arr) {
 }
 
 ```
-
-Check out this [mergeMap vs exhaustMap vs switchMap vs concatMap](/rxjs/mergeMap-vs-exhaustMap-vs-switchMap-vs-concatMap/) head-to-head comparison.

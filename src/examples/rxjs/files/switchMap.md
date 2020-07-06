@@ -6,7 +6,8 @@ desc:		switchMap will substitute value on the source Observable with an Observab
 docsUrl:	https://rxjs.dev/api/operators/switchMap
 -->
 
-`switchMap`, as well as other `**Map` operators, will substitute value on the source stream with a stream of values, returned by inner function. When source stream emits, `switchMap` will unsubscribe from previous inner stream and will call inner function to **switch** to the new inner observable:
+`switchMap`, as well as other `**Map` operators, will substitute value on the source stream with a stream of values, returned by inner function. When source stream emits, `switchMap` will unsubscribe from previous inner stream and will call inner function to **switch** to the new inner observable.  
+> Also try this [mergeMap vs exhaustMap vs switchMap vs concatMap](/rxjs/mergeMap-vs-exhaustMap-vs-switchMap-vs-concatMap/) head-to-head comparison
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');
@@ -54,5 +55,3 @@ function fromDelayed (arr) {
 }
 
 ```
-
-Check out this [mergeMap vs exhaustMap vs switchMap vs concatMap](/rxjs/mergeMap-vs-exhaustMap-vs-switchMap-vs-concatMap/) head-to-head comparison.

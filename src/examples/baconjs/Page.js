@@ -14,7 +14,9 @@ export default () =>
         <div className="PageBlock">
             <h1>Bacon.js Playground</h1>
 
-            <blockquote>A small functional reactive programming lib for JavaScript. Turns your event spaghetti into clean and declarative feng shui bacon, by switching from imperative to functional. </blockquote>
+            <blockquote>
+                <p>A small functional reactive programming lib for JavaScript. Turns your event spaghetti into clean and declarative feng shui bacon, by switching from imperative to functional.</p>
+            </blockquote>
 
             <p>
                 To visualize the observables we developed a small API. Provided <code>api/v0.3</code> package has a function <code>baconObserver(title: string): f(Event)</code>, that you can call to create a <ExternalLink href="https://baconjs.github.io/api2.html#observable-subscribe">subscribe function</ExternalLink>, which will display its state on the time chart in the right part of the screen.

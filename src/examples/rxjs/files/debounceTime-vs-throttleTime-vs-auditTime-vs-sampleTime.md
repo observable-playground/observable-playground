@@ -6,7 +6,10 @@ desc:		See this head-to-head comparison of debounceTime, throttleTime, auditTime
 docsUrl:	
 -->
 
-Or try dedicated playgrounds for: [auditTime](/rxjs/auditTime), [throttleTime](/rxjs/throttleTime), [debounceTime](/rxjs/debounceTime), [sampleTime](/rxjs/sampleTime)
+You can also try dedicated playgrounds for: [auditTime](/rxjs/auditTime/), [throttleTime](/rxjs/throttleTime/), [debounceTime](/rxjs/debounceTime/), [sampleTime](/rxjs/sampleTime/)
+
+> Check out ["Debounce vs Throttle vs Audit vs Sample — Difference You Should Know"](https://dev.to/rxjs/debounce-vs-throttle-vs-audit-vs-sample-difference-you-should-know-1f21) article for a detailed review  
+
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');
