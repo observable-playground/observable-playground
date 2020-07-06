@@ -45,14 +45,13 @@ export class Sidebar extends React.Component {
                             style={{ width: '1em', float: 'right' }}
                         /></ExternalLink>
 
-                        <Link href="/gist/"><ExternalLink
+                        <Link href="/gist/"><a
                             className={style.Sidebar__share}
                             title="Create a gist"
-                            href="/gist/"
                         >share a gist <FontAwesomeIcon icon={faPlus}
                             className={style.Sidebar__share_icon}
                             style={{ width: '1em', float: 'right' }}
-                        /></ExternalLink></Link>
+                        /></a></Link>
 
                     </div>
                 </div>
