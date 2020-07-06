@@ -4,9 +4,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import basicExample from './basic.example';
 import { ExternalLink } from '../../shared/ExternalLink';
+import { timer } from 'rxjs';
 
 export default () =>
-<React.Fragment>
+<>
     <Head>
         <title>RxJS playground and examples</title>
     </Head>
@@ -36,13 +37,50 @@ export default () =>
 
         <div className="PageBlock">
             <p>
-                If you're only starting to explore RxJS — we'd advise you to start with Creation section examples, like <b><Link href="/rxjs/timer/">timer</Link></b> or <b><Link href="/rxjs/fromPromise/">fromPromise</Link></b>.
+                If you're only starting to explore RxJS — we'd advise you to start with Creation section examples, like <b><Link href="/[libId]/[fileId]/" as="/rxjs/timer/">timer</Link></b> or <b><Link href="/[libId]/[fileId]/" as="/rxjs/fromPromise/">fromPromise</Link></b>.
             </p>
 
             <p>
-                If you want to get familiar with pipeable operators — head right to the <b><Link href="/rxjs/pipe/">pipe</Link></b> operator and experiment with it. Be sure to check <ExternalLink href="https://rxjs.dev/guide/v6/pipeable-operators">pipeable operators</ExternalLink> official page as well.
+                If you want to get familiar with pipeable operators — head right to the <b><Link href="/[libId]/[fileId]/" as="/rxjs/pipe/">pipe</Link></b> operator and experiment with it. Be sure to check <ExternalLink href="https://rxjs.dev/guide/v6/pipeable-operators">pipeable operators</ExternalLink> official page as well.
+            </p>
+        </div>
+
+        <div className="PageBlock">
+            <h2>My articles</h2>
+
+            <p>
+                <b><ExternalLink href="https://medium.com/@kddsky/error-handling-in-rxjs-bac0f96a7def">"Error handling in RxJS"</ExternalLink></b>
+                <br/>
+                <span>Learn how to deal with errors and retry failed requests</span>
             </p>
 
+            <p>
+                <b><ExternalLink href="https://medium.com/@kddsky/pauseable-observables-in-rxjs-58ce2b8c7dfd">"Pausable Observables in RxJS"</ExternalLink></b>
+                <br/>
+                <span>Create a push back force in your streams</span>
+            </p>
+
+            <p>
+                <b><ExternalLink href="https://dev.to/kosich/recks-rxjs-based-framework-23h5">"Rx+JSX experiment: Recks 🐶"</ExternalLink></b>
+                <br/>
+                <span><code>{'<div>{ timer(0, 100) }</div>'}</code> — Observables inside JSX</span>
+            </p>
+
+            <p>
+                <b><ExternalLink href="https://dev.to/kosich/regexp-for-reactive-streams-143g">"RegExp syntax for Observables: Never Been Easier!"</ExternalLink></b>
+                <br/>
+                <span>Use regexp-like syntax to query observables. EXPERIMENT</span>
+            </p>
+
+            <p>
+                <b><ExternalLink href="https://dev.to/rxjs/debounce-vs-throttle-vs-audit-vs-sample-difference-you-should-know-1f21">"RxJS debounce vs throttle vs audit vs sample"</ExternalLink></b>
+                <br/>
+                <span>Difference You Should Know</span>
+            </p>
+
+        </div>
+
+        <div className="PageBlock">
             <div>
                 <h2>External links</h2>
                 <ul>
@@ -53,4 +91,4 @@ export default () =>
             </div>
         </div>
     </div>
-</React.Fragment>
+</>
