@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
 import Link from 'next/link';
-import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
 import { useRouter } from 'next/router';
-import { isClient } from '../shared/isServer';
+import React, { useEffect } from 'react';
 import { ExternalLink } from '../shared/ExternalLink';
+import { isClient } from '../shared/isServer';
+import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
 
 // the issue with /gist/* pages is that they are not static pages
 // therefore these need time to load scripts to load a proper ui
@@ -14,9 +14,12 @@ export default () => {
 
     useEffect(() => {
         if (isClient) {
-            console.log(router.asPath);
-            if (/^\/gist\/.*?\/?$/.test(router.asPath)) {
-                router.replace('/gist/[id]/', router.asPath);
+            let currentUrl = router.asPath;
+            if (/^\/gist\/.*?\/?$/.test(currentUrl)) {
+                if (!currentUrl.endsWith('/')) {
+                    currentUrl += '/';
+                }
+                router.replace('/gist/[id]/', currentUrl);
             }
         }
     }, [isClient, router.asPath]);
