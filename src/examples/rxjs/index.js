@@ -81,7 +81,8 @@ export const library = {
 
         ,   { name: 'Utility'
             , items:
-                [ 'tap'
+                [ 'forEach'
+                , 'tap'
                 , 'finalize'
                 , 'timeInterval'
                 , 'delay'
