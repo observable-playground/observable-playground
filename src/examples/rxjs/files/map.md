@@ -8,9 +8,9 @@ docsUrl:	https://rxjs.dev/api/operators/map
 
 Map each emitted value to another value, using mapping function
 
-> NOTE: if your mapping function returns Observable or Promise — you'll need one of `*Map` operators: [mergeMap, exhaustMap, switchMap, concatMap](/rxjs/mergeMap-vs-exhaustMap-vs-switchMap-vs-concatMap/)
+NOTE: if your mapping function returns Observable or Promise — you'll need one of `*Map` operators: [mergeMap, exhaustMap, switchMap, concatMap](/rxjs/mergeMap-vs-exhaustMap-vs-switchMap-vs-concatMap/)
 
-> Also check out [pluck](/rxjs/pluck/) operator and try comparing [map to pluck](/rxjs/map-vs-pluck/)
+> Also check out [`pluck`](/rxjs/pluck/) operator and try comparing [`map` to `pluck`](/rxjs/map-vs-pluck/)
 
 ```js
 const { rxObserver } = require('api/v0.3');
