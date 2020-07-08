@@ -2,9 +2,11 @@
 name:		
 title:		filter
 pageTitle:	filter — RxJS operator example + marble diagram
-desc:		
+desc:		Filter operator omits all values from source that don't match the predicate function
 docsUrl:	https://rxjs.dev/api/operators/filter
 -->
+
+Filter operator omits all values from source that don't match the predicate function
 
 ```js
 const { rxObserver } = require('api/v0.3');

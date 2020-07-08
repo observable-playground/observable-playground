@@ -2,9 +2,13 @@
 name:		
 title:		retry
 pageTitle:	retry — RxJS operator example + marble diagram
-desc:		
+desc:		retry will attempt to resubscribe to source Observable if source has failed
 docsUrl:	https://rxjs.dev/api/operators/retry
 -->
+
+retry will attempt to resubscribe to source Observable if source has failed. It's useful, for example, when retrying failed network requests.
+
+> See [retryWhen](/rxjs/retryWhen/) operator for a more strategic approach
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');

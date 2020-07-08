@@ -2,9 +2,11 @@
 name:		
 title:		retryWhen
 pageTitle:	retryWhen — RxJS operator example + marble diagram
-desc:		
+desc:		retryWhen let's you do basic retry with strategy, based on error emissions
 docsUrl:	https://rxjs.dev/api/operators/retryWhen
 -->
+
+retryWhen let's you do basic [`retry`](/rxjs/retry/) with strategy, based on error emissions:
 
 ```js
 const {rxObserver} = require('api/v0.3');

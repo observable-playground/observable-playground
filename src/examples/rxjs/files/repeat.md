@@ -2,27 +2,36 @@
 name:		
 title:		repeat
 pageTitle:	repeat — RxJS operator example + marble diagram
-desc:		
+desc:		Repeat operator will resubscribe to source once it completes
 docsUrl:	https://rxjs.dev/api/operators/repeat
 -->
 
+Repeat operator will resubscribe to source once it completes. `repeat` takes optional number of repeats, if omitted — will resubscribe indefinitely, if set to 0 — will return an empty observable.
+
+## Basic example
+
 ```js
 const { rxObserver } = require('api/v0.3');
-const { timer, iif, of } = require('rxjs');
-const { repeat, delay } = require('rxjs/operators');
+const { timer } = require('rxjs');
+const { repeat } = require('rxjs/operators');
 
-// repeat:
-// resubscribe when source stream completes
-
-// basic example
 timer(5)
   .pipe(
     repeat(5)
   )
   .subscribe(rxObserver());
 
-// when source stream completes -- repeat
-// subscribes again and gets a new stream
+```
+
+## Smarter source
+
+When source stream completes, repeat will re-subscribe again and will get a new source stream:
+
+```js
+const { rxObserver } = require('api/v0.3');
+const { timer, iif, of } = require('rxjs');
+const { repeat, delay } = require('rxjs/operators');
+
 iif(
   () => Date.now() < 10
   , of('0..10')

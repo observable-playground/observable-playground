@@ -6,7 +6,7 @@ desc:		Map each emitted value to it's property, defined by path
 docsUrl:	https://rxjs.dev/api/operators/pluck
 -->
 
-Map each emitted value to it's property, defined by path.  
+Map each emitted value to it's property, defined by path:  
 
 ```js
 const { rxObserver } = require('api/v0.3');

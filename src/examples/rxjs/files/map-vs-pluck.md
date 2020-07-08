@@ -6,7 +6,7 @@ desc:		Compare map operator to pluck in this interactive playground:
 docsUrl:	
 -->
 
-[map](/rxjs/map/) operator can be easily substituted with a simple [pluck](/rxjs/pluck/), if all we need is to read a property of the value:
+[map](/rxjs/map/) operator can be easily substituted with a simple [pluck](/rxjs/pluck/), if all we need is to read a property of a value:
 
 ```js
 const { rxObserver } = require('api/v0.3');
@@ -63,9 +63,4 @@ source$
 
 ```
 
-
-
-
-Read more about pluck vs map comparison in this article:
-
-["RxJs|Pluck: A pound of pluck is worth a ton of map !"](https://medium.com/@chebbi.lamis/rxjs-pluck-a-pound-of-pluck-is-worth-a-ton-of-map-f7cc600db371) by [chebbi lamis](https://medium.com/@chebbi.lamis)
+> Read more about pluck vs map comparison in this article: ["RxJs|Pluck: A pound of pluck is worth a ton of map !"](https://medium.com/@chebbi.lamis/rxjs-pluck-a-pound-of-pluck-is-worth-a-ton-of-map-f7cc600db371) by [chebbi lamis](https://medium.com/@chebbi.lamis)
