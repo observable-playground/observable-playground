@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		forEach
-pageTitle:	RxJS forEach function usage example + marble diagram
+pageTitle:	forEach — RxJS function usage example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/index/class/Observable#forEach
 -->

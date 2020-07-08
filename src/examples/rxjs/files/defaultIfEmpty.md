@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		defaultIfEmpty
-pageTitle:	RxJS defaultIfEmpty operator example + marble diagram
+pageTitle:	defaultIfEmpty — RxJS operator example + marble diagram
 desc:		Emits a given value if source observable has completed without ever emitting:
 docsUrl:	https://rxjs.dev/api/operators/defaultIfEmpty
 -->

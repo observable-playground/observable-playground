@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		debounceTime vs throttleTime vs auditTime vs sampleTime
-pageTitle:	RxJS debounceTime vs throttleTime vs auditTime vs sampleTime compared
+pageTitle:	debounceTime vs throttleTime vs auditTime vs sampleTime — RxJS operators compared
 desc:		See this head-to-head comparison of debounceTime, throttleTime, auditTime and sampleTime operators with a marble diagram:
 docsUrl:	
 -->

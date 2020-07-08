@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		throwError
-pageTitle:	RxJS throwError function example + marble diagram
+pageTitle:	throwError — RxJS function example + marble diagram
 desc:		throwError creates an Observable, that will immediately emit an error
 docsUrl:	https://rxjs.dev/api/index/function/throwError
 -->

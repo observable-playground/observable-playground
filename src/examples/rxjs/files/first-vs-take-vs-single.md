@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		first vs take vs single
-pageTitle:	RxJS first vs take vs single operators head-to-head comparison with a marble diagram
+pageTitle:	first vs take vs single — RxJS operators head-to-head comparison + marble diagram
 desc:		See how these RxJS operators differ in emission, throwing errors and completion, when applied to different source Observables:
 docsUrl:	
 -->

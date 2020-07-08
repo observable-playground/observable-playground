@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		windowToggle
-pageTitle:	RxJS windowToggle operator example + marble diagram
+pageTitle:	windowToggle — RxJS operator example + marble diagram
 desc:		windowToggle lets you open and close a filtering window. Emissions between "on" and "off" events will be passed to the output stream:
 docsUrl:	https://rxjs.dev/api/operators/windowToggle
 -->

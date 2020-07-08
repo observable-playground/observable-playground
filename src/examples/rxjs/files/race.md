@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		race
-pageTitle:	RxJS race function example + marble diagram
+pageTitle:	race — RxJS function example + marble diagram
 desc:		Once received a value, error or completion event from any given stream, race will reproduce all events from that stream
 docsUrl:	https://rxjs.dev/api/index/function/race
 -->

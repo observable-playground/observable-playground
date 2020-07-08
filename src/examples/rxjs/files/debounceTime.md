@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		debounceTime
-pageTitle:	RxJS debounceTime operator example
+pageTitle:	debounceTime — RxJS operator example + marble diagram
 desc:		debounceTime will emit a value from the source stream only if a given time has passed without source producing more values. See this marble diagram:
 docsUrl:	https://rxjs.dev/api/operators/debounceTime
 -->

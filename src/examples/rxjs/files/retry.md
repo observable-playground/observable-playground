@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		retry
-pageTitle:	RxJS retry operator example + marble diagram
+pageTitle:	retry — RxJS operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/retry
 -->

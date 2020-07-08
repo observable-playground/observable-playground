@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		defer
-pageTitle:	RxJS defer function example + marble diagram
+pageTitle:	defer — RxJS function example + marble diagram
 desc:		Example of how to delay Observable creation till Observable is subscribed, using defer function
 docsUrl:	https://rxjs.dev/api/index/function/defer
 -->

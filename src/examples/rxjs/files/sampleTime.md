@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		sampleTime
-pageTitle:	RxJS sampleTime operator example
+pageTitle:	sampleTime — RxJS operator example + marble diagram
 desc:		sampleTime listens to the source stream and then produces the most recently emitted value within periodic time intervals:
 docsUrl:	https://rxjs.dev/api/operators/sampleTime
 -->

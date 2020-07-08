@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		pool
-pageTitle:	Kefir pool operator example + marble diagram
+pageTitle:	pool — Kefir operator example + marble diagram
 desc:		
 docsUrl:	
 -->

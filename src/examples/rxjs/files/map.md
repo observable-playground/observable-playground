@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		map
-pageTitle:	RxJS map operator example + marble diagram
+pageTitle:	map — RxJS operator example + marble diagram
 desc:		Turn emitted value into another value
 docsUrl:	https://rxjs.dev/api/operators/map
 -->

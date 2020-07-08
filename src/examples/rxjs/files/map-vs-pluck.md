@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		map vs pluck
-pageTitle:	RxJS map vs pluck operators comparison + marble diagram
+pageTitle:	map vs pluck — RxJS operators comparison + marble diagram
 desc:		Compare map operator to pluck in this interactive playground:
 docsUrl:	
 -->

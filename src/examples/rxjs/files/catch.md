@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		catchError
-pageTitle:	RxJS catchError operator example + marble diagram
+pageTitle:	catchError — RxJS operator example + marble diagram
 desc:		catchError lets you substitute an error on a stream with another stream:
 docsUrl:	https://rxjs.dev/api/operators/catchError
 -->

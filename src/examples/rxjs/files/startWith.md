@@ -1,7 +1,7 @@
 <!--
 name:       
 title:      startWith
-pageTitle:  RxJS startWith operator example
+pageTitle:	startWith — RxJS operator example + marble diagram
 desc:       Prepend a stream with a value
 docsUrl:	https://rxjs.dev/api/operators/startWith
 -->

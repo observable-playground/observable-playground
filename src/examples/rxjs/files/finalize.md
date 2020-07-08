@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		finalize
-pageTitle:	RxJS finalize operator example + marble diagram
+pageTitle:	finalize — RxJS operator example + marble diagram
 desc:		RxJS 'finalize' operator lets you run a function upon stream termination, regardless whether it has completed or failed
 docsUrl:	https://rxjs.dev/api/operators/finalize
 -->

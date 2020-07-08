@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		interval
-pageTitle:	Kefir interval operator example + marble diagram
+pageTitle:	interval — Kefir operator example + marble diagram
 desc:		
 docsUrl:	
 -->

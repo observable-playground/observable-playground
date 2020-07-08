@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		delayWhen
-pageTitle:	RxJS delayWhen operator example + marble diagram
+pageTitle:	delayWhen — RxJS operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/delayWhen
 -->

@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		repeat
-pageTitle:	RxJS repeat operator example + marble diagram
+pageTitle:	repeat — RxJS operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/repeat
 -->

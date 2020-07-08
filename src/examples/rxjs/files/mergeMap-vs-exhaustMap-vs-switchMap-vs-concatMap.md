@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		mergeMap vs exhaustMap vs switchMap vs concatMap
-pageTitle:	RxJS mergeMap vs exhaustMap vs switchMap vs concatMap comparison
+pageTitle:	mergeMap vs exhaustMap vs switchMap vs concatMap — RxJS operators comparison + marble diagram
 desc:		See this head-to-head comparison of mergeMap (aka flatMap), exhaustMap, switchMap and concatMap with a marble diagram:
 docs:		
 -->

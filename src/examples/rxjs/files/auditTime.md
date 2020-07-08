@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		auditTime
-pageTitle:	RxJS auditTime operator example
+pageTitle:	auditTime — RxJS operator example + marble diagram
 desc:		auditTime waits for the source stream to emit a value, waits for a given duration, and then emits the latest emitted value within that period. Then repeats this process:
 docsUrl:	https://rxjs.dev/api/operators/auditTime
 -->

@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		first
-pageTitle:	RxJS first operator example + marble diagram
+pageTitle:	first — RxJS operator example + marble diagram
 desc:		first operator takes the first emission from the source and then completes
 docsUrl:	https://rxjs.dev/api/operators/first
 -->

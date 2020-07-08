@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		windowWhen
-pageTitle:	RxJS windowWhen operator example
+pageTitle:	windowWhen — RxJS operator example
 desc:		windowWhen will emit a new substream of values from the source stream, every time the stream returned by provided function emits:
 docsUrl:	https://rxjs.dev/api/operators/throttleTime
 -->

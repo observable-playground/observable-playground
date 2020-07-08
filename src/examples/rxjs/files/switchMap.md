@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		switchMap
-pageTitle:	RxJS switchMap operator example + marble diagram
+pageTitle:	switchMap — RxJS operator example + marble diagram
 desc:		switchMap will substitute value on the source Observable with an Observable, returned by inner function. See this example of RxJS switchMap with a timer
 docsUrl:	https://rxjs.dev/api/operators/switchMap
 -->

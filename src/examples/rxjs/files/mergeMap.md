@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		mergeMap (aka flatMap)
-pageTitle:	RxJS mergeMap (flatMap) operator example + marble diagram
+pageTitle:	mergeMap — RxJS (flatMap) operator example + marble diagram
 desc:		mergeMap will substitute value on the source Observable with an Observable, returned by inner function. See this example of RxJS mergeMap with a timer
 docsUrl:	https://rxjs.dev/api/operators/mergeMap
 -->

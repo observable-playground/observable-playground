@@ -1,7 +1,7 @@
 <!--
 name:       
 title:      timer
-pageTitle:  RxJS timer function example
+pageTitle:	timer — RxJS function example + marble diagram
 desc:       timer will emit values with a given pace after a delay. Examples with a marble diagrams
 docsUrl:    https://rxjs.dev/api/index/function/timer
 -->

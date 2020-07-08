@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		pluck
-pageTitle:	RxJS pluck operator example + marble diagram
+pageTitle:	pluck — RxJS operator example + marble diagram
 desc:		Map each emitted value to it's property, defined by path
 docsUrl:	https://rxjs.dev/api/operators/pluck
 -->

@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		fromPromise
-pageTitle:	RxJS fromPromise function example + marble diagram
+pageTitle:	fromPromise — RxJS function example + marble diagram
 desc:		Learn how to turn a Promise into an Observable using "from"
 docsUrl:	https://rxjs.dev/api/index/function/from
 -->

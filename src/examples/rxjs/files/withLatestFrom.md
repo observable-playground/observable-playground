@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		withLatestFrom
-pageTitle:	RxJS withLatestFrom operator example + marble diagram
+pageTitle:	withLatestFrom — RxJS operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/withLatestFrom
 -->

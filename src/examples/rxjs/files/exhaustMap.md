@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		exhaustMap
-pageTitle:	RxJS exhaustMap operator example + marble diagram
+pageTitle:	exhaustMap — RxJS operator example + marble diagram
 desc:		exhaustMap will substitute value on the source Observable with an Observable, returned by inner function. See this example of RxJS exhaustMap with a timer
 docsUrl:	https://rxjs.dev/api/operators/exhaustMap
 -->

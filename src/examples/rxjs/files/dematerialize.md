@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		materialize - dematerialize
-pageTitle:	RxJS materialize-dematerialize operators usage example + marble diagram
+pageTitle:	materialize — RxJS-dematerialize operators usage example + marble diagram
 desc:		See how to turn an error into an event that can be delayed
 docsUrl:	https://rxjs.dev/api/operators/dematerialize
 -->

@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		retryWhen
-pageTitle:	RxJS retryWhen operator example + marble diagram
+pageTitle:	retryWhen — RxJS operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/retryWhen
 -->

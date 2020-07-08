@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		throttleTime
-pageTitle:	RxJS throttleTime operator example
+pageTitle:	throttleTime — RxJS operator example + marble diagram
 desc:		throttleTime will emit a value from the source stream and then ignore emissions for a given period of time:
 docsUrl:	https://rxjs.dev/api/operators/throttleTime
 -->

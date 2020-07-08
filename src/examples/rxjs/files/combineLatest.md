@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		combineLatest
-pageTitle:	RxJS combineLatest operator example + marble diagram
+pageTitle:	combineLatest — RxJS operator example + marble diagram
 desc:		Creates Observable from multiple Observables. Resulting stream will emit a combined value of all latest emissions of input streams
 docsUrl:	https://rxjs.dev/api/index/function/combineLatest
 -->

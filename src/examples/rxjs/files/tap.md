@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		tap
-pageTitle:	RxJS tap operator example + marble diagram
+pageTitle:	tap — RxJS operator example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/operators/tap
 -->

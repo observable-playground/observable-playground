@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		pipe
-pageTitle:	RxJS pipe function usage example + marble diagram
+pageTitle:	pipe — RxJS function usage example + marble diagram
 desc:		Chain Rx operators or create new ones using pipe function and pipe factory
 docsUrl:	https://rxjs.dev/api/index/class/Observable#pipe
 -->
