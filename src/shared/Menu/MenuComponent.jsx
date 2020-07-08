@@ -60,7 +60,7 @@ function LibraryMenu({ menuEntry }) {
                     <ul className={style.Menu__group_contents}>
                         { group.items.map(item => {
                             const href = `/${menuEntry.handle}/${item}/`;
-                            const active = router.asPath == `/${menuEntry.handle}/${item}/`;
+                            const active = router.query.fileId == item;
 
                             return (
                                 <li key={item}
