@@ -13,45 +13,59 @@ export class Sidebar extends React.Component {
     render(){
         return (
             <section>
-                <div className={style.Sidebar__DesktopSideMenuHeader}>
+                <div className={style.desktopSideMenuHeader}>
                     <Logo />
 
-                    <div className={style.Sidebar__Social}>
+                    <div className={style.social}>
                         <ExternalLink
-                            className={style.Sidebar__twitter}
-                            title="Follow me on twitter"
-                            href="https://twitter.com/kddsky"
-                        >follow me <FontAwesomeIcon icon={faTwitter}
-                            className={style.Sidebar__twitter_icon}
-                            style={{ width: '1em', float: 'right' }}
-                        /></ExternalLink>
-
-                        <ExternalLink
-                            className={style.Sidebar__githubstar}
+                            className={style.githubstar}
                             title="Support the project on GitHub"
                             href="https://github.com/observable-playground/observable-playground"
                         >star this <FontAwesomeIcon icon={faStar}
-                            className={style.Sidebar__githubstar_icon}
-                            style={{ width: '1em', float: 'right' }}
+                            className={style.githubstar_icon}
+                            style={{ width: '1rem', float: 'right' }}
                         /></ExternalLink>
 
                         <ExternalLink
                             target="_blank"
-                            className={style.Sidebar__github}
+                            className={style.github}
                             title="Report a bug on GitHub"
                             href="https://github.com/observable-playground/observable-playground/issues"
                         >report a bug <FontAwesomeIcon icon={faGithub}
-                            className={style.Sidebar__github_icon}
-                            style={{ width: '1em', float: 'right' }}
+                            className={style.github_icon}
+                            style={{ width: '1rem', float: 'right' }}
                         /></ExternalLink>
 
                         <Link href="/gist/"><a
-                            className={style.Sidebar__share}
+                            className={style.share}
                             title="Create a gist"
                         >share a gist <FontAwesomeIcon icon={faPlus}
-                            className={style.Sidebar__share_icon}
-                            style={{ width: '1em', float: 'right' }}
+                            className={style.share_icon}
+                            style={{ width: '1rem', float: 'right' }}
                         /></a></Link>
+
+                        <ExternalLink
+                            className={style.twitter}
+                            title="My twitter"
+                            href="https://twitter.com/kddsky"
+                        >
+                            <img
+                                className={style.twitter_image}
+                                src="/me.jpg"
+                                alt="twitter photo"
+                                width="32px"
+                                height="32px"
+                                />
+
+                            <span className={style.twitter_main}>
+                                <span className={style.twitter_name}>Kos Palchyk</span>
+                                <span className={style.twitter_handle}>@kddsky</span>
+                            </span>
+
+                            <FontAwesomeIcon icon={faTwitter}
+                            className={style.twitter_icon}
+                            style={{ width: '1rem', float: 'right' }}
+                        /></ExternalLink>
 
                     </div>
                 </div>

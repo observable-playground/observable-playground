@@ -1,91 +1,130 @@
 @import '../../styles/variables.scss';
 
 .Sidebar {
-
     @media screen and (min-width: $min-desktop-screen-width) {
         margin-top: 1.34rem; // same as h1 in the contents section margin 
     }
 
-    &__DesktopSideMenuHeader {
-        @media screen and (max-width: $max-mobile-screen-width) {
-            display: none;
-        }
+}
+
+.desktopSideMenuHeader {
+    @media screen and (max-width: $max-mobile-screen-width) {
+        display: none;
+    }
+}
+
+.social {
+    padding: 0.5rem 0;
+}
+
+
+.githubstar {
+    display: block;
+    color: $dark-color;
+    padding: 0.25rem 0;
+    text-decoration: none;
+
+    &_icon {
+        color: change-color($color: $githubstar-link-color, $saturation: 75%, $lightness: 70%);
+        color: $githubstar-link-color;
     }
 
-    &__Social {
-        padding: 0.5rem 0;
+    &:hover
+    , &:hover &_icon
+    {
+        color: $githubstar-link-color;
+    }
+}
+
+
+.github {
+    display: block;
+    color: $dark-color;
+    padding: 0.25rem 0;
+    text-decoration: none;
+
+    &_icon {
+        color: $github-link-color;
     }
 
-    &__twitter {
+    &:hover {
+        color: $github-link-hover-color;
+    }
+}
+
+.share {
+    display: block;
+    color: $dark-color;
+    padding: 0.25rem 0;
+    text-decoration: none;
+
+    &_icon {
+        color: $create-link-color;
+    }
+
+    &:hover
+    , &:hover &_icon
+    {
+        color: $create-link-color;
+    }
+}
+
+
+.twitter {
+    display: flex;
+    flex-direction: row;
+    padding: 0.25rem 0;
+    margin: 0.5rem 0;
+    text-decoration: none;
+    align-items: center;
+
+    &_image {
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-sizing: border-box;
+        box-shadow: 0 0 1px 1px #00000022;
+    }
+
+    &_main {
+        padding: 0.25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    &_name {
+        font-size: 1rem;
         display: block;
         color: $dark-color;
-        padding: 0.25rem 0;
-        text-decoration: none;
-
-        &_icon {
-            color: change-color($color: $twitter-link-color, $saturation: 75%, $lightness: 70%);
-            color: $twitter-link-color;
-        }
-
-        &:hover
-        , &:hover &_icon
-        {
-            color: $twitter-link-color;
-        }
     }
 
-    &__githubstar {
+    &_handle {
+        font-size: 0.75rem;
         display: block;
-        color: $dark-color;
-        padding: 0.25rem 0;
-        text-decoration: none;
-
-        &_icon {
-            color: change-color($color: $githubstar-link-color, $saturation: 75%, $lightness: 70%);
-            color: $githubstar-link-color;
-        }
-
-        &:hover
-        , &:hover &_icon
-        {
-            color: $githubstar-link-color;
-        }
+        color: $darkgray-color;
     }
 
-    &__github {
-        display: block;
-        color: $dark-color;
-        padding: 0.25rem 0;
-        text-decoration: none;
-
-        &_icon {
-            color: change-color($color: $github-link-color, $lightness: 70%);
-            color: $github-link-color;
-        }
-
-        &:hover
-        , &:hover &_icon
-        {
-            color: $github-link-color;
-        }
+    &_icon {
+        font-size: 1rem;
+        color: $twitter-link-color;
     }
 
-    &__share {
-        display: block;
-        color: $dark-color;
-        padding: 0.25rem 0;
-        text-decoration: none;
-
-        &_icon {
-            color: change-color($color: $create-link-color, $saturation: 75%, $lightness: 70%);
-            color: $create-link-color;
-        }
-
-        &:hover
-        , &:hover &_icon
-        {
-            color: $create-link-color;
-        }
+    &:hover
+    , &:hover &_icon
+    {
+        color: $twitter-link-color;
     }
 
+    &:hover {
+        .twitter_name {
+            color: $secondary-color;
+        }
+
+        .twitter_image {
+            box-shadow: 0 0 1px 1px change-color($color: $twitter-link-color, $alpha: 0.75);
+        }
+    }
 }

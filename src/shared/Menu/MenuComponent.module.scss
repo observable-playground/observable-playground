@@ -21,7 +21,7 @@
             @include row();
             color: inherit;
             text-decoration: none;
-            color: $active-color;
+            color: $active-color-darker;
         }
     }
 
@@ -55,6 +55,7 @@
             border: 1px solid $lightgray-color;
             padding: 0.2rem;
             border-radius: 0.1rem;
+            color: $dark-color;
         }
     }
 
