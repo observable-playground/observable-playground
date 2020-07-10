@@ -1,7 +1,7 @@
 <!--
 name:		
 title:		forEach
-pageTitle:	forEach — RxJS function usage example + marble diagram
+pageTitle:	forEach — RxJS Observable method usage example + marble diagram
 desc:		
 docsUrl:	https://rxjs.dev/api/index/class/Observable#forEach
 -->
@@ -12,6 +12,7 @@ docsUrl:	https://rxjs.dev/api/index/class/Observable#forEach
 const { rxObserver } = require('api/v0.3');
 const { interval } = require('rxjs');
 const { take } = require('rxjs/operators');
+
 
 // observer is needed to draw marble diagram
 const observer = rxObserver();

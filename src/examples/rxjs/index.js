@@ -9,7 +9,16 @@ export const library = {
     version: LIB_VERSION,
     description: 'Reactive Extensions For JavaScript',
     groups:
-        [   { name: 'Creation'
+        [   { name: 'Observable'
+            , items:
+                [ 'pipe'
+                , 'forEach'
+                , 'toPromise'
+                , 'subscribe'
+                ]
+            }
+
+        ,   { name: 'Creation'
             , items:
                 [ 'of'
                 , 'from'
@@ -81,8 +90,7 @@ export const library = {
 
         ,   { name: 'Utility'
             , items:
-                [ 'forEach'
-                , 'tap'
+                [ 'tap'
                 , 'finalize'
                 , 'timeInterval'
                 , 'delay'
@@ -90,7 +98,6 @@ export const library = {
                 , 'dematerialize'
                 , 'repeat'
                 , 'timeout'
-                , 'pipe'
                 ]
             }
 

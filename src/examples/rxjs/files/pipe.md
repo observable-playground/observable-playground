@@ -1,10 +1,12 @@
 <!--
 name:		
 title:		pipe
-pageTitle:	pipe — RxJS function usage example + marble diagram
+pageTitle:	pipe — RxJS Observable method and function usage example + marble diagram
 desc:		Chain Rx operators or create new ones using pipe function and pipe factory
 docsUrl:	https://rxjs.dev/api/index/class/Observable#pipe
 -->
+
+## method
 
 `pipe` function let's you chain RxJS operators:  
 
@@ -25,12 +27,15 @@ timer(0, 10)
 
 _NOTE: pipe function returns a new Observable each time_
 
+## factory
+
 You can also use [`pipe` factory](https://rxjs.dev/api/index/function/pipe) to create new operators:
 
 ```js
 const { rxObserver } = require('api/v0.3');
 const { timer, pipe } = require('rxjs');
 const { filter, take } = require('rxjs/operators');
+
 
 timer(0, 10)
   .pipe( // pipe operators
