@@ -11,12 +11,17 @@ docsUrl:	https://rxjs.dev/api/operators/expand
 ```js
 const { rxObserver } = require('api/v0.3');
 const { of, timer, EMPTY } = require('rxjs');
-const { expand, mapTo } = require('rxjs/operators');
+const { expand, take, mapTo } = require('rxjs/operators');
+
+const T = 5;
 
 of(1).pipe(
     expand(value =>
-      value < 5
-      ? timer(5).pipe(mapTo(++value))
+      value < T
+      ? timer(T, T).pipe(
+          take(value + 1),
+          mapTo(value + 1)
+       )
       : EMPTY
     )
   )
