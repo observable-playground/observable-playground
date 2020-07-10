@@ -2,11 +2,11 @@
 name:		
 title:		delayWhen
 pageTitle:	delayWhen — RxJS operator example + marble diagram
-desc:		
+desc:		delays value emission by another stream
 docsUrl:	https://rxjs.dev/api/operators/delayWhen
 -->
 
-Delay value emission by a another stream. In this example we'll delay source stream emissions by their numeric values:
+`delayWhen` delays value emission by another stream. In this example we'll delay source stream emissions by their numeric values:
 
 ```js
 const { rxObserver } = require('api/v0.3');

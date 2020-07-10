@@ -2,12 +2,13 @@
 name:		
 title:		tap
 pageTitle:	tap — RxJS operator example + marble diagram
-desc:		
+desc:		with tap you can perform side-effects when source emits, errors or completes
 docsUrl:	https://rxjs.dev/api/operators/tap
 -->
 
-Do sideeffects on source emissions.  
-(Open browser console to see the output)
+with `tap` you can perform side-effects when source emits, errors or completes
+
+> Open browser console to see the output
 
 ```js
 const { rxObserver } = require('api/v0.3');

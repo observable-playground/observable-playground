@@ -6,7 +6,7 @@ desc:		Creates an Observable from multiple Observables. Resulting stream waits f
 docsUrl:	https://rxjs.dev/api/index/function/forkJoin
 -->
 
-forkJoin creates an Observable from multiple Observables.  
+`forkJoin` creates an Observable from multiple Observables.  
 Resulting stream waits for all input streams to complete, then combines and emits their latest values
 
 ```js

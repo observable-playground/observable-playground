@@ -6,7 +6,7 @@ desc:		Example of how to emit sequential numbers using RxJS interval
 docsUrl:	https://rxjs.dev/api/index/function/interval
 -->
 
-Will emit sequential numbers with a given interval (first emission being delayed by that interval)
+`interval` will emit sequential numbers with a given interval (first emission being delayed by that interval)
 
 ```js
 const { rxObserver } = require('api/v0.3');

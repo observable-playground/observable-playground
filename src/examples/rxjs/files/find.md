@@ -6,7 +6,7 @@ desc:		find operator takes in predicate function and returns an Observable that 
 docsUrl:	https://rxjs.dev/api/operators/find
 -->
 
-find operator takes in predicate function and returns an Observable that will emit first value from source that matches predicate and will immediately complete:
+`find` operator takes in predicate function and returns an Observable that will emit first value from source that matches predicate and will immediately complete:
 
 ```js
 const { rxObserver } = require('api/v0.3');

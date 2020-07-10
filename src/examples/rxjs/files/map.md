@@ -6,7 +6,7 @@ desc:		Map each emitted value to another value
 docsUrl:	https://rxjs.dev/api/operators/map
 -->
 
-Map each emitted value to another value, using mapping function
+`map` turns each emitted value into another value, using mapping function
 
 NOTE: if your mapping function returns Observable or Promise — you'll need one of `*Map` operators: [mergeMap, exhaustMap, switchMap, concatMap](/rxjs/mergeMap-vs-exhaustMap-vs-switchMap-vs-concatMap/)
 

@@ -2,11 +2,11 @@
 name:		
 title:		delay
 pageTitle:	delay — RxJS operator example + marble diagram
-desc:		
+desc:		delays value emission by a given time
 docsUrl:	https://rxjs.dev/api/operators/delay
 -->
 
-Delay value emission by a given time
+`delay` delays value emission by a given time
 
 ```js
 const { rxObserver } = require('api/v0.3');

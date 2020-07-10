@@ -6,7 +6,7 @@ desc:		throttleTime will emit a value from the source stream and then ignore emi
 docsUrl:	https://rxjs.dev/api/operators/throttleTime
 -->
 
-throttleTime will emit a value from the source stream and then ignore emissions for a given period of time. throttleTime can be configured `{ leading: boolean, trailing: boolean }` to trigger emission of the first and/or last value in the period.  
+`throttleTime` will emit a value from the source stream and then ignore emissions for a given period of time. `throttleTime` can be configured `{ leading: boolean, trailing: boolean }` to trigger emission of the first and/or last value in the period.  
 > Also try this [debounceTime vs throttleTime vs auditTime vs sampleTime](/rxjs/debounceTime-vs-throttleTime-vs-auditTime-vs-sampleTime/) head-to-head comparison
 
 ```js
