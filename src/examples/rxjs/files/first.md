@@ -8,7 +8,7 @@ docsUrl:	https://rxjs.dev/api/operators/first
 
 `first` operator re-emits the first emission from the source and then completes
 
-> Also check out this [`first` vs `take` vs `single`](/rxjs/first-vs-take-vs-single) head-to-head comparison
+> Also check out this [`first` vs `take` vs `single`](/rxjs/first-vs-take-vs-single/) head-to-head comparison
 
 ```js
 const { rxObserver } = require('api/v0.3');

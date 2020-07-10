@@ -7,5 +7,4 @@ timer(0, 5)
   .pipe(
     take(10)
   )
-  .subscribe(rxObserver());
-`;
+  .subscribe(rxObserver());`;

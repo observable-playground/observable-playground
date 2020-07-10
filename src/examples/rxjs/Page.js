@@ -5,6 +5,7 @@ import { PlaygroundWrapper } from '../../Playground/PlaygroundWrapper';
 import { createGenericDescription } from '../../shared/consts';
 import { ExternalLink } from '../../shared/ExternalLink';
 import basicExample from './basic.example';
+import apiExample from './api.example';
 
 export default () =>
 <>
@@ -21,26 +22,63 @@ export default () =>
                 <p>RxJS is a library for reactive programming using Observables, to make it easier to compose asynchronous or callback-based code</p>
             </blockquote>
 
-            <p>
-                In this playground we added both <ExternalLink href="https://github.com/ReactiveX/rxjs">RxJS 6</ExternalLink> and a compatibility  <ExternalLink href="https://github.com/ReactiveX/rxjs/tree/master/compat">rxjs-compat</ExternalLink> package, that allows you to write code in RxJS 5 style.
-                <br />
-                You can use them via <code>require('rxjs')</code> and <code>require('rxjs/operators')</code> or just <code>require('rxjs/Rx')</code> for rxjs-compat version.
-            </p>
+            <br />
+            <PlaygroundWrapper code={ basicExample } />
+            <br />
 
             <p>
-                To visualize the observables we developed a small API. Provided <code>api/v0.3</code> package has a function <code>rxObserver(title: string): Observer</code>, that you can call to create an <ExternalLink href="https://rxjs.dev/api/index/interface/Observer">Rx Observer</ExternalLink>, which will display its state on the time chart in the right part of the screen.
+                If you're just starting your RxJS journey — we'd advise you to start with these examples first:
             </p>
-        </div>
 
-        <br />
-        <PlaygroundWrapper code={ basicExample } />
-        <br />
+            <ul>
+                <li>
+                    <b><Link href="/[libId]/[fileId]/" as="/rxjs/timer/"><a>timer</a></Link></b> — starts emitting values after given timeout with set interval
+                </li>
+                <li>
+                    <b><Link href="/[libId]/[fileId]/" as="/rxjs/map/"><a>map</a></Link></b> — apply a function to each value on the stream
+                </li>
+                <li>
+                    <b><Link href="/[libId]/[fileId]/" as="/rxjs/filter/"><a>filter</a></Link></b> — filter only values matching predicate function
+                </li>
+                <li>
+                    <b><Link href="/[libId]/[fileId]/" as="/rxjs/subscribe/"><a>subscribe</a></Link></b> — basically tells the Observable that we're ready to receive values
+                </li>
+            </ul>
 
-        <div className="PageBlock">
-            If you're only starting to explore RxJS — we'd advise you to start with Creation section examples, like <b><Link href="/[libId]/[fileId]/" as="/rxjs/timer/"><a>timer</a></Link></b> or <b><Link href="/[libId]/[fileId]/" as="/rxjs/fromPromise/"><a>fromPromise</a></Link></b>.
-            <br/>
-            <br/>
-            If you want to get familiar with pipeable operators — head right to the <b><Link href="/[libId]/[fileId]/" as="/rxjs/pipe/"><a>pipe</a></Link></b> operator and experiment with it. Be sure to check <ExternalLink href="https://rxjs.dev/guide/v6/pipeable-operators">pipeable operators</ExternalLink> official page as well.
+            <p>
+                If you are a seasoned Observer — do checkout these examples:
+            </p>
+
+            <ul>
+                <li>
+                    <b><Link href="/[libId]/[fileId]/" as="/rxjs/expand/"><a>expand</a></Link></b> — recursively turns each emission into another stream
+                </li>
+                <li>
+                    <b><Link href="/[libId]/[fileId]/" as="/rxjs/share/"><a>share</a></Link></b> — share subscription among multiple observers
+                </li>
+                <li>
+                    <b><Link href="/[libId]/[fileId]/" as="/rxjs/catch/"><a>catch</a></Link></b> — handle errors gracefully
+                </li>
+                <li>
+                    <b><Link href="/[libId]/[fileId]/" as="/rxjs/dematerialize/"><a>dematerialize</a></Link></b> — pure magic
+                </li>
+            </ul>
+
+            <p>
+                Also, be sure to know these differences:
+            </p>
+
+            <ul>
+                <li>
+                    <Link href="/[libId]/[fileId]/" as="/rxjs/debounceTime-vs-throttleTime-vs-auditTime-vs-sampleTime/"><a><b>debounceTime</b> vs <b>throttleTime</b> vs <b>auditTime</b> vs <b>sampleTime</b></a></Link>
+                </li>
+                <li>
+                    <Link href="/[libId]/[fileId]/" as="/rxjs/mergeMap-vs-exhaustMap-vs-switchMap-vs-concatMap/"><a><b>mergeMap</b> vs <b>exhaustMap</b> vs <b>switchMap</b> vs <b>concatMap</b></a></Link>
+                </li>
+                <li>
+                    <Link href="/[libId]/[fileId]/" as="/rxjs/first-vs-take-vs-single/"><a><b>first</b> vs <b>take</b> vs <b>single</b></a></Link>
+                </li>
+            </ul>
         </div>
 
         <div className="PageBlock">
@@ -77,6 +115,26 @@ export default () =>
             </p>
 
         </div>
+
+        <div className="PageBlock">
+            <h2>API notes</h2>
+
+            <p>
+                In this playground we added both <ExternalLink href="https://github.com/ReactiveX/rxjs">RxJS 6</ExternalLink> and a compatibility  <ExternalLink href="https://github.com/ReactiveX/rxjs/tree/master/compat">rxjs-compat</ExternalLink> package, that allows you to write code in RxJS 6 or in RxJS 5 style
+                <br />
+                You can use them via <code>require('rxjs')</code> and <code>require('rxjs/operators')</code> or just <code>require('rxjs/Rx')</code> for rxjs-compat version.
+            </p>
+
+            <p>
+                To visualize observables we developed a small API:
+                <br/>
+                Provided <code>api/v0.3</code> package has a function <code>rxObserver(title?: string): Observer</code>, that creates an <ExternalLink href="https://rxjs.dev/api/index/interface/Observer">Rx Observer</ExternalLink> to display marbles on the diagram
+            </p>
+        </div>
+
+        <br />
+        <PlaygroundWrapper code={ apiExample } />
+        <br />
 
         <div className="PageBlock">
             <div>
