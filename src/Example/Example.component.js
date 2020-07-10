@@ -15,8 +15,10 @@ export function ExampleComponent(props) {
     const { libId, fileId } = router.query;
     const shareUrl = `https://thinkrx.io${url}`;
     const twitterText = encodeURIComponent(`Check out this #${libId} "${fileId}" playground by @kddsky #javascript\n\n\n${shareUrl} ❤️`);
+
     const emailSubjectText = encodeURIComponent(`Check out this #${libId} ${fileId} example`);
     const emailBodyText = encodeURIComponent(`${shareUrl}`);
+    const mailLink = `mailto:friend@example.com&subject=${emailSubjectText}&body=${emailBodyText}`;
 
     return (
         <div className={style.ExampleComponent}>
@@ -63,7 +65,7 @@ export function ExampleComponent(props) {
                     <ExternalLink
                         className={style.share__email}
                         title="Share via email"
-                        href={`mailto:&subject=${emailSubjectText}&body=${emailBodyText}`}
+                        href={mailLink}
                     ><FontAwesomeIcon fixedWidth icon={faEnvelopeSquare} style={{ maxWidth: '3rem' }} /></ExternalLink>
                 </span>
             </div>
