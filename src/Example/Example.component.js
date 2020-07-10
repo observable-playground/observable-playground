@@ -1,5 +1,5 @@
 import { faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
-import { faBook, faEnvelopeSquare, faPencilAlt, faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faPencilAlt, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -15,10 +15,6 @@ export function ExampleComponent(props) {
     const { libId, fileId } = router.query;
     const shareUrl = `https://thinkrx.io${url}`;
     const twitterText = encodeURIComponent(`Check out this #${libId} "${fileId}" playground by @kddsky #javascript\n\n\n${shareUrl} ❤️`);
-
-    const emailSubjectText = encodeURIComponent(`Check out this #${libId} ${fileId} example`);
-    const emailBodyText = encodeURIComponent(`${shareUrl}`);
-    const mailLink = `mailto:friend@example.com&subject=${emailSubjectText}&body=${emailBodyText}`;
 
     return (
         <div className={style.ExampleComponent}>
@@ -62,11 +58,6 @@ export function ExampleComponent(props) {
                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}&text=${twitterText}`}
                     ><FontAwesomeIcon fixedWidth icon={faLinkedin} style={{ maxWidth: '3rem' }} /></ExternalLink>
 
-                    <ExternalLink
-                        className={style.share__email}
-                        title="Share via email"
-                        href={mailLink}
-                    ><FontAwesomeIcon fixedWidth icon={faEnvelopeSquare} style={{ maxWidth: '3rem' }} /></ExternalLink>
                 </span>
             </div>
             { renderMdContent(example.content) }
