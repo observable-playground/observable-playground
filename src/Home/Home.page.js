@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
-import { ROOT_PAGE_TITLE } from '../shared/consts';
+import { ROOT_PAGE_TITLE, ROOT_META_DESC } from '../shared/consts';
 import awesomeRxjsExample from './awesome-rxjs-example';
 import { ExternalLink } from '../shared/ExternalLink';
 
@@ -10,12 +10,12 @@ export const HomePage = () =>
     <div className="HomePage">
         <Head>
             <title>{ ROOT_PAGE_TITLE }</title>
-            <meta name="description" content="Test your Observables code and play with marble diagrams in this REPL sandbox" />
+            <meta name="description" content={ROOT_META_DESC} />
         </Head>
 
         <div className="PageBlock">
             <h1>
-                Instant marble visualization for <Link href="/[libId]/" as="/rxjs/"><a>RxJS</a></Link>, <Link href="/[libId]/" as="/baconjs/"><a>Bacon.js</a></Link>, <Link href="/[libId]/" as="/kefir/"><a>Kefir.js</a></Link> reactive programming libraries with a bunch of examples 
+                ThinkRx — Instant marble diagrams for <Link href="/[libId]/" as="/rxjs/"><a>RxJS</a></Link>, <Link href="/[libId]/" as="/baconjs/"><a>Bacon.js</a></Link>, <Link href="/[libId]/" as="/kefir/"><a>Kefir.js</a></Link> reactive programming libraries with a bunch of examples 
             </h1>
 
             <blockquote>

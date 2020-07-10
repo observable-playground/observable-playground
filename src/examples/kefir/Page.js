@@ -1,14 +1,16 @@
-import React from 'react'
-import { PlaygroundWrapper } from '../../Playground/PlaygroundWrapper';
 import Head from 'next/head';
 import Link from 'next/link';
-import basicExample from './basic.example';
+import React from 'react';
+import { PlaygroundWrapper } from '../../Playground/PlaygroundWrapper';
+import { createGenericDescription } from '../../shared/consts';
 import { ExternalLink } from '../../shared/ExternalLink';
+import basicExample from './basic.example';
 
 export default () =>
 <React.Fragment>
     <Head>
         <title>Kefir.js playground and examples</title>
+        <meta name="description" content={createGenericDescription('Kefir.js')} />
     </Head>
 
     <div key="Kefir">

@@ -21,6 +21,10 @@ export function GistsPageComponent () {
     return <>
         <Head>
             <title>Share a gist</title>
+            <meta
+                name="description"
+                content="Share your code and marble diagram via GitHub Gists"
+                />
         </Head>
 
         <div

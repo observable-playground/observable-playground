@@ -1,5 +1,11 @@
 export const ROOT_PAGE_TITLE =
-    'ThinkRx — Instant marble diagrams for RxJS, Bacon.js, Kefir'
+    'ThinkRx — Instant marble diagrams Playground for RxJS, Bacon.js, Kefir';
+
+export const ROOT_META_DESC =
+    'Test your Observables and play with marble diagrams in this REPL sandbox';
+
+export const createGenericDescription = (libId, fileId = '') =>
+    `Test and explore ${libId} ${fileId} behavior and other reactive programming code examples in this marble visualisation sandbox`
 
 export const palette =
     [ '#03a9f4'

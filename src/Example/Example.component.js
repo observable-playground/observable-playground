@@ -1,5 +1,7 @@
-import { faBook, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
+import { faBook, faEnvelopeSquare, faPencilAlt, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useRouter } from 'next/router';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
@@ -8,33 +10,62 @@ import style from './Example.component.module.scss';
 
 export function ExampleComponent(props) {
     const example = props.example;
-    // NOTE: 01 May 2019
-    // outdated branch for cached routeInfo.json files
-    if (example.files) {
-        return example.files.map(file => (
-            <div
-                className={style.ExampleComponent__FileEntry}
-                key={file.name}
-            >{renderFile(file)}</div>
-        ));
-    }
+    const router = useRouter();
+    const url = router.asPath;
+    const { libId, fileId } = router.query;
+    const shareUrl = `https://thinkrx.io${url}`;
+    const twitterText = encodeURIComponent(`Check out this #${libId} "${fileId}" playground by @kddsky #javascript\n\n\n${shareUrl} ❤️`);
+    const emailSubjectText = encodeURIComponent(`Check out this #${libId} ${fileId} example`);
+    const emailBodyText = encodeURIComponent(`${shareUrl}`);
 
     return (
         <div className={style.ExampleComponent}>
-            <div  className={style.ExampleComponent__Title}>
-                <h1>{ example.title }&nbsp;{
-                    example.docsUrl &&
+            <div className={style.title}>
+                <h1>{example.title}</h1>
+
+                <span className={style.controls}>
+                    { example.docsUrl &&
                         <ExternalLink
-                            className={style.ExampleComponent__DocsLink}
+                            className={style.control__docs}
                             title="Official docs"
                             href={example.docsUrl}
-                        ><FontAwesomeIcon icon={faBook} style={{ width: '0.5em' }} /></ExternalLink>
+                        ><FontAwesomeIcon fixedWidth icon={faBook} style={{ maxWidth: '3rem' }} /></ExternalLink>
                     }<ExternalLink
-                        className={style.ExampleComponent__EditLink}
+                        className={style.control__edit}
                         title="Edit this file on Github"
                         href={example.editUrl}
-                    ><FontAwesomeIcon icon={faPencilAlt} style={{ width: '0.5em' }} /></ExternalLink>
-                </h1>
+                    ><FontAwesomeIcon fixedWidth icon={faPencilAlt} style={{ maxWidth: '3rem' }} /></ExternalLink>
+                </span>
+
+                <span className={style.spring} />
+
+                <span className={style.share}>
+                    <FontAwesomeIcon
+                        fixedWidth
+                        icon={faShareAlt}
+                        style={{ maxWidth: '3rem' }}
+                        />
+
+                    &nbsp;
+
+                    <ExternalLink
+                        className={style.share__twitter}
+                        title="Share to twitter"
+                        href={`https://twitter.com/intent/tweet?text=${twitterText}`}
+                    ><FontAwesomeIcon fixedWidth icon={faTwitterSquare} style={{ maxWidth: '3rem' }} /></ExternalLink>
+
+                    <ExternalLink
+                        className={style.share__linkedin}
+                        title="Share to LinkedIn"
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}&text=${twitterText}`}
+                    ><FontAwesomeIcon fixedWidth icon={faLinkedin} style={{ maxWidth: '3rem' }} /></ExternalLink>
+
+                    <ExternalLink
+                        className={style.share__email}
+                        title="Share via email"
+                        href={`mailto:&subject=${emailSubjectText}&body=${emailBodyText}`}
+                    ><FontAwesomeIcon fixedWidth icon={faEnvelopeSquare} style={{ maxWidth: '3rem' }} /></ExternalLink>
+                </span>
             </div>
             { renderMdContent(example.content) }
         </div>
