@@ -65,22 +65,6 @@ export function ExampleComponent(props) {
     );
 }
 
-function renderFile(file) {
-    if (file.ext == '.js') {
-        return renderJsContent(file.content);
-    }
-
-    if (file.ext == '.md') {
-        return renderMdContent(file.content);
-    }
-
-    return <div>File type "{file.ext}" is not supported</div>
-}
-
-function renderJsContent(content) {
-    return <PlaygroundWrapper code={content} />;
-}
-
 function renderMdContent(content) {
     return (
         <div className="PageBlock">
