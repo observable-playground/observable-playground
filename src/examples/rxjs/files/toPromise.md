@@ -23,13 +23,13 @@ const source$ = interval(50)
   );
 
 // observer to draw marbles on the diagram
-const marble = rxObserver();
+const diagram = rxObserver();
 
 source$
   .toPromise()
   .then(v => {
     console.log(v);
-    marble.next(v); // draw a marble
-    marble.complete(); // complete marble
+    diagram.next(v); // draw a marble
+    diagram.complete(); // complete diagram
   });
 ```

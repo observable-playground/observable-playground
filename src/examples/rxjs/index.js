@@ -101,6 +101,12 @@ export const library = {
                 ]
             }
 
+        ,   { name: '⚠️ Experimental'
+            , items:
+                [ 'js-pipeline'
+                ]
+            }
+
         // ,   { name: 'Recipes'
         //     , items:
         //         [ 'pausable-buffer'

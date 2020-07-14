@@ -72,8 +72,11 @@ export const HomePage = () =>
             </p>
 
             <p>
-                <b>NOTE:</b> currently this tool execution time is cut to 1000ms and 1024 operations per tick    
-                And async browser APIs, like fetching, are not supported
+                <b>NOTE:</b>
+                <br/>
+                Across all examples execution time is limited to maximum 1000ms and 1024 operations per tick.
+                <br/>
+                Async browser APIs, like fetching, are not supported.
             </p>
 
             <h2>💬 Feedback</h2>

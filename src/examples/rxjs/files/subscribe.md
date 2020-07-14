@@ -27,9 +27,9 @@ const subscription = source$
     marble.next(v); // draw a marble
   });
 
-// unsubscribe from source$ in 200ms
+// unsubscribe from source$ in 220ms
 setTimeout(() => {
   subscription.unsubscribe();
-  marble.complete(); // complete marble
-}, 200);
+  marble.complete(); // complete diagram
+}, 220);
 ```
