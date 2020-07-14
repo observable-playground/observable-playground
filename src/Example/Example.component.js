@@ -14,7 +14,7 @@ export function ExampleComponent(props) {
     const url = router.asPath;
     const { libId, fileId } = router.query;
     const shareUrl = `https://thinkrx.io${url}`;
-    const twitterText = encodeURIComponent(`Check out this #${libId} "${fileId}" playground by @kddsky #javascript\n\n\n${shareUrl} ❤️`);
+    const twitterText = encodeURIComponent(`Check out this #${libId} "${fileId}" playground by @kddsky\n\n${shareUrl} ❤️ #javascript #angular #webdev #code`);
 
     return (
         <div className={style.ExampleComponent}>
