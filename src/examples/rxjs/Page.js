@@ -79,37 +79,41 @@ export default () =>
                     <Link href="/[libId]/[fileId]/" as="/rxjs/first-vs-take-vs-single/"><a><b>first</b> vs <b>take</b> vs <b>single</b></a></Link>
                 </li>
             </ul>
+
+            <p>
+                And check out this experimental <Link href="/[libId]/[fileId]/" as="/rxjs/js-pipeline/"><a>pipeline <code>|&gt;</code> operator</a></Link> ⚠️
+            </p>
         </div>
 
         <div className="PageBlock">
-            <h2>My articles</h2>
+            <h2>📖 My articles</h2>
 
             <p>
-                <b><ExternalLink href="https://medium.com/@kddsky/error-handling-in-rxjs-bac0f96a7def">"Error handling in RxJS"</ExternalLink></b>
+                <b><ExternalLink href="https://medium.com/@kddsky/error-handling-in-rxjs-bac0f96a7def">"Error handling in RxJS"</ExternalLink></b> 😱 
                 <br/>
                 <span>Learn how to deal with errors and retry failed requests</span>
             </p>
 
             <p>
-                <b><ExternalLink href="https://medium.com/@kddsky/pauseable-observables-in-rxjs-58ce2b8c7dfd">"Pausable Observables in RxJS"</ExternalLink></b>
+                <b><ExternalLink href="https://medium.com/@kddsky/pauseable-observables-in-rxjs-58ce2b8c7dfd">"Pausable Observables in RxJS"</ExternalLink></b> 🌊
                 <br/>
                 <span>Create a push back force in your streams</span>
             </p>
 
             <p>
-                <b><ExternalLink href="https://dev.to/kosich/recks-rxjs-based-framework-23h5">"Rx+JSX experiment: Recks 🐶"</ExternalLink></b>
+                <b><ExternalLink href="https://dev.to/kosich/recks-rxjs-based-framework-23h5">"Rx+JSX experiment: Recks"</ExternalLink></b> 🐶
                 <br/>
                 <span><code>{'<div>{ timer(0, 100) }</div>'}</code> — Observables inside JSX</span>
             </p>
 
             <p>
-                <b><ExternalLink href="https://dev.to/kosich/regexp-for-reactive-streams-143g">"RegExp syntax for Observables: Never Been Easier!"</ExternalLink></b>
+                <b><ExternalLink href="https://dev.to/kosich/regexp-for-reactive-streams-143g">"RegExp syntax for Observables: Never Been Easier!"</ExternalLink></b> 📝
                 <br/>
                 <span>Use regexp-like syntax to query observables. EXPERIMENT</span>
             </p>
 
             <p>
-                <b><ExternalLink href="https://dev.to/rxjs/debounce-vs-throttle-vs-audit-vs-sample-difference-you-should-know-1f21">"RxJS debounce vs throttle vs audit vs sample"</ExternalLink></b>
+                <b><ExternalLink href="https://dev.to/rxjs/debounce-vs-throttle-vs-audit-vs-sample-difference-you-should-know-1f21">"RxJS debounce vs throttle vs audit vs sample"</ExternalLink></b> 🤔
                 <br/>
                 <span>Difference You Should Know</span>
             </p>
@@ -117,7 +121,7 @@ export default () =>
         </div>
 
         <div className="PageBlock">
-            <h2>API notes</h2>
+            <h2>⚙️ API notes</h2>
 
             <p>
                 In this playground we added both <ExternalLink href="https://github.com/ReactiveX/rxjs">RxJS 6</ExternalLink> and a compatibility  <ExternalLink href="https://github.com/ReactiveX/rxjs/tree/master/compat">rxjs-compat</ExternalLink> package, that allows you to write code in RxJS 6 or in RxJS 5 style
@@ -138,7 +142,7 @@ export default () =>
 
         <div className="PageBlock">
             <div>
-                <h2>External links</h2>
+                <h2>🔗 External links</h2>
                 <ul>
                     <li><b><ExternalLink href="https://rxjs.dev/">rxjs.dev</ExternalLink></b> — official website for RxJS 6</li>
                     <li><ExternalLink href="https://www.learnrxjs.io/">learnrxjs.io</ExternalLink> — clear examples, explanations, and resources for rxjs</li>
