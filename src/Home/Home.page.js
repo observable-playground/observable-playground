@@ -28,57 +28,67 @@ export const HomePage = () =>
                 code={awesomeRxjsExample}
             />
 
+            <h2>🔍 Start exploring with these examples</h2>
+
+            <ul>
+                <li><b><Link href="/[libId]/" as="/rxjs/"><a>RxJS</a></Link></b>
+                    <ul>
+                        <li>creating Observable <b><Link href="/rxjs/fromPromise/"><a>from</a></Link></b> Promise</li>
+                        <li><b><Link href="/rxjs/filter/"><a>filter</a></Link></b>-ing emissions</li>
+                        <li>handling errors with <b><Link href="/rxjs/catch/"><a>catch</a></Link></b></li>
+                        <li>switching to other Observable using <b><Link href="/rxjs/switchMap/"><a>switchMap</a></Link></b> operator</li>
+                    </ul>
+                    <br/>
+                </li>
+
+                <li><b><Link href="/[libId]/" as="/baconjs/"><a>Bacon</a></Link></b>
+                    <ul>
+                        <li><b><Link href="/[libId]/[fileId]/" as="/baconjs/interval/"><a>interval</a></Link></b> operator</li>
+                    </ul>
+                    <br/>
+                </li>
+
+                <li><b><Link href="/[libId]/" as="/kefir/"><a>Kefir</a></Link></b>
+                    <ul>
+                        <li><b><Link href="/[libId]/[fileId]/" as="/kefir/sequentially/"><a>sequentially</a></Link></b> operator</li>
+                    </ul>
+                    <br/>
+                </li>
+
+            </ul>
+
+            <p>
+                Try comparing <b><Link href="/[libId]/[fileId]/" as="/rxjs/interval/"><a>RxJS interval</a></Link></b>, <b><Link href="/[libId]/[fileId]/" as="/kefir/interval/"><a>Kefir.js interval</a></Link></b>, and <b><Link href="/[libId]/[fileId]/" as="/baconjs/interval/"><a>Bacon.js interval</a></Link></b>!
+            </p>
+
+            <h2>⚙️ Playground</h2>
+
             <p>
                 This tool is aimed at assisting you in understanding
                 observables by playing with them. There are some code
                 examples prebuilt for you in the left menu. Further, you can
                 modify any of them to see how it changes output. Once a snippet has
-                changed — resulting output would be recalculated <b>immediately</b>.
+                changed — resulting output would be recalculated <b>instantly</b>.
             </p>
 
-            <h2>Start exploring with these examples:</h2>
-
-            <h3>RxJS</h3>
-            <ul>
-                <li><b><Link href="/[libId]/[fileId]/" as="/rxjs/of/"><a>of</a></Link></b> operator</li>
-                <li>creating Observable <b><Link href="/rxjs/fromPromise/"><a>from</a></Link></b> Promise</li>
-                <li>switching to other Observable using <b><Link href="/rxjs/switchMap/"><a>switchMap</a></Link></b> operator</li>
-            </ul>
-
-            <h3>Bacon</h3>
-            <ul>
-                <li><b><Link href="/[libId]/[fileId]/" as="/baconjs/interval/"><a>interval</a></Link></b> operator</li>
-            </ul>
-
-            <h3>Kefir</h3>
-            <ul>
-                <li><b><Link href="/[libId]/[fileId]/" as="/kefir/sequentially/"><a>sequentially</a></Link></b> operator</li>
-            </ul>
-
-            <blockquote>
-                Try comparing <b><Link href="/[libId]/[fileId]/" as="/rxjs/interval/"><a>RxJS interval</a></Link></b>, <b><Link href="/[libId]/[fileId]/" as="/kefir/interval/"><a>Kefir.js interval</a></Link></b>, and <b><Link href="/[libId]/[fileId]/" as="/baconjs/interval/"><a>Bacon.js interval</a></Link></b>!
-            </blockquote>
-
             <p>
-                <b>NOTE:</b> currently this tool has following limitations:
+                <b>NOTE:</b> currently this tool execution time is cut to 1000ms and 1024 operations per tick    
+                And async browser APIs, like fetching, are not supported
             </p>
 
-            <ul>
-                <li>timeline is cut to 1000ms</li>
-                <li>async browser api is not supported</li>
-            </ul>
+            <h2>💬 Feedback</h2>
 
             <p>
-                Your feedback is always welcome at <ExternalLink
-                    text="github issues section"
+                Your feedback and help are very welcomed at <ExternalLink
+                    text="github issues"
                     href="https://github.com/observable-playground/observable-playground/issues"
-                    />!
+                >github issues</ExternalLink>!
             </p>
 
-            <br />
+            <h2>🙏 Inspired by</h2>
 
             <p>
-                Inspired by <ExternalLink href={ 'http://rxmarbles.com/' } text={ 'rxmarbles.com' } />, <ExternalLink href={ 'https://www.learnrxjs.io' } text={'learnrxjs.io'}/> and great talks by <ExternalLink href={ 'http://worrydream.com/' } text={'Bret Victor'} />
+                <ExternalLink href={ 'http://rxmarbles.com/' } text={ 'rxmarbles.com' } />, <ExternalLink href={ 'https://www.learnrxjs.io' } text={'learnrxjs.io'}/> and great talks by <ExternalLink href={ 'http://worrydream.com/' } text={'Bret Victor'} />
             </p>
         </div>
 
