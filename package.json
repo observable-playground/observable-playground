@@ -10,17 +10,18 @@
     "export": "next export"
   },
   "dependencies": {
+    "@babel/plugin-proposal-pipeline-operator": "^7.10.4",
     "@babel/standalone": "7.10.4",
     "@fortawesome/fontawesome-svg-core": "1.2.29",
     "@fortawesome/free-brands-svg-icons": "5.13.1",
     "@fortawesome/free-solid-svg-icons": "5.13.1",
     "@fortawesome/react-fontawesome": "0.1.11",
-    "ace-builds": "1.4.11",
+    "ace-builds": "1.4.12",
     "axios": "0.19.2",
     "baconjs": "3.0.13",
     "d3": "5.16.0",
     "kefir": "3.8.7",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "next": "9.4.4",
     "normalize.css": "8.0.1",
     "nprogress": "^0.2.0",
@@ -31,7 +32,7 @@
     "react-markdown": "4.3.1",
     "rxjs": "6.6.0",
     "rxjs-compat": "6.6.0",
-    "sass": "^1.26.9",
+    "sass": "1.26.10",
     "save-svg-as-png": "1.4.17"
   },
   "devDependencies": {
