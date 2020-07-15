@@ -4,14 +4,14 @@
     padding-top: 2rem;
 
     &__Header{
-        display: block;
+        display: flex;
 
         @media screen and (max-width: $max-mobile-screen-width) {
             padding: 0.5rem 0.5rem 0;
         }
 
         &__Main {
-            padding-left: 54px;
+            padding-left: 1rem;
         }
     }
 

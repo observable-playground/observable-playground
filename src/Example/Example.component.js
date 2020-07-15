@@ -1,5 +1,5 @@
 import { faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
-import { faBook, faPencilAlt, faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import React from 'react';
