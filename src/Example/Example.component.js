@@ -28,11 +28,12 @@ export function ExampleComponent(props) {
                             title="Official docs"
                             href={example.docsUrl}
                         ><FontAwesomeIcon fixedWidth icon={faBook} style={{ maxWidth: '3rem' }} /></ExternalLink>
-                    }<ExternalLink
+                    }
+                    {/* <ExternalLink
                         className={style.control__edit}
                         title="Edit this file on Github"
                         href={example.editUrl}
-                    ><FontAwesomeIcon fixedWidth icon={faPencilAlt} style={{ maxWidth: '3rem' }} /></ExternalLink>
+                    ><FontAwesomeIcon fixedWidth icon={faPencilAlt} style={{ maxWidth: '3rem' }} /></ExternalLink> */}
                 </span>
 
                 <span className={style.spring} />
