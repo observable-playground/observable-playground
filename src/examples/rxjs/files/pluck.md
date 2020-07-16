@@ -8,6 +8,8 @@ docsUrl:	https://rxjs.dev/api/operators/pluck
 
 Map each emitted value to it's property, defined by path:  
 
+> Also check out [`map`](/rxjs/map/) operator and try comparing [**pluck** to **map**](/rxjs/map-vs-pluck/)
+
 ```js
 const { rxObserver } = require('api/v0.3');
 const { of } = require('rxjs');
@@ -28,5 +30,3 @@ source$
   .subscribe(rxObserver(`pluck('a')`));
 
 ```
-
-Try [comparing map to pluck](/rxjs/map-vs-pluck/)

@@ -78,6 +78,9 @@ export default () =>
                 <li>
                     <Link href="/[libId]/[fileId]/" as="/rxjs/first-vs-take-vs-single/"><a><b>first</b> vs <b>take</b> vs <b>single</b></a></Link>
                 </li>
+                <li>
+                    <Link href="/[libId]/[fileId]/" as="/rxjs/map-vs-pluck/"><a><b>map</b> vs <b>pluck</b></a></Link>
+                </li>
             </ul>
 
             <p>

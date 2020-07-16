@@ -2,9 +2,12 @@
 name:		
 title:		onErrorResumeNext
 pageTitle:	onErrorResumeNext — RxJS operator example + marble diagram
-desc:		
+desc:		Switch to the next observable when current errors. This helps you build a fallback strategy:
 docsUrl:	https://rxjs.dev/api/index/function/onErrorResumeNext
 -->
+
+Switch to the next observable when current errors.    
+This helps you build a fallback strategy:    
 
 ```js
 const { rxObserver } = require('api/v0.3');
