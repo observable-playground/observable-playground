@@ -84,12 +84,15 @@ export const HomePage = () =>
             <ul>
                 <li>
                     <ExternalLink href="https://recks.gitbook.io/recks/">RecksJS</ExternalLink> — cute RxJS + JSX framework ❤️
+                    <br/>
                 </li>
                 <li>
-                    <ExternalLink href="https://github.com/kosich/rxjs-tts#readme">🗣 text-to-speech</ExternalLink> and <ExternalLink href="https://github.com/kosich/rxjs-stt#readme">👂 speech-to-text</ExternalLink> with RxJS
+                    <ExternalLink href="https://github.com/kosich/rxjs-tts#readme">text-to-speech 🗣</ExternalLink> and <ExternalLink href="https://github.com/kosich/rxjs-stt#readme">speech-to-text 👂</ExternalLink> with RxJS
+                    <br/>
                 </li>
                 <li>
-                    &lt;$&gt; — <ExternalLink href="https://github.com/kosich/react-rxjs-elements#readme">React Observable Fragment</ExternalLink> <code>&lt;$&gt;{'{'} timer(0, 1000) {'}'}&lt;/$&gt;</code>
+                    &lt;$&gt; — <ExternalLink href="https://github.com/kosich/react-rxjs-elements#readme">React Observable Fragment</ExternalLink>: <code>&lt;$&gt;{'{'} timer(0, 1000) {'}'}&lt;/$&gt;</code>
+                    <br/>
                 </li>
             </ul>
 
