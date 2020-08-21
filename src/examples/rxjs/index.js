@@ -1,3 +1,4 @@
+// @ts-check
 import { dependencies } from '../../../package.json';
 import Page from './Page';
 
@@ -36,7 +37,10 @@ export const library = {
             , items:
                 [ 'filter'
                 , 'find'
-                , 'first'
+				, 'first'
+				, 'take'
+				, 'takeUntil'
+				, 'takeWhile'
                 , 'auditTime'
                 , 'debounceTime'
                 , 'throttleTime'
@@ -80,7 +84,7 @@ export const library = {
                 , 'windowWhen'
                 ]
             }
-        
+
         ,   { name: 'Multicasting'
             , items:
                 [ 'share'
