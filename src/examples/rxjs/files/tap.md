@@ -1,5 +1,5 @@
 <!--
-name:		
+name:
 title:		tap
 pageTitle:	tap — RxJS operator example + marble diagram
 desc:		with tap you can perform side-effects when source emits, errors or completes
@@ -24,15 +24,4 @@ timer(0, 5)
 
 ```
 
-rxjs-compat version with `.do`:
-
-```js
-const { rxObserver } = require('api/v0.3');
-const { Observable } = require('rxjs/Rx');
-Observable
-  .timer(0, 5)
-  .take(10)
-  .do(v => console.log('do', v))
-  .subscribe(rxObserver('.do()'));
-
-```
+See [tap vs finalize](/rxjs/tap-vs-finalize/) comparison
