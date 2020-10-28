@@ -12,9 +12,9 @@ export const library = {
     groups:
         [   { name: 'My packages'
             , items:
-                [ 'rxjs-autorun'
-                , 'rxjs-proxify'
-                , 'rx-rql'
+                [ 'autorun'
+                , 'proxy'
+                , 'query'
                 ]
             }
         ,   { name: 'Observable'

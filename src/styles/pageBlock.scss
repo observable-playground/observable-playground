@@ -50,12 +50,21 @@
         color: #333;
         background-color: #eff0f1;
         padding: 1px 2px;
-        border: 1px solid #c0c0c1;
+        border: 1px solid #ddd;
         border-radius: 2px;
 
         @media screen and (max-width: $max-mobile-screen-width) {
           white-space: normal;
         }
+    }
+
+    a > code:not(.SSRPlayground__Code) {
+        color: inherit;
+    }
+
+    pre > code:not(.SSRPlayground__Code) {
+        display: block;
+        padding: 1rem;
     }
 
     img {

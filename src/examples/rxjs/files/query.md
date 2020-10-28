@@ -14,6 +14,11 @@ Reactive Query Language for RxJS
 See the homepage: [github.com/erql/rx-rql](https://github.com/erql/rx-rql)    
 Read an intro article: ["Queries for Observables: Crazy & Simple!"](https://dev.to/kosich/queries-for-observables-crazy-simple-15h3)    
 
+**📦 Install:**    
+<pre><code>
+npm i rx-rql
+</code></pre>
+
 ## 🛸 Examples
 
 ### Simple Query
