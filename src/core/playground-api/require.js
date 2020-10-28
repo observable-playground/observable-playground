@@ -3,29 +3,28 @@
  * TODO: find a better way to do proper requires on the fly
  */
 
-// RxJS {{{
-// Compatibility package
-// https://github.com/ReactiveX/rxjs/tree/master/compat
-import * as RxCompat from 'rxjs/Rx';
-// Regular
-import * as Rx from 'rxjs';
-// Lettable operators
-// https://github.com/ReactiveX/rxjs/blob/master/doc/lettable-operators.md
-import * as RxOperators from 'rxjs/operators';
-// }}}
-
 // baconjs {{{
 import * as baconjs from 'baconjs';
 // }}}
-
 // kefirjs {{{
 import kefir from 'kefir';
 // }}}
-
+// RxJS {{{
+import * as rxrql from 'rx-rql';
+import * as Rx from 'rxjs';
+import * as rxjsautorun from 'rxjs-autorun';
+import * as rxjsproxify from 'rxjs-proxify';
+// Lettable operators
+// https://github.com/ReactiveX/rxjs/blob/master/doc/lettable-operators.md
+import * as RxOperators from 'rxjs/operators';
+// Compatibility package
+// https://github.com/ReactiveX/rxjs/tree/master/compat
+import * as RxCompat from 'rxjs/Rx';
+import * as colors from './colors';
+// }}}
 import { api as apiV0 } from './v0';
 import { api as apiV0_3 } from './v0.3';
 
-import * as colors from './colors';
 
 const availablePackages = [
     { // RxJS
@@ -39,7 +38,20 @@ const availablePackages = [
     { // RxJS lettable operators
         name: 'rxjs/operators',
         load: () => RxOperators
-    },
+	},
+    { // My libs
+        name: 'rxjs-autorun',
+        load: () => rxjsautorun
+	},
+    {
+        name: 'rxjs-proxify',
+        load: () => rxjsproxify
+	},
+    {
+        name: 'rx-rql',
+        load: () => rxrql
+	},
+	// /Mylibs
 
     { // Bacon
         name: 'baconjs',

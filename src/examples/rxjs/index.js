@@ -10,7 +10,14 @@ export const library = {
     version: LIB_VERSION,
     description: 'Reactive Extensions For JavaScript',
     groups:
-        [   { name: 'Observable'
+        [   { name: 'My packages'
+            , items:
+                [ 'rxjs-autorun'
+                , 'rxjs-proxify'
+                , 'rx-rql'
+                ]
+            }
+        ,   { name: 'Observable'
             , items:
                 [ 'pipe'
                 , 'forEach'

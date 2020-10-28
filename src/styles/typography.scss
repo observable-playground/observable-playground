@@ -1,9 +1,5 @@
 @import './variables.scss';
 
-p {
-    padding: 0.5rem 0;
-}
-
 .DangerousContentWidth {
     @media screen and (max-width: $max-mobile-screen-width) {
         word-break: break-all;
