@@ -7,7 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "publish": "gh-pages -t -d out -r https://github.com/observable-playground/observable-playground.github.io.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\""
   },
   "dependencies": {
     "@babel/plugin-proposal-pipeline-operator": "7.12.1",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "eslint-config-react-tools": "1.x.x",
+    "gh-pages": "^3.1.0",
     "nextjs-sitemap-generator": "1.1.0",
     "raw-loader": "4.0.2"
   }
