@@ -6,9 +6,9 @@ desc:		See this example of "from" turning iterable string and an array into an O
 docsUrl:	https://rxjs.dev/api/index/function/from
 -->
 
-Function `from` will turn an **`iterable`**, **`Promise`**, or **`Observable-like`** value into an Observable. Examples using **`iterable`**:
+Function `from` will turn an `iterable`, `Promise`, or `Observable-like` value into an Observable. Examples using `iterable`:
 
-## A stream from an array
+## A stream from an Array
 
 ```js
 const { rxObserver } = require('api/v0.3');
@@ -19,7 +19,7 @@ from([ 5, 10, 20 ])
 
 ```
 
-## And from a string
+## A stream from a String
 
 ```js
 const { rxObserver } = require('api/v0.3');

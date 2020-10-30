@@ -271,7 +271,7 @@ function execute(fn, maxLifetime = ONE_MINUTE){
             }
             tasksPerTickCounter = 0;
             if (time >= maxLifetime) {
-                return `Maximum execution time is limited to ${maxLifetime}ms`;
+                return `Execution time is limited to ${maxLifetime}ms`;
             }
             time++;
         }

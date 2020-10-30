@@ -6,7 +6,9 @@ desc:		subscribe method indicates to inner emitter that the Observer is ready to
 docsUrl:	https://rxjs.dev/api/index/class/Observable#subscribe
 -->
 
-`subscribe` method indicates to inner emitter that the Observer is ready to receive emissions
+Calling `subscribe` tells inner emitter function (producer) that the observer (consumer) is ready to receive emissions:
+
+_NOTE: take a look at [rxjs/constructor](/rxjs/constructor/) to better understand the producer-consumer connection_
 
 ```js
 const { rxObserver } = require('api/v0.3');
@@ -18,18 +20,18 @@ const { interval } = require('rxjs');
 const source$ = interval(50);
 
 // observer to draw marbles on the diagram
-const marble = rxObserver();
+const marbleObserver = rxObserver();
 
 // unsubscribe from source$ in 200ms
 const subscription = source$
   .subscribe(v => {
     console.log(v);
-    marble.next(v); // draw a marble
+    marbleObserver.next(v); // draw a marble
   });
 
 // unsubscribe from source$ in 220ms
 setTimeout(() => {
   subscription.unsubscribe();
-  marble.complete(); // complete diagram
+  marbleObserver.complete(); // complete diagram
 }, 220);
 ```

@@ -19,7 +19,8 @@ export const library = {
             }
         ,   { name: 'Observable'
             , items:
-                [ 'pipe'
+                [ 'constructor'
+                , 'pipe'
                 , 'forEach'
                 , 'toPromise'
                 , 'subscribe'
@@ -36,7 +37,8 @@ export const library = {
                 , 'defer'
                 , 'range'
                 , 'iif'
-                , 'constructor'
+                , 'never'
+                , 'empty'
                 ]
             }
 

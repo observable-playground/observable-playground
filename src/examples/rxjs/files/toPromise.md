@@ -8,6 +8,8 @@ docsUrl:	https://rxjs.dev/api/index/class/Observable#toPromise
 
 `toPromise` method turns Observable into a Promise, emitting it's last value
 
+_**NOTE:** `toPromise` will be deprecated in RxJS v7 in favor of two new functions: `firstValueFrom` and `lastValueFrom`_
+
 ```js
 const { rxObserver } = require('api/v0.3');
 const { interval } = require('rxjs');

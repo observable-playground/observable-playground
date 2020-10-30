@@ -9,6 +9,8 @@ docsUrl:	https://rxjs.dev/api/operators/withLatestFrom
 Creates a combined stream from source and other provided streams.    
 When source emits a value — resulting Observable will emit a combined value of source emission and all latest values on provided streams.
 
+_**NOTE:** also take a look at [rxjs/autorun](/rxjs/autorun/) package that let's you easily combine multiple streams emissions in any form_
+
 ```js
 const { rxObserver } = require('api/v0.3');
 const { timer } = require('rxjs');

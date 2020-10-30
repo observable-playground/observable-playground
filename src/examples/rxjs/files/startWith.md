@@ -6,7 +6,9 @@ desc:       Prepend a stream with a value
 docsUrl:	https://rxjs.dev/api/operators/startWith
 -->
 
-Prepend a stream with a value
+Prepend a stream with a value. This value will be **synchronously** emitted upon subscription:
+
+_**NOTE:** also take a look at [rxjs/defaultIfEmpty/](/rxjs/defaultIfEmpty/) to handle EMPTY Observables._
 
 ```js
 const { rxObserver } = require('api/v0.3');
