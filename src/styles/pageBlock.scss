@@ -37,10 +37,15 @@
 
     blockquote {
         display: block;
-        color: #3f4a56;
+        color: #16202b;
         padding: 0 0 0 1rem;
-        border-left: 3px solid #a9a9a9;
-        margin: 0;
+        border-color: #1a924f;
+        border-style: solid;
+        border-width: 1px;
+        border-left-width: 4px;
+        background: #e3fff5;
+        margin: 2px 0;
+        margin-bottom: 0.5rem;
     }
 
     code:not(.SSRPlayground__Code) {

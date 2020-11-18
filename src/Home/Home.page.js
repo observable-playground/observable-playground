@@ -2,9 +2,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
-import { ROOT_PAGE_TITLE, ROOT_META_DESC } from '../shared/consts';
-import awesomeRxjsExample from './awesome-rxjs-example';
+import { ROOT_META_DESC, ROOT_PAGE_TITLE } from '../shared/consts';
 import { ExternalLink } from '../shared/ExternalLink';
+import awesomeRxjsExample from './awesome-rxjs-example';
 
 export const HomePage = () =>
     <div className="HomePage">
@@ -19,7 +19,7 @@ export const HomePage = () =>
             </h1>
 
             <blockquote>
-                Know your Observables before deploying to production!
+                <p>Know your Observables before deploying them to production!</p>
             </blockquote>
 
             <br />

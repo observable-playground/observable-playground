@@ -106,6 +106,7 @@ export const library = {
                 [ 'tap'
                 , 'finalize'
                 , 'timeInterval'
+                , 'defaultIfEmpty'
                 , 'delay'
                 , 'delayWhen'
                 , 'dematerialize'
