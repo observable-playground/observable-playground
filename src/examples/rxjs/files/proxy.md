@@ -49,7 +49,7 @@ const { rxObserver } = require('api/v0.3');
 const { timer } = require('rxjs');
 const { proxify } = require('rxjs-proxify');
 
-const a = timer(100);
+const a = timer(0, 100);
 
 proxify(a)
   .toString(2)
