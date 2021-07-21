@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
+    "sitemap": "node sitemap.js",
     "publish": "gh-pages -t -d out -r https://github.com/observable-playground/observable-playground.github.io.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\""
   },
   "dependencies": {

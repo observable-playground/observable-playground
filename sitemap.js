@@ -8,7 +8,7 @@ sitemap({
   baseUrl: 'https://thinkrx.io',
   ignoredPaths: ['gist', '[libId]', 'index', '404'],
   extraPaths: ['/'],
-  pagesDirectory: __dirname + "/.next/server/static/" + BUILD_ID + "/pages",
+  pagesDirectory: __dirname + "/.next/server/pages",
   targetDirectory : 'out/',
   nextConfigPath: __dirname + "/next.config.js",
 });
