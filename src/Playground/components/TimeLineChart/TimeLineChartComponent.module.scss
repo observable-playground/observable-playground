@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.TimeLineChart {
+.Placeholder {
     min-height: 7rem;
     position: relative;
     padding-bottom: 3rem;
@@ -12,21 +12,40 @@
     @media screen and (min-width: $min-desktop-screen-width) {
         margin-left: 0.5rem;
     }
+}
 
-    &__Download {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        border: 0;
-        background: none;
-        color: $lightgray-color;
+.TimeLineChart {
+    position: absolute;
+}
 
-        &:hover{
-            color: $gray-color;
-        }
+.Download {
+    position: absolute;
+    right: 2px;
+    bottom: 0;
+    border: 0;
+    background: none;
+    color: $lightgray-color;
 
-        &:active {
-            margin-bottom: -1px;
+    &:hover, &:focus {
+        color: $darkgray-color;
+        cursor: pointer;
+    }
+
+    &:active {
+        margin-bottom: -1px;
+    }
+
+    &:focus {
+        outline: 2px solid #107DFA;
+    }
+
+    &:focus, &:hover {
+        .DownloadHint {
+            visibility: visible;
         }
     }
+}
+
+.DownloadHint {
+    visibility: hidden;
 }
