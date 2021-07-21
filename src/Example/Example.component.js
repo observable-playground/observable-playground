@@ -32,13 +32,17 @@ export function ExampleComponent(props) {
                             className={style.control__docs}
                             title="Official docs"
                             href={example.docsUrl}
-                        ><FontAwesomeIcon fixedWidth icon={faBook} style={{ maxWidth: '3rem' }} /></ExternalLink>
+                        ><FontAwesomeIcon
+                            fixedWidth
+                            icon={faBook}
+                            style={{ width: '1.5rem' }}
+                        /></ExternalLink>
                     }
                     {/* <ExternalLink
                         className={style.control__edit}
                         title="Edit this file on Github"
                         href={example.editUrl}
-                    ><FontAwesomeIcon fixedWidth icon={faPencilAlt} style={{ maxWidth: '3rem' }} /></ExternalLink> */}
+                    ><FontAwesomeIcon fixedWidth icon={faPencilAlt} style={{ width: '2rem' }} /></ExternalLink> */}
                 </span>
 
                 <span className={style.spring} />
@@ -46,8 +50,8 @@ export function ExampleComponent(props) {
                 <span className={style.share}>
                     <FontAwesomeIcon
                         fixedWidth
+                        style={{ width: '1.5rem' }}
                         icon={faShareAlt}
-                        style={{ maxWidth: '3rem' }}
                         />
 
                     &nbsp;
@@ -56,13 +60,22 @@ export function ExampleComponent(props) {
                         className={style.share__twitter}
                         title="Share to twitter"
                         href={`https://twitter.com/intent/tweet?text=${twitterText}`}
-                    ><FontAwesomeIcon fixedWidth icon={faTwitterSquare} style={{ maxWidth: '3rem' }} /></ExternalLink>
+                    ><FontAwesomeIcon 
+                        fixedWidth
+                        style={{ width: '1.5rem' }}
+                        icon={faTwitterSquare}
+                    /></ExternalLink>
 
                     <ExternalLink
+                        fixedWidth
                         className={style.share__linkedin}
                         title="Share to LinkedIn"
                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}&text=${twitterText}`}
-                    ><FontAwesomeIcon fixedWidth icon={faLinkedin} style={{ maxWidth: '3rem' }} /></ExternalLink>
+                    ><FontAwesomeIcon
+                        fixedWidth
+                        style={{ width: '1.5rem' }}
+                        icon={faLinkedin}
+                    /></ExternalLink>
 
                 </span>
             </div>

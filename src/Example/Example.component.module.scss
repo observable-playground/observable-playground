@@ -16,7 +16,7 @@
     // reflecting same style of pageBlock
     // DRY violation
     @media screen and (max-width: $max-mobile-screen-width) {
-        padding: 0 0.5rem;
+        padding: 0 0.5rem 1rem;
         display: block;
     }
 }
@@ -51,6 +51,11 @@
     vertical-align: baseline;
     font-size: 28px;
     color: $lightgray-color;
+
+    @media screen and (max-width: $max-mobile-screen-width) {
+        display: block;
+        margin-top: -0.5rem;
+    }
 
     &__twitter, &__linkedin, &__email {
         margin-left: 8px;
