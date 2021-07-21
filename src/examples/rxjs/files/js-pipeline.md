@@ -8,10 +8,16 @@ docsUrl:
 
 > **EXPERIMENTAL**
 
-Pipeline operator `|>` is a new proposal to ECMAScript that simplifies "piping" a value through several functions.    
-And it nicely fits into RxJS' [`pipe`](/rxjs/pipe/) flow:
+**NOTE**: I'm sorry, but I had to disable this feature in our playground due to technical issues.
 
-```js
+Pipeline operator `|>` is a new proposal to ECMAScript that simplifies "piping" a value through several functions.    
+And it nicely fits into RxJS' [`pipe`](/rxjs/pipe/) flow.
+
+See TC-39 [pipeline operator proposal](https://github.com/tc39/proposal-pipeline-operator/) for more details
+
+
+<!--
+```ts
 // proposal-pipeline-operator
 const { rxObserver } = require('api/v0.3');
 const { timer } = require('rxjs');
@@ -30,7 +36,4 @@ function subscribe(observer){
 }
 
 ```
-
-> **NOTE**: the code should start with `// proposal-pipeline-operator` comment to properly parse the pipeline operator in this playground
-
-See TC-39 [pipeline operator proposal](https://github.com/tc39/proposal-pipeline-operator/) for more details
+-->

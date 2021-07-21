@@ -1,10 +1,11 @@
 import React from 'react';
 import { menu } from '../../examples';
-import fs from 'fs';
-import path from 'path';
 import { ExamplePage } from '../../Example/Example.page'
 
 export function getStaticPaths() {
+    const fs = require('fs');
+    const path = require('path');
+
     const paths = menu.map(({ handle: libId }) => {
         const fullDirPath = path.resolve('src/examples/', libId + '/files');
         const folderContents = fs.readdirSync(fullDirPath);
@@ -27,6 +28,9 @@ export function getStaticPaths() {
 }
 
 export function getStaticProps(context) {
+    const fs = require('fs');
+    const path = require('path');
+
     const { params: { libId, fileId } } = context;
     const fullFilePath = path.resolve('src/examples/', libId + '/files/' + fileId + '.md');
     const fileContents = fs.readFileSync(fullFilePath, 'utf-8');
@@ -68,7 +72,7 @@ export function getStaticProps(context) {
     };
 }
 
-export default (props) => {
+export default function fileIdComponent(props) {
     const { library, example } = props;
 
     return <ExamplePage library={library} example={example} />

@@ -13,7 +13,7 @@ export default () => {
     const router = useRouter();
 
     useEffect(() => {
-        if (isClient) {
+        if (isClient()) {
             let currentUrl = router.asPath;
             if (/^\/gist\/.*?\/?$/.test(currentUrl)) {
                 if (!currentUrl.endsWith('/')) {
@@ -22,7 +22,7 @@ export default () => {
                 router.replace('/gist/[id]/', currentUrl);
             }
         }
-    }, [isClient, router.asPath]);
+    }, [isClient(), router.asPath]);
 
     return (
         <div className="PageNotFound">

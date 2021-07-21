@@ -1,8 +1,8 @@
 // @ts-check
-import { dependencies } from '../../../package.json';
+import pkg from '../../../package.json';
 import Page from './Page';
 
-const LIB_VERSION = dependencies.rxjs;
+const LIB_VERSION = pkg.dependencies.rxjs;
 
 export { Page };
 export const library = {
@@ -115,11 +115,11 @@ export const library = {
                 ]
             }
 
-        ,   { name: '⚠️ Experimental'
-            , items:
-                [ 'js-pipeline'
-                ]
-            }
+        // ,   { name: '⚠️ Experimental'
+        //     , items:
+        //         [ 'js-pipeline'
+        //         ]
+        //     }
 
         // ,   { name: 'Recipes'
         //     , items:

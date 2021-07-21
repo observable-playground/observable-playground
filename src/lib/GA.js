@@ -1,3 +1,5 @@
+require('./autotrack');
+
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-40041298-4', 'auto');
 

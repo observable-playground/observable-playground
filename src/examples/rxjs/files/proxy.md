@@ -15,9 +15,10 @@ See the homepage: [github.com/kosich/rxjs-proxify](https://github.com/kosich/rxj
 Read an intro article: ["Turn a Stream of Objects into an Object of Streams"](https://dev.to/rxjs/turn-a-stream-of-objects-into-an-object-of-streams-2aed)    
 
 **📦 Install:**    
-<pre><code>
+
+```
 npm i rxjs-proxify
-</code></pre>
+```
 
 
 ## 🛸 Examples

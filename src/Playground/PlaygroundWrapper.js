@@ -7,11 +7,13 @@ let SSRPlayground;
 export const PlaygroundWrapper = (props) => {
     const [_isClient, setIsClient] = useState(false);
 
+    let __isClient = isClient();
+
     useEffect(() => {
-        if (isClient) {
-            setIsClient(isClient);
+        if (__isClient) {
+            setIsClient(__isClient);
         }
-    }, [isClient]);
+    }, [__isClient]);
 
     if (_isClient) {
         if (!Playground) {

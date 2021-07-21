@@ -6,7 +6,6 @@ export default class MyDocument extends Document {
             <Html lang="en">
                 <Head>
                     <meta charSet="UTF-8" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <link rel="icon" href="favicon.ico" type="image/x-icon" />
                     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                     <link rel="manifest" href="/manifest.json" />
@@ -15,8 +14,6 @@ export default class MyDocument extends Document {
 
                     {/* Global Site Tag (gtag.js) - Google Analytics */}
                     <script async={true} src='https://www.google-analytics.com/analytics.js'></script>
-                    <script async={true} src="/autotrack.js" />
-                    <script              src="/GA.js" />
                 </Head>
                 <body>
                     <Main />

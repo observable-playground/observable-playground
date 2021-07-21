@@ -15,9 +15,9 @@ See the homepage: [github.com/kosich/rxjs-autorun](https://github.com/kosich/rxj
 Read an intro article: ["RxJS Autorun Intro"](https://dev.to/rxjs/rxjs-autorun-cop)    
 
 **📦 Install:**    
-<pre><code>
+```
 npm i rxjs-autorun
-</code></pre>
+```
 
 ## 🛸 Examples
 

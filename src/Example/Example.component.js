@@ -17,9 +17,8 @@ export function ExampleComponent(props) {
 	const twitterText = encodeURIComponent(
 		`#${libId.toUpperCase()} "${fileId}" playground\n`
 		+ `🔗 ${shareUrl}\n`
-		+ '🛠 by @kddsky\n'
 		+ '\n'
-		+ '❤️ #js #javascript #angular #webdevelopment'
+		+ '❤️ #js #javascript #angular #webdevelopment by @kddsky'
 	);
 
     return (
@@ -76,9 +75,8 @@ function renderMdContent(content) {
     return (
         <div className="PageBlock">
             <ReactMarkdown
-                escapeHtml={/* UNSAFE, ONLY FOR EXAMPLES*/ false}
-                source={content}
-                renderers={
+                children={content}
+                components={
                     {
                         link: linkRenderer
                         , code: codeRenderer
@@ -98,6 +96,13 @@ function linkRenderer({ href, children }) {
     : <ExternalLink href={href} children={children} />
 }
 
-function codeRenderer({ value }) {
-    return <PlaygroundWrapper code={value} />;
+function codeRenderer({ className,  children }) {
+    let code = children[0];
+
+    // NOTE: temp hack to distinguish js snippets from inline code spans
+    if (className == 'language-js') {
+        return <PlaygroundWrapper code={code} />;
+    } else {
+        return <code children={children} />
+    }
 }

@@ -1,8 +1,8 @@
-// read the lib version
-import { dependencies } from '../../../package.json';
+// @ts-check
+import pkg from '../../../package.json';
 import Page from './Page';
 
-const LIB_VERSION = dependencies.kefir;
+const LIB_VERSION = pkg.dependencies.kefir;
 
 export { Page };
 export const library = {

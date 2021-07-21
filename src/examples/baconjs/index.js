@@ -1,8 +1,8 @@
-// read the lib version
-import { dependencies } from '../../../package.json';
+// @ts-check
+import pkg from '../../../package.json';
 import Page from './Page';
 
-const LIB_VERSION = dependencies.baconjs;
+const LIB_VERSION = pkg.dependencies.baconjs;
 
 export { Page };
 export const library = {

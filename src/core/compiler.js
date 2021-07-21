@@ -1,7 +1,8 @@
+// @ts-check
 import * as Babel from '@babel/standalone/babel';
 import { _require } from './playground-api/require';
 
-const babelPipelinePlugin = require('@babel/plugin-proposal-pipeline-operator').default;
+// const babelPipelinePlugin = require('@babel/plugin-proposal-pipeline-operator').default;
 
 export const compile = (sourceCode) => {
     const plugins = [];
@@ -11,7 +12,7 @@ export const compile = (sourceCode) => {
         if (proposal == 'fsharp') {
             console.warn('fsharp pipeline proposal is not well supported by this playground.')
         }
-        plugins.push([babelPipelinePlugin, { proposal }]);
+        // plugins.push([babelPipelinePlugin, { proposal }]);
     }
 
     // currently it takes
