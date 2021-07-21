@@ -10,7 +10,7 @@ export const run = (sourceCode) => {
     try {
         const compiledFn = compile(sourceCode);
         const result = execute(compiledFn, MAX_EXECUTION_TIME);
-        execTime   = result.time;
+        execTime = result.time;
         if (!result.status) {
             execStatus.isOk = true;
         } else {

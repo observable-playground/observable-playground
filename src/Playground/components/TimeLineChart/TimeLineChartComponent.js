@@ -1,7 +1,7 @@
+/// @ts-check
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { axisBottom, scaleLinear, select } from 'd3';
-import groupBy from 'lodash/groupBy';
 import React, { useCallback, useLayoutEffect, useRef } from 'react';
 import { MAX_EXECUTION_TIME, palette } from '../../../shared/consts';
 import { printValue } from './printValue';
@@ -91,7 +91,7 @@ function updateView(placeholder, svgNode, lines, time) {
         const start = line.start;
         // TOOD: mark line as exhausting the chart, instead of drawing it to infinity
         const end = line.end === undefined ? MAX_EXECUTION_TIME : line.end;
-        const events = groupBy(line.events || [], event => event.time);
+        const events = line.events; // groupBy(line.events || [], event => event.time);
         const errors = line.errors || [];
         const stops = line.stops || [];
         const lineName = line.lineName != null ? printValue(line.lineName) : '';
@@ -100,7 +100,7 @@ function updateView(placeholder, svgNode, lines, time) {
         const y = accHeight;
 
         const lineTitleHeight = lineName ? LINE_TITLE_HEIGHT + LINE_TITLE_MARGIN_BOTTOM : 0;
-        const maxEventsAtOneTime = Object.values(events).reduce((acc, curr) => Math.max(curr.length, acc), 1);
+        const maxEventsAtOneTime = events.reduce((acc, [key, entries]) => Math.max(entries.length, acc), 1);
         const eventsHeight = Math.max((maxEventsAtOneTime - 1) * EVENT_DIAMETER_WITH_MARGIN + EVENT_DIAMETER, MARK_HALF_HEIGHT * 2);
         const lineHeight = lineTitleHeight + eventsHeight;
 
@@ -174,19 +174,18 @@ function updateView(placeholder, svgNode, lines, time) {
             .text('complete');
 
         // Events {{{
-        Object.entries(events)
-            .forEach((entry) => {
-                const currentEvents = entry[1];
+        events
+            .forEach(([time, entries]) => {
                 // TODO: use scaleLinear
 
                 const eventMarks = lineg
-                    .selectAll(`g.event${entry[0]}`)
-                    .data(currentEvents)
+                    .selectAll(`g.event${time}`)
+                    .data(entries)
                     .enter()
                     .append('g')
-                    .attr('class', `event${entry[0]} event`)
+                    .attr('class', `event${time} event`)
                     .attr('transform',
-                        (d, index) => `translate(${xScale(d.time)}, ${(index - (currentEvents.length - 1) / 2) * EVENT_DIAMETER_WITH_MARGIN})`);
+                        (d, index) => `translate(${xScale(d.time)}, ${(index - (entries.length - 1) / 2) * EVENT_DIAMETER_WITH_MARGIN})`);
 
                 eventMarks
                     .append('circle')

@@ -15,11 +15,20 @@ const createObserver = (lineName = '') => {
         if (DEBUG) {
             console.log('o', value, `@ ${Date.now()}ms ${lineName}`);
         }
-        line.events.push({
-            index: eventIndex++,
-            time: Date.now(),
-            value
-        });
+
+        let index = eventIndex++;
+        let time = Date.now();
+        let entry = { index, time, value };
+
+        if (line.events.length) {
+            let [lastTime, lastEntries] = line.events[line.events.length - 1];
+            if (lastTime == time) {
+                lastEntries.push(entry);
+                return;
+            }
+        } 
+
+        line.events.push([time, [ entry ]]);
     }
 
     const onError = value => {
