@@ -49,6 +49,7 @@
     "@types/node": "16.4.0",
     "@types/prismjs": "^1.16.6",
     "@types/react": "17.0.14",
+    "critters": "^0.0.10",
     "cross-env": "^7.0.3",
     "eslint-config-react-tools": "1.x.x",
     "gh-pages": "3.2.3",

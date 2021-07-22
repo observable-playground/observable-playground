@@ -3,7 +3,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
   
 const config = withBundleAnalyzer({
-    trailingSlash: true
+    trailingSlash: true,
+    experimental: { optimizeCss: true }
 });
 
 module.exports = config;
