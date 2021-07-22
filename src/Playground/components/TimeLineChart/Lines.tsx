@@ -1,5 +1,5 @@
 import React from 'react';
-import { LINE_TITLE_HEIGHT, COLOR_GREY, COLOR_DARK_GREY, STROKE_WIDTH, MARK_HALF_HEIGHT } from "./const";
+import { TITLE_FONT_SIZE, COLOR_GREY, COLOR_DARK_GREY, STROKE_WIDTH, MARK_HALF_HEIGHT, TITLE_LINE_HEIGHT } from "./const";
 import { Events } from './Events';
 import { Errors } from './Errors';
 
@@ -17,9 +17,9 @@ export function Lines(props) {
                     <text
                         className="lineTitle"
                         fontFamily="sans-serif"
-                        fontSize={LINE_TITLE_HEIGHT}
+                        fontSize={TITLE_FONT_SIZE}
                         fill={COLOR_GREY}
-                        y={LINE_TITLE_HEIGHT}
+                        y={TITLE_FONT_SIZE}
                     >{lineName}</text>}
 
                 {/* linefg */}
