@@ -8,7 +8,7 @@ import { TIMELINE_HEIGHT, MIN_MS_TO_DISPLAY, LINE_HEADER_HEIGHT, EVENT_DIAMETER_
 import { printValue } from './printValue';
 import style from './TimeLineChartComponent.module.scss';
 
-const SSR_WIDTH = 500;
+const SSR_WIDTH = 400;
 
 function downloadAsSvg(svg) {
     import('save-svg-as-png').then(({ saveSvgAsPng }) => {

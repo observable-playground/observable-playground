@@ -1,18 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { COLOR_LIGHT_GREY } from "./const";
 import { isClient } from '../../../shared/isServer';
-
 export function Axis(props) {
     let { xScale, width } = props;
     let ref = useRef(null);
 
     if (isClient()) {
         useEffect(() => {
-            let d3 = require('./lib/d3.js');
-            let { select, axisBottom } = d3;
+            if (!ref.current) return;
 
-            if (!ref.current)
-                return;
+            let { select, axisBottom } = require('../../../lib/d3');
 
             // add x axis
             let axis = select(ref.current)

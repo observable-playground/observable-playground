@@ -1,0 +1,2 @@
+For some reason next build scripts can't handle raw d3 files, complaining that it uses `require` on ESM.
+I couldn't find a workaround to that with webpack, so I'm using a rollup to precompile d3 and then use it in components.
