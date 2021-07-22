@@ -13,7 +13,7 @@ export function GistContainer (props){
     const { gistId } = props;
 
     useEffect(() => {
-        if (isServer || !gistId) { return; }
+        if (isServer() || !gistId) { return; }
 
         axios
             .get(`https://api.github.com/gists/${gistId}`)
@@ -21,7 +21,7 @@ export function GistContainer (props){
                 setData(response.data);
                 setLoading(false);
             });
-    }, [isServer, gistId])
+    }, [isServer(), gistId])
 
     if (!isLoading) {
         return <GistComponent data={ data }/>
