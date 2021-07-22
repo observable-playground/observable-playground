@@ -1,9 +1,12 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default {
-  input: 'src/lib/d3/module.js',
+  input: {
+    scaleLinear: 'src/lib/d3/scaleLinear.js',
+    axisBottom: 'src/lib/d3/axisBottom.js'
+  },
   output: {
-    file: 'src/lib/d3/index.js',
+    dir: 'src/lib/d3/out',
     format: 'es'
   },
   plugins: [nodeResolve()]

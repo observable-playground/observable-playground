@@ -3,7 +3,7 @@ import style from './Chart.module.scss';
 import { MARGIN } from "./const";
 import { Axis } from './Axis';
 import { Lines } from './Lines';
-import { scaleLinear } from '../../../lib/d3/';
+import { scaleLinear } from '../../../lib/d3/out/scaleLinear';
 
 export function Chart(props) {
     let { svgRef, width, chartData: { time, height, lines } } = props;
