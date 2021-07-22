@@ -9,7 +9,7 @@ import { LoadingIndicator } from '../shared/LoadingIndicator/LoadingIndicator';
 // therefore these need time to load scripts to load a proper ui
 // so here we're showing half loading, half 404 state to the user
 
-export default () => {
+export default function Page404() {
     const router = useRouter();
 
     useEffect(() => {
