@@ -85,7 +85,7 @@ export function TimeLineChartComponent(props) {
             className={style.Download}
             onClick={_downloadAsSvg}
             title="Download as .png"
-        ><span className={style.DownloadHint}>Download as SVG </span><FontAwesomeIcon icon={faDownload} fixedWidth style={{ width: '1rem' }} /></button>
+        ><span className={style.DownloadHint}>Download as PNG </span><FontAwesomeIcon icon={faDownload} fixedWidth style={{ width: '1rem' }} /></button>
     </div>
 }
 
