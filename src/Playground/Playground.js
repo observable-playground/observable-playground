@@ -1,19 +1,20 @@
 import React, { useMemo, useCallback, useEffect, useState } from 'react';
-import { EditorComponent } from './components/Editor/EditorComponent';
+import { EditorComponent } from './components/Editor/Editor';
 import { ErrorComponent } from './components/Error/ErrorComponent';
 import { TimeLineChartComponent } from './components/TimeLineChart/TimeLineChartComponent';
 import style from './Playground.module.scss';
 import { run } from '../core/runner';
 import { WarningComponent } from './components/Warning/WarningComponent';
+import { isClient } from '../shared/isServer';
 
 export function Playground (props) {
     const [code, setCode] = useState(props.code);
 
     const { status, time, lines } = useMemo(() => run(code), [code]);
 
-    useEffect(() => {
-        setCode(props.code);
-    }, [props.code]);
+    if (isClient()) {
+        useEffect(() => setCode(props.code), [props.code]);
+    }
 
     const onChange = useCallback(code => {
         if (window && window.ga) {

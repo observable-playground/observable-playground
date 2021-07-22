@@ -1,13 +1,15 @@
 import React from 'react';
 import AceEditor from 'react-ace';
+import style from './ClientEditor.module.scss';
 
 import 'ace-builds/src-noconflict/mode-javascript'
 import 'ace-builds/src-noconflict/theme-monokai'
 
-export function EditorComponent ({ value, defaultValue, onChange }){
+export function ClientEditor ({ value, defaultValue, onChange }){
     return (
         <AceEditor
             name="AceEditor_EditorComponent"
+            className={style.Editor}
 
             mode="javascript"
             theme="monokai"

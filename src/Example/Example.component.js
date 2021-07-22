@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
+import { Playground } from '../Playground/Playground';
 import { ExternalLink } from '../shared/ExternalLink';
 import style from './Example.component.module.scss';
 
@@ -114,7 +114,7 @@ function codeRenderer({ className,  children }) {
 
     // NOTE: temp hack to distinguish js snippets from inline code spans
     if (className == 'language-js') {
-        return <PlaygroundWrapper code={code} />;
+        return <Playground code={code} />;
     } else {
         return <code children={children} />
     }

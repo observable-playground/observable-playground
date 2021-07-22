@@ -26,6 +26,7 @@
     "next": "11.0.1",
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
+    "prismjs": "^1.24.1",
     "promise-polyfill": "8.2.0",
     "react": "17.0.2",
     "react-ace": "9.4.1",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "13.0.2",
     "@types/node": "16.4.0",
+    "@types/prismjs": "^1.16.6",
     "@types/react": "17.0.14",
     "eslint-config-react-tools": "1.x.x",
     "gh-pages": "3.2.3",

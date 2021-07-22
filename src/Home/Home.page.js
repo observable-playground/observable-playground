@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
-import { PlaygroundWrapper } from '../Playground/PlaygroundWrapper';
+import { Playground } from '../Playground/Playground';
 import { ROOT_META_DESC, ROOT_PAGE_TITLE } from '../shared/consts';
 import { ExternalLink } from '../shared/ExternalLink';
 import awesomeRxjsExample from './awesome-rxjs-example';
@@ -24,9 +24,7 @@ export const HomePage = () =>
 
             <br />
 
-            <PlaygroundWrapper
-                code={awesomeRxjsExample}
-            />
+            <Playground code={awesomeRxjsExample} />
 
             <h2>🔍 Start exploring with these examples</h2>
 

@@ -1,0 +1,48 @@
+.Editor {
+    font-family: Monaco, Menlo, "Ubuntu Mono", Consolas, source-code-pro, monospace;
+    font-size: 12px;
+    line-height: 16px;
+    position: relative;
+
+    .Gutter {
+        font-size: 12px;
+        line-height: 16px;
+        width: 34px;
+        position: absolute;
+        top: 6px;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+
+        div {
+            color: #8F908A;
+            text-align: right;
+            padding-right: 6px;
+        }
+    }
+
+    .LoadingIndicator {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    // matching editor style
+    pre {
+        min-height: 7rem;
+        padding: 6px 0 3rem 0.5rem;
+        background: #272722;
+        color: #f8f8f2;
+        border-left: 2rem #2f3129 solid;
+        margin: 0;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    code {
+        padding: 0;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+}

@@ -1,5 +1,5 @@
 import React, { Component, useMemo } from 'react'
-import { PlaygroundWrapper } from '../../Playground/PlaygroundWrapper'
+import { Playground } from '../../Playground/Playground'
 import style from './GistFile.module.scss';
 import { ExternalLink } from '../../shared/ExternalLink';
 import ReactMarkdown from 'react-markdown';
@@ -42,7 +42,7 @@ export class GistFileComponent extends Component {
 }
 
 function JSFile(props) {
-    return <PlaygroundWrapper
+    return <Playground
         code={props.file.content}
         />
 }

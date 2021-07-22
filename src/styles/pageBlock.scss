@@ -48,7 +48,7 @@
         margin-bottom: 0.5rem;
     }
 
-    code:not(.SSRPlayground__Code) {
+    code:not(.language-js) {
         padding: 0 5px;
         white-space: nowrap;
         font-family: Menlo, "Ubuntu Mono", Consolas, source-code-pro, monospace;
@@ -63,11 +63,11 @@
         }
     }
 
-    a > code:not(.SSRPlayground__Code) {
+    a > code:not(.language-js) {
         color: inherit;
     }
 
-    pre > code:not(.SSRPlayground__Code) {
+    pre > code:not(.language-js) {
         display: block;
         padding: 1rem;
     }

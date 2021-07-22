@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
-import { PlaygroundWrapper } from '../../Playground/PlaygroundWrapper';
+import { Playground } from '../../Playground/Playground';
 import { createGenericDescription } from '../../shared/consts';
 import { ExternalLink } from '../../shared/ExternalLink';
 import basicExample from './basic.example';
@@ -23,7 +23,7 @@ export default () =>
         </div>
 
         <br />
-        <PlaygroundWrapper code={ basicExample } />
+        <Playground code={ basicExample } />
         <br />
 
 
