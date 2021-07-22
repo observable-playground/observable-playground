@@ -20,10 +20,12 @@ const createObserver = (lineName = '') => {
         let time = Date.now();
         let entry = { index, time, value };
 
-        if (line.events.length) {
-            let [lastTime, lastEntries] = line.events[line.events.length - 1];
-            if (lastTime == time) {
-                lastEntries.push(entry);
+        let length = line.events.length;
+        if (length) {
+            let [latestTime, latestTimeEntries] = line.events[length - 1];
+            if (latestTime == time) {
+                latestTimeEntries.push(entry);
+                line.height = Math.max(line.height, latestTimeEntries.length);
                 return;
             }
         } 

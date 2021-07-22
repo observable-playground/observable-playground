@@ -97,12 +97,16 @@ overridies
         }
     });
 
-// Mock for `Date.now`, special case {{{
+// Mock for `Date`, special case {{{
 if (originals.Date && originals.Date.now) {
     glob.Date.now = ()=>{
         const fn = isMockMode ? mocks.Date.now : originals.Date.now;
         return fn();
     };
+}
+
+if (originals.Date && originals.Date.parse) {
+    glob.Date.parse = originals.Date.parse;
 }
 // }}}
 
@@ -151,6 +155,7 @@ function execute(fn, maxLifetime = ONE_MINUTE){
         }
         return new originals.Date(...args);
     };
+    mocks.Date.parse = Date.parse;
     mocks.Date.now = ()=> time;
     // }}}
 

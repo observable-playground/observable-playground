@@ -9,6 +9,7 @@ export const PlaygroundWrapper = (props) => {
 
     let __isClient = isClient();
 
+    // TODO: should differ only in dev mode
     useEffect(() => {
         if (__isClient) {
             setIsClient(__isClient);

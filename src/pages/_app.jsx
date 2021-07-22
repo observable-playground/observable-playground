@@ -7,9 +7,13 @@ import { Layout } from '../Layout/Layout';
 import { isClient } from '../shared/isServer';
 import '../styles/default.scss';
 
-// mock on client only
-if (isClient()) {
+// TODO: also check if in debug mode — mock only on prod build
+// if (isClient()) {
+    // mock all async stuff
     require('../core/mock-delayed-execution');
+// }
+
+if (isClient()) {
     require('../lib/GA');
 }
 

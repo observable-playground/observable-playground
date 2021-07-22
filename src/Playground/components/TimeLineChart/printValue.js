@@ -17,7 +17,7 @@ function printPrimitive(primitive) {
         return 'undefined';
     }
 
-    return primitive;
+    return primitive.toString();
 }
 
 function getObjectValue(object) {
