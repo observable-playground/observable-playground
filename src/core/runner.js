@@ -3,7 +3,7 @@ import * as chartState from '../core/playground-api/state';
 import { MAX_EXECUTION_TIME } from '../shared/consts';
 import { compile } from './compiler';
 
-export const run = (sourceCode) => {
+export function run(sourceCode) {
     chartState.resetState();
     const execStatus = {}
     let execTime;
