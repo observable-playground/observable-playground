@@ -27,7 +27,7 @@ export function SSREditor(props: { value: string }){
 
         <pre
             className="language-js"
-            style={{ paddingLeft: codePadding, minHeight: codeHeight }}
+            style={{ paddingLeft: codePadding, minHeight: codeHeight, margin: 0 }}
         >
             <code className="language-js" dangerouslySetInnerHTML={{ __html: output }} />
         </pre>

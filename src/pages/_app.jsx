@@ -7,6 +7,9 @@ import { Layout } from '../Layout/Layout';
 import { isClient } from '../shared/isServer';
 import '../styles/default.scss';
 import '../lib/prism-monokai.scss';
+// font-awesome config
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 // add mocks for all async stuff
 require('../core/mock-delayed-execution');
@@ -14,6 +17,8 @@ require('../core/mock-delayed-execution');
 if (isClient()) {
     require('../lib/GA');
 }
+
+config.autoAddCss = false;
 
 // fake progress
 Router.events.on('routeChangeStart', () => NProgress.start());

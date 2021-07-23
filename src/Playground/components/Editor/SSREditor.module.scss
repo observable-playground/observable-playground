@@ -31,7 +31,7 @@
     }
 
     // matching editor style
-    > pre {
+    pre[class*=language-] {
         min-height: 7rem;
         padding: 6px 0 0 0.5rem;
         background: #272722;
@@ -39,12 +39,12 @@
         margin: 0;
         font-size: 12px;
         line-height: 16px;
-    }
 
-    code {
-        padding: 0;
-        font-size: 12px;
-        line-height: 16px;
+        > code[class*=language-] {
+            padding: 0;
+            font-size: 12px;
+            line-height: 16px;
+        }
     }
 
 }
