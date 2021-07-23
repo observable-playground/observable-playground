@@ -48,6 +48,7 @@ export const library = {
                 , 'find'
 				, 'first'
 				, 'take'
+				, 'single'
 				, 'takeUntil'
 				, 'takeWhile'
                 , 'auditTime'

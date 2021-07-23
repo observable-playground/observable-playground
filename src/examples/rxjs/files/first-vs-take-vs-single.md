@@ -6,13 +6,16 @@ desc:		See how these RxJS operators differ in emission, throwing errors and comp
 docsUrl:	
 -->
 
-See how these RxJS operators differ in emission, throwing errors and completion, when applied to different source Observables:
+See how [first](/rxjs/first/), [take](/rxjs/take/) and [single](/rxjs/single/) RxJS operators differ in emission, throwing errors and completion, when applied to different source Observables:
+
+---
+
+**A source** — single value, delayed completion
 
 ```js
 const { rxObserver } = require('api/v0.3');
-const { timer, interval, merge } = require('rxjs');
+const { timer, merge } = require('rxjs');
 const { first, single, take, ignoreElements } = require('rxjs/operators');
-
 
 // A stream — one value at 5ms, complete at 10ms
 const a$ = merge(timer(5), timer(10).pipe(ignoreElements()));
@@ -27,7 +30,16 @@ a$.pipe(take(1))
 
 a$.pipe(single())
   .subscribe(rxObserver('A :: single()'));
+```
 
+---
+
+**B source** — two values, immediate completion
+
+```js
+const { rxObserver } = require('api/v0.3');
+const { interval } = require('rxjs');
+const { first, single, take } = require('rxjs/operators');
 
 // B stream — two values at 5ms and 10ms, complete at 10ms
 const b$ = interval(5).pipe(take(2));
@@ -42,7 +54,16 @@ b$.pipe(take(1))
 
 b$.pipe(single())
   .subscribe(rxObserver('B :: single()'));
+```
 
+---
+
+**C source** — no values, delayed completion
+
+```js
+const { rxObserver } = require('api/v0.3');
+const { timer } = require('rxjs');
+const { first, single, take, ignoreElements } = require('rxjs/operators');
 
 // C stream — no values, complete at 10ms
 const c$ = timer(10).pipe(ignoreElements());
