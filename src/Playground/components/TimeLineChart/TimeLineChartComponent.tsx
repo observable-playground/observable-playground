@@ -54,6 +54,11 @@ export function TimeLineChartComponent(props) {
             lines: []
         };
 
+        // early bail out probably due to an error in compilation
+        if (!lines?.length) {
+            return initial;
+        }
+
         return lines.reduce((acc, curr) => {
             const start = curr.start;
             const end = curr.end ?? MAX_EXECUTION_TIME; // TOOD: mark line as exhausting the chart, instead of drawing it to infinity
