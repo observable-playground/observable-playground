@@ -24,6 +24,4 @@ source$.pipe(
   .subscribe(rxObserver('takeUntil'));
 ```
 
-See [take](/rxjs/take/) and [takeWhile](/rxjs/takeWhile/) operators
-
-And [first vs take vs single](/rxjs/first-vs-take-vs-single/) comparison
+Also see [take](/rxjs/take/) and [takeUntil](/rxjs/takeUntil/) operators
