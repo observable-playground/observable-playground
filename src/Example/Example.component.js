@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { Playground } from '../Playground/Playground';
 import { ExternalLink } from '../shared/ExternalLink';
 import style from './Example.component.module.scss';
+import Link from 'next/link';
 
 export function ExampleComponent(props) {
     const example = props.example;
@@ -91,7 +92,7 @@ function renderMdContent(content) {
                 children={content}
                 components={
                     {
-                        link: linkRenderer
+                        a: linkRenderer
                         , code: codeRenderer
                     }
                 }
@@ -104,9 +105,19 @@ function renderMdContent(content) {
 function testIfUriIsLocal(uri) { return /^\/[^\/]/.test(uri); }
 
 function linkRenderer({ href, children }) {
-    return testIfUriIsLocal(href)
-    ? <a href={href} children={children} />
-    : <ExternalLink href={href} children={children} />
+    if (!testIfUriIsLocal(href)) {
+        return <ExternalLink href={href} children={children} />;
+    }
+
+    // NOTE: next/Link has preload and client-side navigation, so we have to substitute it here
+    let length = href.split('/').filter(x => x).length;
+    let _href = ['/', '/[libId]/', '/[libId]/[fileId]/'][length];
+    if (_href) {
+        return <Link href={_href} as={href}><a children={children} /></Link>
+    }
+
+    // fallback
+    return <a href={href} children={children} />
 }
 
 function codeRenderer({ className,  children }) {
