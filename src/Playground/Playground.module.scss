@@ -27,6 +27,13 @@
         box-sizing: border-box;
         flex-direction: column-reverse;
 
+        &__editor{
+            // adaptive SSR editor width on mobile
+            // compensating 1rem side padding on .PageBlock
+            max-width: 94vw;
+            max-width: calc(100vw - 1rem);
+        }
+
         &__chart{
             margin-top: 1rem;
         }
