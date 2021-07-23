@@ -11,6 +11,7 @@
     "export": "next export",
     "sitemap": "node sitemap.js",
     "publish": "mv out/404/index.html out/404.html && gh-pages -t -d out -r https://github.com/observable-playground/observable-playground.github.io.git -b master -m \"Updates $(git log -1 --pretty=format:'%h - %s' --abbrev-commit)\"",
+    "release": "npm run build && npm run export && npm run sitemap && npm run publish",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
