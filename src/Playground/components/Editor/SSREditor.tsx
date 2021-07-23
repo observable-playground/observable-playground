@@ -1,12 +1,9 @@
-import React, { useMemo } from 'react';
 import Prism from 'prismjs';
+import React from 'react';
 import { LoadingIndicator } from '../../../shared/LoadingIndicator/LoadingIndicator';
-// import 'prismjs/themes/prism-solarizedlight.css'
-// import 'prismjs/themes/prism-dark.css'
-// import 'prismjs/themes/prism.css'
-// import 'prismjs/themes/prism-coy.css'
-import 'prismjs/themes/prism-okaidia.css'
 import style from './SSREditor.module.scss';
+
+// NOTE: the theme is loaded in the _app, as non-module styles are not allowed here
 
 export function SSREditor(props: { value: string }){
     const { value } = props;
@@ -16,14 +13,24 @@ export function SSREditor(props: { value: string }){
     let length = value.split(/\n/).length;
     let numbers = new Array(length).fill(0).map((_, i) => {
         return <div key={i}>{i + 1}</div>
-    })
+    });
 
+    let digits = length.toString().length;
+    let gutterWidth = digits * 8 + (digits == 1 ? 1 : 0) /*padding*/ + 19 + 6;
+    let codePadding = gutterWidth + 3;
+    let codeHeight = length + 3 + 'rem';
 
     return <div className={style.Editor}>
-        <div className={style.Gutter}>
+        <div className={style.Gutter} style={{width: gutterWidth }}>
             {numbers}
         </div>
-        <pre className="language-js"><code className="language-js" dangerouslySetInnerHTML={{ __html: output }} /></pre>
+
+        <pre
+            className="language-js"
+            style={{ paddingLeft: codePadding, minHeight: codeHeight }}
+        >
+            <code className="language-js" dangerouslySetInnerHTML={{ __html: output }} />
+        </pre>
 
         <div className={style.LoadingIndicator}>
             <LoadingIndicator />

@@ -3,16 +3,19 @@
     font-size: 12px;
     line-height: 16px;
     position: relative;
+    overflow: hidden;
+    border-radius: 3px;
 
     .Gutter {
+        box-sizing: border-box;
         font-size: 12px;
         line-height: 16px;
-        width: 34px;
         position: absolute;
         top: 6px;
         left: 0;
         bottom: 0;
         overflow: hidden;
+        background: #2f3129;
 
         div {
             color: #8F908A;
@@ -30,10 +33,9 @@
     // matching editor style
     pre {
         min-height: 7rem;
-        padding: 6px 0 3rem 0.5rem;
+        padding: 6px 0 0 0.5rem;
         background: #272722;
         color: #f8f8f2;
-        border-left: 2rem #2f3129 solid;
         margin: 0;
         font-size: 12px;
         line-height: 16px;

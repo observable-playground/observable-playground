@@ -6,12 +6,10 @@ import 'nprogress/nprogress.css';
 import { Layout } from '../Layout/Layout';
 import { isClient } from '../shared/isServer';
 import '../styles/default.scss';
+import '../lib/prism-monokai.scss';
 
-// TODO: also check if in debug mode — mock only on prod build
-// if (isClient()) {
-    // mock all async stuff
-    require('../core/mock-delayed-execution');
-// }
+// add mocks for all async stuff
+require('../core/mock-delayed-execution');
 
 if (isClient()) {
     require('../lib/GA');
