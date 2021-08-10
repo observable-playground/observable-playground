@@ -16,6 +16,8 @@ export default class MyDocument extends Document {
                     <script async={true} src='https://www.google-analytics.com/analytics.js'></script>
                 </Head>
                 <body>
+                    <a href="#content" className="visually-hidden">skip to content</a>
+
                     <Main />
                     <NextScript />
                 </body>

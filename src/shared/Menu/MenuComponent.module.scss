@@ -10,7 +10,7 @@
 }
 
 .Menu {
-    color: $darkgray-color;
+    color: $active-color;
 
     &__Link {
         @include row();
@@ -20,8 +20,8 @@
         &_active, &_active:hover, &:hover {
             @include row();
             color: inherit;
-            text-decoration: none;
-            color: $active-color-darker;
+            text-decoration: underline;
+            color: $active-color;
         }
     }
 
@@ -83,8 +83,9 @@
         white-space: nowrap;
         font-weight: normal;
 
-        &:hover {
+        &:hover, &:focus {
             color: $active-color;
+            text-decoration: underline;
         }
     }
 

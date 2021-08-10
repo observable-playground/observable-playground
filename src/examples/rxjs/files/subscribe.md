@@ -8,7 +8,7 @@ docsUrl:	https://rxjs.dev/api/index/class/Observable#subscribe
 
 Calling `subscribe` tells inner emitter function (producer) that the observer (consumer) is ready to receive emissions:
 
-_NOTE: take a look at [rxjs/constructor](/rxjs/constructor/) to better understand the producer-consumer connection_
+> Also take a look at **[rxjs/constructor](/rxjs/constructor/)** to better understand the producer-consumer connection
 
 ```js
 const { rxObserver } = require('api/v0.3');

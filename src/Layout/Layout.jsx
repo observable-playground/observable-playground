@@ -77,16 +77,14 @@ export class Layout extends React.Component {
                     </div>
 
                     <div className={style.App__body}>
-                        <div className={ style.App__contents + ' ' + (this.state.mobileMenuVisible ? style.hidden : '')  }>
-                            {
-                                children
-                            }
-                        </div>
-
-                        <div
+                        <aside
                             className={style.App__menu + ' ' + (this.state.mobileMenuVisible ? style.visible: '')}
                             onClick={this.hideMobileMenu}
-                        ><Sidebar /></div>
+                        ><Sidebar /></aside>
+
+                        <main id="content" className={ style.App__contents + ' ' + (this.state.mobileMenuVisible ? style.hidden : '')  }>
+                            { children }
+                        </main>
                     </div>
                 </div>
         );

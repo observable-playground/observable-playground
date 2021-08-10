@@ -25,7 +25,7 @@ timer(0, 10)
 
 ```
 
-_NOTE: pipe function returns a new Observable each time_
+_**NOTE:** pipe function returns a new Observable each time_
 
 ## factory
 

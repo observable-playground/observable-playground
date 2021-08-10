@@ -62,7 +62,7 @@ $leftmenu-width: 12rem;
     &__body {
         height: 100%;
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: row;
         overflow: auto;
     }
 

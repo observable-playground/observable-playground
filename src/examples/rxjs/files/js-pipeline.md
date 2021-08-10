@@ -8,7 +8,7 @@ docsUrl:
 
 > **EXPERIMENTAL**
 
-**NOTE**: I'm sorry, but I had to disable this feature in our playground due to technical issues.
+> **NOTE**: I'm sorry, but I had to disable this feature in our playground due to technical issues.
 
 Pipeline operator `|>` is a new proposal to ECMAScript that simplifies "piping" a value through several functions.    
 And it nicely fits into RxJS' [`pipe`](/rxjs/pipe/) flow.

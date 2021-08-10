@@ -7,7 +7,8 @@ docsUrl:	https://rxjs.dev/api/operators/sampleTime
 -->
 
 `sampleTime` listens to the source stream and then produces the most recently emitted value within periodic time intervals.  
-> Also try this [debounceTime vs throttleTime vs auditTime vs sampleTime](/rxjs/debounceTime-vs-throttleTime-vs-auditTime-vs-sampleTime/) head-to-head comparison
+
+> Also try this **[debounceTime vs throttleTime vs auditTime vs sampleTime](/rxjs/debounceTime-vs-throttleTime-vs-auditTime-vs-sampleTime/)** head-to-head comparison
 
 ```js
 const { rxObserver, palette } = require('api/v0.3');

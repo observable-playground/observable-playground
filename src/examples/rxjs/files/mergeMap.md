@@ -7,6 +7,7 @@ docsUrl:	https://rxjs.dev/api/operators/mergeMap
 -->
 
 `mergeMap`, as well as other `**Map` operators, will substitute value on the source stream with a stream of values, returned by inner function. When source stream emits, `mergeMap` will call inner function to merge yet another inner stream to the resulting stream.  
+
 > Also try this [mergeMap vs exhaustMap vs switchMap vs concatMap](/rxjs/mergeMap-vs-exhaustMap-vs-switchMap-vs-concatMap/) head-to-head comparison
 
 ```js
@@ -56,4 +57,4 @@ function fromDelayed (arr) {
 
 ```
 
-NOTE: `mergeMap` is also available via `flatMap` alias
+**NOTE:** `mergeMap` is also available via `flatMap` alias

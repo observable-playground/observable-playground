@@ -8,11 +8,7 @@ docsUrl:	https://rxjs.dev/api/operators/pluck
 
 Map each emitted value to it's property, defined by path:  
 
-_**NOTE:** I've created a package to simplify subproperty access_    
-_It turns Observables of Objects into Objects of Observables_    
-_Check it out: [rxjs/proxy](/rxjs/proxy/) {👓}_    
-
-_Also see the [`map`](/rxjs/map/) operator and try comparing [**pluck** to **map**](/rxjs/map-vs-pluck/)_
+> Also see the [`map`](/rxjs/map/) operator and try comparing [**pluck** to **map**](/rxjs/map-vs-pluck/)
 
 
 ```js
@@ -35,3 +31,7 @@ source$
   .subscribe(rxObserver(`pluck('a')`));
 
 ```
+
+_**NOTE:** I've created a package to simplify subproperty access_    
+_It turns Observables of Objects into Objects of Observables_    
+_Check it out: [rxjs/proxy](/rxjs/proxy/) {👓}_    

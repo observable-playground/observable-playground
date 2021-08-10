@@ -9,7 +9,7 @@ docsUrl:	https://rxjs.dev/api/index/function/combineLatest
 Creates Observable from multiple Observables.  
 Resulting stream will emit a combined value of all latest emissions of input streams
 
-_**NOTE:** take a look at [rxjs/autorun](/rxjs/autorun/) package that let's you easily combine multiple streams emissions in any form_
+> **NOTE:** take a look at [rxjs/autorun](/rxjs/autorun/) package that let's you easily combine multiple streams emissions in any form
 
 ```js
 const { rxObserver } = require('api/v0.3');
