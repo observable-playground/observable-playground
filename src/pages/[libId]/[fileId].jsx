@@ -46,11 +46,12 @@ export function getStaticProps(context) {
      *  docsUrl:    URL to official website docs
      *  -->
      */
-    const r = /(<!--\n)((.|\n)*?)(\n-->)/gm;
+    const r = /(<!--(\r\n|\r|\n))((.|\n|\r)*?)((\r\n|\r|\n)-->)/gm;
+
     const content = fileContents.replace(r, '');
     const meta =
-        r.exec(fileContents)[2]
-        .split(/\n/)
+        r.exec(fileContents)[3]
+        .split(/\r\n|\r|\n/)
         .reduce((acc, curr) => {
             const [, key, value] = /^(.*?)\s*:\s*(.*)\s*$/.exec(curr);
             acc[key] = value;
