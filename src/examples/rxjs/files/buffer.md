@@ -6,6 +6,8 @@ desc:
 docsUrl:	https://rxjs.dev/api/operators/buffer
 -->
 
+`buffer` will emit when `trigger$` is activated or called, until then the data will be hold into buffer.
+
 ```js
 const { rxObserver } = require('api/v0.3');
 const { merge, timer } = require('rxjs');
